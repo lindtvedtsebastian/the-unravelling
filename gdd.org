@@ -22,8 +22,9 @@ Given we are using git you could also use @name to assign parts of the design to
 - *Markus Strømseth*
 - *Jørgen Johnsen*
 
-*** Game Concept
-What the game is about?
+*** Game Concept - What the game is about?
+A player defending themselves and the base against hordes of enemies that try to kill him/her. The main objective is to survive for a given amount of time until you are rescued (?)
+
 
 *** Genre
 What other games is it like?
@@ -32,51 +33,73 @@ What other games is it like?
 - Base builder
 - Automation
 - Stategy
-
+  
 *** Target Audience
 Who will play it?
 
-- 10+
+- 12+
 
 *** Game Flow Summary
 How does the player move through the game?
 
-- Build Base
-- Survive enemies
+- Gather resources / explore
+- Build base / prepare
+- Defend against enemies / defend
+- Repeat
 
 *** Look and Feel
 What is the basic look and feel of the game?  What is the visual style?
 
 - Pixel Art
-- Day and night mode
+- Top down 2D view
+- Day and night cycle
+- Tile-based 
+- 64x64 pixels per tile (Initial plan)
+
+  
   [[./img/32x32_look.png]]
 
 ** Gameplay and Mechanics
-What does the player do?
-
-- Control one player 
-
 *** Gameplay
 What is the core of the players interaction with the game?
 
-- Collecting resources
-- Building a Base
-- Defend against enemies
+- Controls one entity
+- Build automated machinery
+  - Gather resources
+  - Defend against enemies
+  - Repair the base?
+  - Hunt enemies?
+- Kill enemies
 
 **** Game progression
 How does the player progress through the experience and how do they know they are making progress?
 
-- Time based to increase difficulty?
-- 
+- Tier system on buildings/tools
+  - Wood -> Stone -> Copper -> Iron -> Steel
+- Progressively harder enemies
+- The base they are building will progressively get better
+- The automation of resources acquisition will get progressively better
 
 **** Mission/challenge Structure
 Is there a heirachy to the challenges in the game?
 
+- The progression will get harder as you play
+  - More difficult to go from Iron -> Steel than Wood -> Stone
+- You need to automate to succeed, the game will be hard/impossible to succeed in without automating
+
 **** Puzzle Structure
 Are there puzzles, ie challenges that have a correct answer?
 
+- Not initially, but perhaps after MVP has been implemented?
+- Generally it is up to the players themselves to set their own goals/puzzles.
+
 **** Objectives
 What is the player trying to achieve?
+
+- The player is trying to survive
+- Surviving for a given amount of time results in "victory"
+  - 100 cycles?
+  - Could be customizable in game generation?
 
 *** Mechanics
 What are the rules to the game, both implicit and explicit?  
@@ -86,50 +109,103 @@ Think of it as a simulation of a world. How do all the pieces interact?
 **** Physics
 How does the physical universe work?
 
+- You "live" in a 2D world
+- Magic exists, must be gathered like some kind of essence?
+  - Used to animate objects into life (turrets, etc)
+
 **** Movement
 How the player interacts with the game?
 
+- WASD to move and the mouse to interact/build
+
 **** Objects
 What are the objects in the game?
+- Turrets
+- Production buildings
+- Mineral veins
+- Trees
+- Wall/defensive structures
+- Enemies
+
 How does the player interact with them?
+- The player
+  - Collects
+  - Builds
+  - Operates
+  - Kills
+  - Animates
 
 **** Actions
 What are the other interactions the player has with the game world?
+- Will revisit on a later stage in development
 
 **** Combat
 If there is combat or conflict, how is this specifically modeled?
 
+- The player is initially not a "fighter", but more of an engineer
+- Will not directly fight enemies, but can operate/build turrets/animate them to life to fight for him/her
+  
 **** Economy
 What is the economy of the game? How does it work?
+- Will be centered around some kind of "magical" currency
+  - Mana/Lifeforce/etc
+- Will exist some kind of "higher entity" that crafts and sells magical items that can be acquired by spending this magical currency
+- The currency can be acquired from killing enemies or gathered from some kind of vein resource node
+**** Screen Flow
+A graphical description of how each screen is related to every other and a description of the purpose of each screen.
 
-**** Screne Flow
-A graphical description of how each screne is related to every other and a description of the purpose of each screen.
+- Main menu
+  - Start game
+  - Options
+  - End game
 
 *** Game Options
 What are the options and how do they affect gameplay and mechanics?
 
+- Difficulty options
+  - Hardcore/softcore mode
+  - Enemy scaling factor
+- Map generation options
+
 *** Replay and Saving
-
+- The game can be saved and loaded
 *** Cheats and Easter Eggs
-
+- Initially we are not planning on cheats
+- Easter eggs will be implemented somehow
+  
 ** The Story, Setting, and Character
 
 *** Story and Narrative
 If there is a story component includes back story, plot elements, game progression, and cut scenes. 
 Cut scenes descriptions include the actors, the setting, and the storyboard or script.
 
+- The player is stuck in some alternative universe/dimension where magic exists
+- The world is surrounded by complete darkness/fog
+- The narrative is unravelled as the game progresses through interactions with the environment/entities
+- The "higher entity" is maybe not who he says he is?
+  - Perhaps he is the being behind everything that is happening
+
 *** Game World
 The setting of the game
 
 **** General look and feel of the World
 Aesthetics
+- Gloomy, barren world
+  - Lack of happiness
+- Generally pleasant in the day, not pleasant in the night
+- Pixel style
 
 **** Areas
 including the general description and physical characteristics as well as how it relates to the rest of the world 
 (what levels use it, how it connects to other areas).
 
+- The "last" map in the world/dimension
+
 *** Characters
 Each character should include the back story, personality, appearance, animations, abilities, relevance to the story and relationship to other characters.
+
+- The backstory is a secret to the player
+- Engineer, generally non-violent person that utilizes machinery to do his bidding
 
 ** Levels
 
@@ -139,43 +215,78 @@ and the details of what happens in the level.
 Depending on the game, this may include the physical description of the map, the critical path that the player needs to take, 
 and what encounters are important or incidental.
 
+- Procedurally generated world/levels
+  
 *** Training level
 How is onboarding managed?
+
+- A hint system that progressively gives hints as the player progresses
+- "Pausing" time the first time a player plays, giving them time to explore their options
+- A "custom" scenario that guides the player (?)
 
 ** Interface
 
 *** Visual System
 If you have a HUD, what is on it?  What menus are you displaying? What is the camera model?
 
+- Simple HUD
+  - Inventory bar
+  - Bigger inventory on key press
 *** Control System
 How does the game player control the game?   What are the specific commands?
 
+- W -> Up
+- S -> Down
+- A -> Left
+- D -> Right
+- E -> Inventory
+- F -> Interact
+- Left click -> Place
+- Right click -> Harvest
+- ESC -> Cancel action / Menu
 *** Audio, Music, Sound Effects
-
+- In house music person
+- Will attempt to make a full OST
 *** Help System
-
+- Hint system
 ** Artificial Intelligence
-
 *** Opponent and Enemy AI
 The active opponent that plays against the player and therefore requires strategic decision making.
-
+- 
 *** Non-combat and Friendly Characters
-
+- Some "higher entity" that sells magical artifacts, perhaps not so friendly eventually (?)
+  
 *** Support AI
+- The towers
+  - The targeting system of the towers
+- Friendly golems that help with some task?
 
 *** Player and Collision Detection, Path-finding.
+- The player is controlled with WASD, so no path finding there
+- The world consists of tiles, making path finding reasonable within those limits.
+- Enemy pathfinding
+  - If the player is outside of some range of the enemies, the enemies will pathfind towards the "base core", if the player is present/in close proximity, the enemies will pathfind towards him/her
+  - When the enemies are further away, they will update their paths every 3 seconds (for instance), when they are closing in, the paths will be updated much more frequently.
 
 ** Technical
 
 *** Target Hardware
-
+- PC (Initially Windows, will be compiled for Mac and Linux if this works out of the box)
 *** Development Hardware and Software (including game engine)
-
+- Unity
+  
 *** Network requirements
-
+- Ney
 ** Game Art
 
-*** Key assets 
+*** Key assets
+- We aim to produce the majority of the assets ourselves
+- Pixel art, simple style
+- 64x64 pixels
+- Tile based worlds
+- Dynamic tiling
+
+  
 How are they being developed.  Intended style.
 
 This is an extension of parts of [cs.unc.edu](http://wwwx.cs.unc.edu/Courses/comp585-s11/585GameDesignDocumentTemplate.docx)
