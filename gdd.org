@@ -58,8 +58,15 @@ What does the player do?
 *** Gameplay
 What is the core of the players interaction with the game?
 
+- Collecting resources
+- Building a Base
+- Defend against enemies
+
 **** Game progression
 How does the player progress through the experience and how do they know they are making progress?
+
+- Time based to increase difficulty?
+- 
 
 **** Mission/challenge Structure
 Is there a heirachy to the challenges in the game?
