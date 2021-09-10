@@ -49,6 +49,7 @@ What is the basic look and feel of the game?  What is the visual style?
 
 - Pixel Art
 - Day and night mode
+  [[./img/32x32_look.png]]
 
 ** Gameplay and Mechanics
 What does the player do?
