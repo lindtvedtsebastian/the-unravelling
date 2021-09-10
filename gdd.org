@@ -13,7 +13,14 @@ Given we are using git you could also use @name to assign parts of the design to
 
 
 ** Overview
-*Name* , *Team*
+*Base Builder*
+
+- *Sebastian Lindtvedt*
+- *Dennis Kristiansen*
+- *Elvis Arifagic*
+- *Salvador Bascunan*
+- *Markus Strømseth*
+- *Jørgen Johnsen*
 
 *** Game Concept
 What the game is about?
@@ -21,17 +28,32 @@ What the game is about?
 *** Genre
 What other games is it like?
 
+- Factorio
+- Base builder
+- Automation
+- Stategy
+
 *** Target Audience
 Who will play it?
+
+- 10+
 
 *** Game Flow Summary
 How does the player move through the game?
 
+- Build Base
+- Survive enemies
+
 *** Look and Feel
 What is the basic look and feel of the game?  What is the visual style?
 
+- Pixel Art
+- Day and night mode
+
 ** Gameplay and Mechanics
 What does the player do?
+
+- Control one player 
 
 *** Gameplay
 What is the core of the players interaction with the game?
