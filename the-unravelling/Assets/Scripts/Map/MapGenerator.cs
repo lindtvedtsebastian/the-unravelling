@@ -83,3 +83,8 @@ public static class MapGenerator {
         Debug.Log("Noise generation complete");
     }
 }
+
+[Serializable]
+class MapData {
+    public int[,] tiledGameWorld;
+}
