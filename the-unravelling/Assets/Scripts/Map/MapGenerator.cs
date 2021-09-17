@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class MapGenerator {
     private const int MAXVALUE = 100000;
     private const int MINVALUE = -100000;
+
     private const int ID_GRASS = 1;
     private const int ID_DIRT  = 2;
     private const int ID_STONE = 3;
@@ -62,29 +64,37 @@ public static class MapGenerator {
             }
         }
 
-        string path = Application.dataPath + "/noise.txt";
-        StreamWriter writer = new StreamWriter(path);
+        int[,] tiledGameWorld = new int[mapSize, mapSize];
+        // Assign tiles based on noise
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 if (noiseMap[x, y] > 0.5f) {
                     //writer.Write(String.Format("{0,2:D2} ",ID_GRASS));
-                    writer.Write(String.Format("{0,-2} ",ID_GRASS));
+                    tiledGameWorld[x, y] = ID_GRASS;
                 } else if (noiseMap[x,y] > 0.25f) {
                     //writer.Write(String.Format("{0,2:D2} ",ID_DIRT));
-                    writer.Write(String.Format("{0,-2} ",ID_DIRT));
+                    tiledGameWorld[x, y] = ID_DIRT;
                 } else {
                     //writer.Write(String.Format("{0,2:D2} ",ID_STONE));
-                    writer.Write(String.Format("{0,-2} ",ID_STONE));
+                    tiledGameWorld[x, y] = ID_STONE;
                 }
             }
-            writer.Write("\n");
         }
-        writer.Close();
-        Debug.Log("Noise generation complete");
+        SaveMap(tiledGameWorld);
+        Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
     }
-}
 
-[Serializable]
-class MapData {
-    public int[,] tiledGameWorld;
+    static void SaveMap(int[,] tiledGameWorld, string filename = "game-world") {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream saveFile = File.Create(Application.persistentDataPath + "/" + filename + ".dat");
+        MapData data = new MapData();
+        data.tiledGameWorld = tiledGameWorld;
+        bf.Serialize(saveFile,data);
+        saveFile.Close();
+    }
+
+    [Serializable]
+    class MapData {
+        public int[,] tiledGameWorld;
+    }
 }
