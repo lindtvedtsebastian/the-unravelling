@@ -14,7 +14,7 @@ public static class MapGenerator {
     private const int ID_STONE = 3;
 
 
-    public static void GenerateNoiseMap(int mapSize, int seed, float scale,
+    public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
@@ -80,7 +80,7 @@ public static class MapGenerator {
                 }
             }
         }
-        SaveMap(tiledGameWorld);
+        SaveMap(tiledGameWorld, newMapName);
         Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
     }
 
@@ -91,6 +91,15 @@ public static class MapGenerator {
         data.tiledGameWorld = tiledGameWorld;
         bf.Serialize(saveFile,data);
         saveFile.Close();
+    }
+
+    static MapData LoadMap(string filename = "game-world") {
+        if (File.Exists(Application.persistentDataPath + "/" + filename + ".dat")) {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename + ".dat", FileMode.Open);
+            return (MapData) bf.Deserialize(loadFile);
+        }
+        return null;
     }
 
     [Serializable]
