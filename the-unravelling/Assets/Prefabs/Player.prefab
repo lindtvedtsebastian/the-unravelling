@@ -409,3 +409,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
+  previewPrefab: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
