@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void startGame() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void generateMap() {
