@@ -1,16 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class MapGenerator : MonoBehaviour {
-    private const int maxValue = 100000;
-    private const int minValue = -100000;
+public static class MapGenerator {
+    private const int MAXVALUE = 100000;
+    private const int MINVALUE = -100000;
+    private const int ID_GRASS = 1;
+    private const int ID_DIRT  = 2;
+    private const int ID_STONE = 3;
 
-    public void generate() {
-        GenerateNoiseMap(1024,1,30f,6,0.5f,2f,new Vector2(0,0));
-    }
-    public void GenerateNoiseMap(int mapSize, int seed, float scale,
+
+    public static void GenerateNoiseMap(int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
@@ -18,8 +20,8 @@ public class MapGenerator : MonoBehaviour {
 
         Vector2[] octaveOffsets = new Vector2[octaves];
         for (int i = 0; i < octaves; i++) {
-            float offsetX = pseudo_rng.Next(minValue, maxValue) + offset.x;
-            float offsetY = pseudo_rng.Next(minValue, maxValue) + offset.y;
+            float offsetX = pseudo_rng.Next(MINVALUE, MAXVALUE) + offset.x;
+            float offsetY = pseudo_rng.Next(MINVALUE, MAXVALUE) + offset.y;
             octaveOffsets[i] = new Vector2(offsetX, offsetY);
         }
 
@@ -53,6 +55,7 @@ public class MapGenerator : MonoBehaviour {
             }
         }
 
+        // Normalizes the noise to be within a 0..1 range
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
@@ -63,7 +66,16 @@ public class MapGenerator : MonoBehaviour {
         StreamWriter writer = new StreamWriter(path);
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
-                writer.Write(noiseMap[x,y] + " ");
+                if (noiseMap[x, y] > 0.5f) {
+                    //writer.Write(String.Format("{0,2:D2} ",ID_GRASS));
+                    writer.Write(String.Format("{0,-2} ",ID_GRASS));
+                } else if (noiseMap[x,y] > 0.25f) {
+                    //writer.Write(String.Format("{0,2:D2} ",ID_DIRT));
+                    writer.Write(String.Format("{0,-2} ",ID_DIRT));
+                } else {
+                    //writer.Write(String.Format("{0,2:D2} ",ID_STONE));
+                    writer.Write(String.Format("{0,-2} ",ID_STONE));
+                }
             }
             writer.Write("\n");
         }

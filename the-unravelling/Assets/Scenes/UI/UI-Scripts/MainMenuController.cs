@@ -14,5 +14,9 @@ public class MainMenuController : MonoBehaviour
     public void startGame() {
         SceneManager.LoadScene("SampleScene");
     }
-    
+
+    public void generateMap() {
+        MapGenerator.GenerateNoiseMap(64,1,50f,6,0.5f,2f,new Vector2(0,0));
+    }
+
 }
