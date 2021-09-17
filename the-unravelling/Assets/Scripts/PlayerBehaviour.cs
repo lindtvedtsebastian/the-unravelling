@@ -144,8 +144,7 @@ public class PlayerBehaviour : MonoBehaviour {
         var units = GameObject.FindGameObjectsWithTag("Unit");
         foreach (var unit in units) {
             var pos = GetMousePosition();
-            var dist = Vector3.Distance(unit.transform.position, pos);
-            if (dist < 1.0f) {
+            if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
                 Destroy(unit);
                 return;
             }
