@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public static class MapGenerator {
+public class MapGenerator : MonoBehaviour {
     private const int maxValue = 100000;
     private const int minValue = -100000;
-    public static float[,] GenerateNoiseMap(int mapSize, int seed, float scale,
+
+    public void generate() {
+        GenerateNoiseMap(1024,1,30f,6,0.5f,2f,new Vector2(0,0));
+    }
+    public void GenerateNoiseMap(int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
@@ -42,7 +47,7 @@ public static class MapGenerator {
 
                 if (noiseHeight > maxNoiseHeight)
                     maxNoiseHeight = noiseHeight;
-                if (noiseHeight > minNoiseHeight)
+                if (noiseHeight < minNoiseHeight)
                     minNoiseHeight = noiseHeight;
                 noiseMap[x, y] = noiseHeight;
             }
@@ -54,6 +59,15 @@ public static class MapGenerator {
             }
         }
 
-        return noiseMap;
+        string path = Application.dataPath + "/noise.txt";
+        StreamWriter writer = new StreamWriter(path);
+        for (int y = 0; y < mapSize; y++) {
+            for (int x = 0; x < mapSize; x++) {
+                writer.Write(noiseMap[x,y] + " ");
+            }
+            writer.Write("\n");
+        }
+        writer.Close();
+        Debug.Log("Noise generation complete");
     }
 }
