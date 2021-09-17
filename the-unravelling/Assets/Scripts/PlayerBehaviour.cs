@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput))]
 public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
