@@ -13,6 +13,8 @@ public static class MapGenerator {
     private const int ID_DIRT  = 2;
     private const int ID_STONE = 3;
 
+    public static string currentMapPath;
+
 
     public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
@@ -81,6 +83,7 @@ public static class MapGenerator {
             }
         }
         SaveMap(tiledGameWorld, newMapName);
+        MapGenerator.currentMapPath = Application.persistentDataPath + "/" + newMapName + ".dat";
         Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
     }
 
