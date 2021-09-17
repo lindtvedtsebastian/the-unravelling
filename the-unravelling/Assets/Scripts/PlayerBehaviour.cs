@@ -55,13 +55,7 @@ public class PlayerBehaviour : MonoBehaviour {
     private void Update() {
         // Move the preview object to under the mouse
         if (previewGameObject) {
-            // Grab the position of the mouse in screen space
-            Vector3 mousePos = mouse.position.ReadValue();
-            mousePos.z = 1.0f;
-
-            // Convert to world space coordinates
-            var pos = currentCamera.ScreenToWorldPoint(mousePos);
-            previewGameObject.transform.position = pos;
+            previewGameObject.transform.position = GetMousePosition();
         }
     }
 
@@ -78,8 +72,9 @@ public class PlayerBehaviour : MonoBehaviour {
                 "Prefab to be placed must have a sprite renderer component");
 
             // Create the new object
+            // The position 
             previewGameObject = Instantiate(previewPrefab);
-            
+
             // Set the opacity of the object to 50%
             var sprite = previewGameObject.GetComponent<SpriteRenderer>();
             sprite.sprite = prefab.GetComponent<SpriteRenderer>().sprite;
@@ -93,14 +88,21 @@ public class PlayerBehaviour : MonoBehaviour {
     private void PlaceObject(GameObject prefab) {
         if (previewGameObject) {
             // Create final object
-            var obj = Instantiate(prefab);
-
-            // Set position to the new object to the final position of the preview object
-            obj.transform.position = previewGameObject.transform.position;
+            Instantiate(prefab, previewGameObject.transform.position, Quaternion.identity);
 
             // Destroy the preview object
             Destroy(previewGameObject);
         }
+    }
+
+    // Get the word space position of the mouse
+    private Vector3 GetMousePosition() {
+        // Grab the position of the mouse in screen space
+        Vector3 mousePos = mouse.position.ReadValue();
+        mousePos.z = 1.0f;
+
+        // Convert to world space coordinates
+        return currentCamera.ScreenToWorldPoint(mousePos);
     }
 
     // Called when inventory action is triggered
@@ -137,5 +139,16 @@ public class PlayerBehaviour : MonoBehaviour {
     // Called when destroy action is triggered
     private void OnActionDestroy(InputAction.CallbackContext ctx) {
         Debug.Log("Destroy tile/machine");
+
+        // Look for a unit that is close to the mouse pointer
+        var units = GameObject.FindGameObjectsWithTag("Unit");
+        foreach (var unit in units) {
+            var pos = GetMousePosition();
+            var dist = Vector3.Distance(unit.transform.position, pos);
+            if (dist < 1.0f) {
+                Destroy(unit);
+                return;
+            }
+        }
     }
 }
