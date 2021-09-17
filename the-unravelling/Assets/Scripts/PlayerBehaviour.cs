@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput))]
 public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
@@ -144,8 +145,7 @@ public class PlayerBehaviour : MonoBehaviour {
         var units = GameObject.FindGameObjectsWithTag("Unit");
         foreach (var unit in units) {
             var pos = GetMousePosition();
-            var dist = Vector3.Distance(unit.transform.position, pos);
-            if (dist < 1.0f) {
+            if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
                 Destroy(unit);
                 return;
             }
