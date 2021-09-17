@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
-      propertyPath: machine
-      value: 
-      objectReference: {fileID: 9106066065057617313, guid: df648d58dadcec449bb74c6d4b500e29, type: 3}
-    - target: {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
-      propertyPath: previewPrefab
-      value: 
-      objectReference: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
     - target: {fileID: 7257778549970449003, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: m_Name
       value: Player
