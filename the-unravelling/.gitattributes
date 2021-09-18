@@ -1,0 +1,73 @@
+# Set the binary macro attribute for binary files
+#
+# binary is short for unsetting the text, diff and merge attributes.
+#
+# text: Unsetting the text attribute on a path tells Git not to attempt any end-of-line conversion upon checkin or checkout.
+# diff: A path to which the diff attribute is unset will generate Binary files differ (or a binary patch, if binary patches are enabled).
+# merge: Take the version from the current branch as the tentative merge result, and declare that the merge has conflicts. This is suitable for binary files that do not have a well-defined merge semantics.
+#
+# Merging Unity's yaml files is not straight forward and should not be attempted manually,
+# or by conventional text merge strategies.
+#
+# Smart merge can be used via UnityYAMLMerge tool included with Unity, but this requires manual setup.
+# See: https://docs.unity3d.com/Manual/SmartMerge.html
+
+# Unity generated files
+#
+# NOTE: linguist-generated makes GitHub auto-collapse the file diffs
+*.asset linguist-generated binary
+*.mat linguist-generated binary
+*.meta linguist-generated binary
+*.prefab linguist-generated binary
+*.unity linguist-generated binary
+
+# 3D models
+*.3dm binary
+*.3ds binary
+*.blend binary
+*.c4d binary
+*.collada binary
+*.dae binary
+*.dxf binary
+*.fbx binary
+*.jas binary
+*.lws binary
+*.lxo binary
+*.ma binary
+*.max binary
+*.mb binary
+*.obj binary
+*.ply binary
+*.skp binary
+*.stl binary
+*.ztl binary
+
+# Audio
+*.aif binary
+*.aiff binary
+*.it binary
+*.mod binary
+*.mp3 binary
+*.ogg binary
+*.s3m binary
+*.wav binary
+*.xm binary
+
+# Fonts
+*.otf binary
+*.ttf binary
+
+# Images
+*.bmp binary
+*.exr binary
+*.gif binary
+*.hdr binary
+*.iff binary
+*.jpeg binary
+*.jpg binary
+*.pict binary
+*.png binary
+*.psd binary
+*.tga binary
+*.tif binary
+*.tiff binary
