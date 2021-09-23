@@ -33,7 +33,7 @@ public static class MapGenerator {
         float minNoiseHeight = float.MaxValue;
 
         float halfSize = mapSize / 2f;
-
+        
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 float amplitude = 1;
