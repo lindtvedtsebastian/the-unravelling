@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapRenderer : MonoBehaviour {
+public class WorldRenderer : MonoBehaviour {
     public Tilemap gameWorld;
     public TileBase[] grassTiles;
     // Start is called before the first frame update

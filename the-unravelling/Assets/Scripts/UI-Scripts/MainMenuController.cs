@@ -6,7 +6,8 @@ public class MainMenuController : MonoBehaviour {
     public InputField newWorldName;
     public InputField newWorldSeed;
     public MapPreview mapPreview;
-    // Start is called before the first frame update
+
+
     public void exitButton() {
         Application.Quit();
         Debug.Log("Closed The Unraveling game");
