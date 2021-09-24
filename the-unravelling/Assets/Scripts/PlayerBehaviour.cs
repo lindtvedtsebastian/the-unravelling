@@ -10,15 +10,12 @@ public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
 
-    // Prefab to base the preview object upon
-    public GameObject previewPrefab;
+    // The players inventory
+    public Inventory inventory;
+    public ItemData item;
 
     // GameObject that previews where to place tiles
-    // NOTE: We could reuse the same object instead of instantiating and destroying objects
-    private GameObject previewGameObject;
-
-    // TODO: Replace this with prefab chosen from inventory
-    public GameObject machine;
+    public GameObject previewGameObject;
 
     // Components
     private Rigidbody2D body;
@@ -51,11 +48,18 @@ public class PlayerBehaviour : MonoBehaviour {
         // Assert that the scene is setup to support player behaviour
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
+
+        inventory.AddItem(item);
+        
+        // We need to make a new instance of the game object, so that we can use it.
+        previewGameObject = Instantiate(previewGameObject);
+        // But it should still be disabled
+        previewGameObject.SetActive(false);
     }
 
     private void Update() {
         // Move the preview object to under the mouse
-        if (previewGameObject) {
+        if (previewGameObject.activeSelf) {
             previewGameObject.transform.position = GetMousePosition();
         }
     }
@@ -67,32 +71,22 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     // Create a placement preview based on prefab object
-    private void CreatePreview(GameObject prefab) {
-        if (previewGameObject == null) {
-            Assert.IsNotNull(prefab.GetComponent<SpriteRenderer>(),
-                "Prefab to be placed must have a sprite renderer component");
-
-            // Create the new object
-            // The position 
-            previewGameObject = Instantiate(previewPrefab);
-
-            // Set the opacity of the object to 50%
+    private void CreatePreview(ItemData item) {
+        if (!previewGameObject.activeSelf) {
+            previewGameObject.SetActive(true);
             var sprite = previewGameObject.GetComponent<SpriteRenderer>();
-            sprite.sprite = prefab.GetComponent<SpriteRenderer>().sprite;
-            var spriteColor = sprite.color;
-            spriteColor.a = 0.5f;
-            sprite.color = spriteColor;
+            sprite.sprite = item.preview;
         }
     }
 
     // Place object into the scene, based on the location of the preview
-    private void PlaceObject(GameObject prefab) {
-        if (previewGameObject) {
+    private void PlaceObject(ItemData item) {
+        if (previewGameObject.activeSelf) {
             // Create final object
-            Instantiate(prefab, previewGameObject.transform.position, Quaternion.identity);
+            Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
 
-            // Destroy the preview object
-            Destroy(previewGameObject);
+            // Deactivate the preview
+            previewGameObject.SetActive(false);
         }
     }
 
@@ -111,7 +105,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Debug.Log("Open Inventory");
 
         // Create a preview object for previewing placement
-        CreatePreview(machine);
+        CreatePreview(item);
     }
 
     // Called when interact action is triggered
@@ -124,7 +118,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Debug.Log("Place tile/machine");
 
         // Destroy the preview object when real object is placed
-        PlaceObject(machine);
+        PlaceObject(item);
     }
 
     // Called when cancel action is triggered
@@ -132,8 +126,8 @@ public class PlayerBehaviour : MonoBehaviour {
         Debug.Log("Cancel current action");
 
         // Destroy the preview if it exists
-        if (previewGameObject) {
-            Destroy(previewGameObject);
+        if (previewGameObject.activeSelf) {
+            previewGameObject.SetActive(false);
         }
     }
 
