@@ -20,7 +20,6 @@ public class MainMenuController : MonoBehaviour {
         Application.Quit();
         Debug.Log("Closed The Unraveling game");
     }
-
     public void startGame() {
         SceneManager.LoadScene("MainGame");
     }
