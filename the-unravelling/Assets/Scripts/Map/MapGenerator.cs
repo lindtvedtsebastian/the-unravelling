@@ -9,18 +9,16 @@ public static class MapGenerator {
     private const int MAXVALUE = 100000;
     private const int MINVALUE = -100000;
 
-    private const int ID_GRASS = 1;
-    private const int ID_DIRT  = 2;
-    private const int ID_STONE = 3;
-
     public static string currentMapPath;
 
 
     public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
+        WorldData.Get.mapName = newMapName;
+        WorldData.Get.mapSize = mapSize;
+        WorldData.Get.map = new int[mapSize, mapSize];
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
-
 
         Vector2[] octaveOffsets = new Vector2[octaves];
         for (int i = 0; i < octaves; i++) {
@@ -36,6 +34,7 @@ public static class MapGenerator {
         
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
+                
                 float amplitude = 1;
                 float frequency = 1;
                 float noiseHeight = 0;
@@ -51,10 +50,11 @@ public static class MapGenerator {
                     frequency *= lacunarity;
                 }
 
-                if (noiseHeight > maxNoiseHeight)
+                if (noiseHeight > maxNoiseHeight) {
                     maxNoiseHeight = noiseHeight;
-                if (noiseHeight < minNoiseHeight)
+                } if (noiseHeight < minNoiseHeight) {
                     minNoiseHeight = noiseHeight;
+                }
                 noiseMap[x, y] = noiseHeight;
             }
         }
@@ -66,25 +66,23 @@ public static class MapGenerator {
             }
         }
 
-        int[,] tiledGameWorld = new int[mapSize, mapSize];
         // Assign tiles based on noise
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 if (noiseMap[x, y] > 0.5f) {
-                    //writer.Write(String.Format("{0,2:D2} ",ID_GRASS));
-                    tiledGameWorld[x, y] = ID_GRASS;
+                    WorldData.Get.map[x, y] = WorldData.Get.GRASS.id;
                 } else if (noiseMap[x,y] > 0.25f) {
-                    //writer.Write(String.Format("{0,2:D2} ",ID_DIRT));
-                    tiledGameWorld[x, y] = ID_DIRT;
+                    WorldData.Get.map[x, y] = WorldData.Get.DIRT.id;
                 } else {
-                    //writer.Write(String.Format("{0,2:D2} ",ID_STONE));
-                    tiledGameWorld[x, y] = ID_STONE;
+                    WorldData.Get.map[x, y] = WorldData.Get.STONE.id;
                 }
             }
         }
-        SaveMap(tiledGameWorld, newMapName);
-        MapGenerator.currentMapPath = Application.persistentDataPath + "/" + newMapName + ".dat";
-        Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
+        //Not sensible to save the map here anymore as the user might not actually want this map
+
+        // SaveMap(tiledGameWorld, newMapName);
+        // MapGenerator.currentMapPath = Application.persistentDataPath + "/" + newMapName + ".dat";
+        // Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
     }
 
     static void SaveMap(int[,] tiledGameWorld, string filename = "game-world") {
