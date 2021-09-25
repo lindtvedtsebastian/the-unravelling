@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -7,5 +5,9 @@ using UnityEngine.Tilemaps;
 public class WorldEntity : ScriptableObject {
     public int id;
     public Color mapColor;
-    public TileBase[] sprites;
+    public TileBase[] baseSprites;
+
+    public TileBase GetRandomBaseSprite() {
+        return baseSprites[Random.Range(0, baseSprites.Length)];
+    }
 }

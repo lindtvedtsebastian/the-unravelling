@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177d2cad1808d4a46837c8a33c96ecd9, type: 3}
   m_Name: World Data
   m_EditorClassIdentifier: 
+  mapSize: 1024
+  mapName: 
   GRASS: {fileID: 11400000, guid: 5e87a58081f669e40bf1a16abd059f5c, type: 2}
   DIRT: {fileID: 11400000, guid: 5cc9a4287e8d5ed40ab7a2efa2da95e9, type: 2}
   STONE: {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
