@@ -13,7 +13,7 @@ public class WorldRenderer : MonoBehaviour {
             for (int x = 0; x < WorldData.Get.worldSize; x++) {
                 // Find a much better way of doing this, this is not scalable
                 switch (WorldData.Get.map[x,y]) {
-                    case 1: tile = WorldData.Get.GRASS.SetSprite(); break;
+                    case 1: tile = WorldData.Get.GRASS.SetSprite(x,y); break;
                     case 2: tile = WorldData.Get.DIRT.SetSprite(); break;
                     case 3: tile = WorldData.Get.STONE.SetSprite(); break;
                 }

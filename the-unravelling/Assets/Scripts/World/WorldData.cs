@@ -15,7 +15,7 @@ public class WorldData : ScriptableObjectSingleton<WorldData> {
     public const int S  = 0b1000000;
     public const int SE = 0b10000000;
 
-    public WorldEntity GRASS;
+    public BitmaskableWorldEntity GRASS;
 	public WorldEntity DIRT;
 	public WorldEntity STONE;
 }
