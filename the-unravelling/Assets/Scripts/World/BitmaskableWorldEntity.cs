@@ -61,16 +61,20 @@ public class BitmaskableWorldEntity : WorldEntity
     public int calculateCorners(int x, int y) {
         int bitmask = 0;
         
-        if ((checkNorth && checkWest && WorldData.Get.map[x-1, y-1] != this.id) && (northExists || westExists)) {
+        if ((checkNorth && checkWest && WorldData.Get.map[x-1, y-1] != this.id)
+            && (northExists || westExists)) {
             bitmask += WorldData.NW;
         }
-        if ((checkNorth && checkEast && WorldData.Get.map[x+1, y-1] != this.id) && (northExists || eastExists)) {
+        if ((checkNorth && checkEast && WorldData.Get.map[x+1, y-1] != this.id)
+            && (northExists || eastExists)) {
             bitmask += WorldData.NE;
         }
-        if ((checkSouth && checkWest && WorldData.Get.map[x-1, y+1] != this.id) && (southExists || westExists)) {
+        if ((checkSouth && checkWest && WorldData.Get.map[x-1, y+1] != this.id)
+            && (southExists || westExists)) {
             bitmask += WorldData.SW;
         }
-        if ((checkSouth && checkEast && WorldData.Get.map[x+1, y+1] != this.id) && (southExists || eastExists)) {
+        if ((checkSouth && checkEast && WorldData.Get.map[x+1, y+1] != this.id)
+            && (southExists || eastExists)) {
             bitmask += WorldData.SE;
         }
         return bitmask;
