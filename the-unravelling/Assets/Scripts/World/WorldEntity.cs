@@ -5,9 +5,9 @@ using UnityEngine.Tilemaps;
 public class WorldEntity : ScriptableObject {
     public int id;
     public Color mapColor;
-    public TileBase[] baseSprites;
+    public TileBase[] sprites;
 
-    public TileBase GetRandomBaseSprite() {
-        return baseSprites[Random.Range(0, baseSprites.Length)];
+    public TileBase SetSprite() {
+        return sprites[Random.Range(0, sprites.Length)];
     }
 }
