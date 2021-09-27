@@ -3,22 +3,33 @@ using UnityEngine.Tilemaps;
 
 public class WorldRenderer : MonoBehaviour {
     public Tilemap gameWorld;
-    
+    public Tilemap background;
+
     // Start is called before the first frame update
     void Start()
     {
+        // WorldData.Get.worldSize = 5;
+        // WorldData.Get.map = new int[,]
+        // {
+        //     {1,1,1,2,1},
+        //     {1,1,1,2,1},
+        //     {1,1,1,2,2},
+        //     {2,2,2,2,2},
+        //     {2,2,2,2,2}
+        // };
         TileBase tile = WorldData.Get.GRASS.sprites[0];
         int halfMapSize = (int)WorldData.Get.worldSize / 2; // Know that the mapsize is in the power of 2
         for (int y = 0; y < WorldData.Get.worldSize; y++) {
             for (int x = 0; x < WorldData.Get.worldSize; x++) {
                 // Find a much better way of doing this, this is not scalable
-                switch (WorldData.Get.map[x,y]) {
-                    case 1: tile = WorldData.Get.GRASS.SetSprite(x,y); break;
+                switch (WorldData.Get.map[y,x]) {
+                    case 1: tile = WorldData.Get.GRASS.SetSprite(y,x); break;
                     case 2: tile = WorldData.Get.DIRT.SetSprite(); break;
                     case 3: tile = WorldData.Get.STONE.SetSprite(); break;
                 }
-                gameWorld.SetTile(new Vector3Int(x - halfMapSize, y - halfMapSize, 0), tile);
-
+                gameWorld.SetTile(new Vector3Int(x - halfMapSize, WorldData.Get.worldSize - y - halfMapSize, 0), tile);
+                background.SetTile(new Vector3Int(x - halfMapSize, WorldData.Get.worldSize - y - halfMapSize, 0),
+                                   WorldData.Get.DIRT.SetSprite());
             }
         }
     }

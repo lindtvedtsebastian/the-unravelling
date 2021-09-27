@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   mapColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-  baseSprites:
+  sprites:
   - {fileID: 11400000, guid: 09e9bdb2fbf615b46aa78401e2b18844, type: 2}
   - {fileID: 11400000, guid: 5103fbc60dd9b924590e5395598dd968, type: 2}
   - {fileID: 11400000, guid: 06430558a78fb4b4795d8ae68c213055, type: 2}

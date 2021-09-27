@@ -18,7 +18,7 @@ public class BitmaskableWorldEntity : WorldEntity
 
     private Dictionary<int, int> bitmaskToSpriteIndex = new Dictionary<int,int>()
         {
-            {0,45},
+            {0,0},
             {2,1},
             {8,2},
             {10,3},
@@ -29,80 +29,86 @@ public class BitmaskableWorldEntity : WorldEntity
             {24,8},
             {26,9},
             {27,10},
-            {31,11},
-            {64,12},
-            {66,13},
-            {72,14},
-            {74,15},
-            {75,16},
-            {80,17},
-            {82,18},
-            {86,19},
-            {88,20},
-            {90,21},
-            {91,22},
-            {94,23},
-            {95,24},
-            {104,25},
-            {106,26},
-            {107,27},
-            {120,28},
-            {122,29},
-            {123,30},
-            {126,31},
-            {127,32},
-            {208,33},
-            {210,34},
-            {214,35},
-            {216,36},
-            {218,37},
-            {219,38},
-            {222,39},
-            {223,40},
-            {248,41},
-            {250,42},
-            {251,43},
-            {254,44},
-            {255,0}
+            {30,11},
+            {31,12},
+            {64,13},
+            {66,14},
+            {72,15},
+            {74,16},
+            {75,17},
+            {80,18},
+            {82,19},
+            {86,20},
+            {88,21},
+            {90,22},
+            {91,23},
+            {94,24},
+            {95,25},
+            {104,26},
+            {106,27},
+            {107,28},
+            {120,29},
+            {122,30},
+            {123,31},
+            {126,32},
+            {127,33},
+            {208,34},
+            {210,35},
+            {214,36},
+            {216,37},
+            {218,38},
+            {219,39},
+            {222,40},
+            {223,41},
+            {248,42},
+            {250,43},
+            {251,44},
+            {254,45},
+            {255,46}
         };
 
-    public TileBase SetSprite(int x, int y) {
+    public TileBase SetSprite(int y, int x) {
         // Debug.Log(calculateBitmask(x, y));
-        return this.sprites[bitmaskToSpriteIndex[calculateBitmask(x,y)]];
+        return this.sprites[bitmaskToSpriteIndex[calculateBitmask(y,x)]];
     }
 
-    public int calculateBitmask(int x, int y) {
+    public int calculateBitmask(int y, int x) {
         resetBooleans();
-        identifyDirections(x, y);
-        int bitmask = calculateCardinals(x, y);
-        bitmask += calculateCorners(x, y);
+        identifyDirections(y, x);
+        int bitmask = calculateCardinals(y, x);
+        bitmask += calculateCorners(y, x);
+        // Debug.Log("Total bitmask: " + bitmask);
         return bitmask;
     }
 
-    private void identifyDirections(int x, int y) {
-        checkNorth = y - 1 > 0;
-        checkWest = x - 1 > 0;
+    private void identifyDirections(int y, int x) {
+        checkNorth = y - 1 >= 0;
+        checkWest = x - 1 >= 0;
         checkEast = x + 1 < WorldData.Get.worldSize;
         checkSouth = y + 1 < WorldData.Get.worldSize;
     }
 
     
-    public int calculateCardinals(int x, int y) {
+    public int calculateCardinals(int y, int x) {
         int bitmask = 0;
-
-        if (checkNorth && WorldData.Get.map[x,y-1] != this.id) {
+        // Debug.Log("x: " + x + " y: " + y);
+        if (checkNorth && WorldData.Get.map[y-1,x] == this.id) {
+            // Debug.Log("North true");
             bitmask += WorldData.N;
             northExists = true;
         }
-        if (checkWest && WorldData.Get.map[x-1,y] != this.id) {
+        if (checkWest && WorldData.Get.map[y,x-1] == this.id) {
+            // Debug.Log("West true");
             bitmask += WorldData.W;
             westExists = true;
         }
-        if (checkEast && WorldData.Get.map[x+1,y] != this.id) {
+        if (checkEast && WorldData.Get.map[y,x+1] == this.id) {
+            // Debug.Log("East true");
             bitmask += WorldData.E;
             eastExists = true;
         }
-        if (checkSouth && WorldData.Get.map[x,y+1] != this.id) {
+        if (checkSouth && WorldData.Get.map[y+1,x] == this.id) {
+            // Debug.Log("South true");
             bitmask += WorldData.S;
             southExists = true;
         }
@@ -110,23 +116,22 @@ public class BitmaskableWorldEntity : WorldEntity
         return bitmask;
     }
 
-    public int calculateCorners(int x, int y) {
+    public int calculateCorners(int y, int x) {
         int bitmask = 0;
         
-        if ((checkNorth && checkWest && WorldData.Get.map[x-1, y-1] != this.id)
+        if ((checkNorth && checkWest && WorldData.Get.map[y-1, x-1] == this.id)
             && northExists && westExists) {
             bitmask += WorldData.NW;
         }
-        if ((checkNorth && checkEast && WorldData.Get.map[x+1, y-1] != this.id)
+        if ((checkNorth && checkEast && WorldData.Get.map[y-1, x+1] == this.id)
             && northExists && eastExists) {
             bitmask += WorldData.NE;
         }
-        // Debug.Log("South: " + southExists + ", West: " + westExists);
-        if ((checkSouth && checkWest && WorldData.Get.map[x-1, y+1] != this.id)
+        if ((checkSouth && checkWest && WorldData.Get.map[y+1, x-1] == this.id)
             && southExists && westExists) {
             bitmask += WorldData.SW;
         }
-        if ((checkSouth && checkEast && WorldData.Get.map[x+1, y+1] != this.id)
+        if ((checkSouth && checkEast && WorldData.Get.map[y+1, x+1] == this.id)
             && southExists && eastExists) {
             bitmask += WorldData.SE;
         }
