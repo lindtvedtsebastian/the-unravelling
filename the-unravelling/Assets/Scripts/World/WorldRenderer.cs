@@ -8,15 +8,6 @@ public class WorldRenderer : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        // WorldData.Get.worldSize = 5;
-        // WorldData.Get.map = new int[,]
-        // {
-        //     {1,1,1,2,1},
-        //     {1,1,1,2,1},
-        //     {1,1,1,2,2},
-        //     {2,2,2,2,2},
-        //     {2,2,2,2,2}
-        // };
         TileBase tile = WorldData.Get.GRASS.sprites[0];
         int halfMapSize = (int)WorldData.Get.worldSize / 2; // Know that the mapsize is in the power of 2
         for (int y = 0; y < WorldData.Get.worldSize; y++) {

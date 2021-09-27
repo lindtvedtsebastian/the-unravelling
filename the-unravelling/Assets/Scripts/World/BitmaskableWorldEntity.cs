@@ -16,6 +16,82 @@ public class BitmaskableWorldEntity : WorldEntity
     private bool eastExists;
     private bool southExists;
 
+
+    public TileBase SetSprite(int y, int x) {
+        return this.sprites[bitmaskToSpriteIndex[calculateBitmask(y,x)]];
+    }
+
+    public int calculateBitmask(int y, int x) {
+        resetBooleans();
+        identifyDirections(y, x);
+        int bitmask = calculateCardinals(y, x);
+        bitmask += calculateCorners(y, x);
+        return bitmask;
+    }
+
+    private void identifyDirections(int y, int x) {
+        checkNorth = y - 1 >= 0;
+        checkWest = x - 1 >= 0;
+        checkEast = x + 1 < WorldData.Get.worldSize;
+        checkSouth = y + 1 < WorldData.Get.worldSize;
+    }
+
+    
+    public int calculateCardinals(int y, int x) {
+        int bitmask = 0;
+        if (checkNorth && WorldData.Get.map[y-1,x] == this.id) {
+            bitmask += WorldData.N;
+            northExists = true;
+        }
+        if (checkWest && WorldData.Get.map[y,x-1] == this.id) {
+            bitmask += WorldData.W;
+            westExists = true;
+        }
+        if (checkEast && WorldData.Get.map[y,x+1] == this.id) {
+            bitmask += WorldData.E;
+            eastExists = true;
+        }
+        if (checkSouth && WorldData.Get.map[y+1,x] == this.id) {
+            bitmask += WorldData.S;
+            southExists = true;
+        }
+        return bitmask;
+    }
+
+    public int calculateCorners(int y, int x) {
+        int bitmask = 0;
+        
+        if ((checkNorth && checkWest && WorldData.Get.map[y-1, x-1] == this.id)
+            && northExists && westExists) {
+            bitmask += WorldData.NW;
+        }
+        if ((checkNorth && checkEast && WorldData.Get.map[y-1, x+1] == this.id)
+            && northExists && eastExists) {
+            bitmask += WorldData.NE;
+        }
+        if ((checkSouth && checkWest && WorldData.Get.map[y+1, x-1] == this.id)
+            && southExists && westExists) {
+            bitmask += WorldData.SW;
+        }
+        if ((checkSouth && checkEast && WorldData.Get.map[y+1, x+1] == this.id)
+            && southExists && eastExists) {
+            bitmask += WorldData.SE;
+        }
+        return bitmask;
+    }
+
+    private void resetBooleans() {
+        checkNorth = false;
+        checkWest = false;
+        checkEast = false;
+        checkSouth = false;
+        northExists = false;
+        westExists = false;
+        eastExists = false;
+        southExists = false;
+    }
+
+
     private Dictionary<int, int> bitmaskToSpriteIndex = new Dictionary<int,int>()
         {
             {0,0},
@@ -67,86 +143,4 @@ public class BitmaskableWorldEntity : WorldEntity
             {255,46}
         };
 
-    public TileBase SetSprite(int y, int x) {
-        // Debug.Log(calculateBitmask(x, y));
-        return this.sprites[bitmaskToSpriteIndex[calculateBitmask(y,x)]];
-    }
-
-    public int calculateBitmask(int y, int x) {
-        resetBooleans();
-        identifyDirections(y, x);
-        int bitmask = calculateCardinals(y, x);
-        bitmask += calculateCorners(y, x);
-        // Debug.Log("Total bitmask: " + bitmask);
-        return bitmask;
-    }
-
-    private void identifyDirections(int y, int x) {
-        checkNorth = y - 1 >= 0;
-        checkWest = x - 1 >= 0;
-        checkEast = x + 1 < WorldData.Get.worldSize;
-        checkSouth = y + 1 < WorldData.Get.worldSize;
-    }
-
-    
-    public int calculateCardinals(int y, int x) {
-        int bitmask = 0;
-        // Debug.Log("x: " + x + " y: " + y);
-        if (checkNorth && WorldData.Get.map[y-1,x] == this.id) {
-            // Debug.Log("North true");
-            bitmask += WorldData.N;
-            northExists = true;
-        }
-        if (checkWest && WorldData.Get.map[y,x-1] == this.id) {
-            // Debug.Log("West true");
-            bitmask += WorldData.W;
-            westExists = true;
-        }
-        if (checkEast && WorldData.Get.map[y,x+1] == this.id) {
-            // Debug.Log("East true");
-            bitmask += WorldData.E;
-            eastExists = true;
-        }
-        if (checkSouth && WorldData.Get.map[y+1,x] == this.id) {
-            // Debug.Log("South true");
-            bitmask += WorldData.S;
-            southExists = true;
-        }
-        // Debug.Log("Cardinal: " + bitmask);
-        return bitmask;
-    }
-
-    public int calculateCorners(int y, int x) {
-        int bitmask = 0;
-        
-        if ((checkNorth && checkWest && WorldData.Get.map[y-1, x-1] == this.id)
-            && northExists && westExists) {
-            bitmask += WorldData.NW;
-        }
-        if ((checkNorth && checkEast && WorldData.Get.map[y-1, x+1] == this.id)
-            && northExists && eastExists) {
-            bitmask += WorldData.NE;
-        }
-        if ((checkSouth && checkWest && WorldData.Get.map[y+1, x-1] == this.id)
-            && southExists && westExists) {
-            bitmask += WorldData.SW;
-        }
-        if ((checkSouth && checkEast && WorldData.Get.map[y+1, x+1] == this.id)
-            && southExists && eastExists) {
-            bitmask += WorldData.SE;
-        }
-        // Debug.Log("Corner: " + bitmask);
-        return bitmask;
-    }
-
-    private void resetBooleans() {
-        checkNorth = false;
-        checkWest = false;
-        checkEast = false;
-        checkSouth = false;
-        northExists = false;
-        westExists = false;
-        eastExists = false;
-        southExists = false;
-    }
 }
