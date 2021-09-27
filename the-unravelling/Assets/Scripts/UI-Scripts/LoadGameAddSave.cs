@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
 
 public class LoadGameAddSave : MonoBehaviour
 {
-    private List<string> stringData = new List<string>();
+    private List<string> stringData = new List<string>(); // this will be replaced with the savefiles which will be retrieved programatically.
     public GameObject buttonPrefab;
-    
+    public Image previewImage;
+
     void Start() {
 
         stringData.Add("first entry");
@@ -25,17 +29,24 @@ public class LoadGameAddSave : MonoBehaviour
         
         for (int i = 0; i < stringData.Count; i++) {
             buttonPrefab.SetActive(true);
-            GameObject newButton = Instantiate(buttonPrefab) as GameObject;
+            GameObject newButton = Instantiate(buttonPrefab);
             newButton.transform.SetParent(this.transform,false);
+            newButton.GetComponentInChildren<TMP_Text>().text = stringData[i];
+            
             Button myButton = newButton.GetComponent<Button>();
-            myButton.GetComponentInChildren<TMP_Text>().text = stringData[i];
+            myButton.name = stringData[i];
+            myButton.onClick.AddListener(SelectSave);
         }
         Debug.Log("End of start");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    /// <summary>
+    /// SelectSave triggers the event for changing the preview image and sets the current selected button as savefile to load.
+    /// </summary>
+    public void SelectSave() {
+        // Every button would need to retrieve based on some parameter or identifier, it's corresponding preview image.
+        previewImage.GetComponent<Image>().color = Color.cyan;
+        Debug.Log("Button was clicked");
     }
+    
 }
