@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "World Data", menuName = "Scriptable Objects/World/World Data")]
 public class WorldData : ScriptableObjectSingleton<WorldData> {
@@ -18,4 +19,5 @@ public class WorldData : ScriptableObjectSingleton<WorldData> {
     public BitmaskableWorldEntity GRASS;
 	public WorldEntity DIRT;
 	public WorldEntity STONE;
+    public TileBase[] FOG;
 }
