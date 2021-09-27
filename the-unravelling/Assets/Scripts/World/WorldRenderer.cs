@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 public class WorldRenderer : MonoBehaviour {
     public Tilemap gameWorld;
     public Tilemap background;
+    public Tilemap fog;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,10 @@ public class WorldRenderer : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void createFog() {
         
     }
 }
