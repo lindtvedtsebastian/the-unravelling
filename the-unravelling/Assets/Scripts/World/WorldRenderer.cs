@@ -15,7 +15,7 @@ public class WorldRenderer : MonoBehaviour {
 
         mainCamera.transform.position = new Vector3Int(halfMapSize, halfMapSize, -10);
 
-        createFog();
+        createFog(12); //0 = Black, 4 = Grey, 8 = Blue, 12 = Purple
 
         for (int y = 0; y < WorldData.Get.worldSize; y++) {
             for (int x = 0; x < WorldData.Get.worldSize; x++) {
@@ -38,13 +38,13 @@ public class WorldRenderer : MonoBehaviour {
         
     }
 
-    private void createFog() {
+    private void createFog(int fogColorOffset = 0) {
         for (int i = 0; i < 4; i++) { // The amount of shadow "layers"
             for (int j = i; j < WorldData.Get.worldSize - i; j++) { // Drawing each shadow layer
-                fog.SetTile(new Vector3Int(j,1+i,0), WorldData.Get.FOG[i]);
-                fog.SetTile(new Vector3Int(i,j+1,0), WorldData.Get.FOG[i]);
-                fog.SetTile(new Vector3Int(j,WorldData.Get.worldSize-i,0), WorldData.Get.FOG[i]);
-                fog.SetTile(new Vector3Int(WorldData.Get.worldSize-(i+1),j+1,0), WorldData.Get.FOG[i]);
+                fog.SetTile(new Vector3Int(j,1+i,0), WorldData.Get.FOG[i+fogColorOffset]);
+                fog.SetTile(new Vector3Int(i,j+1,0), WorldData.Get.FOG[i+fogColorOffset]);
+                fog.SetTile(new Vector3Int(j,WorldData.Get.worldSize-i,0), WorldData.Get.FOG[i+fogColorOffset]);
+                fog.SetTile(new Vector3Int(WorldData.Get.worldSize-(i+1),j+1,0), WorldData.Get.FOG[i+fogColorOffset]);
             }
         }
     }
