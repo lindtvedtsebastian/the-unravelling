@@ -12,6 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177d2cad1808d4a46837c8a33c96ecd9, type: 3}
   m_Name: World Data
   m_EditorClassIdentifier: 
-  GRASS: {fileID: 11400000, guid: 5e87a58081f669e40bf1a16abd059f5c, type: 2}
+  worldSize: 256
+  mapName: 
+  GRASS: {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
   DIRT: {fileID: 11400000, guid: 5cc9a4287e8d5ed40ab7a2efa2da95e9, type: 2}
   STONE: {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
+  FOG:
+  - {fileID: 11400000, guid: cead43cad6ae6df42bbc16c423812e23, type: 2}
+  - {fileID: 11400000, guid: 28518880aface004ab90b1a74601afdd, type: 2}
+  - {fileID: 11400000, guid: d408959c3f5fdf648af9550c3f8242e0, type: 2}
+  - {fileID: 11400000, guid: 3010f8757944db845a7098ce649640ed, type: 2}
+  - {fileID: 11400000, guid: 95e4d9508cfb0bb4d8e2d121e46f9aa6, type: 2}
+  - {fileID: 11400000, guid: 34f26ebc05e3d964f9b7374648f8c10b, type: 2}
+  - {fileID: 11400000, guid: 22b9fbee8da2a2745b2685ddc64f7bcf, type: 2}
+  - {fileID: 11400000, guid: 1c2f14680c8703b499c0941e44ca2e41, type: 2}
+  - {fileID: 11400000, guid: f5bcfcc6778d3f441919d2aac71ad20e, type: 2}
+  - {fileID: 11400000, guid: 0e29e506cba907d4992ad3fbc762d0e3, type: 2}
+  - {fileID: 11400000, guid: eb0aa57eefbc0c34380d889cc8a78687, type: 2}
+  - {fileID: 11400000, guid: 2e3d10e66167dfd408185e2b3a0a0466, type: 2}
+  - {fileID: 11400000, guid: b945644bc849f2543be0df08bc6cc3c0, type: 2}
+  - {fileID: 11400000, guid: 8fa5692aa2d838949a783f8ba68ddd71, type: 2}
+  - {fileID: 11400000, guid: 4d5557567a3ab9848b01aec5a74b0c34, type: 2}
+  - {fileID: 11400000, guid: 2d01295b462a9b44ba513054fa31defd, type: 2}
