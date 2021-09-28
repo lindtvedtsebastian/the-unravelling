@@ -44,12 +44,6 @@ public class SettingsScreen : MonoBehaviour {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ResolutionSwitchLeft() {
         currentResIndex--;
         if (currentResIndex < 0) {
@@ -62,7 +56,7 @@ public class SettingsScreen : MonoBehaviour {
     public void ResolutionSwitchRight() {
         currentResIndex++;
         if (currentResIndex > resolutions.Count - 1) {
-            currentResIndex = resolutions.Count - 1; // put the resolution to 1-max
+            currentResIndex = resolutions.Count - 1;
         }
 
         UpdateResolutionLabel();
