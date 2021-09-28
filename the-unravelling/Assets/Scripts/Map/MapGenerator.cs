@@ -15,7 +15,7 @@ public static class MapGenerator {
     public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
         WorldData.Get.mapName = newMapName;
-        WorldData.Get.mapSize = mapSize;
+        WorldData.Get.worldSize = mapSize;
         WorldData.Get.map = new int[mapSize, mapSize];
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
