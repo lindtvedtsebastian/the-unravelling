@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // A stupid hack to make unity serialize dictionaries
-
 public abstract class
     SerializedDictionary<Key, Value> : Dictionary<Key, Value>, ISerializationCallbackReceiver {
     // The dictionary is serialized as two arrays
@@ -80,6 +79,7 @@ public class Inventory : ScriptableObject {
     public bool RemoveItem(in ItemData item, int count = 1) {
         if (items.TryGetValue(item.GetInstanceID(), out var ii)) {
             ii.count -= count;
+            if (ii.count < 0) ii.count = 0;
             return true;
         }
 
