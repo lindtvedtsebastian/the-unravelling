@@ -78,33 +78,6 @@ public static class MapGenerator {
                 }
             }
         }
-        //Not sensible to save the map here anymore as the user might not actually want this map
-
-        // SaveMap(tiledGameWorld, newMapName);
-        // MapGenerator.currentMapPath = Application.persistentDataPath + "/" + newMapName + ".dat";
-        // Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
     }
 
-    static void SaveMap(int[,] tiledGameWorld, string filename = "game-world") {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream saveFile = File.Create(Application.persistentDataPath + "/" + filename + ".dat");
-        MapData data = new MapData();
-        data.tiledGameWorld = tiledGameWorld;
-        bf.Serialize(saveFile,data);
-        saveFile.Close();
-    }
-
-    static MapData LoadMap(string filename = "game-world") {
-        if (File.Exists(Application.persistentDataPath + "/" + filename + ".dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename + ".dat", FileMode.Open);
-            return (MapData) bf.Deserialize(loadFile);
-        }
-        return null;
-    }
-
-    [Serializable]
-    class MapData {
-        public int[,] tiledGameWorld;
-    }
 }
