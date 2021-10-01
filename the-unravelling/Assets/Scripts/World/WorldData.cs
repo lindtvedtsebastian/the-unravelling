@@ -3,9 +3,7 @@ using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "World Data", menuName = "Scriptable Objects/World/World Data")]
 public class WorldData : ScriptableObjectSingleton<WorldData> {
-	public int worldSize;
-	public int[,] map;
-	public string mapName;
+    public World world;
 
     public const int NW = 0b1;
     public const int N  = 0b10;
@@ -20,4 +18,12 @@ public class WorldData : ScriptableObjectSingleton<WorldData> {
 	public WorldEntity DIRT;
 	public WorldEntity STONE;
     public TileBase[] FOG;
+}
+
+public class World {
+    public int worldSize;
+    public int[,] map;
+    public string mapName;
+    public float gameTime;
+    public int day;
 }
