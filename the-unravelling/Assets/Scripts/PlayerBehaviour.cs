@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // The players inventory
     public Inventory inventory;
+    // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
     public ItemData item;
 
     // GameObject that previews where to place tiles

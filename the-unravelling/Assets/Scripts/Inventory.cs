@@ -38,6 +38,8 @@ public struct InventoryItem {
     }
 }
 
+// Specialize the serializable dictionary to one for inventory items.
+// Key = instance id, value = inventory item.
 [Serializable]
 public class InventoryKeyPair : SerializedDictionary<int, InventoryItem> {
 }
@@ -54,11 +56,20 @@ public class Inventory : ScriptableObject {
     // Stores the items in the inventory, where instance id is the key and the item data and item count is the value
     public InventoryKeyPair items = new InventoryKeyPair();
 
-    // Does the inventory contain more than zero of this item
+    /// <summary>
+    /// Does the inventory contain more than zero of this item.
+    /// </summary>
+    /// <param name="item">Item</param>
+    /// <returns>Inventory has item?</returns>
     public bool HasItem(in ItemData item) {
         return GetItemCount(item) > 0;
     }
 
+    /// <summary>
+    /// Get the item count for the given item.
+    /// </summary>
+    /// <param name="item">Item</param>
+    /// <returns>Item count</returns>
     public int GetItemCount(in ItemData item) {
         // Try and get the item out of the inventory, but also check the count of the item in the inventory
         if (items.TryGetValue(item.GetInstanceID(), out var ii)) {
@@ -87,6 +98,11 @@ public class Inventory : ScriptableObject {
     }
 
     // Inc the item count in the inventory
+    /// <summary>
+    /// Add one or more items to the inventory.
+    /// </summary>
+    /// <param name="item">Item to add</param>
+    /// <param name="count">How many to add</param>
     public void AddItem(in ItemData item, int count = 1) {
         if (items.TryGetValue(item.GetInstanceID(), out var ii)) {
             ii.count += count;
@@ -97,6 +113,10 @@ public class Inventory : ScriptableObject {
         }
     }
 
+    /// <summary>
+    /// Get a list of all the unique items in the inventory and their count.
+    /// </summary>
+    /// <returns>List of unique items in the inventory</returns>
     public Dictionary<int, InventoryItem>.ValueCollection GetItems() {
         return items.Values;
     }
