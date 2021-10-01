@@ -21,6 +21,10 @@ public class MainMenuController : MonoBehaviour {
         Debug.Log("Closed The Unraveling game");
     }
     public void startGame() {
+        if (WorldData.Get.map == null) {
+            Debug.LogError("Invalid game data, did you press generate?"); // NOTE: This should most likely pop up/active an little ui window instead.
+            return;
+        }
         SceneManager.LoadScene("MainGame");
     }
 
