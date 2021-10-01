@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -23,6 +25,22 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     GameData() {
         world = new World();
     }
+    
+    public void SaveWorld(string filename = "game-world") {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.mapName + ".world"); 
+        bf.Serialize(saveFile,world);
+        saveFile.Close();
+    }
+
+    public void LoadWorld(string filename = "game-world") {
+        if (File.Exists(Application.persistentDataPath + "/" + filename + ".dat")) {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename + ".world", FileMode.Open);
+            world = (World) bf.Deserialize(loadFile);
+        }
+        else world = new World();
+    }
 }
 
 [Serializable]
@@ -32,4 +50,7 @@ public class World {
     public string mapName;
     public float gameTime;
     public int day;
+
+
+
 }
