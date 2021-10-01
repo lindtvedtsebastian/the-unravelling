@@ -10,8 +10,12 @@ public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
 
+    // The inventory UI
+    public InventoryUIBehaviour inventoryUI;
+
     // The players inventory
     public Inventory inventory;
+
     // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
     public ItemData item;
 
@@ -20,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Components
     private Rigidbody2D body;
+    private PlayerInput playerInput;
     private InputAction moveAction;
 
     // Global objects
@@ -30,17 +35,19 @@ public class PlayerBehaviour : MonoBehaviour {
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
 
-        var actions = GetComponent<PlayerInput>().actions;
+        playerInput = GetComponent<PlayerInput>();
+        var actions = playerInput.actions;
 
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
 
         // Setup action handlers
-        actions["Inventory"].performed += OnActionInventory;
-        actions["Interact"].performed += OnActionInteract;
-        actions["Place"].performed += OnActionPlace;
-        actions["Cancel"].performed += OnActionCancel;
-        actions["Destroy"].performed += OnActionDestroy;
+        actions["Player/Inventory"].performed += OnActionInventory;
+        actions["Player/Interact"].performed += OnActionInteract;
+        actions["Player/Place"].performed += OnActionPlace;
+        actions["Player/Cancel"].performed += OnActionCancel;
+        actions["Player/Destroy"].performed += OnActionDestroy;
+        actions["UI/Cancel"].performed += inventoryUI.OnClose;
 
         // Grab global objects
         mouse = Mouse.current;
@@ -50,8 +57,8 @@ public class PlayerBehaviour : MonoBehaviour {
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
 
-        inventory.AddItem(item);
-        
+        inventory.AddItem(item, 2);
+
         // We need to make a new instance of the game object, so that we can use it.
         previewGameObject = Instantiate(previewGameObject);
         // But it should still be disabled
@@ -72,23 +79,29 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     // Create a placement preview based on prefab object
-    private void CreatePreview(ItemData item) {
-        if (!previewGameObject.activeSelf) {
-            previewGameObject.SetActive(true);
-            var sprite = previewGameObject.GetComponent<SpriteRenderer>();
-            sprite.sprite = item.preview;
-        }
+    private void CreatePreview(in ItemData item) {
+        if (previewGameObject.activeSelf) return;
+
+        if (!inventory.HasItem(item)) return;
+        
+        previewGameObject.SetActive(true);
+        var sprite = previewGameObject.GetComponent<SpriteRenderer>();
+        sprite.sprite = item.preview;
     }
 
     // Place object into the scene, based on the location of the preview
-    private void PlaceObject(ItemData item) {
-        if (previewGameObject.activeSelf) {
-            // Create final object
-            Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
+    private void PlaceObject(in ItemData item) {
+        // Only place item, if preview was active
+        if (!previewGameObject.activeSelf) return;
+        
+        // Remove item from inventory
+        if (!inventory.RemoveItem(item)) return;
 
-            // Deactivate the preview
-            previewGameObject.SetActive(false);
-        }
+        // Create final object
+        Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
+
+        // Deactivate the preview
+        previewGameObject.SetActive(false);
     }
 
     // Get the word space position of the mouse
@@ -101,12 +114,21 @@ public class PlayerBehaviour : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
 
+    // Called when the inventory UI closes
+    private void OnCloseInventory(in ItemData item) {
+        playerInput.SwitchCurrentActionMap("Player");
+
+        if (item != null) {
+            CreatePreview(item);
+        }
+    }
+
     // Called when inventory action is triggered
     private void OnActionInventory(InputAction.CallbackContext ctx) {
         Debug.Log("Open Inventory");
 
-        // Create a preview object for previewing placement
-        CreatePreview(item);
+        playerInput.SwitchCurrentActionMap("UI");
+        inventoryUI.OnActivate(inventory, OnCloseInventory);
     }
 
     // Called when interact action is triggered

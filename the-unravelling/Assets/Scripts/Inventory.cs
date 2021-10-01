@@ -81,16 +81,16 @@ public class Inventory : ScriptableObject {
 
     /// <summary>
     /// Remove an item/items from the inventory.
-    ///
-    /// Items only count as removed, and this method returns true, if the inventory had the item in the first place.
     /// </summary>
     /// <param name="item">The item to remove</param>
     /// <param name="count">How many items to remove</param>
     /// <returns>Was the item removed?</returns>
     public bool RemoveItem(in ItemData item, int count = 1) {
         if (items.TryGetValue(item.GetInstanceID(), out var ii)) {
+            if (ii.count < count) return false;
+            
             ii.count -= count;
-            if (ii.count < 0) ii.count = 0;
+            items[item.GetInstanceID()] = ii;
             return true;
         }
 
@@ -106,9 +106,10 @@ public class Inventory : ScriptableObject {
     public void AddItem(in ItemData item, int count = 1) {
         if (items.TryGetValue(item.GetInstanceID(), out var ii)) {
             ii.count += count;
+            items[item.GetInstanceID()] = ii;
         }
         else {
-            ii = new InventoryItem(item);
+            ii = new InventoryItem(item, count);
             items.Add(item.GetInstanceID(), ii);
         }
     }
