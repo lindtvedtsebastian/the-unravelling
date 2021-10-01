@@ -21,7 +21,7 @@ public class MainMenuController : MonoBehaviour {
         Debug.Log("Closed The Unraveling game");
     }
     public void startGame() {
-        if (WorldData.Get.map == null) {
+        if (GameData.Get.world.map == null) {
             Debug.LogError("Invalid game data, did you press generate?"); // NOTE: This should most likely pop up/active an little ui window instead.
             return;
         }
@@ -34,7 +34,7 @@ public class MainMenuController : MonoBehaviour {
             seed = new System.Random().Next(0,1_000_000);
         MapGenerator.GenerateNoiseMap(newWorldName.text,GameData.Get.world.worldSize,seed,50f,6,0.5f,2f,new Vector2(0,0));
         mapPreview.drawMap();
-        newWorldName.text = "Enter game world name";
+        newWorldName.text = "";
     }
 
     public void MapSizeChanged(Dropdown change) {

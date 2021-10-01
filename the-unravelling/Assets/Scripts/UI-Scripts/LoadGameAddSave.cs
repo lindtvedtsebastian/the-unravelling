@@ -4,17 +4,23 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
+using System.IO;
 
 public class LoadGameAddSave : MonoBehaviour
 {
-    private List<string> stringData = new List<string>(); // this will be replaced with the savefiles which will be retrieved programatically.
+    private List<string> stringData = new List<string>();
+    private DirectoryInfo dir;
+    private FileInfo[] files;
     public GameObject buttonPrefab;
     public RawImage previewImage;
+    
 
     void Start() {
+        dir = new DirectoryInfo(Application.persistentDataPath);
+        files = dir.GetFiles("*.png");
 
-        for (char c = 'A'; c <= 'Z'; c++) { // fill the entries with random data for now until savefiles are a thing.
-            stringData.Add(c.ToString());
+        foreach (FileInfo file in files) { // fill the entries with random data for now until savefiles are a thing.
+            stringData.Add(file.Name.Replace(".png",""));
         }
 
         for (int i = 0; i < stringData.Count; i++) {
@@ -30,8 +36,8 @@ public class LoadGameAddSave : MonoBehaviour
     /// SelectSave triggers the event for changing the preview image and sets the current selected button as savefile to load.
     /// </summary>
     public void SelectSave() {
-        // Every button would need to retrieve based on some parameter or identifier, it's corresponding preview image for that map.
-        previewImage.GetComponent<RawImage>().color = Color.cyan;
-        Debug.Log("Button was clicked");
+        // byte[] image =
+        previewImage.GetComponent<RawImage>().color = Color.gray;
+        // ImageConversion.LoadImage("");
     }
 }
