@@ -32,26 +32,26 @@ public class BitmaskableWorldEntity : WorldEntity
     private void identifyDirections(int y, int x) {
         checkNorth = y - 1 >= 0;
         checkWest = x - 1 >= 0;
-        checkEast = x + 1 < WorldData.Get.worldSize;
-        checkSouth = y + 1 < WorldData.Get.worldSize;
+        checkEast = x + 1 < WorldData.Get.world.worldSize;
+        checkSouth = y + 1 < WorldData.Get.world.worldSize;
     }
 
-    
+
     public int calculateCardinals(int y, int x) {
         int bitmask = 0;
-        if (checkNorth && WorldData.Get.map[y-1,x] == this.id) {
+        if (checkNorth && WorldData.Get.world.map[y-1,x] == this.id) {
             bitmask += WorldData.N;
             northExists = true;
         }
-        if (checkWest && WorldData.Get.map[y,x-1] == this.id) {
+        if (checkWest && WorldData.Get.world.map[y,x-1] == this.id) {
             bitmask += WorldData.W;
             westExists = true;
         }
-        if (checkEast && WorldData.Get.map[y,x+1] == this.id) {
+        if (checkEast && WorldData.Get.world.map[y,x+1] == this.id) {
             bitmask += WorldData.E;
             eastExists = true;
         }
-        if (checkSouth && WorldData.Get.map[y+1,x] == this.id) {
+        if (checkSouth && WorldData.Get.world.map[y+1,x] == this.id) {
             bitmask += WorldData.S;
             southExists = true;
         }
@@ -61,19 +61,19 @@ public class BitmaskableWorldEntity : WorldEntity
     public int calculateCorners(int y, int x) {
         int bitmask = 0;
         
-        if ((checkNorth && checkWest && WorldData.Get.map[y-1, x-1] == this.id)
+        if ((checkNorth && checkWest && WorldData.Get.world.map[y-1, x-1] == this.id)
             && northExists && westExists) {
             bitmask += WorldData.NW;
         }
-        if ((checkNorth && checkEast && WorldData.Get.map[y-1, x+1] == this.id)
+        if ((checkNorth && checkEast && WorldData.Get.world.map[y-1, x+1] == this.id)
             && northExists && eastExists) {
             bitmask += WorldData.NE;
         }
-        if ((checkSouth && checkWest && WorldData.Get.map[y+1, x-1] == this.id)
+        if ((checkSouth && checkWest && WorldData.Get.world.map[y+1, x-1] == this.id)
             && southExists && westExists) {
             bitmask += WorldData.SW;
         }
-        if ((checkSouth && checkEast && WorldData.Get.map[y+1, x+1] == this.id)
+        if ((checkSouth && checkEast && WorldData.Get.world.map[y+1, x+1] == this.id)
             && southExists && eastExists) {
             bitmask += WorldData.SE;
         }

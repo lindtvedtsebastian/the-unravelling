@@ -18,6 +18,10 @@ public class WorldData : ScriptableObjectSingleton<WorldData> {
 	public WorldEntity DIRT;
 	public WorldEntity STONE;
     public TileBase[] FOG;
+
+    WorldData() {
+        world = new World();
+    }
 }
 
 public class World {

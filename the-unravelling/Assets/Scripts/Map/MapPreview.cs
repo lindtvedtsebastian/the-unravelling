@@ -8,12 +8,12 @@ public class MapPreview : MonoBehaviour
     public RawImage mapPreview;
 
     public void drawMap() {
-        texture = new Texture2D(WorldData.Get.worldSize, WorldData.Get.worldSize);
-        for (int y = 0; y < WorldData.Get.worldSize; y++) {
-            for (int x = 0; x < WorldData.Get.worldSize; x++) {
-                if (WorldData.Get.map[x,y] == WorldData.Get.GRASS.id) {
+        texture = new Texture2D(WorldData.Get.world.worldSize, WorldData.Get.world.worldSize);
+        for (int y = 0; y < WorldData.Get.world.worldSize; y++) {
+            for (int x = 0; x < WorldData.Get.world.worldSize; x++) {
+                if (WorldData.Get.world.map[x,y] == WorldData.Get.GRASS.id) {
                     texture.SetPixel(x, y, WorldData.Get.GRASS.mapColor);
-                } else if (WorldData.Get.map[x,y] == WorldData.Get.DIRT.id) {
+                } else if (WorldData.Get.world.map[x,y] == WorldData.Get.DIRT.id) {
                     texture.SetPixel(x, y, WorldData.Get.DIRT.mapColor);
                 } else {
                     texture.SetPixel(x, y, WorldData.Get.STONE.mapColor);
