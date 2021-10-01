@@ -14,9 +14,9 @@ public static class MapGenerator {
 
     public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
-        WorldData.Get.world.mapName = newMapName;
-        WorldData.Get.world.worldSize = mapSize;
-        WorldData.Get.world.map = new int[mapSize, mapSize];
+        GameData.Get.world.mapName = newMapName;
+        GameData.Get.world.worldSize = mapSize;
+        GameData.Get.world.map = new int[mapSize, mapSize];
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
 
@@ -70,11 +70,11 @@ public static class MapGenerator {
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 if (noiseMap[x, y] > 0.5f) {
-                    WorldData.Get.world.map[x, y] = WorldData.Get.GRASS.id;
+                    GameData.Get.world.map[x, y] = GameData.Get.GRASS.id;
                 } else if (noiseMap[x,y] > 0.25f) {
-                    WorldData.Get.world.map[x, y] = WorldData.Get.DIRT.id;
+                    GameData.Get.world.map[x, y] = GameData.Get.DIRT.id;
                 } else {
-                    WorldData.Get.world.map[x, y] = WorldData.Get.STONE.id;
+                    GameData.Get.world.map[x, y] = GameData.Get.STONE.id;
                 }
             }
         }

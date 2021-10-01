@@ -28,16 +28,16 @@ public class MainMenuController : MonoBehaviour {
         int seed = newWorldSeed.text.GetHashCode();
         if (newWorldSeed.text == "")
             seed = new System.Random().Next(0,1_000_000);
-        MapGenerator.GenerateNoiseMap(newWorldName.text,WorldData.Get.world.worldSize,seed,50f,6,0.5f,2f,new Vector2(0,0));
+        MapGenerator.GenerateNoiseMap(newWorldName.text,GameData.Get.world.worldSize,seed,50f,6,0.5f,2f,new Vector2(0,0));
         mapPreview.drawMap();
         newWorldName.text = "Enter game world name";
     }
 
     public void MapSizeChanged(Dropdown change) {
         switch (change.value) {
-            case 0: WorldData.Get.world.worldSize = 256; break;
-            case 1: WorldData.Get.world.worldSize = 512; break;
-            case 2: WorldData.Get.world.worldSize = 1024; break;
+            case 0: GameData.Get.world.worldSize = 256; break;
+            case 1: GameData.Get.world.worldSize = 512; break;
+            case 2: GameData.Get.world.worldSize = 1024; break;
         }
     }
 }

@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "World Data", menuName = "Scriptable Objects/World/World Data")]
-public class WorldData : ScriptableObjectSingleton<WorldData> {
+[CreateAssetMenu(fileName = "Game Data", menuName = "Scriptable Objects/World/Game Data")]
+public class GameData : ScriptableObjectSingleton<GameData> {
     public World world;
 
     public const int NW = 0b1;
@@ -19,11 +20,12 @@ public class WorldData : ScriptableObjectSingleton<WorldData> {
 	public WorldEntity STONE;
     public TileBase[] FOG;
 
-    WorldData() {
+    GameData() {
         world = new World();
     }
 }
 
+[Serializable]
 public class World {
     public int worldSize;
     public int[,] map;
