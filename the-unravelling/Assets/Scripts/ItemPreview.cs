@@ -30,6 +30,10 @@ public class ItemPreview : MonoBehaviour, IPointerClickHandler {
         // Set the item information
         name.text = itemData.data.itemName;
         count.text = itemData.count.ToString();
+
+        // Set preview
+        var image = GetComponent<Image>();
+        image.sprite = itemData.data.preview;
     }
 
     /// <summary>
