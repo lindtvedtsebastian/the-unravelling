@@ -58,7 +58,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Assert.IsNotNull(currentCamera, "No main camera set");
 
         inventory.AddItem(item);
-        
+
         // We need to make a new instance of the game object, so that we can use it.
         previewGameObject = Instantiate(previewGameObject);
         // But it should still be disabled
@@ -79,7 +79,7 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     // Create a placement preview based on prefab object
-    private void CreatePreview(ItemData item) {
+    private void CreatePreview(in ItemData item) {
         if (!previewGameObject.activeSelf) {
             previewGameObject.SetActive(true);
             var sprite = previewGameObject.GetComponent<SpriteRenderer>();
@@ -88,7 +88,7 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     // Place object into the scene, based on the location of the preview
-    private void PlaceObject(ItemData item) {
+    private void PlaceObject(in ItemData item) {
         if (previewGameObject.activeSelf) {
             // Create final object
             Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
