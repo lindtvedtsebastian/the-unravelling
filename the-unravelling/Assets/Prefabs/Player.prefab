@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 32
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -409,5 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  previewPrefab: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
-  machine: {fileID: 9106066065057617313, guid: df648d58dadcec449bb74c6d4b500e29, type: 3}
+  inventoryUI: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 7e59c6f26732f2144abc78d4ae454ba1, type: 2}
+  item: {fileID: 11400000, guid: 73ba29c97e5fe6a429d23d13cd35a90b, type: 2}
+  previewGameObject: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}

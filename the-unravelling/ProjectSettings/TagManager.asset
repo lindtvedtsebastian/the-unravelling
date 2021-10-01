@@ -40,12 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 923373281
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: UI-particles
     uniqueID: 2941897677
-    locked: 0
-  - name: Background
-    uniqueID: 923373281
     locked: 0

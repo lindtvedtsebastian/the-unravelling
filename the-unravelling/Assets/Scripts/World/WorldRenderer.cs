@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class WorldRenderer : MonoBehaviour {
-    public GameObject mainCamera;
+    public GameObject player;
     public Tilemap gameWorld;
     public Tilemap background;
     public Tilemap fog;
@@ -13,7 +13,7 @@ public class WorldRenderer : MonoBehaviour {
         TileBase tile = WorldData.Get.GRASS.sprites[0];
         int halfMapSize = (int)WorldData.Get.worldSize / 2; // Know that the mapsize is in the power of 2
 
-        mainCamera.transform.position = new Vector3Int(halfMapSize, halfMapSize, -10);
+        player.transform.position = new Vector3Int(halfMapSize, halfMapSize, -10);
 
         createFog(12); //0 = Black, 4 = Grey, 8 = Blue, 12 = Purple
 
