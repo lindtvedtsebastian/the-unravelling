@@ -20,6 +20,7 @@ Given we are using git you could also use @name to assign parts of the design to
 - *Elvis Arifagic*
 - *Salvador Bascunan*
 - *Markus Strømseth*
+- *Marius Fredriksen*
 
 *** Game Concept - What the game is about?
 A player defending themselves and the base against hordes of enemies that try to kill him/her. The main objective is to survive for a given amount of time until you are rescued (?)
