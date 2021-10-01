@@ -30,6 +30,7 @@ public class WorldRenderer : MonoBehaviour {
                                    GameData.Get.DIRT.SetSprite());
             }
         }
+        GameData.Get.SaveWorld();
     }
 
     // Update is called once per frame

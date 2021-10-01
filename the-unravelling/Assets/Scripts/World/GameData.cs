@@ -31,6 +31,9 @@ public class GameData : ScriptableObjectSingleton<GameData> {
         FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.mapName + ".world"); 
         bf.Serialize(saveFile,world);
         saveFile.Close();
+
+        // Take a screenshot of the players view
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + world.mapName + ".png");
     }
 
     public void LoadWorld(string filename = "game-world") {
@@ -50,7 +53,4 @@ public class World {
     public string mapName;
     public float gameTime;
     public int day;
-
-
-
 }
