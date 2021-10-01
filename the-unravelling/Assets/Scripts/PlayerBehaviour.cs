@@ -57,7 +57,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
 
-        inventory.AddItem(item);
+        inventory.AddItem(item, 2);
 
         // We need to make a new instance of the game object, so that we can use it.
         previewGameObject = Instantiate(previewGameObject);
@@ -80,22 +80,28 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Create a placement preview based on prefab object
     private void CreatePreview(in ItemData item) {
-        if (!previewGameObject.activeSelf) {
-            previewGameObject.SetActive(true);
-            var sprite = previewGameObject.GetComponent<SpriteRenderer>();
-            sprite.sprite = item.preview;
-        }
+        if (previewGameObject.activeSelf) return;
+
+        if (!inventory.HasItem(item)) return;
+        
+        previewGameObject.SetActive(true);
+        var sprite = previewGameObject.GetComponent<SpriteRenderer>();
+        sprite.sprite = item.preview;
     }
 
     // Place object into the scene, based on the location of the preview
     private void PlaceObject(in ItemData item) {
-        if (previewGameObject.activeSelf) {
-            // Create final object
-            Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
+        // Only place item, if preview was active
+        if (!previewGameObject.activeSelf) return;
+        
+        // Remove item from inventory
+        if (!inventory.RemoveItem(item)) return;
 
-            // Deactivate the preview
-            previewGameObject.SetActive(false);
-        }
+        // Create final object
+        Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
+
+        // Deactivate the preview
+        previewGameObject.SetActive(false);
     }
 
     // Get the word space position of the mouse
