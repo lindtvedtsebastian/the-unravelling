@@ -37,9 +37,9 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     }
 
     public void LoadWorld(string filename = "game-world") {
-        if (File.Exists(Application.persistentDataPath + "/" + filename + ".dat")) {
+        if (File.Exists(Application.persistentDataPath + "/" + filename)) {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename + ".world", FileMode.Open);
+            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
             world = (World) bf.Deserialize(loadFile);
         }
         else world = new World();

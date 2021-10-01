@@ -5,15 +5,18 @@ using TMPro;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class LoadGameAddSave : MonoBehaviour
 {
     private List<string> fileNames = new List<string>();
+    private string selectedWorld;
     private DirectoryInfo dir;
     private FileInfo[] files;
     public GameObject buttonPrefab;
+    public GameObject loadGameButton;
     public RawImage previewImage;
-    
+
 
     void Start() {
         dir = new DirectoryInfo(Application.persistentDataPath);
@@ -39,9 +42,16 @@ public class LoadGameAddSave : MonoBehaviour
     /// the current selected button as savefile to load.
     /// </summary>
     public void SelectSave(string fileName) {
+        loadGameButton.SetActive(true);
+        selectedWorld = fileName.Replace(".png", ".world");
         byte[] image = File.ReadAllBytes(Application.persistentDataPath + "/" + fileName);
         Texture2D tex = new Texture2D(1, 1); // Size does not matter, will be overwritten
         tex.LoadImage(image);
         previewImage.GetComponent<RawImage>().texture = tex;
+    }
+
+    public void LoadGame() {
+        GameData.Get.LoadWorld(selectedWorld);
+        SceneManager.LoadScene("MainGame");
     }
 }
