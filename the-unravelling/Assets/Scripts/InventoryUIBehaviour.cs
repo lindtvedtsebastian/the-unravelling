@@ -27,6 +27,11 @@ public class InventoryUIBehaviour : MonoBehaviour {
         // Activate the UI
         gameObject.SetActive(true);
 
+        // Destroy all previous elements
+        for (var i = 0; i < panel.transform.childCount; i++) {
+            Destroy(panel.transform.GetChild(i).gameObject);
+        }
+
         // Create previews for all the items in the inventory
         foreach (var item in inventory.GetItems()) {
             var cell = Instantiate(itemPrefab, panel.transform, true);
