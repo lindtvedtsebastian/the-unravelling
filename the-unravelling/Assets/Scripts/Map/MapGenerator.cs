@@ -14,7 +14,8 @@ public static class MapGenerator {
 
     public static void GenerateTilemap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
-        GameData.Get.world.mapName = newMapName;
+        
+        GameData.Get.world.mapName = newMapName != "" ? newMapName : "autosave_"+DateTime.Now.ToString("dd-MM-yyyy_HHmm");
         GameData.Get.world.worldSize = mapSize;
         GameData.Get.world.map = new int[mapSize, mapSize];
         
