@@ -18,7 +18,8 @@ public static class MapGenerator {
         GameData.Get.world.mapName = newMapName != "" ? newMapName : "autosave_"+DateTime.Now.ToString("dd-MM-yyyy_HHmm");
         GameData.Get.world.worldSize = mapSize;
         GameData.Get.world.map = new int[mapSize, mapSize];
-        
+        GameData.Get.world.background = new int[mapSize, mapSize];
+
         float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity, offset);
         float[,] moistureMap = generateNoiseMap(mapSize, seed+1, scale, octaves, persistance, lacunarity, offset);
 
@@ -27,12 +28,16 @@ public static class MapGenerator {
             for (int x = 0; x < mapSize; x++) {
                 if (heightMap[x, y] > 0.4f) {
                     GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameData.Get.GRASS.id : GameData.Get.DIRT.id;
+                    GameData.Get.world.background[x, y] = GameData.Get.DIRT.id;
                 } else {
                     GameData.Get.world.map[x, y] = GameData.Get.STONE.id;
+                    GameData.Get.world.background[x, y] = GameData.Get.STONE.id;
                 }
             }
         }
     }
+
+    
     public static float[,] generateNoiseMap(int mapSize, int seed, float scale, int octaves,
                                      float persistance, float lacunarity, Vector2 offset) {
 

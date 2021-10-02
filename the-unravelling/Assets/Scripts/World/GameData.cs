@@ -50,6 +50,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
 public class World {
     public int worldSize;
     public int[,] map;
+    public int[,] background;
     public string mapName;
     public float gameTime;
     public int day;

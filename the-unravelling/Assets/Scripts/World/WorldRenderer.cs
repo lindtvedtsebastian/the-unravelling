@@ -11,6 +11,7 @@ public class WorldRenderer : MonoBehaviour {
     void Start()
     {
         TileBase tile = GameData.Get.GRASS.sprites[0];
+        TileBase backgroundTile = tile;
         int halfMapSize = (int)GameData.Get.world.worldSize / 2; // Know that the mapsize is in the power of 2
 
         player.transform.position = new Vector3Int(halfMapSize, halfMapSize, -10);
@@ -25,9 +26,12 @@ public class WorldRenderer : MonoBehaviour {
                     case 2: tile = GameData.Get.DIRT.SetSprite(); break;
                     case 3: tile = GameData.Get.STONE.SetSprite(); break;
                 }
+                switch (GameData.Get.world.background[y,x]) {
+                    case 2: backgroundTile = GameData.Get.DIRT.SetSprite(); break;
+                    case 3: backgroundTile = GameData.Get.STONE.SetSprite(); break;
+                }
                 gameWorld.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0), tile);
-                background.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0),
-                                   GameData.Get.DIRT.SetSprite());
+                background.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0),backgroundTile);
             }
         }
         GameData.Get.SaveWorld();
