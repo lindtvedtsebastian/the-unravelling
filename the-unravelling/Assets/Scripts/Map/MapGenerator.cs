@@ -12,14 +12,34 @@ public static class MapGenerator {
     public static string currentMapPath;
 
 
-    public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
+    public static void GenerateTilemap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
         GameData.Get.world.mapName = newMapName;
         GameData.Get.world.worldSize = mapSize;
         GameData.Get.world.map = new int[mapSize, mapSize];
+        
+        float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity, offset);
+        float[,] moistureMap = generateNoiseMap(mapSize, seed+1, scale, octaves, persistance, lacunarity, offset);
+
+        // Assign tiles based on noise
+        for (int y = 0; y < mapSize; y++) {
+            for (int x = 0; x < mapSize; x++) {
+                if (heightMap[x, y] > 0.5f) {
+                    GameData.Get.world.map[x, y] = GameData.Get.GRASS.id;
+                } else if (heightMap[x,y] > 0.25f) {
+                    GameData.Get.world.map[x, y] = GameData.Get.DIRT.id;
+                } else {
+                    GameData.Get.world.map[x, y] = GameData.Get.STONE.id;
+                }
+            }
+        }
+    }
+    public static float[,] generateNoiseMap(int mapSize, int seed, float scale, int octaves,
+                                     float persistance, float lacunarity, Vector2 offset) {
+
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
-
+    
         Vector2[] octaveOffsets = new Vector2[octaves];
         for (int i = 0; i < octaves; i++) {
             float offsetX = pseudo_rng.Next(MINVALUE, MAXVALUE) + offset.x;
@@ -65,19 +85,9 @@ public static class MapGenerator {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
             }
         }
-
-        // Assign tiles based on noise
-        for (int y = 0; y < mapSize; y++) {
-            for (int x = 0; x < mapSize; x++) {
-                if (noiseMap[x, y] > 0.5f) {
-                    GameData.Get.world.map[x, y] = GameData.Get.GRASS.id;
-                } else if (noiseMap[x,y] > 0.25f) {
-                    GameData.Get.world.map[x, y] = GameData.Get.DIRT.id;
-                } else {
-                    GameData.Get.world.map[x, y] = GameData.Get.STONE.id;
-                }
-            }
-        }
+        
+        return noiseMap;
     }
-
+    
 }
+
