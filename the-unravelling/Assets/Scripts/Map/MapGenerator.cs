@@ -25,10 +25,8 @@ public static class MapGenerator {
         // Assign tiles based on noise
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
-                if (heightMap[x, y] > 0.5f) {
-                    GameData.Get.world.map[x, y] = GameData.Get.GRASS.id;
-                } else if (heightMap[x,y] > 0.25f) {
-                    GameData.Get.world.map[x, y] = GameData.Get.DIRT.id;
+                if (heightMap[x, y] > 0.4f) {
+                    GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameData.Get.GRASS.id : GameData.Get.DIRT.id;
                 } else {
                     GameData.Get.world.map[x, y] = GameData.Get.STONE.id;
                 }
