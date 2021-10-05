@@ -23,7 +23,7 @@ public class WorldRenderer : MonoBehaviour {
                 // Find a much better way of doing this, this is not scalable
                 switch (GameData.Get.world.map[y,x]) {
                     case 1: tile = GameData.Get.GRASS.SetSprite(y,x); break;
-                    case 2: tile = GameData.Get.DIRT.SetSprite(); break;
+                    case 2: tile = GameData.Get.DIRT.SetSprite(y,x); break;
                     case 3: tile = GameData.Get.STONE.SetSprite(); break;
                 }
                 switch (GameData.Get.world.background[y,x]) {
