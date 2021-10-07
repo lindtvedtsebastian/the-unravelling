@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world:
     worldSize: 256
-    mapName: worldThree
+    mapName: new World
     gameTime: 0
     day: 0
   GRASS: {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
-  DIRT: {fileID: 11400000, guid: 5cc9a4287e8d5ed40ab7a2efa2da95e9, type: 2}
+  DIRT: {fileID: 11400000, guid: e98aa743f559ac5489c4b9cfdd93d1f5, type: 2}
   STONE: {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
   FOG:
   - {fileID: 11400000, guid: cead43cad6ae6df42bbc16c423812e23, type: 2}

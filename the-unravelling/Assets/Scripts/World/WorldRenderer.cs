@@ -31,7 +31,7 @@ public class WorldRenderer : MonoBehaviour {
                     case 3: backgroundTile = GameData.Get.STONE.SetSprite(); break;
                 }
                 gameWorld.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0), tile);
-                background.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0),backgroundTile);
+                background.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0),GameData.Get.STONE.SetSprite());
             }
         }
         GameData.Get.SaveWorld();
