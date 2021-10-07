@@ -39,19 +39,19 @@ public class BitmaskableWorldEntity : WorldEntity
 
     public int calculateCardinals(int y, int x) {
         int bitmask = 0;
-        if (checkNorth && IsWorldPosTile(y-1,x,this.id)) {
+        if (checkNorth && WorldCheck(y-1,x,this.id)) {
             bitmask += GameData.N;
             northExists = true;
         }
-        if (checkWest && IsWorldPosTile(y,x-1,this.id)) {
+        if (checkWest && WorldCheck(y,x-1,this.id)) {
             bitmask += GameData.W;
             westExists = true;
         }
-        if (checkEast && IsWorldPosTile(y,x+1,this.id)) {
+        if (checkEast && WorldCheck(y,x+1,this.id)) {
             bitmask += GameData.E;
             eastExists = true;
         }
-        if (checkSouth && IsWorldPosTile(y+1,x,this.id)) {
+        if (checkSouth && WorldCheck(y+1,x,this.id)) {
             bitmask += GameData.S;
             southExists = true;
         }
@@ -61,19 +61,19 @@ public class BitmaskableWorldEntity : WorldEntity
     public int calculateCorners(int y, int x) {
         int bitmask = 0;
         
-        if ((checkNorth && checkWest && IsWorldPosTile(y-1, x-1,this.id))
+        if ((checkNorth && checkWest && WorldCheck(y-1, x-1,this.id))
             && northExists && westExists) {
             bitmask += GameData.NW;
         }
-        if ((checkNorth && checkEast && IsWorldPosTile(y-1, x+1,this.id))
+        if ((checkNorth && checkEast && WorldCheck(y-1, x+1,this.id))
             && northExists && eastExists) {
             bitmask += GameData.NE;
         }
-        if ((checkSouth && checkWest && IsWorldPosTile(y+1, x-1,this.id))
+        if ((checkSouth && checkWest && WorldCheck(y+1, x-1,this.id))
             && southExists && westExists) {
             bitmask += GameData.SW;
         }
-        if ((checkSouth && checkEast && IsWorldPosTile(y+1, x+1,this.id))
+        if ((checkSouth && checkEast && WorldCheck(y+1, x+1,this.id))
             && southExists && eastExists) {
             bitmask += GameData.SE;
         }
@@ -82,6 +82,10 @@ public class BitmaskableWorldEntity : WorldEntity
 
     public bool IsWorldPosTile(int y, int x, int id) {
         return GameData.Get.world.map[y, x] == id;
+    }
+
+    public virtual bool WorldCheck(int y, int x, int id) {
+        return IsWorldPosTile(y, x, id);
     }
 
     private void resetBooleans() {
