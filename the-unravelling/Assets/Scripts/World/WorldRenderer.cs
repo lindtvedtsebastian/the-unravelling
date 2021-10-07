@@ -16,7 +16,7 @@ public class WorldRenderer : MonoBehaviour {
 
         player.transform.position = new Vector3Int(halfMapSize, halfMapSize, -10);
 
-        createFog(12); //0 = Black, 4 = Grey, 8 = Blue, 12 = Purple
+        createFog(0); //0 = Black, 4 = Grey, 8 = Blue, 12 = Purple
 
         for (int y = 0; y < GameData.Get.world.worldSize; y++) {
             for (int x = 0; x < GameData.Get.world.worldSize; x++) {
@@ -44,8 +44,8 @@ public class WorldRenderer : MonoBehaviour {
     }
 
     private void createFog(int fogColorOffset = 0) {
-        for (int i = 0; i < 4; i++) { // The amount of shadow "layers"
-            for (int j = i; j < GameData.Get.world.worldSize - i; j++) { // Drawing each shadow layer
+        for (int i = 0; i < 4; i++) { // The amount of fog "layers"
+            for (int j = i; j < GameData.Get.world.worldSize - i; j++) { // Drawing each fog layer
                 fog.SetTile(new Vector3Int(j,1+i,0), GameData.Get.FOG[i+fogColorOffset]);
                 fog.SetTile(new Vector3Int(i,j+1,0), GameData.Get.FOG[i+fogColorOffset]);
                 fog.SetTile(new Vector3Int(j,GameData.Get.world.worldSize-i,0), GameData.Get.FOG[i+fogColorOffset]);
