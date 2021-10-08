@@ -74,6 +74,12 @@ public class PlayerBehaviour : MonoBehaviour {
         // Move the preview object to under the mouse
         if (previewGameObject.activeSelf) {
             previewGameObject.transform.position = GetMousePosition();
+            previewGameObject.transform.position = new Vector3(Mathf.Floor(previewGameObject.transform.position.x) + 0.5f, 
+                                                               Mathf.Floor(previewGameObject.transform.position.y) + 0.5f, 
+                                                               previewGameObject.transform.position.z);
+            
+            Debug.Log("X value : " + previewGameObject.transform.position.x);
+            Debug.Log("Y value : " + previewGameObject.transform.position.y);
         }
     }
 
@@ -216,9 +222,17 @@ public class PlayerBehaviour : MonoBehaviour {
         foreach (var unit in units) {
             var pos = GetMousePosition();
             if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
-                Destroy(unit);
+                
+                unit.GetComponent<InteractableWorldEntityBehaviour>().DamageOrDestroy();
+                
+                //Destroy(unit);
                 return;
             }
         }
     }
 }
+
+//Mathf.Floor(previewGameObject.transform.position.y);
+//Mathf.Floor(previewGameObject.transform.position.x);
+//previewGameObject.transform.position.x
+//previewGameObject.transform.position.x = Mathf.Floor(previewGameObject.transform.position.x - 10);
