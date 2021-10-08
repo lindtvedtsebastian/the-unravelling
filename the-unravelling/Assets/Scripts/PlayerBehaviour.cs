@@ -26,6 +26,7 @@ public class PlayerBehaviour : MonoBehaviour {
     private Rigidbody2D body;
     private PlayerInput playerInput;
     private InputAction moveAction;
+    private Animator playerAnimation;
 
     // Global objects
     private Mouse mouse;
@@ -37,6 +38,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
         playerInput = GetComponent<PlayerInput>();
         var actions = playerInput.actions;
+
+        playerAnimation = GetComponent<Animator>();
+        
+        // Test var for capturing movement for animations
 
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
@@ -72,10 +77,58 @@ public class PlayerBehaviour : MonoBehaviour {
         }
     }
 
+    private void PlayerAnimations(Vector2 bodyMove)
+    {
+        if (bodyMove.y > 0)
+        {
+            playerAnimation.SetBool("Up", true);
+            playerAnimation.SetBool("Down", false);
+            playerAnimation.SetBool("Right", false);
+            playerAnimation.SetBool("Left", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+
+        }
+        else if (bodyMove.y < 0)
+        {
+            playerAnimation.SetBool("Down", true);
+            playerAnimation.SetBool("Up", false);
+            playerAnimation.SetBool("Right", false);
+            playerAnimation.SetBool("Left", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+        } 
+        else if (bodyMove.x > 0)
+        {
+            playerAnimation.SetBool("Right", true);
+            playerAnimation.SetBool("Left", false);
+            playerAnimation.SetBool("Down", false);
+            playerAnimation.SetBool("Up", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
+        } 
+        else if (bodyMove.x < 0)
+        {
+            playerAnimation.SetBool("Left", true);
+            playerAnimation.SetBool("Right", false);
+            playerAnimation.SetBool("Down", false);
+            playerAnimation.SetBool("Up", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
+        }
+        else
+        {
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
+        }
+    }
+
     private void FixedUpdate() {
         var move = moveAction.ReadValue<Vector2>();
 
         body.velocity = move * (Time.deltaTime * speed);
+        
+        PlayerAnimations(body.velocity);
     }
 
     // Create a placement preview based on prefab object
