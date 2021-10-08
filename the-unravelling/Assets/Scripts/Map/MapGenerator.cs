@@ -12,14 +12,38 @@ public static class MapGenerator {
     public static string currentMapPath;
 
 
-    public static void GenerateNoiseMap(string newMapName,int mapSize, int seed, float scale,
+    public static void GenerateTilemap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
-        WorldData.Get.mapName = newMapName;
-        WorldData.Get.mapSize = mapSize;
-        WorldData.Get.map = new int[mapSize, mapSize];
+        
+        GameData.Get.world.mapName = newMapName != "" ? newMapName : "autosave_"+DateTime.Now.ToString("dd-MM-yyyy_HHmm");
+        GameData.Get.world.worldSize = mapSize;
+        GameData.Get.world.map = new int[mapSize, mapSize];
+        GameData.Get.world.background = new int[mapSize, mapSize];
+
+        float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity, offset);
+        float[,] moistureMap = generateNoiseMap(mapSize, seed+1, scale, octaves, persistance, lacunarity, offset);
+
+        // Assign tiles based on noise
+        for (int y = 0; y < mapSize; y++) {
+            for (int x = 0; x < mapSize; x++) {
+                if (heightMap[x, y] > 0.4f) {
+                    GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameData.Get.GRASS.id : GameData.Get.DIRT.id;
+                    GameData.Get.world.background[x, y] = GameData.Get.STONE.id;
+                } else {
+                    GameData.Get.world.map[x, y] = GameData.Get.STONE.id;
+                    GameData.Get.world.background[x, y] = GameData.Get.STONE.id;
+                }
+            }
+        }
+    }
+
+    
+    public static float[,] generateNoiseMap(int mapSize, int seed, float scale, int octaves,
+                                     float persistance, float lacunarity, Vector2 offset) {
+
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
-
+    
         Vector2[] octaveOffsets = new Vector2[octaves];
         for (int i = 0; i < octaves; i++) {
             float offsetX = pseudo_rng.Next(MINVALUE, MAXVALUE) + offset.x;
@@ -65,46 +89,9 @@ public static class MapGenerator {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
             }
         }
-
-        // Assign tiles based on noise
-        for (int y = 0; y < mapSize; y++) {
-            for (int x = 0; x < mapSize; x++) {
-                if (noiseMap[x, y] > 0.5f) {
-                    WorldData.Get.map[x, y] = WorldData.Get.GRASS.id;
-                } else if (noiseMap[x,y] > 0.25f) {
-                    WorldData.Get.map[x, y] = WorldData.Get.DIRT.id;
-                } else {
-                    WorldData.Get.map[x, y] = WorldData.Get.STONE.id;
-                }
-            }
-        }
-        //Not sensible to save the map here anymore as the user might not actually want this map
-
-        // SaveMap(tiledGameWorld, newMapName);
-        // MapGenerator.currentMapPath = Application.persistentDataPath + "/" + newMapName + ".dat";
-        // Debug.Log("Tiled game world saved to: " + Application.persistentDataPath);
+        
+        return noiseMap;
     }
-
-    static void SaveMap(int[,] tiledGameWorld, string filename = "game-world") {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream saveFile = File.Create(Application.persistentDataPath + "/" + filename + ".dat");
-        MapData data = new MapData();
-        data.tiledGameWorld = tiledGameWorld;
-        bf.Serialize(saveFile,data);
-        saveFile.Close();
-    }
-
-    static MapData LoadMap(string filename = "game-world") {
-        if (File.Exists(Application.persistentDataPath + "/" + filename + ".dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename + ".dat", FileMode.Open);
-            return (MapData) bf.Deserialize(loadFile);
-        }
-        return null;
-    }
-
-    [Serializable]
-    class MapData {
-        public int[,] tiledGameWorld;
-    }
+    
 }
+

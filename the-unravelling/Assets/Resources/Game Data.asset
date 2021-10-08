@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c92403f0f8818444b6e5390237f1fcb, type: 3}
+  m_Name: Game Data
+  m_EditorClassIdentifier: 
+  world:
+    worldSize: 256
+    mapName: new World
+    gameTime: 0
+    day: 0
+  GRASS: {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
+  DIRT: {fileID: 11400000, guid: 9221880e1f7089847bf8aedc2239df5f, type: 2}
+  STONE: {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
+  FOG:
+  - {fileID: 11400000, guid: cead43cad6ae6df42bbc16c423812e23, type: 2}
+  - {fileID: 11400000, guid: 28518880aface004ab90b1a74601afdd, type: 2}
+  - {fileID: 11400000, guid: d408959c3f5fdf648af9550c3f8242e0, type: 2}
+  - {fileID: 11400000, guid: 3010f8757944db845a7098ce649640ed, type: 2}
+  - {fileID: 11400000, guid: f5bcfcc6778d3f441919d2aac71ad20e, type: 2}
+  - {fileID: 11400000, guid: 0e29e506cba907d4992ad3fbc762d0e3, type: 2}
+  - {fileID: 11400000, guid: eb0aa57eefbc0c34380d889cc8a78687, type: 2}
+  - {fileID: 11400000, guid: 2e3d10e66167dfd408185e2b3a0a0466, type: 2}
+  - {fileID: 11400000, guid: 95e4d9508cfb0bb4d8e2d121e46f9aa6, type: 2}
+  - {fileID: 11400000, guid: 34f26ebc05e3d964f9b7374648f8c10b, type: 2}
+  - {fileID: 11400000, guid: 22b9fbee8da2a2745b2685ddc64f7bcf, type: 2}
+  - {fileID: 11400000, guid: 1c2f14680c8703b499c0941e44ca2e41, type: 2}
+  - {fileID: 11400000, guid: b945644bc849f2543be0df08bc6cc3c0, type: 2}
+  - {fileID: 11400000, guid: 8fa5692aa2d838949a783f8ba68ddd71, type: 2}
+  - {fileID: 11400000, guid: 4d5557567a3ab9848b01aec5a74b0c34, type: 2}
+  - {fileID: 11400000, guid: 2d01295b462a9b44ba513054fa31defd, type: 2}

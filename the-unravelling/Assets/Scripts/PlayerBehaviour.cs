@@ -10,19 +10,23 @@ public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
 
-    // Prefab to base the preview object upon
-    public GameObject previewPrefab;
+    // The inventory UI
+    public InventoryUIBehaviour inventoryUI;
+
+    // The players inventory
+    public Inventory inventory;
+
+    // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
+    public ItemData item;
 
     // GameObject that previews where to place tiles
-    // NOTE: We could reuse the same object instead of instantiating and destroying objects
-    private GameObject previewGameObject;
-
-    // TODO: Replace this with prefab chosen from inventory
-    public GameObject machine;
+    public GameObject previewGameObject;
 
     // Components
     private Rigidbody2D body;
+    private PlayerInput playerInput;
     private InputAction moveAction;
+    private Animator playerAnimation;
 
     // Global objects
     private Mouse mouse;
@@ -32,17 +36,23 @@ public class PlayerBehaviour : MonoBehaviour {
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
 
-        var actions = GetComponent<PlayerInput>().actions;
+        playerInput = GetComponent<PlayerInput>();
+        var actions = playerInput.actions;
+
+        playerAnimation = GetComponent<Animator>();
+        
+        // Test var for capturing movement for animations
 
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
 
         // Setup action handlers
-        actions["Inventory"].performed += OnActionInventory;
-        actions["Interact"].performed += OnActionInteract;
-        actions["Place"].performed += OnActionPlace;
-        actions["Cancel"].performed += OnActionCancel;
-        actions["Destroy"].performed += OnActionDestroy;
+        actions["Player/Inventory"].performed += OnActionInventory;
+        actions["Player/Interact"].performed += OnActionInteract;
+        actions["Player/Place"].performed += OnActionPlace;
+        actions["Player/Cancel"].performed += OnActionCancel;
+        actions["Player/Destroy"].performed += OnActionDestroy;
+        actions["UI/Cancel"].performed += inventoryUI.OnClose;
 
         // Grab global objects
         mouse = Mouse.current;
@@ -51,12 +61,65 @@ public class PlayerBehaviour : MonoBehaviour {
         // Assert that the scene is setup to support player behaviour
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
+
+        inventory.AddItem(item, 2);
+
+        // We need to make a new instance of the game object, so that we can use it.
+        previewGameObject = Instantiate(previewGameObject);
+        // But it should still be disabled
+        previewGameObject.SetActive(false);
     }
 
     private void Update() {
         // Move the preview object to under the mouse
-        if (previewGameObject) {
+        if (previewGameObject.activeSelf) {
             previewGameObject.transform.position = GetMousePosition();
+        }
+    }
+
+    private void PlayerAnimations(Vector2 bodyMove)
+    {
+        if (bodyMove.y > 0)
+        {
+            playerAnimation.SetBool("Up", true);
+            playerAnimation.SetBool("Down", false);
+            playerAnimation.SetBool("Right", false);
+            playerAnimation.SetBool("Left", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+
+        }
+        else if (bodyMove.y < 0)
+        {
+            playerAnimation.SetBool("Down", true);
+            playerAnimation.SetBool("Up", false);
+            playerAnimation.SetBool("Right", false);
+            playerAnimation.SetBool("Left", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+        } 
+        else if (bodyMove.x > 0)
+        {
+            playerAnimation.SetBool("Right", true);
+            playerAnimation.SetBool("Left", false);
+            playerAnimation.SetBool("Down", false);
+            playerAnimation.SetBool("Up", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
+        } 
+        else if (bodyMove.x < 0)
+        {
+            playerAnimation.SetBool("Left", true);
+            playerAnimation.SetBool("Right", false);
+            playerAnimation.SetBool("Down", false);
+            playerAnimation.SetBool("Up", false);
+            playerAnimation.SetBool("IdleFront", false);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
+        }
+        else
+        {
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
         }
     }
 
@@ -64,36 +127,34 @@ public class PlayerBehaviour : MonoBehaviour {
         var move = moveAction.ReadValue<Vector2>();
 
         body.velocity = move * (Time.deltaTime * speed);
+        
+        PlayerAnimations(body.velocity);
     }
 
     // Create a placement preview based on prefab object
-    private void CreatePreview(GameObject prefab) {
-        if (previewGameObject == null) {
-            Assert.IsNotNull(prefab.GetComponent<SpriteRenderer>(),
-                "Prefab to be placed must have a sprite renderer component");
+    private void CreatePreview(in ItemData item) {
+        if (previewGameObject.activeSelf) return;
 
-            // Create the new object
-            // The position 
-            previewGameObject = Instantiate(previewPrefab);
-
-            // Set the opacity of the object to 50%
-            var sprite = previewGameObject.GetComponent<SpriteRenderer>();
-            sprite.sprite = prefab.GetComponent<SpriteRenderer>().sprite;
-            var spriteColor = sprite.color;
-            spriteColor.a = 0.5f;
-            sprite.color = spriteColor;
-        }
+        if (!inventory.HasItem(item)) return;
+        
+        previewGameObject.SetActive(true);
+        var sprite = previewGameObject.GetComponent<SpriteRenderer>();
+        sprite.sprite = item.preview;
     }
 
     // Place object into the scene, based on the location of the preview
-    private void PlaceObject(GameObject prefab) {
-        if (previewGameObject) {
-            // Create final object
-            Instantiate(prefab, previewGameObject.transform.position, Quaternion.identity);
+    private void PlaceObject(in ItemData item) {
+        // Only place item, if preview was active
+        if (!previewGameObject.activeSelf) return;
+        
+        // Remove item from inventory
+        if (!inventory.RemoveItem(item)) return;
 
-            // Destroy the preview object
-            Destroy(previewGameObject);
-        }
+        // Create final object
+        Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
+
+        // Deactivate the preview
+        previewGameObject.SetActive(false);
     }
 
     // Get the word space position of the mouse
@@ -106,12 +167,21 @@ public class PlayerBehaviour : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
 
+    // Called when the inventory UI closes
+    private void OnCloseInventory(in ItemData item) {
+        playerInput.SwitchCurrentActionMap("Player");
+
+        if (item != null) {
+            CreatePreview(item);
+        }
+    }
+
     // Called when inventory action is triggered
     private void OnActionInventory(InputAction.CallbackContext ctx) {
         Debug.Log("Open Inventory");
 
-        // Create a preview object for previewing placement
-        CreatePreview(machine);
+        playerInput.SwitchCurrentActionMap("UI");
+        inventoryUI.OnActivate(inventory, OnCloseInventory);
     }
 
     // Called when interact action is triggered
@@ -124,7 +194,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Debug.Log("Place tile/machine");
 
         // Destroy the preview object when real object is placed
-        PlaceObject(machine);
+        PlaceObject(item);
     }
 
     // Called when cancel action is triggered
@@ -132,8 +202,8 @@ public class PlayerBehaviour : MonoBehaviour {
         Debug.Log("Cancel current action");
 
         // Destroy the preview if it exists
-        if (previewGameObject) {
-            Destroy(previewGameObject);
+        if (previewGameObject.activeSelf) {
+            previewGameObject.SetActive(false);
         }
     }
 
