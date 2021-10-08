@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "Game Data", menuName = "Scriptable Objects/World/Game Data")]
 public class GameData : ScriptableObjectSingleton<GameData> {
+    public Manager gameManager;
+    
     public World world;
 
     public const int NW = 0b1;
