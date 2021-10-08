@@ -8,19 +8,21 @@ using UnityEngine;
      public InteractableWorldEntity sharedData;
      public float health;
 
-     public InteractableWorldEntityBehaviour() {
+     
+     
+     public void Start() {
          health = sharedData.maxHealth;
      }
      
      
     // Called when player does damage to entity.
     public virtual void DamageOrDestroy() {
-        if (sharedData.maxHealth <= 0) {
-            Debug.Log("Tree object destroyed, gave " + sharedData.GetResourceAmount() + " wood!" );
-            Destroy(this);
+        if (health <= 0) {
+            Debug.Log("Object destroyed, gave " + sharedData.GetResourceAmount());
+            Destroy(gameObject);
         }
         else {
-            sharedData.maxHealth -= 20; //TODO get damage from player weapon 
+            health -= 20; //TODO get damage from player weapon 
         }
     }
 

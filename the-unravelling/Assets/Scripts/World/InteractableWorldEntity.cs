@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Tree Settings")]
+[CreateAssetMenu(fileName = "Interactable World Entity", menuName = "Scriptable Objects/World/Interactable World Entity")]
 public class InteractableWorldEntity : WorldEntity {
 
     public float maxHealth;    
