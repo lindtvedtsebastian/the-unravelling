@@ -79,7 +79,6 @@ public class PlayerBehaviour : MonoBehaviour {
 
     private void PlayerAnimations(Vector2 bodyMove)
     {
-        // Animations for the different directions
         if (bodyMove.y > 0)
         {
             playerAnimation.SetBool("Up", true);
@@ -87,7 +86,6 @@ public class PlayerBehaviour : MonoBehaviour {
             playerAnimation.SetBool("Right", false);
             playerAnimation.SetBool("Left", false);
             playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Blend", bodyMove.y);
             playerAnimation.SetFloat("Velocity Y", bodyMove.y);
 
         }
@@ -98,7 +96,6 @@ public class PlayerBehaviour : MonoBehaviour {
             playerAnimation.SetBool("Right", false);
             playerAnimation.SetBool("Left", false);
             playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Blend", bodyMove.y);
             playerAnimation.SetFloat("Velocity Y", bodyMove.y);
         } 
         else if (bodyMove.x > 0)
@@ -108,7 +105,6 @@ public class PlayerBehaviour : MonoBehaviour {
             playerAnimation.SetBool("Down", false);
             playerAnimation.SetBool("Up", false);
             playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Blend", bodyMove.x);
             playerAnimation.SetFloat("Velocity X", bodyMove.x);
         } 
         else if (bodyMove.x < 0)
@@ -118,12 +114,12 @@ public class PlayerBehaviour : MonoBehaviour {
             playerAnimation.SetBool("Down", false);
             playerAnimation.SetBool("Up", false);
             playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Blend", bodyMove.x);
             playerAnimation.SetFloat("Velocity X", bodyMove.x);
         }
         else
         {
-            playerAnimation.SetFloat("Blend", bodyMove.y);
+            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
+            playerAnimation.SetFloat("Velocity X", bodyMove.x);
         }
     }
 
@@ -226,102 +222,3 @@ public class PlayerBehaviour : MonoBehaviour {
         }
     }
 }
-
-/*playerAnimation.SetBool("RunBack", true);
-            playerAnimation.SetBool("RunRight", false);
-            playerAnimation.SetBool("RunLeft", false);
-            playerAnimation.SetBool("RunFront", false);
-            playerAnimation.SetBool("IdleFront", false);*/
-            
-//Debug.Log(body.position);
-//Debug.Log("body velocity x : " + body.velocity.x);
-//Debug.Log("body velocity y : " + body.velocity.y);
-
-//Debug.Log("Player x position is : " + body.position.x);
-//Debug.Log("Player y position is : " + body.position.y);
-
-/*else if (bodyMove.x > 0)
-        {
-            /*playerAnimation.SetBool("RunRight", true);
-            playerAnimation.SetBool("RunLeft", false);
-            playerAnimation.SetBool("RunBack", false);
-            playerAnimation.SetBool("RunFront", false);
-            playerAnimation.SetBool("IdleFront", false);#1#
-        } else if (bodyMove.x < 0)
-        {
-            /*playerAnimation.SetBool("RunLeft", true);
-            playerAnimation.SetBool("RunRight", false);
-            playerAnimation.SetBool("RunBack", false);
-            playerAnimation.SetBool("RunFront", false);
-            playerAnimation.SetBool("IdleFront", false);#1#
-        }
-        else
-        {
-            /*playerAnimation.SetBool("IdleFront", true);
-            playerAnimation.SetBool("RunLeft", false);
-            playerAnimation.SetBool("RunRight", false);
-            playerAnimation.SetBool("RunBack", false);
-            playerAnimation.SetBool("RunFront", false);#1#
-        }*/
-
-
-/*if (bodyPosition.y > 0)
-{
-    playerAnimation.SetBool("RunBack", true);
-    playerAnimation.SetBool("RunFront", false);
-}
-
-if (bodyPosition.y < 0)
-{
-    playerAnimation.SetBool("RunFront", true);
-    playerAnimation.SetBool("RunBack", false);
-}*/ 
-        
-/*if (bodyPosition.y < 0)
-{
-    playerAnimation.SetBool("RunBack", true);
-    playerAnimation.SetBool("IdleFront", false);
-} else if (bodyPosition.y > -1)
-{
-    playerAnimation.SetBool("RunBack", false);
-    playerAnimation.SetBool("IdleFront", true);
-}*/
-
-/*private void PlayUpAnimation(float val)
-{
-    Debug.Log("Value up is : " + val);
-    if (val > 0)
-    {
-        playerAnimation.SetBool("RunBack", true);
-        playerAnimation.SetBool("RunFront", false);
-        playerAnimation.SetBool("IdleFront", false);
-        playerAnimation.SetBool("IdleBack", false);
-    }
-    else
-    {
-        playerAnimation.SetBool("IdleBack", true);
-        playerAnimation.SetBool("IdleFront", false);
-        playerAnimation.SetBool("RunFront", false);
-        playerAnimation.SetBool("RunBack", false);
-    }
-}*/
-
-/*private void PlayDownAnimation(float val)
-{
-    Debug.Log("Value down is : " + val);
-    
-    if (val < 0)
-    {
-        playerAnimation.SetBool("RunFront", true);
-        playerAnimation.SetBool("RunBack", false);
-        playerAnimation.SetBool("IdleFront", false);
-        playerAnimation.SetBool("IdleBack", false);
-    }
-    else
-    {
-        playerAnimation.SetBool("IdleFront", true);
-        playerAnimation.SetBool("IdleBack", false);
-        playerAnimation.SetBool("RunFront", false);
-        playerAnimation.SetBool("RunBack", false);
-    }
-}*/
