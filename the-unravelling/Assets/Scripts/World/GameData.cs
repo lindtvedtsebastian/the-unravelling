@@ -18,7 +18,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     public const int SE = 0b10000000;
 
     public BitmaskableWorldEntity GRASS;
-	public WorldEntity DIRT;
+	public BitmaskableWorldEntity DIRT;
 	public WorldEntity STONE;
     public TileBase[] FOG;
 
@@ -50,6 +50,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
 public class World {
     public int worldSize;
     public int[,] map;
+    public int[,] background;
     public string mapName;
     public float gameTime;
     public int day;
