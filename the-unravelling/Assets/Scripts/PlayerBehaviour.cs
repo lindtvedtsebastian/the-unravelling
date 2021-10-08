@@ -221,7 +221,10 @@ public class PlayerBehaviour : MonoBehaviour {
         foreach (var unit in units) {
             var pos = GetMousePosition();
             if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
-                Destroy(unit);
+                
+                unit.GetComponent<InteractableWorldEntityBehaviour>().DamageOrDestroy();
+                
+                //Destroy(unit);
                 return;
             }
         }
