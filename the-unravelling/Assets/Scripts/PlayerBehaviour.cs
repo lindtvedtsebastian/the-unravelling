@@ -79,6 +79,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     private void PlayerAnimations(Vector2 bodyMove)
     {
+        // Animations for the different directions
         if (bodyMove.y > 0)
         {
             playerAnimation.SetBool("Up", true);
