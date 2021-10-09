@@ -7,7 +7,7 @@ public class WorldEntity : ScriptableObject {
     public Color mapColor;
     public TileBase[] sprites;
 
-    public TileBase SetSprite() {
+    public virtual TileBase SetSprite(int y, int x) {
         return sprites[Random.Range(0, sprites.Length)];
     }
 }

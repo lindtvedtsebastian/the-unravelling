@@ -17,9 +17,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     public const int S  = 0b1000000;
     public const int SE = 0b10000000;
 
-    public BitmaskableWorldEntity GRASS;
-	public BitmaskableWorldEntity DIRT;
-	public WorldEntity STONE;
+    public WorldEntity[] worldEntities;
     public TileBase[] FOG;
 
     GameData() {
