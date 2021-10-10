@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world:
     worldSize: 256
-    mapName: new World
+    mapName: autosave_10-10-2021_2025
     gameTime: 0
     day: 0
-  GRASS: {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
-  DIRT: {fileID: 11400000, guid: 9221880e1f7089847bf8aedc2239df5f, type: 2}
-  STONE: {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
+  worldEntities:
+  - {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
+  - {fileID: 11400000, guid: 9221880e1f7089847bf8aedc2239df5f, type: 2}
+  - {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
   FOG:
   - {fileID: 11400000, guid: cead43cad6ae6df42bbc16c423812e23, type: 2}
   - {fileID: 11400000, guid: 28518880aface004ab90b1a74601afdd, type: 2}

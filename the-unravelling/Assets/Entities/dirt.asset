@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9daa6da480378bc478c73aafe2dde6d7, type: 3}
   m_Name: dirt
   m_EditorClassIdentifier: 
-  id: 2
+  id: 1
   mapColor: {r: 0.5019608, g: 0.3764706, b: 0.3372549, a: 1}
   sprites:
   - {fileID: 11400000, guid: 55d62058408e1ff40b2d94a8fb60071a, type: 2}

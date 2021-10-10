@@ -27,7 +27,7 @@ public static class MapGenerator {
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 if (heightMap[x, y] > 0.4f) {
-                    GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameIDs.DIRT : GameIDs.DIRT;
+                    GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameIDs.GRASS : GameIDs.DIRT;
                     GameData.Get.world.background[x, y] = GameIDs.STONE;
                 } else {
                     GameData.Get.world.map[x, y] = GameIDs.STONE;
