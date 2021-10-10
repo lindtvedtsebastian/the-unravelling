@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd1c77d663377540ae8bbe824a8aca4, type: 3}
   m_Name: tree
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3
   mapColor: {r: 0, g: 0, b: 0, a: 0}
   sprites: []
   maxHealth: 100

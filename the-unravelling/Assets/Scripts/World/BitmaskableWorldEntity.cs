@@ -17,7 +17,7 @@ public class BitmaskableWorldEntity : WorldEntity
     private bool southExists;
 
 
-    public TileBase SetSprite(int y, int x) {
+    public override TileBase SetSprite(int y, int x) {
         return this.sprites[bitmaskToSpriteIndex[calculateBitmask(y,x)]];
     }
 
