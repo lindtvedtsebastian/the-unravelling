@@ -19,16 +19,20 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     public const int S  = 0b1000000;
     public const int SE = 0b10000000;
 
-    public BitmaskableWorldEntity GRASS;
-	public BitmaskableWorldEntity DIRT;
-	public WorldEntity STONE;
+    public WorldEntity[] worldEntities;
     public TileBase[] FOG;
 
+    /// <summary>
+    /// Constructor for the GameData class 
+    /// </summary>
     GameData() {
         world = new World();
     }
-    
-    public void SaveWorld(string filename = "game-world") {
+
+    /// <summary>
+    /// Takes a screenshot of the current player view, then saves the world
+    /// </summary>
+    public void SaveWorld() {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.mapName + ".world"); 
         bf.Serialize(saveFile,world);
@@ -38,6 +42,10 @@ public class GameData : ScriptableObjectSingleton<GameData> {
         ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + world.mapName + ".png");
     }
 
+    /// <summary>
+    /// Loads the world file at the filename location in the persistent data path
+    /// </summary>
+    /// <param name="filename"></param>
     public void LoadWorld(string filename = "game-world") {
         if (File.Exists(Application.persistentDataPath + "/" + filename)) {
             BinaryFormatter bf = new BinaryFormatter();
