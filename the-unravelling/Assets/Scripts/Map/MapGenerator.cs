@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class MapGenerator {
@@ -12,6 +8,17 @@ public static class MapGenerator {
     public static string currentMapPath;
 
 
+    /// <summary>
+    /// Generates a new map with different tileIDs, which functions as a game world
+    /// </summary>
+    /// <param name="newMapName">The name of the map/world</param>
+    /// <param name="mapSize">The size of the map as NxN</param>
+    /// <param name="seed">The seed used for generation</param>
+    /// <param name="scale">The noise scale</param>
+    /// <param name="octaves">How many levels of detail</param>
+    /// <param name="persistance">How much each octave contributes to the overall noise</param>
+    /// <param name="lacunarity">How much detail each octave adds/removes</param>
+    /// <param name="offset">An offset of the noise in (x,y)</param>
     public static void GenerateTilemap(string newMapName,int mapSize, int seed, float scale,
         int octaves, float persistance, float lacunarity, Vector2 offset) {
         
@@ -37,7 +44,17 @@ public static class MapGenerator {
         }
     }
 
-    
+    /// <summary>
+    /// Generates a noisemap, that is to be consumed by the tilemap generator 
+    /// </summary> 
+    /// <param name="mapSize">The size of the map as NxN</param>
+    /// <param name="seed">The seed used for generation</param>
+    /// <param name="scale">The noise scale</param>
+    /// <param name="octaves">How many levels of detail</param>
+    /// <param name="persistance">How much each octave contributes to the overall noise</param>
+    /// <param name="lacunarity">How much detail each octave adds/removes</param>
+    /// <param name="offset">An offset of the noise in (x,y)</param>
+    /// <returns>A 2D array of size [mapsize,mapsize] with noise values</returns>
     public static float[,] generateNoiseMap(int mapSize, int seed, float scale, int octaves,
                                      float persistance, float lacunarity, Vector2 offset) {
 
