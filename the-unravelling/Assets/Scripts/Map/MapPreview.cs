@@ -7,6 +7,9 @@ public class MapPreview : MonoBehaviour
     private Texture2D texture;
     public RawImage mapPreview;
 
+    /// <summary>
+    /// Sets the pixels of a 2D texture to be equivalent to a tilemap 
+    /// </summary>
     public void drawMap() {
         texture = new Texture2D(GameData.Get.world.worldSize, GameData.Get.world.worldSize);
         for (int y = 0; y < GameData.Get.world.worldSize; y++) {
