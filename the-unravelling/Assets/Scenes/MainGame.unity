@@ -340,8 +340,8 @@ MonoBehaviour:
     globalGameTime: 0
     Tick: 1
     currentGameDay: 0
-    _isGameOver: 0
-    _stateOfDay: 0
+    isGameOver: 0
+    stateOfDay: 0
 --- !u!4 &566386168
 Transform:
   m_ObjectHideFlags: 0

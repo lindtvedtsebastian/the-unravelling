@@ -7,7 +7,6 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "Game Data", menuName = "Scriptable Objects/World/Game Data")]
 public class GameData : ScriptableObjectSingleton<GameData> {
     public World world;
-    public StateManager gameManager;
 
     public const int NW = 0b1;
     public const int N  = 0b10;
@@ -26,7 +25,6 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     /// </summary>
     GameData() {
         world = new World();
-        gameManager = new StateManager();
     }
 
     /// <summary>
@@ -58,10 +56,13 @@ public class GameData : ScriptableObjectSingleton<GameData> {
 
 [Serializable]
 public class World {
+    public WorldState state;
     public int worldSize;
     public int[,] map;
     public int[,] background;
     public string mapName;
-    public float gameTime;
-    public int day;
+
+    public World() {
+        state = new WorldState();
+    }
 }

@@ -16,13 +16,14 @@ public class LoadGameAddSave : MonoBehaviour
     public GameObject buttonPrefab;
     public GameObject loadGameButton;
     public RawImage previewImage;
+    public GameObject deleteButton;
 
 
     void Start() {
         dir = new DirectoryInfo(Application.persistentDataPath);
         files = dir.GetFiles("*.png");
 
-        foreach (FileInfo file in files) { // fill the entries with random data for now until savefiles are a thing.
+        foreach (FileInfo file in files) {
             fileNames.Add(file.Name);
         }
 
@@ -49,7 +50,7 @@ public class LoadGameAddSave : MonoBehaviour
         tex.LoadImage(image);
         previewImage.GetComponent<RawImage>().texture = tex;
     }
-
+    
     public void LoadGame() {
         GameData.Get.LoadWorld(selectedWorld);
         SceneManager.LoadScene("MainGame");
