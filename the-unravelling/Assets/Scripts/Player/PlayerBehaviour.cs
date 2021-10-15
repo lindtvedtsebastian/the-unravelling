@@ -78,8 +78,8 @@ public class PlayerBehaviour : MonoBehaviour {
                                                                Mathf.Floor(previewGameObject.transform.position.y) + 0.5f, 
                                                                previewGameObject.transform.position.z);
             
-            Debug.Log("X value : " + previewGameObject.transform.position.x);
-            Debug.Log("Y value : " + previewGameObject.transform.position.y);
+//            Debug.Log("X value : " + previewGameObject.transform.position.x);
+//            Debug.Log("Y value : " + previewGameObject.transform.position.y);
         }
     }
 

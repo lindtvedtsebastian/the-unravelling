@@ -56,10 +56,13 @@ public class GameData : ScriptableObjectSingleton<GameData> {
 
 [Serializable]
 public class World {
+    public WorldState state;
     public int worldSize;
     public int[,] map;
     public int[,] background;
     public string mapName;
-    public float gameTime;
-    public int day;
+
+    public World() {
+        state = new WorldState();
+    }
 }
