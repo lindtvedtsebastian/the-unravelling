@@ -16,15 +16,23 @@ public class Pathfinding : MonoBehaviour {
 
 	public Pathfinding() {
         float startTime = Time.realtimeSinceStartup;
-        
-        PathfindingJob pathfinding = new PathfindingJob {
-            startPos = new int2(0, 0),
-            endPos = new int2(21, 22),
-            // nodeArray = BuildPathfindingGrid(new int2(21, 22)),
-            nodeArray = BuildPathfindingGrid(new int2(254, 254)),
-            gridSize = GameData.Get.world.worldSize
-        };
-        pathfinding.Run();
+
+        int jobCount = 5;
+        NativeArray<JobHandle> jobHandleArray = new NativeArray<JobHandle>(jobCount, Allocator.TempJob);
+
+        for (int i = 0; i < jobCount; i++) {
+            
+            PathfindingJob pathfinding = new PathfindingJob {
+                startPos = new int2(0, 0),
+                endPos = new int2(21, 22),
+                // nodeArray = BuildPathfindingGrid(new int2(21, 22)),
+                nodeArray = BuildPathfindingGrid(new int2(254, 254)),
+                gridSize = GameData.Get.world.worldSize
+            };
+            jobHandleArray[i] = pathfinding.Schedule();
+        }
+        JobHandle.CompleteAll(jobHandleArray);
+        jobHandleArray.Dispose();
         Debug.Log("Time: " + ((Time.realtimeSinceStartup - startTime) * 1000f + "ms"));
     }
 
@@ -43,9 +51,9 @@ public class Pathfinding : MonoBehaviour {
 				node.isWalkable = true;
 				node.previousIndex = -1;
 
-				node.additionalCost = GameData.Get.world.pathfindingMap[y, x];
+                node.additionalCost = 0;//GameData.Get.world.pathfindingMap[y, x];
 
-				node.gCost = int.MaxValue;
+                node.gCost = int.MaxValue;
 				node.hCost = CalculateHeuristics(new int2(x, y), endPos);
 				node.CalculateFCost();
 
