@@ -41,7 +41,7 @@ public static class MapGenerator {
                 } else {
                     GameData.Get.world.map[x, y] = GameIDs.STONE;
                     GameData.Get.world.background[x, y] = GameIDs.STONE;
-                    GameData.Get.world.pathfindingMap[x, y] = 50;
+                    GameData.Get.world.pathfindingMap[x, y] = 0;
                 }
             }
         }
