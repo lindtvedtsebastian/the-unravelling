@@ -36,9 +36,11 @@ public static class MapGenerator {
                 if (heightMap[x, y] > 0.4f) {
                     GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameIDs.GRASS : GameIDs.DIRT;
                     GameData.Get.world.background[x, y] = GameIDs.STONE;
+                    GameData.Get.world.pathfindingMap[x, y] = 0;
                 } else {
                     GameData.Get.world.map[x, y] = GameIDs.STONE;
                     GameData.Get.world.background[x, y] = GameIDs.STONE;
+                    GameData.Get.world.pathfindingMap[x, y] = 50;
                 }
             }
         }
