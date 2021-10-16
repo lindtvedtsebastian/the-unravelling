@@ -9,11 +9,12 @@ public class EnemyWalk : State
     public override void EnterState(State state) {
         Debug.Log("EnemyWalk state entered");
         _state = state;
-        this.DoState();
     }
     
     public override void DoState() {
         // Do pathfinding 
+        Debug.Log("Pathfinding started");
+        Pathfinding pathfinding = new Pathfinding();
     }
 
     public override void LeaveState() {
