@@ -13,6 +13,15 @@ public class PlayerBehaviour : MonoBehaviour {
     // The inventory UI
     public InventoryUIBehaviour inventoryUI;
 
+    public AudioSource walkingLSound;
+    public AudioSource walkingRSound;
+    private void playLeftWalkingSound() {
+        walkingLSound.Play();
+    }
+    private void playRightWalkingSound() {
+        walkingRSound.Play();
+    }
+
     // The players inventory
     public Inventory inventory;
 
@@ -40,6 +49,9 @@ public class PlayerBehaviour : MonoBehaviour {
         var actions = playerInput.actions;
 
         playerAnimation = GetComponent<Animator>();
+
+        walkingLSound = GetComponent<AudioSource>();
+        walkingRSound = GetComponent<AudioSource>();
         
         // Test var for capturing movement for animations
 
