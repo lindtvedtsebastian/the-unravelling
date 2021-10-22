@@ -12,6 +12,6 @@ public class Dirt : BitmaskableWorldEntity {
     /// <param name="id">The id of the tile having its mask calculated</param>
     /// <returns>Wheter or not the tile that was checked is part of the bitmask or not</returns>
     public override bool BitmaskPredicate(int y, int x, int id) {
-        return IsWorldPosTile(y, x, id) || IsWorldPosTile(y,x,GameIDs.DIRT);
+        return IsWorldPosTile(y, x, id) || IsWorldPosTile(y, x, GameIDs.DIRT);
     }
 }
