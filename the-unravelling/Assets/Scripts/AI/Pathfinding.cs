@@ -17,7 +17,9 @@ public class Pathfinding : MonoBehaviour {
 	public Pathfinding() {
         float startTime = Time.realtimeSinceStartup;
 
-        int jobCount = 5;
+        NativeList<PathPart> resultPath = new NativeList<PathPart>(Allocator.TempJob);
+
+        int jobCount = 1;
         NativeArray<JobHandle> jobHandleArray = new NativeArray<JobHandle>(jobCount, Allocator.TempJob);
 
         for (int i = 0; i < jobCount; i++) {
@@ -27,12 +29,14 @@ public class Pathfinding : MonoBehaviour {
                 endPos = new int2(21, 22),
                 // nodeArray = BuildPathfindingGrid(new int2(21, 22)),
                 nodeArray = BuildPathfindingGrid(new int2(254, 254)),
-                gridSize = GameData.Get.world.worldSize
+                gridSize = GameData.Get.world.worldSize,
+				resultPath = resultPath
             };
             jobHandleArray[i] = pathfinding.Schedule();
         }
         JobHandle.CompleteAll(jobHandleArray);
         jobHandleArray.Dispose();
+        resultPath.Dispose();
         Debug.Log("Time: " + ((Time.realtimeSinceStartup - startTime) * 1000f + "ms"));
     }
 
@@ -84,9 +88,11 @@ public class Pathfinding : MonoBehaviour {
         [DeallocateOnJobCompletion]
 		public NativeArray<Node> nodeArray;
 		public int2 gridSize;
-        
 
-		public void Execute() {
+        public NativeList<PathPart> resultPath;
+
+
+        public void Execute() {
 			int endNodeIndex = CalculateIndex(endPos.x, endPos.y, gridSize.x);
 			NativeArray<int2> neighbourOffsetArray = CreateNeighbourOffsetArray();
 
@@ -153,16 +159,15 @@ public class Pathfinding : MonoBehaviour {
 			}
 
 			Node endNode = nodeArray[endNodeIndex];
-			NativeList<PathPart> path = BuildPath(nodeArray, endNode);
+			BuildPath(nodeArray, endNode);
 
-			if (path.Length > 0) {
-				foreach (PathPart node in path) {
-					// Debug.Log(node.x + ", " +node.y);
-				}
-			}
+			if (resultPath.Length > 0) {
+                for (int i = 0; i < resultPath.Length; i++) {
+                    Debug.Log(string.Format("{0};{1}", resultPath[i].x, resultPath[i].y));
+                }
+            }
 			else Debug.Log("Did not find a path!");
 
-			path.Dispose();
 			neighbourOffsetArray.Dispose();
 			// nodeArray.Dispose();
 			openList.Dispose();
@@ -216,11 +221,10 @@ public class Pathfinding : MonoBehaviour {
 			return currentLowestNode.index;
 		}
 
-		private NativeList<PathPart> BuildPath(NativeArray<Node> nodeArray, Node endNode) {
-			NativeList<PathPart> path = new NativeList<PathPart>(Allocator.Temp);
+		private void BuildPath(NativeArray<Node> nodeArray, Node endNode) {
 			if (endNode.previousIndex != -1) {
 
-				path.Add(new PathPart(endNode.x,
+				resultPath.Add(new PathPart(endNode.x,
 					endNode.y,
 					endNode.isDestroyable ? true : false));
 
@@ -228,15 +232,13 @@ public class Pathfinding : MonoBehaviour {
 
 				while (currentNode.previousIndex != -1) {
 					Node previousNode = nodeArray[currentNode.previousIndex];
-					path.Add(new PathPart(
+					resultPath.Add(new PathPart(
 						previousNode.x,
 						previousNode.y,
 						previousNode.isDestroyable ? true : false));
 					currentNode = previousNode;
 				}
 			}
-
-			return path;
 		}
 
 	}
