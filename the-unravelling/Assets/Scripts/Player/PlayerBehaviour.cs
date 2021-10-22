@@ -15,12 +15,6 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public AudioSource walkingLSound;
     public AudioSource walkingRSound;
-    private void playLeftWalkingSound() {
-        walkingLSound.Play();
-    }
-    private void playRightWalkingSound() {
-        walkingRSound.Play();
-    }
 
     // The players inventory
     public Inventory inventory;
@@ -94,7 +88,13 @@ public class PlayerBehaviour : MonoBehaviour {
 //            Debug.Log("Y value : " + previewGameObject.transform.position.y);
         }
     }
-
+    private void playLeftWalkingSound() {
+        walkingLSound.Play();
+    }
+    private void playRightWalkingSound() {
+        walkingRSound.Play();
+    }
+    
     private void PlayerAnimations(Vector2 bodyMove)
     {
         if (bodyMove.y > 0)

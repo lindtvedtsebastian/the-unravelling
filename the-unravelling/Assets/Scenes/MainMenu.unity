@@ -4714,8 +4714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95c060e9d8edd94789fd010ea6bec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuAudio: {fileID: 8300000, guid: 6c848dcf4d7f61f4387dd680406b655a, type: 3}
   dayMusic:
-  - {fileID: 8300000, guid: 6c848dcf4d7f61f4387dd680406b655a, type: 3}
   - {fileID: 8300000, guid: cdfc2d3e78fe0c0408e15b81a29be183, type: 3}
   - {fileID: 8300000, guid: f5d03c7cbea3ff140a4fc67ffec03332, type: 3}
   nightMusic:
