@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2920742903577623359}
   - component: {fileID: 2941573559663217591}
   - component: {fileID: 9148443104324300394}
+  - component: {fileID: 1381935324}
   m_Layer: 0
   m_Name: Machine
   m_TagString: Unit
@@ -99,3 +100,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1381935324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106066065057617313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b151a7d97ff472c46bf1bd86d77c6638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
+  drops: {fileID: 11400000, guid: 73ba29c97e5fe6a429d23d13cd35a90b, type: 2}
+  minDropCount: 3
+  maxDropCount: 5
