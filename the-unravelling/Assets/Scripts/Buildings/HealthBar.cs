@@ -8,9 +8,9 @@ public class HealthBar : MonoBehaviour {
     [SerializeField] private Image bar;
     [SerializeField] private Canvas canvas;
 
-    public delegate float GetHealthPercentage();
+    public delegate float GetHealth();
 
-    public GetHealthPercentage Health;
+    public GetHealth Health;
 
     private void Awake() {
         canvas.worldCamera = Camera.current;
@@ -18,7 +18,14 @@ public class HealthBar : MonoBehaviour {
 
     private void Update() {
         if (Health == null) return;
-
-        bar.fillAmount = Health();
+        
+        var health = Health();
+        if (health >= 1.0f) {
+            canvas.enabled = false;
+        }
+        else {
+            canvas.enabled = true;
+            bar.fillAmount = health;
+        }
     }
 }
