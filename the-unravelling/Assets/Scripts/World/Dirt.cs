@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Dirt" ,menuName = "Scriptable Objects/World/Dirt")]
-public class Dirt : BitmaskableWorldEntity
-{
+[Serializable]
+[CreateAssetMenu(fileName = "Dirt", menuName = "World Entities/Dirt")]
+public class Dirt : BitmaskableWorldEntity {
     /// <summary>
     /// A overridden function for determining if a tile should be part of the bitmask or not
-    /// <summary>
+    /// </summary>
     /// <param name="y">The position of the tile to be checked in the y axis</param>
     /// <param name="x">The position of the tile to be checked in the x axis</param>
     /// <param name="id">The id of the tile having its mask calculated</param>

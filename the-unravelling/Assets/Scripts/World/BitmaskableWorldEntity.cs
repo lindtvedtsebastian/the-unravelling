@@ -1,12 +1,11 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
-[CreateAssetMenu(fileName = "Bitmaskable World Entity" ,menuName = "Scriptable Objects/World/Bitmaskable World Entity")]
-public class BitmaskableWorldEntity : WorldEntity
-{
+[Serializable]
+[CreateAssetMenu(fileName = "Bitmaskable World Entity", menuName = "World Entities/Bitmaskable World Entity")]
+public class BitmaskableWorldEntity : WorldEntity {
     private bool checkNorth;
     private bool checkWest;
     private bool checkEast;
@@ -23,7 +22,7 @@ public class BitmaskableWorldEntity : WorldEntity
     /// <param name="x">The tile's position on the x axis</param>
     /// <returns>The sprite that should be at this world position</returns>
     public override TileBase SetSprite(int y, int x) {
-        return this.sprites[bitmaskToSpriteIndex[calculateBitmask(y,x)]];
+        return this.tiles[bitmaskToSpriteIndex[calculateBitmask(y,x)]];
     }
 
     /// <summary>
