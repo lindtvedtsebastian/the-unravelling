@@ -2,23 +2,24 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 /// <summary>
-/// A base class for buildings.
+/// A base class for units.
 /// </summary>
-public class BaseBuilding : MonoBehaviour {
-    // Maximum health of the building. Configured in subclass or prefab.
+[RequireComponent(typeof(Collider2D))]
+public class BaseUnit : MonoBehaviour {
+    // Maximum health of the unit. Configured in subclass or prefab.
     [SerializeField] protected int maxHealth;
 
-    // Health bar that appears as the building takes damage
+    // Health bar that appears as the unit takes damage.
     [SerializeField] private GameObject healthBar;
 
-    // Item that the building drops when destroyed
+    // Item that the unit drops when destroyed.
     [SerializeField] private ItemData drops;
 
-    // Drop statistic of item `drops` from this building
+    // Drop statistic of item `drops` from this unit.
     [SerializeField] private int minDropCount;
     [SerializeField] private int maxDropCount;
 
-    // Current health
+    // Current health of the unit.
     private int health;
 
     void Awake() {
@@ -41,7 +42,7 @@ public class BaseBuilding : MonoBehaviour {
     public float HealthFraction => (float)health / (float)maxHealth;
 
     /// <summary>
-    /// Damage the building. Destroy the building if health goes to zero.
+    /// Damage the unit. Destroy the unit if health goes to zero.
     /// </summary>
     /// <param name="damage">Points of damage</param>
     /// <returns>Was the building destroyed?</returns>
@@ -71,7 +72,7 @@ public class BaseBuilding : MonoBehaviour {
     }
 
     /// <summary>
-    /// Called when health reaches zero, responsible for destroying the building.
+    /// Called when health reaches zero, responsible for destroying the unit.
     /// </summary>
     private void OnDestroy() {
         Drop();

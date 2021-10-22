@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -204,7 +201,7 @@ public class PlayerBehaviour : MonoBehaviour {
         foreach (var unit in units) {
             var pos = GetMousePosition();
             if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
-                var bb = unit.GetComponent<BaseBuilding>();
+                var bb = unit.GetComponent<BaseUnit>();
                 if (bb) {
                     bb.Damage(50);
                 }
