@@ -28,6 +28,9 @@ public class PlayerBehaviour : MonoBehaviour {
     // Global objects
     private Mouse mouse;
     private Camera currentCamera;
+    
+    private static readonly int VelocityY = Animator.StringToHash("Velocity Y");
+    private static readonly int VelocityX = Animator.StringToHash("Velocity X");
 
     // Initialize the components
     private void Awake() {
@@ -78,51 +81,13 @@ public class PlayerBehaviour : MonoBehaviour {
         }
     }
 
-    private void PlayerAnimations(Vector2 bodyMove) {
-        if (bodyMove.y > 0) {
-            playerAnimation.SetBool("Up", true);
-            playerAnimation.SetBool("Down", false);
-            playerAnimation.SetBool("Right", false);
-            playerAnimation.SetBool("Left", false);
-            playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
-        }
-        else if (bodyMove.y < 0) {
-            playerAnimation.SetBool("Down", true);
-            playerAnimation.SetBool("Up", false);
-            playerAnimation.SetBool("Right", false);
-            playerAnimation.SetBool("Left", false);
-            playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
-        }
-        else if (bodyMove.x > 0) {
-            playerAnimation.SetBool("Right", true);
-            playerAnimation.SetBool("Left", false);
-            playerAnimation.SetBool("Down", false);
-            playerAnimation.SetBool("Up", false);
-            playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Velocity X", bodyMove.x);
-        }
-        else if (bodyMove.x < 0) {
-            playerAnimation.SetBool("Left", true);
-            playerAnimation.SetBool("Right", false);
-            playerAnimation.SetBool("Down", false);
-            playerAnimation.SetBool("Up", false);
-            playerAnimation.SetBool("IdleFront", false);
-            playerAnimation.SetFloat("Velocity X", bodyMove.x);
-        }
-        else {
-            playerAnimation.SetFloat("Velocity Y", bodyMove.y);
-            playerAnimation.SetFloat("Velocity X", bodyMove.x);
-        }
-    }
-
     private void FixedUpdate() {
         var move = moveAction.ReadValue<Vector2>();
 
         body.velocity = move * (Time.deltaTime * speed);
 
-        PlayerAnimations(body.velocity);
+        playerAnimation.SetFloat(VelocityY, move.y);
+        playerAnimation.SetFloat(VelocityX, move.x);
     }
 
     // Create a placement preview based on prefab object
