@@ -1,22 +1,32 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Type of item represented by ItemData object.
+/// </summary>
+public enum ItemType {
+    GameObject,
+    Tile,
+}
 
 /// <summary>
 /// ItemData is a generic class for storing information about an item.
 /// </summary>
 [Serializable]
-[CreateAssetMenu(fileName = "ItemData", menuName = "Inventory and Items/ItemData", order = 2)]
+[CreateAssetMenu(fileName = "ItemData", menuName = "Items/ItemData", order = 2)]
 public class ItemData : ScriptableObject {
-    // Name of the item
+    // Numeric ID that uniquely identifies this item.
+    public int id;
+    
+    // Name of the item.
     public string itemName;
 
-    // Preview sprite for the item, useful for inventories etc
+    // Type of the item.
+    public ItemType type;
+
+    // Preview sprite for the item, useful for inventories etc.
     public Sprite preview;
 
-    // The prefab representing the real physical manifestation of the item
+    // The prefab representing the real physical manifestation of the item.
     public GameObject manifestation;
-
-    // TODO: Add reference to the game object that can be made from this item, if any
-    // TODO: Some kind of generic stats or something
 }

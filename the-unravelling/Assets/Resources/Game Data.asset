@@ -17,6 +17,7 @@ MonoBehaviour:
     mapName: autosave_10-10-2021_2025
     gameTime: 0
     day: 0
+  gameManager: {fileID: 0}
   worldEntities:
   - {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
   - {fileID: 11400000, guid: 9221880e1f7089847bf8aedc2239df5f, type: 2}

@@ -109,7 +109,6 @@ public static class MapGenerator {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
             }
         }
-        
         return noiseMap;
     }
     

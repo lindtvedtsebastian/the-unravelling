@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -40,7 +37,7 @@ public class PlayerBehaviour : MonoBehaviour {
         var actions = playerInput.actions;
 
         playerAnimation = GetComponent<Animator>();
-        
+
         // Test var for capturing movement for animations
 
         // Grab a ref to move action, so we can read it later
@@ -74,47 +71,39 @@ public class PlayerBehaviour : MonoBehaviour {
         // Move the preview object to under the mouse
         if (previewGameObject.activeSelf) {
             previewGameObject.transform.position = GetMousePosition();
-            previewGameObject.transform.position = new Vector3(Mathf.Floor(previewGameObject.transform.position.x) + 0.5f, 
-                                                               Mathf.Floor(previewGameObject.transform.position.y) + 0.5f, 
-                                                               previewGameObject.transform.position.z);
-            
-            Debug.Log("X value : " + previewGameObject.transform.position.x);
-            Debug.Log("Y value : " + previewGameObject.transform.position.y);
+            previewGameObject.transform.position = new Vector3(
+                Mathf.Floor(previewGameObject.transform.position.x) + 0.5f,
+                Mathf.Floor(previewGameObject.transform.position.y) + 0.5f,
+                previewGameObject.transform.position.z);
         }
     }
 
-    private void PlayerAnimations(Vector2 bodyMove)
-    {
-        if (bodyMove.y > 0)
-        {
+    private void PlayerAnimations(Vector2 bodyMove) {
+        if (bodyMove.y > 0) {
             playerAnimation.SetBool("Up", true);
             playerAnimation.SetBool("Down", false);
             playerAnimation.SetBool("Right", false);
             playerAnimation.SetBool("Left", false);
             playerAnimation.SetBool("IdleFront", false);
             playerAnimation.SetFloat("Velocity Y", bodyMove.y);
-
         }
-        else if (bodyMove.y < 0)
-        {
+        else if (bodyMove.y < 0) {
             playerAnimation.SetBool("Down", true);
             playerAnimation.SetBool("Up", false);
             playerAnimation.SetBool("Right", false);
             playerAnimation.SetBool("Left", false);
             playerAnimation.SetBool("IdleFront", false);
             playerAnimation.SetFloat("Velocity Y", bodyMove.y);
-        } 
-        else if (bodyMove.x > 0)
-        {
+        }
+        else if (bodyMove.x > 0) {
             playerAnimation.SetBool("Right", true);
             playerAnimation.SetBool("Left", false);
             playerAnimation.SetBool("Down", false);
             playerAnimation.SetBool("Up", false);
             playerAnimation.SetBool("IdleFront", false);
             playerAnimation.SetFloat("Velocity X", bodyMove.x);
-        } 
-        else if (bodyMove.x < 0)
-        {
+        }
+        else if (bodyMove.x < 0) {
             playerAnimation.SetBool("Left", true);
             playerAnimation.SetBool("Right", false);
             playerAnimation.SetBool("Down", false);
@@ -122,8 +111,7 @@ public class PlayerBehaviour : MonoBehaviour {
             playerAnimation.SetBool("IdleFront", false);
             playerAnimation.SetFloat("Velocity X", bodyMove.x);
         }
-        else
-        {
+        else {
             playerAnimation.SetFloat("Velocity Y", bodyMove.y);
             playerAnimation.SetFloat("Velocity X", bodyMove.x);
         }
@@ -133,7 +121,7 @@ public class PlayerBehaviour : MonoBehaviour {
         var move = moveAction.ReadValue<Vector2>();
 
         body.velocity = move * (Time.deltaTime * speed);
-        
+
         PlayerAnimations(body.velocity);
     }
 
@@ -142,7 +130,7 @@ public class PlayerBehaviour : MonoBehaviour {
         if (previewGameObject.activeSelf) return;
 
         if (!inventory.HasItem(item)) return;
-        
+
         previewGameObject.SetActive(true);
         var sprite = previewGameObject.GetComponent<SpriteRenderer>();
         sprite.sprite = item.preview;
@@ -152,7 +140,7 @@ public class PlayerBehaviour : MonoBehaviour {
     private void PlaceObject(in ItemData item) {
         // Only place item, if preview was active
         if (!previewGameObject.activeSelf) return;
-        
+
         // Remove item from inventory
         if (!inventory.RemoveItem(item)) return;
 
@@ -184,29 +172,22 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Called when inventory action is triggered
     private void OnActionInventory(InputAction.CallbackContext ctx) {
-        Debug.Log("Open Inventory");
-
         playerInput.SwitchCurrentActionMap("UI");
         inventoryUI.OnActivate(inventory, OnCloseInventory);
     }
 
     // Called when interact action is triggered
     private void OnActionInteract(InputAction.CallbackContext ctx) {
-        Debug.Log("Interact with...");
     }
 
     // Called when place action is triggered
     private void OnActionPlace(InputAction.CallbackContext ctx) {
-        Debug.Log("Place tile/machine");
-
         // Destroy the preview object when real object is placed
         PlaceObject(item);
     }
 
     // Called when cancel action is triggered
     private void OnActionCancel(InputAction.CallbackContext ctx) {
-        Debug.Log("Cancel current action");
-
         // Destroy the preview if it exists
         if (previewGameObject.activeSelf) {
             previewGameObject.SetActive(false);
@@ -215,24 +196,18 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Called when destroy action is triggered
     private void OnActionDestroy(InputAction.CallbackContext ctx) {
-        Debug.Log("Destroy tile/machine");
-
         // Look for a unit that is close to the mouse pointer
         var units = GameObject.FindGameObjectsWithTag("Unit");
         foreach (var unit in units) {
             var pos = GetMousePosition();
             if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
-                
-                unit.GetComponent<InteractableWorldEntityBehaviour>().DamageOrDestroy();
-                
-                //Destroy(unit);
+                var bb = unit.GetComponent<BaseUnit>();
+                if (bb) {
+                    bb.Damage(50);
+                }
+
                 return;
             }
         }
     }
 }
-
-//Mathf.Floor(previewGameObject.transform.position.y);
-//Mathf.Floor(previewGameObject.transform.position.x);
-//previewGameObject.transform.position.x
-//previewGameObject.transform.position.x = Mathf.Floor(previewGameObject.transform.position.x - 10);
