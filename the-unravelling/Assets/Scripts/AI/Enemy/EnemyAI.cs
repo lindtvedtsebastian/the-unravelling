@@ -10,6 +10,5 @@ public class EnemyAI : MonoBehaviour
     void Start() {
         _state = new EnemyWalk();
         _state.EnterState(_state);
-        _state.DoState();
     }
 }

@@ -4,6 +4,20 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 
+
+public struct PathPart {
+    public int x;
+    public int y;
+
+    public bool mustBeDestroyed;
+
+    public PathPart(int x, int y, bool mustBeDestroyed) {
+        this.x = x;
+        this.y = y;
+        this.mustBeDestroyed = mustBeDestroyed;
+    }
+}
+
 public class Pathfinding : MonoBehaviour {
 	private const int STRAIGHT_COST = 10;
 	private const int DIAGONAL_COST = 14;
@@ -14,29 +28,20 @@ public class Pathfinding : MonoBehaviour {
 	// Update is called once per frame
 	void Update() { }
 
-	public Pathfinding() {
+	public Pathfinding(int2 startPos, int2 endPos, NativeList<PathPart> resultPath) {
         float startTime = Time.realtimeSinceStartup;
-
-        NativeList<PathPart> resultPath = new NativeList<PathPart>(Allocator.TempJob);
-
-        int jobCount = 1;
-        NativeArray<JobHandle> jobHandleArray = new NativeArray<JobHandle>(jobCount, Allocator.TempJob);
-
-        for (int i = 0; i < jobCount; i++) {
-            
-            PathfindingJob pathfinding = new PathfindingJob {
-                startPos = new int2(0, 0),
-                endPos = new int2(21, 22),
-                // nodeArray = BuildPathfindingGrid(new int2(21, 22)),
-                nodeArray = BuildPathfindingGrid(new int2(254, 254)),
+		
+        PathfindingJob pathfinding = new PathfindingJob {
+                startPos = startPos,
+                endPos = endPos,
+                nodeArray = BuildPathfindingGrid(endPos),
                 gridSize = GameData.Get.world.worldSize,
 				resultPath = resultPath
             };
-            jobHandleArray[i] = pathfinding.Schedule();
-        }
-        JobHandle.CompleteAll(jobHandleArray);
-        jobHandleArray.Dispose();
-        resultPath.Dispose();
+		
+        JobHandle handle = pathfinding.Schedule();
+        handle.Complete();
+		
         Debug.Log("Time: " + ((Time.realtimeSinceStartup - startTime) * 1000f + "ms"));
     }
 
@@ -265,16 +270,4 @@ public class Pathfinding : MonoBehaviour {
 		}
 	}
 
-	private struct PathPart {
-		public int x;
-		public int y;
-
-		public bool mustBeDestroyed;
-
-		public PathPart(int x, int y, bool mustBeDestroyed) {
-			this.x = x;
-			this.y = y;
-			this.mustBeDestroyed = mustBeDestroyed;
-		}
-	}
 }
