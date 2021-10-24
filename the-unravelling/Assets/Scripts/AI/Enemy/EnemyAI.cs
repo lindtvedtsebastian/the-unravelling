@@ -1,14 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : StateManager
 {
-    private State _state;
+    private EnemyWalk enemyWalk;
 
     // Start is called before the first frame update
     void Start() {
-        _state = new EnemyWalk();
-        _state.EnterState(_state);
+        enemyWalk = gameObject.AddComponent(typeof(EnemyWalk)) as EnemyWalk;
+        availableStates.Add((int) states.enemyWalk,enemyWalk);
+        currentState = availableStates[(int) states.enemyWalk];
+        currentState.EnterState(this);
     }
+
+	public enum states {
+		enemyWalk = 0,
+		enemyAttack = 1
+	}
 }
