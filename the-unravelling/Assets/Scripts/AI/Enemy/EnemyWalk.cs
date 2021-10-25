@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyWalk : State 
 {
     private NativeList<PathPart> _resultPath;
-    public GameObject _player;
+    private GameObject _player;
 
     private float speed = 3f;
     private float proximityRange = 0.5f;
@@ -29,12 +29,14 @@ public class EnemyWalk : State
     /// </summary>
     public override void DoState() {
 		if (distanceTo(_player.transform.position) > proximityRange) {
-        // If no path exists, calculate one
-        if (_resultPath.Length <= 0)
-            CalculatePath();
+            // If no path exists, calculate one
+            if (_resultPath.Length <= 0)
+                CalculatePath();
 
-        Move();
-		}
+            Move();
+		} else {
+            _stateManager.setState(_stateManager.GetComponent<EnemyIdle>());
+        }
     }
 
     /// <summary>
