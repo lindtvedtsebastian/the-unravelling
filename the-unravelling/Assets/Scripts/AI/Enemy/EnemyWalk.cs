@@ -15,10 +15,11 @@ public class EnemyWalk : State
     }
     
     public override void DoState() {
-        Vector3 enemyPos = gameObject.transform.position;
-        int2 startPos = new int2((int) Mathf.Floor(enemyPos.x), ((int) Mathf.Floor(enemyPos.y)));
-        Pathfinding pathfinding = new Pathfinding(startPos, new int2(254,254), resultPath);
+		// If no path exists, calculate one
+        if (resultPath.Length <= 0)
+            CalculatePath();
 		
+
         _stateManager.currentState.LeaveState();
 
         StartCoroutine(Move());
@@ -28,10 +29,17 @@ public class EnemyWalk : State
         resultPath.Dispose();
     }
 
-	IEnumerator Move() {
+    private void CalculatePath() {
+		Vector3 enemyPos = gameObject.transform.position;
+        int2 startPos = new int2((int) Mathf.Floor(enemyPos.x), ((int) Mathf.Floor(enemyPos.y)));
+        Pathfinding pathfinding = new Pathfinding(startPos, new int2(254,254), resultPath);
+	}
+
+    IEnumerator Move() {
 		yield return new WaitForSeconds(3.0f);
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3(resultPath[10].x, resultPath[10].y,0), 10f * Time.deltaTime);
-        _stateManager.currentState = _stateManager.availableStates[(int) EnemyAI.states.enemyWalk];
+        // gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3(resultPath[10].x, resultPath[10].y,0), 10f * Time.deltaTime);
+        // _stateManager.currentState = _stateManager.availableStates[(int) EnemyAI.states.enemyWalk];
+        _stateManager.currentState = _stateManager.GetComponent<EnemyWalk>();
         _stateManager.currentState.EnterState(_stateManager);
 	}
 }
