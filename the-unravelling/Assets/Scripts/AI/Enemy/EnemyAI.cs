@@ -10,4 +10,8 @@ public class EnemyAI : StateManager
         currentState = enemyWalk;
         currentState.EnterState(this);
     }
+
+	void Update() {
+        currentState.DoState();
+    }
 }

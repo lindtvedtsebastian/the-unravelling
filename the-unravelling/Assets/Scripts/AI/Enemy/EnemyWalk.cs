@@ -6,40 +6,54 @@ using UnityEngine;
 public class EnemyWalk : State 
 {
     private StateManager _stateManager;
-    private NativeList<PathPart> resultPath;
+    private NativeList<PathPart> _resultPath;
+    public GameObject _player;
 
     public override void EnterState(StateManager stateManager) {
-        resultPath = new NativeList<PathPart>(Allocator.Persistent);
+        _resultPath = new NativeList<PathPart>(Allocator.Persistent);
+
+        _player = GameObject.FindGameObjectWithTag("Player");
         _stateManager = stateManager;
-        _stateManager.currentState.DoState();
     }
     
     public override void DoState() {
-		// If no path exists, calculate one
-        if (resultPath.Length <= 0)
+		if (Vector3.Distance(gameObject.transform.position, _player.transform.position) > 0.5f) {
+        // If no path exists, calculate one
+        if (_resultPath.Length <= 0)
             CalculatePath();
-		
 
-        _stateManager.currentState.LeaveState();
-
-        StartCoroutine(Move());
+        Move();
+		}
     }
 
     public override void LeaveState() {
-        resultPath.Dispose();
+        _resultPath.Dispose();
     }
 
     private void CalculatePath() {
-		Vector3 enemyPos = gameObject.transform.position;
+        Vector3 enemyPos = gameObject.transform.position;
+        Vector3 playerPos = _player.transform.position;
+
         int2 startPos = new int2((int) Mathf.Floor(enemyPos.x), ((int) Mathf.Floor(enemyPos.y)));
-        Pathfinding pathfinding = new Pathfinding(startPos, new int2(254,254), resultPath);
+        int2 endPos = new int2((int)Mathf.Floor(playerPos.x), ((int)Mathf.Floor(playerPos.y)));
+
+        Pathfinding pathfinding = new Pathfinding(startPos, endPos, _resultPath);
 	}
 
-    IEnumerator Move() {
-		yield return new WaitForSeconds(3.0f);
-        // gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3(resultPath[10].x, resultPath[10].y,0), 10f * Time.deltaTime);
-        // _stateManager.currentState = _stateManager.availableStates[(int) EnemyAI.states.enemyWalk];
-        _stateManager.currentState = _stateManager.GetComponent<EnemyWalk>();
-        _stateManager.currentState.EnterState(_stateManager);
+    private void Move() {
+		if (_resultPath.Length > 0) {
+            PathPart currentWaypoint = _resultPath[_resultPath.Length - 1];
+
+            if (currentWaypoint.mustBeDestroyed) {
+				// Destroy structure
+			} else {
+				gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
+																	new Vector3(currentWaypoint.x, currentWaypoint.y,0),
+																	3f * Time.deltaTime);
+				if (Vector3.Distance(gameObject.transform.position, new Vector3(currentWaypoint.x, currentWaypoint.y,0)) < 0.5f)
+					_resultPath.RemoveAt(_resultPath.Length - 1);
+            }
+        }
 	}
+
 }

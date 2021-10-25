@@ -42,7 +42,7 @@ public class Pathfinding : MonoBehaviour {
         JobHandle handle = pathfinding.Schedule();
         handle.Complete();
 		
-        Debug.Log("Time: " + ((Time.realtimeSinceStartup - startTime) * 1000f + "ms"));
+        // Debug.Log("Time: " + ((Time.realtimeSinceStartup - startTime) * 1000f + "ms"));
     }
 
 
@@ -166,13 +166,6 @@ public class Pathfinding : MonoBehaviour {
 			Node endNode = nodeArray[endNodeIndex];
 			BuildPath(nodeArray, endNode);
 
-			if (resultPath.Length > 0) {
-                for (int i = 0; i < resultPath.Length; i++) {
-                    Debug.Log(string.Format("{0};{1}", resultPath[i].x, resultPath[i].y));
-                }
-            }
-			else Debug.Log("Did not find a path!");
-
 			neighbourOffsetArray.Dispose();
 			// nodeArray.Dispose();
 			openList.Dispose();
@@ -227,8 +220,7 @@ public class Pathfinding : MonoBehaviour {
 		}
 
 		private void BuildPath(NativeArray<Node> nodeArray, Node endNode) {
-			if (endNode.previousIndex != -1) {
-
+            if (endNode.previousIndex != -1) {
 				resultPath.Add(new PathPart(endNode.x,
 					endNode.y,
 					endNode.isDestroyable ? true : false));
