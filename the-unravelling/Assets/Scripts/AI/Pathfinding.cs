@@ -22,12 +22,6 @@ public class Pathfinding : MonoBehaviour {
 	private const int STRAIGHT_COST = 10;
 	private const int DIAGONAL_COST = 14;
 
-	// Start is called before the first frame update
-	void Start() { }
-
-	// Update is called once per frame
-	void Update() { }
-
 	public Pathfinding(int2 startPos, int2 endPos, NativeList<PathPart> resultPath) {
         float startTime = Time.realtimeSinceStartup;
 		
@@ -57,7 +51,8 @@ public class Pathfinding : MonoBehaviour {
 				node.y = y;
 				node.index = CalculateIndex(x, y, gridSize.x);
 
-				node.isWalkable = true;
+                node.isDestroyable = false;
+                node.isWalkable = true;
 				node.previousIndex = -1;
 
                 node.additionalCost = 0;//GameData.Get.world.pathfindingMap[y, x];
