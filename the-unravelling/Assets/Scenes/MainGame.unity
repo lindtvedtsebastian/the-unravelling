@@ -865,6 +865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  craftItems: []
+  turret: {fileID: 11400000, guid: a8c767b4da4e5da4db7b25080be042c0, type: 2}
 --- !u!1001 &761236765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2443,6 +2445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPanel: {fileID: 2022790355}
+  craftingPanel: {fileID: 1232186123}
 --- !u!1001 &741493087769412983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2537,6 +2540,10 @@ PrefabInstance:
     - target: {fileID: 741493088077077082, guid: a88beff1b81da2241bb80fdb2356167c, type: 3}
       propertyPath: m_Name
       value: ItemSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754981450499655625, guid: a88beff1b81da2241bb80fdb2356167c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88beff1b81da2241bb80fdb2356167c, type: 3}

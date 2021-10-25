@@ -15,5 +15,4 @@ public class CraftingSlot : MonoBehaviour {
         craftingNum.enabled = true;
         craftingNum.text = craftItem.itemAmount.ToString();
     }
-
 }
