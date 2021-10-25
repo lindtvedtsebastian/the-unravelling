@@ -28,10 +28,10 @@ public class InventoryUIBehaviour : MonoBehaviour {
         gameObject.SetActive(true);
 
         // Create previews for all the items in the inventory
-        foreach (var item in inventory.GetItems()) {
-            var cell = Instantiate(itemPrefab, panel.transform, true);
-            cell.AddItemData(item, CloseInventory);
-        }
+        //foreach (var item in inventory.GetItems()) {
+            //var cell = Instantiate(itemPrefab, panel.transform, true);
+            //cell.AddItemData(item, CloseInventory);
+        //}
     }
 
     /// <summary>
@@ -43,9 +43,9 @@ public class InventoryUIBehaviour : MonoBehaviour {
         gameObject.SetActive(false);
         
         // Destroy all previous elements
-        for (var i = 0; i < panel.transform.childCount; i++) {
-            Destroy(panel.transform.GetChild(i).gameObject);
-        }
+        //for (var i = 0; i < panel.transform.childCount; i++) {
+            //Destroy(panel.transform.GetChild(i).gameObject);
+        //}
     }
 
     /// <summary>

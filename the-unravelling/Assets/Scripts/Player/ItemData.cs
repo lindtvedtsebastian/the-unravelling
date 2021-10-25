@@ -21,6 +21,8 @@ public class ItemData : ScriptableObject {
     // Name of the item.
     public string itemName;
 
+    public int itemAmount = 1;
+
     // Type of the item.
     public ItemType type;
 
