@@ -4,7 +4,9 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 
-
+/// <summary>
+/// A part of a pathfinding path 
+/// </summary>
 public struct PathPart {
     public int x;
     public int y;
@@ -18,6 +20,9 @@ public struct PathPart {
     }
 }
 
+/// <summary>
+/// A class for calculating pathfinding in the Unravelling world grid 
+/// </summary>
 public class Pathfinding : MonoBehaviour {
 	private const int STRAIGHT_COST = 10;
 	private const int DIAGONAL_COST = 14;
@@ -40,7 +45,12 @@ public class Pathfinding : MonoBehaviour {
     }
 
 
-	private NativeArray<Node> BuildPathfindingGrid(int2 endPos) {
+    /// <summary>
+    /// Builds a grid to be consumed by the pathfinding job 
+    /// </summary>
+    /// <param name="endPos">The end position in the grid, used for calculating heuristics</param>
+    /// <returns>A grid ready to be used for pathfinding</returns>
+    private NativeArray<Node> BuildPathfindingGrid(int2 endPos) {
 		int2 gridSize = new int2(GameData.Get.world.worldSize, GameData.Get.world.worldSize);
 		NativeArray<Node> nodeArray = new NativeArray<Node>(gridSize.x * gridSize.y, Allocator.Persistent);
 
@@ -69,11 +79,24 @@ public class Pathfinding : MonoBehaviour {
 	}
 
 
-	private int CalculateIndex(int x, int y, int gridWidth) {
+    /// <summary>
+    /// Calculates the index of this node in the nodeArray
+    /// </summary>
+    /// <param name="x">The x coordinate</param>
+    /// <param name="y">The y coordinate</param>
+    /// <param name="gridWidth">The width of the grid</param>
+    /// <returns>The calculated index</returns>
+    static public int CalculateIndex(int x, int y, int gridWidth) {
 		return x + y * gridWidth;
 	}
 
-	private int CalculateHeuristics(int2 startPos, int2 endPos) {
+    /// <summary>
+    /// Calculates the heuristics for the given startPos in relation to the endPos
+    /// </summary>
+    /// <param name="startPos">The start position</param>
+    /// <param name="endPos">The end position</param>
+    /// <returns>The calculated heuristics</returns>
+    static public int CalculateHeuristics(int2 startPos, int2 endPos) {
 		int distanceX = math.abs(startPos.x - endPos.x);
 		int distanceY = math.abs(startPos.y - endPos.y);
 		int remaining = math.abs(distanceX - distanceY);
@@ -167,7 +190,11 @@ public class Pathfinding : MonoBehaviour {
 			closedList.Dispose();
 		}
 
-		private NativeArray<int2> CreateNeighbourOffsetArray() {
+        /// <summary>
+        /// Creates an array of neighbouring offsets
+        /// </summary>
+        /// <returns>Returns the neighbour offset array</returns>
+        private NativeArray<int2> CreateNeighbourOffsetArray() {
             NativeArray<int2> neighbourOffsets = new NativeArray<int2>(8, Allocator.Temp);
 
             neighbourOffsets[0] = new int2(-1, 0); // West
@@ -182,7 +209,13 @@ public class Pathfinding : MonoBehaviour {
             return neighbourOffsets;
         }
 
-		private bool IsPosInsideGrid(int2 gridPos, int2 gridSize) {
+        /// <summary>
+        /// Determines if a position is inside the grid or not 
+        /// </summary>
+        /// <param name="gridPos">The position in the grid</param>
+        /// <param name="gridSize">The size of the grid</param>
+        /// <returns>Wheter or not the pos is inside the grid</returns>
+        private bool IsPosInsideGrid(int2 gridPos, int2 gridSize) {
 			return
 				gridPos.x >= 0 &&
 				gridPos.y >= 0 &&
@@ -190,19 +223,13 @@ public class Pathfinding : MonoBehaviour {
 				gridPos.y < gridSize.y;
 		}
 
-
-		private int CalculateIndex(int x, int y, int gridWidth) {
-			return x + y * gridWidth;
-		}
-
-		private int CalculateHeuristics(int2 startPos, int2 endPos) {
-			int distanceX = math.abs(startPos.x - endPos.x);
-			int distanceY = math.abs(startPos.y - endPos.y);
-			int remaining = math.abs(distanceX - distanceY);
-			return DIAGONAL_COST * math.min(distanceX, distanceY) + STRAIGHT_COST * remaining;
-		}
-
-		private int GetLowestCostNodeIndex(NativeList<int> openList, NativeArray<Node> nodeArray) {
+        /// <summary>
+        /// Finds the node with the lowest cost in the nodeArray 
+        /// </summary>
+        /// <param name="openList">The list of open nodes</param>
+        /// <param name="nodeArray">The complete nodeArray</param>
+        /// <returns>The node with the lowest cost</returns>
+        private int GetLowestCostNodeIndex(NativeList<int> openList, NativeArray<Node> nodeArray) {
 			Node currentLowestNode = nodeArray[openList[0]];
 			for (int i = 0; i < openList.Length; i++) {
 				Node nodeToBeChecked = nodeArray[openList[i]];
@@ -214,7 +241,12 @@ public class Pathfinding : MonoBehaviour {
 			return currentLowestNode.index;
 		}
 
-		private void BuildPath(NativeArray<Node> nodeArray, Node endNode) {
+        /// <summary>
+        /// Builds a path using the previousIndex variables of each node 
+        /// </summary>
+        /// <param name="nodeArray">The grid</param>
+        /// <param name="endNode">The last node (start of this calculation)</param>
+        private void BuildPath(NativeArray<Node> nodeArray, Node endNode) {
             if (endNode.previousIndex != -1) {
 				resultPath.Add(new PathPart(endNode.x,
 					endNode.y,
@@ -235,7 +267,10 @@ public class Pathfinding : MonoBehaviour {
 
 	}
 
-	private struct Node {
+    /// <summary>
+    /// All data related to a node 
+    /// </summary>
+    private struct Node {
 		public int x;
 		public int y;
 
