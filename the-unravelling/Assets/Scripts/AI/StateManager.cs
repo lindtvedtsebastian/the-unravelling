@@ -2,5 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour {
-    public State currentState;
+    protected State currentState;
+
+	public void setState(State newState) {
+        currentState = newState;
+    } 
  }
