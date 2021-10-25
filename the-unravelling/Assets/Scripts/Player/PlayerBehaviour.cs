@@ -86,9 +86,17 @@ public class PlayerBehaviour : MonoBehaviour {
 
         body.velocity = move * (Time.deltaTime * speed);
 
-        playerAnimation.SetFloat(VelocityY, move.y);
-        playerAnimation.SetFloat(VelocityX, move.x);
-    }
+		if (move.x != 0) {
+			playerAnimation.SetFloat(VelocityX, move.x);
+			playerAnimation.SetFloat(VelocityY, 0);	
+		} else if (move.y != 0) {
+			playerAnimation.SetFloat(VelocityX, 0);
+			playerAnimation.SetFloat(VelocityY, move.y);	
+		} else {
+			playerAnimation.SetFloat(VelocityX, 0);
+			playerAnimation.SetFloat(VelocityY, 0);	
+		}
+	}
 
     // Create a placement preview based on prefab object
     private void CreatePreview(in ItemData item) {
