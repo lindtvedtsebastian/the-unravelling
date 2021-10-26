@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Wave", menuName = "Wave")]
 public class Wave : ScriptableObject {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public WaveEnemy[] waveEnemies;
+    public Direction waveDirection;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+[Serializable]
+public class WaveEnemy {
+    public GameObject enemy;
+    public int count;
+}
+
+public enum Direction {
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST,
 }
