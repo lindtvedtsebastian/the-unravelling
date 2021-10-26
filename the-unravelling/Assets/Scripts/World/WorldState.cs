@@ -12,13 +12,12 @@ public enum CycleState {
     DAY = 1,
     NIGHT = 2,
     DUSK = 3,
-    
  }
 
 [Serializable]
 public class WorldState {
-    public float globalGameTime; // should be 0 if it's a new game and should be gotten from a save in other cases.
-    public float Tick = 1.0f;
+    public float globalGameTime;
+	public float Tick = 1.0f;
     public int currentGameDay;
     public bool isGameOver;
     
@@ -26,6 +25,11 @@ public class WorldState {
 
     private const int dayDuration = 1800;
     private const int nightDuration = 1200;
+
+	public WorldState() {
+        currentGameDay = 0;
+        globalGameTime = 0;
+    }
 
     /// <summary>
     ///  This function keeps track of the game days and whether it is currently night or day.
@@ -39,18 +43,6 @@ public class WorldState {
             currentGameDay++;
             globalGameTime = 0;
         }
-        //Debug.Log(globalGameTime.ToString());
-        var dayOrNight = (int)stateOfDay;
-        string myString = null;
-        switch(dayOrNight) { // hack to just not have to look at int for day/night
-            case 1: 
-                myString = "DAY"; 
-                break; 
-            case 2: 
-                myString = "NIGHT"; 
-                break;
-        }
-        //Debug.Log(myString);
     }
 }
 

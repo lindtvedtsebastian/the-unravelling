@@ -10,6 +10,7 @@ public class Wave : ScriptableObject {
     public WaveEnemy[] waveEnemies;
     public AttackDirection waveDirection;
     public int maxConcurrentEnemies;
+    public float spawnInterval;
 }
 
 /// <summary>
