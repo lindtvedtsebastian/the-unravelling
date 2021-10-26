@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: bebfeefa707a85947aecefd54cd53ac3, type: 2}
+  - {fileID: 11400000, guid: 2c575655b29317e4da03ec5317e19a71, type: 2}
   enemyContainer: {fileID: 185746056}
 --- !u!4 &183097240
 Transform:

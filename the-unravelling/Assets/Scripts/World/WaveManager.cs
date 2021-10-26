@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
-	[SerializeField]
-	private Wave[] waves;
-    [SerializeField]
-    private GameObject enemyContainer;
+	[SerializeField] private Wave[] waves;
+    [SerializeField] private GameObject enemyContainer;
     private Wave currentWave;
     private List<GameObject> spawnedEnemies;
     private int mapSize;
+	
+    private int waveIndex;
+    private int waveEnemyIndex;
+    private int remainingWaveEnemyCount;
 
     // Start is called before the first frame update
     void Start() {
         mapSize = GameData.Get.world.worldSize;
         spawnedEnemies = new List<GameObject>();
+
+        waveIndex = 0;
+        waveEnemyIndex = 0;
+        remainingWaveEnemyCount = -1;
     }
 
     // Update is called once per frame
@@ -22,28 +28,32 @@ public class WaveManager : MonoBehaviour {
 		if (currentWave == null) {
             GetCurrentWave();
         }
-		DoWave();
+		DoWaveAction();
         if (GameData.Get.world.state.stateOfDay == CycleState.NIGHT) {
-            DoWave();
+            DoWaveAction();
         }
     }
 
-	void DoWave() {
+	void DoWaveAction() {
 		if (spawnedEnemies.Count <= currentWave.maxConcurrentEnemies) {
-			foreach (Wave wave in waves) {
-				foreach (WaveEnemy waveEnemy in wave.waveEnemies) {
-					while (waveEnemy.count > 0) {
-                        Debug.Log("Enemy spawned");
-                        GameObject newEnemy = Instantiate(original: waveEnemy.enemy,
-														  position: spawnPosition(),
-														  rotation: Quaternion.identity,
-                                                          parent: enemyContainer.transform);
-                        waveEnemy.count--;
-                        spawnedEnemies.Add(newEnemy);
-                        spawnDelay();
-                    }
-				}
-			}
+            currentWave = waves[waveIndex];
+            WaveEnemy waveEnemy = currentWave.waveEnemies[waveEnemyIndex];
+			
+			GameObject newEnemy = Instantiate(original: waveEnemy.enemy,
+											  position: spawnPosition(),
+											  rotation: Quaternion.identity,
+											  parent: enemyContainer.transform);
+            spawnedEnemies.Add(newEnemy);
+            remainingWaveEnemyCount--;
+			
+			if (remainingWaveEnemyCount <= 0) {
+				if (waveEnemyIndex > currentWave.waveEnemies.Length-1) {
+                    waveEnemyIndex = 0;
+                } else {
+					waveEnemyIndex++;
+                    remainingWaveEnemyCount = currentWave.waveEnemies[waveEnemyIndex].count;
+                }
+            }
 		}
     }
 

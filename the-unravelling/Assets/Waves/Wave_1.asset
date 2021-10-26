@@ -15,6 +15,6 @@ MonoBehaviour:
   waveEnemies:
   - enemy: {fileID: 7722072069971398038, guid: 232d46edba674f54fbdad59a5fee418d, type: 3}
     count: 5
-  waveDirection: 0
+  waveDirection: 2
   maxConcurrentEnemies: 2
   spawnInterval: 0
