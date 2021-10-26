@@ -12,7 +12,8 @@ public class AudioManager : MonoBehaviour {
     
     public List<AudioClip> dayMusic = new List<AudioClip>();
     public List<AudioClip> nightMusic = new List<AudioClip>();
-    private const int sizeOfSoundtrack = 2;
+    private const int sizeOfDaySoundtrack = 7;
+    private const int sizeOfNightSoundtrack = 2;
     private AudioSource soundtrackSource;
 
     private int currentDaySongIndex;
@@ -23,7 +24,7 @@ public class AudioManager : MonoBehaviour {
     private void Awake() {
         soundtrackSource = gameObject.AddComponent<AudioSource>();
         soundtrackSource.clip = menuAudio;
-        soundtrackSource.volume = 0.25f;
+        soundtrackSource.volume = 0.32f;
         soundtrackSource.loop = true;
         soundtrackSource.Play();
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -33,66 +34,13 @@ public class AudioManager : MonoBehaviour {
     /// OnSceneLoaded is a callback that we use to fetch the statemanager at the correct time.
     /// We need to fetch it WHEN we change the scene because it's only then it comes into existence in the game.
     /// </summary>
-    /// <param name="scene"></param>
-    /// <param name="mode"></param>
+    /// <param name="scene">Name of the scene we are going to when we load</param>
+    /// <param name="mode">The blend mode of the new scene</param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name != "MainGame") return;
         stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
         StartCoroutine(PlaySoundtrack());
     }
-    /*
-    IEnumerator playMenuAudio() {
-        while (true) {
-            currentDaySongIndex++; // play the next song
-            if (currentDaySongIndex > sizeOfSoundtrack) { // wrap around the end of the list.
-                currentDaySongIndex = 1;
-            }
-            Music.clip = dayMusic[currentDaySongIndex - 1];
-            if (currentScene.name == "MainGame") {
-                break;
-            }
-            Music.Play();
-            yield return new WaitForSeconds(Music.clip.length);
-        }
-        StopCoroutine("playMenuAudio");
-        StartCoroutine("PlayDayMusic");
-    }
-    */
-    
-    /*
-    IEnumerator PlayDayMusic() {
-        while (true) {
-            currentDaySongIndex++; // play the next song
-            if (currentDaySongIndex > sizeOfSoundtrack) { // wrap around the end of the list.
-                currentDaySongIndex = 1;
-            }
-            Music.clip = dayMusic[currentDaySongIndex - 1];
-            if (flag && stateManager.IsNight()) { 
-                break;
-            }
-            Music.Play();
-            yield return new WaitForSeconds(Music.clip.length);
-        }
-        StopCoroutine("PlayDayMusic");
-        StartCoroutine("PlayNightMusic");
-    }
-    
-    IEnumerator PlayNightMusic() {
-        while (true) {
-            currentNightSongIndex++;
-            if (currentNightSongIndex > sizeOfSoundtrack) {
-                currentNightSongIndex = 1;
-            }
-            Music.clip = nightMusic[currentNightSongIndex - 1];
-            if (flag && stateManager.IsDay()) {
-                break;
-            }
-            Music.Play();
-            yield return new WaitForSeconds(Music.clip.length);
-        }
-        StopCoroutine("PlayNightMusic");
-        StartCoroutine("PlayDayMusic");
-    }*/
 
     /// <summary>
     /// PlaySoundtrack() is the "controller" that plays the track's one by one. It plays the list of music based on
@@ -106,7 +54,7 @@ public class AudioManager : MonoBehaviour {
         while (true) {
             if (stateManager.IsDay()) {
                 currentDaySongIndex++;
-                if (currentDaySongIndex > sizeOfSoundtrack) {
+                if (currentDaySongIndex > sizeOfDaySoundtrack) {
                     currentDaySongIndex = 1;
                 }
                 soundtrackSource.clip = dayMusic[currentDaySongIndex - 1];
@@ -114,7 +62,7 @@ public class AudioManager : MonoBehaviour {
                 yield return new WaitForSeconds(soundtrackSource.clip.length);
             } else if (stateManager.IsNight()) {
                 currentNightSongIndex++;
-                if (currentNightSongIndex > sizeOfSoundtrack) {
+                if (currentNightSongIndex > sizeOfNightSoundtrack) {
                     currentNightSongIndex = 1;
                 }
                 soundtrackSource.clip = nightMusic[currentNightSongIndex - 1];
