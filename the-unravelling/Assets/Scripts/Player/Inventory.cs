@@ -51,7 +51,7 @@ public class InventoryKeyPair : SerializedDictionary<int, InventoryItem> {
 /// The idea is that all the items are pre-generated as assets, and the rest of the game will have refs to items. The inventory only keeps track of what items and how many of them, the owner entity has.
 /// </summary>
 [Serializable]
-[CreateAssetMenu(fileName = "Inventory", menuName = "Inventory and Items/Inventory", order = 2)]
+[CreateAssetMenu(fileName = "Inventory", menuName = "Items/Inventory", order = 2)]
 public class Inventory : ScriptableObject {
     // Stores the items in the inventory, where instance id is the key and the item data and item count is the value
     public InventoryKeyPair items = new InventoryKeyPair();

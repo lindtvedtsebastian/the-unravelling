@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "Game Data", menuName = "Scriptable Objects/World/Game Data")]
+[CreateAssetMenu(fileName = "Game Data", menuName = "Game Data")]
 public class GameData : ScriptableObjectSingleton<GameData> {
     public World world;
 
@@ -60,6 +60,7 @@ public class World {
     public int worldSize;
     public int[,] map;
     public int[,] background;
+    public int[,] pathfindingMap;
     public string mapName;
 
     public World() {

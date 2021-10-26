@@ -26,6 +26,7 @@ public static class MapGenerator {
         GameData.Get.world.worldSize = mapSize;
         GameData.Get.world.map = new int[mapSize, mapSize];
         GameData.Get.world.background = new int[mapSize, mapSize];
+        GameData.Get.world.pathfindingMap = new int[mapSize, mapSize];
 
         float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity, offset);
         float[,] moistureMap = generateNoiseMap(mapSize, seed+1, scale, octaves, persistance, lacunarity, offset);
@@ -36,9 +37,11 @@ public static class MapGenerator {
                 if (heightMap[x, y] > 0.4f) {
                     GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameIDs.GRASS : GameIDs.DIRT;
                     GameData.Get.world.background[x, y] = GameIDs.STONE;
+                    GameData.Get.world.pathfindingMap[x, y] = 0;
                 } else {
                     GameData.Get.world.map[x, y] = GameIDs.STONE;
                     GameData.Get.world.background[x, y] = GameIDs.STONE;
+                    GameData.Get.world.pathfindingMap[x, y] = 0;
                 }
             }
         }
