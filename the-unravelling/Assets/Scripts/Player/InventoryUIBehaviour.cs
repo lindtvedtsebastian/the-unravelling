@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +24,8 @@ public class InventoryUIBehaviour : MonoBehaviour {
     /// <param name="click">Callback called when the inventory is closed again</param>
     public void OnActivate(in Inventory inventory, OnClickInventory click) {
         callback = click;
+        
+        Debug.Log("This happens");
 
         // Activate the UI
         gameObject.SetActive(true);
@@ -38,7 +41,7 @@ public class InventoryUIBehaviour : MonoBehaviour {
     /// Actually close the inventory UI.
     /// </summary>
     /// <param name="item">Item that was selected, or null</param>
-    private void CloseInventory(in ItemData item) {
+    public void CloseInventory(in ItemData item) {
         callback(item);
         gameObject.SetActive(false);
         

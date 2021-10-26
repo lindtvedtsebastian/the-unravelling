@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: inventoryUI
       value: 
-      objectReference: {fileID: 2022790354}
+      objectReference: {fileID: 2022790360}
     - target: {fileID: 7257778549970449003, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2406,17 +2406,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4162c5ae8e6bb1c4d9bf219d0bffedd4, type: 3}
---- !u!114 &2022790354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1886755552, guid: 4162c5ae8e6bb1c4d9bf219d0bffedd4, type: 3}
-  m_PrefabInstance: {fileID: 2022790353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022790357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1806002365b58324abb36573337640a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2022790355 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1793497444807531042, guid: 4162c5ae8e6bb1c4d9bf219d0bffedd4, type: 3}
@@ -2446,6 +2435,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPanel: {fileID: 2022790355}
   craftingPanel: {fileID: 1232186123}
+  item:
+    data: {fileID: 0}
+    count: 0
+--- !u!114 &2022790360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1886755552, guid: 4162c5ae8e6bb1c4d9bf219d0bffedd4, type: 3}
+  m_PrefabInstance: {fileID: 2022790353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022790357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1806002365b58324abb36573337640a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &741493087769412983
 PrefabInstance:
   m_ObjectHideFlags: 0

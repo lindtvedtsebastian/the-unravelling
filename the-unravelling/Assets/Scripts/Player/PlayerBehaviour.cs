@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // The inventory UI
     public InventoryUIBehaviour inventoryUI;
+    public InventoryUI _inventory;
 
     // The players inventory
     public Inventory inventory;

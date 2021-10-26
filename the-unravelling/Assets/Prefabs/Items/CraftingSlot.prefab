@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftingImg: {fileID: 7389581067552524251}
   craftingNum: {fileID: 871689877213783650}
+  uiBehaviour: {fileID: 1886755552, guid: 4162c5ae8e6bb1c4d9bf219d0bffedd4, type: 3}
 --- !u!1 &7389581067552524253
 GameObject:
   m_ObjectHideFlags: 0
