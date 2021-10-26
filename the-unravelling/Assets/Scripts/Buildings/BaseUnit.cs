@@ -68,7 +68,7 @@ public class BaseUnit : MonoBehaviour {
         
         // Add the dropped item
         var count = Random.Range(minDropCount, maxDropCount);
-        inventory.AddItem(drops, count);
+        //inventory.AddItem(drops, count);
     }
 
     /// <summary>
