@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour {
         soundtrackSource.volume = 0.32f;
         soundtrackSource.loop = true;
         soundtrackSource.Play();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this);
     }
     /// <summary>
@@ -36,11 +36,11 @@ public class AudioManager : MonoBehaviour {
     /// </summary>
     /// <param name="scene">Name of the scene we are going to when we load</param>
     /// <param name="mode">The blend mode of the new scene</param>
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name != "MainGame") return;
-        stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
-        StartCoroutine(PlaySoundtrack());
-    }
+//    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+//        if (scene.name != "MainGame") return;
+ //       stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
+  //      StartCoroutine(PlaySoundtrack());
+   // }
 
     /// <summary>
     /// PlaySoundtrack() is the "controller" that plays the track's one by one. It plays the list of music based on

@@ -43,9 +43,11 @@ public class PlayerBehaviour : MonoBehaviour {
         var actions = playerInput.actions;
 
         playerAnimation = GetComponent<Animator>();
-
+        
         walkingLSound = GetComponent<AudioSource>();
+        walkingLSound.volume = 0.2f;
         walkingRSound = GetComponent<AudioSource>();
+        walkingRSound.volume = 0.2f;
         
         // Test var for capturing movement for animations
 
@@ -104,6 +106,14 @@ public class PlayerBehaviour : MonoBehaviour {
 		}
 	}
 
+    private void PlayRightWalkingSound() {
+        walkingRSound.Play();
+    }
+
+    private void PlayLeftWalkingSound() {
+        walkingLSound.Play();
+    }
+    
     // Create a placement preview based on prefab object
     private void CreatePreview(in ItemData item) {
         if (previewGameObject.activeSelf) return;
