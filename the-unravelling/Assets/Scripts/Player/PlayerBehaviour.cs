@@ -9,9 +9,9 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // The inventory UI
     public InventoryUIBehaviour inventoryUI;
-    public PlayerInventoryUI _inventory;
 
     // The players inventory
+	[SerializeField]
     public Inventory inventory;
 
     // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
@@ -42,6 +42,8 @@ public class PlayerBehaviour : MonoBehaviour {
         var actions = playerInput.actions;
 
         playerAnimation = GetComponent<Animator>();
+
+        inventory = new Inventory();
 
         // Test var for capturing movement for animations
 

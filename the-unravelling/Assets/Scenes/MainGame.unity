@@ -795,13 +795,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
 --- !u!1 &533545716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7257778549970449003, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
   m_PrefabInstance: {fileID: 533545715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &533545724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533545716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5be647ac8d916248b6391a4c41c2627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &566386166
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,8 +879,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
-  craftItems: []
-  turret: {fileID: 11400000, guid: a8c767b4da4e5da4db7b25080be042c0, type: 2}
 --- !u!1001 &761236765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2439,7 +2451,6 @@ MonoBehaviour:
     data: {fileID: 0}
     count: 0
   previewTurret: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
-  turret: {fileID: 11400000, guid: a8c767b4da4e5da4db7b25080be042c0, type: 2}
 --- !u!114 &2022790360 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1886755552, guid: 4162c5ae8e6bb1c4d9bf219d0bffedd4, type: 3}

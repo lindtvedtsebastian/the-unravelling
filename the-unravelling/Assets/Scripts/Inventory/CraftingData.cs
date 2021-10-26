@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Crafting Recipes", menuName = "Crafting/Crafting Recipes")]
+[CreateAssetMenu(fileName = "CraftingRecipes", menuName = "Crafting/Crafting Recipes")]
 public class CraftingRecipes : ScriptableObjectSingleton<CraftingRecipes> {
     public CraftingRecipe[] craftingRecipes;
 }
 
 [Serializable]
-[CreateAssetMenu(fileName = "Crafting Recipe", menuName = "Crafting/Crafting recipe")]
+[CreateAssetMenu(fileName = "CraftingRecipe", menuName = "Crafting/Crafting Recipe")]
 public class CraftingRecipe : ScriptableObject {
     public int id;
     public string recipeName;
