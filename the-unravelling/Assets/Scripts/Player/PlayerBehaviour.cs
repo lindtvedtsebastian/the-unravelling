@@ -145,7 +145,7 @@ public class PlayerBehaviour : MonoBehaviour {
         var move = moveAction.ReadValue<Vector2>();
 
         body.velocity = move * (Time.deltaTime * speed);
-        
+
         PlayerAnimations(body.velocity);
     }
 
