@@ -4714,13 +4714,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95c060e9d8edd94789fd010ea6bec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuAudio: {fileID: 8300000, guid: 6c848dcf4d7f61f4387dd680406b655a, type: 3}
+  menuAudio: {fileID: 8300000, guid: c87f3236327d20e4c81a7e739a77cd03, type: 3}
   dayMusic:
-  - {fileID: 8300000, guid: cdfc2d3e78fe0c0408e15b81a29be183, type: 3}
-  - {fileID: 8300000, guid: f5d03c7cbea3ff140a4fc67ffec03332, type: 3}
+  - {fileID: 8300000, guid: f0a1b54302fe2484d98a44b82fe62526, type: 3}
+  - {fileID: 8300000, guid: e456e9bf93f29c54bb35aaca94ef9d07, type: 3}
+  - {fileID: 8300000, guid: e1938491debe1f64eb779cdd0e49fb8e, type: 3}
+  - {fileID: 8300000, guid: d7af56571f797694fa511990a6b34692, type: 3}
+  - {fileID: 8300000, guid: e332cd3574451164aac8128a8e3dd72b, type: 3}
+  - {fileID: 8300000, guid: c5fe3cba2cd6d93498bba214093ba2da, type: 3}
+  - {fileID: 8300000, guid: 28ac711ae0df1364f9362598049ddaa5, type: 3}
   nightMusic:
-  - {fileID: 8300000, guid: 6559ff75e1e1f6d4cba133ab3796f32a, type: 3}
-  - {fileID: 8300000, guid: 63dcde328a8aa174aa7e5f1fd8caef5b, type: 3}
+  - {fileID: 8300000, guid: 4e6fa5afc5fbf0046926a781cdde9034, type: 3}
+  - {fileID: 8300000, guid: ac20ec00c15fbce42864fe234f9034ae, type: 3}
 --- !u!1 &661995813
 GameObject:
   m_ObjectHideFlags: 0
