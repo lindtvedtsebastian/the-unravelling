@@ -2,8 +2,8 @@
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "CraftingData", menuName = "Crafting/CraftingData", order = 2)]
-public class CraftingData : ScriptableObjectSingleton<CraftingData> {
+[CreateAssetMenu(fileName = "Crafting Recipes", menuName = "Crafting/Crafting Recipes", order = 2)]
+public class CraftingRecipes : ScriptableObjectSingleton<CraftingRecipes> {
     public CraftingRecipe[] craftingRecipes;
 }
 
