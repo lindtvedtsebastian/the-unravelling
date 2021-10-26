@@ -332,6 +332,7 @@ MonoBehaviour:
   _inventory: {fileID: 0}
   inventory: {fileID: 11400000, guid: 7e59c6f26732f2144abc78d4ae454ba1, type: 2}
   item: {fileID: 11400000, guid: a8c767b4da4e5da4db7b25080be042c0, type: 2}
+  craft: {fileID: 11400000, guid: c6fcb2f938b930343af993b5fe534c21, type: 2}
   previewGameObject: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
 --- !u!212 &2199783109191021620
 SpriteRenderer:

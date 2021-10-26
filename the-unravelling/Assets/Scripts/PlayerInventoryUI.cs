@@ -1,36 +1,66 @@
 ﻿using System;
 using UnityEngine;
 
-public delegate void onClickCraftingItem(in ItemData craftingItem);
 
-public class InventoryUI : MonoBehaviour {
+public class PlayerInventoryUI : MonoBehaviour {
         public Transform itemPanel;
         public Transform craftingPanel;
         
-        InventoryManager inventory;
+        PlayerInventory inventory;
 
         public InventoryItem item;
 
         ItemSlot[] itemSlots;
         CraftingSlot[] craftingSlots;
         
-        private onClickCraftingItem callback;
+        public GameObject previewTurret;
+        public CraftingData turret;
 
         void Start()
         {
-                inventory = FindObjectOfType<InventoryManager>();
+                inventory = FindObjectOfType<PlayerInventory>();
                 inventory.onItemChangedCallback += UpdateUI;
 
                 itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
                 craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
-        }
-
-        private void Update()
-        {
                 
+                // We need to make a new instance of the game object, so that we can use it.
+                previewTurret = Instantiate(previewTurret);
+                // But it should still be disabled
+                previewTurret.SetActive(false);
         }
         
-        public void OnActivateInventory(InventoryUI inventory, onClickCraftingItem click) {
+        /*public void PreviewTurret()
+        {
+                if (previewTurret.activeSelf) return;
+        
+                //if (!inventory.HasItem(item)) return;
+
+                previewTurret.SetActive(true);
+                var sprite = previewTurret.GetComponent<SpriteRenderer>();
+                sprite.sprite = turret.preview;
+                
+                Debug.Log("Create preview : " + previewTurret);
+        }
+
+        public void PlaceTurret()
+        {
+                // Only place item, if preview was active
+                if (!previewTurret.activeSelf) return;
+        
+                Debug.Log("Placing object");
+
+                // Remove item from inventory
+                //if (!inventory.RemoveItem(item)) return;
+
+                // Create final object
+                Instantiate(turret.manifestation, previewTurret.transform.position, Quaternion.identity);
+
+                // Deactivate the preview
+                previewTurret.SetActive(false);
+        }
+
+        public void OnActivateInventory(PlayerInventoryUI inventory, onClickCraftingItem click) {
                 callback = click;
                 
                 Debug.Log(callback);
@@ -43,7 +73,7 @@ public class InventoryUI : MonoBehaviour {
                 //var cell = Instantiate(itemPrefab, panel.transform, true);
                 //cell.AddItemData(item, CloseInventory);
                 //}
-        }
+        }*/
 
         void UpdateUI()
         { 

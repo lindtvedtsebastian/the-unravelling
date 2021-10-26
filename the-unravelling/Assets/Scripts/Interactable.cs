@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour {
     {
         //This method is meant to be overwritten
         //Debug.Log("Picked up : " + item.itemName);
-        FindObjectOfType<InventoryManager>().Add(item);
+        FindObjectOfType<PlayerInventory>().Add(item);
         Destroy(gameObject);
     }
 

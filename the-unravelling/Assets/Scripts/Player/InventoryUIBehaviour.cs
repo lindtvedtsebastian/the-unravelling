@@ -2,7 +2,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public delegate void OnClickInventory(in ItemData item);
+public delegate void OnClickInventory(in CraftingData item);
 
 /// <summary>
 /// The inventory UI Behaviour drives the UI for the inventory, by handling opening and closing the UI, as well as keeping the list of items up to data.
@@ -41,7 +41,7 @@ public class InventoryUIBehaviour : MonoBehaviour {
     /// Actually close the inventory UI.
     /// </summary>
     /// <param name="item">Item that was selected, or null</param>
-    public void CloseInventory(in ItemData item) {
+    public void CloseInventory(in CraftingData item) {
         callback(item);
         gameObject.SetActive(false);
         

@@ -9,13 +9,14 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // The inventory UI
     public InventoryUIBehaviour inventoryUI;
-    public InventoryUI _inventory;
+    public PlayerInventoryUI _inventory;
 
     // The players inventory
     public Inventory inventory;
 
     // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
     public ItemData item;
+    public CraftingData craft;
 
     // GameObject that previews where to place tiles
     public GameObject previewGameObject;
@@ -92,23 +93,29 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     // Create a placement preview based on prefab object
-    private void CreatePreview(in ItemData item) {
+    private void CreatePreview(in CraftingData item) {
         if (previewGameObject.activeSelf) return;
+        
+        Debug.Log("Create preview");
 
-        if (!inventory.HasItem(item)) return;
+        //if (!inventory.HasItem(item)) return;
 
         previewGameObject.SetActive(true);
         var sprite = previewGameObject.GetComponent<SpriteRenderer>();
         sprite.sprite = item.preview;
+        
+        //FindObjectOfType<PlayerInventoryUI>().PreviewTurret();
     }
 
     // Place object into the scene, based on the location of the preview
-    private void PlaceObject(in ItemData item) {
+    private void PlaceObject(in CraftingData item) {
         // Only place item, if preview was active
         if (!previewGameObject.activeSelf) return;
+        
+        Debug.Log("Placing object");
 
         // Remove item from inventory
-        if (!inventory.RemoveItem(item)) return;
+        //if (!inventory.RemoveItem(item)) return;
 
         // Create final object
         Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
@@ -128,12 +135,15 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     // Called when the inventory UI closes
-    private void OnCloseInventory(in ItemData item) {
+    private void OnCloseInventory(in CraftingData item) {
         playerInput.SwitchCurrentActionMap("Player");
 
         if (item != null) {
+            Debug.Log("Item is not null, will preview");
             CreatePreview(item);
+            return;
         }
+        Debug.Log("Item is null, no preview");
     }
 
     // Called when inventory action is triggered
@@ -149,7 +159,8 @@ public class PlayerBehaviour : MonoBehaviour {
     // Called when place action is triggered
     private void OnActionPlace(InputAction.CallbackContext ctx) {
         // Destroy the preview object when real object is placed
-        PlaceObject(item);
+        Debug.Log("On place action");
+        PlaceObject(craft);
     }
 
     // Called when cancel action is triggered

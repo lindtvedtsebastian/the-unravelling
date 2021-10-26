@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class InventoryManager: MonoBehaviour {
+public class PlayerInventory: MonoBehaviour {
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
     
     public List<ItemData> items = new List<ItemData>();
-    public List<ItemData> craftItems = new List<ItemData>();
+    public List<CraftingData> craftItems = new List<CraftingData>();
 
-    public ItemData turret;
+    public CraftingData turret;
 
     public void Add(ItemData item)
     {
@@ -28,7 +28,6 @@ public class InventoryManager: MonoBehaviour {
                 if(onItemChangedCallback != null)
                     onItemChangedCallback.Invoke();
                 
-                //Debug.Log("Item name : " +  items[i].itemName + " Item count : " + items[i].itemAmount);
                 return;
             }
         }
@@ -40,9 +39,9 @@ public class InventoryManager: MonoBehaviour {
         CheckItemsForCrafting(items, turret);
     }
 
-    public void CheckItemsForCrafting(List<ItemData> items, ItemData item)
+    public void CheckItemsForCrafting(List<ItemData> items, CraftingData craftingItem)
     {
-        craftItems = new List<ItemData>();
+        craftItems = new List<CraftingData>();
         bool enoughStone = false;
         bool enoughWood = false;
         
@@ -61,16 +60,8 @@ public class InventoryManager: MonoBehaviour {
 
         if (enoughWood && enoughStone)
         {
-            Debug.Log("We can build a : " + item.itemName);
-            craftItems.Add(item);
-        }
-    }
-
-    public void DisplayAmount()
-    {
-        for (int i = 0; i < items.Count; i++)
-        {
-            Debug.Log("The items in the inventory are : " + items[i].itemName);
+            //Debug.Log("We can build a : " + craftingItem.craftingName);
+            craftItems.Add(craftingItem);
         }
     }
 }
