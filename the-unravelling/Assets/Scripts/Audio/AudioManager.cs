@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour {
     private void Awake() {
         soundtrackSource = gameObject.AddComponent<AudioSource>();
         soundtrackSource.clip = menuAudio;
-        soundtrackSource.volume = 0.4f;
+        soundtrackSource.volume = 0.25f;
         soundtrackSource.loop = true;
         soundtrackSource.Play();
         SceneManager.sceneLoaded += OnSceneLoaded;
