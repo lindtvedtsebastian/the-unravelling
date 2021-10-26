@@ -20,27 +20,28 @@ public class AudioManager : MonoBehaviour {
     private int currentNightSongIndex;
 
     private WorldStateManager stateManager;
-
     private void Awake() {
         soundtrackSource = gameObject.AddComponent<AudioSource>();
         soundtrackSource.clip = menuAudio;
         soundtrackSource.volume = 0.32f;
         soundtrackSource.loop = true;
         soundtrackSource.Play();
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this);
     }
+    
     /// <summary>
     /// OnSceneLoaded is a callback that we use to fetch the statemanager at the correct time.
     /// We need to fetch it WHEN we change the scene because it's only then it comes into existence in the game.
     /// </summary>
     /// <param name="scene">Name of the scene we are going to when we load</param>
     /// <param name="mode">The blend mode of the new scene</param>
-//    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-//        if (scene.name != "MainGame") return;
- //       stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
-  //      StartCoroutine(PlaySoundtrack());
-   // }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == "MainGame") {
+            stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
+            StartCoroutine(PlaySoundtrack());
+        }
+    }
 
     /// <summary>
     /// PlaySoundtrack() is the "controller" that plays the track's one by one. It plays the list of music based on
@@ -52,6 +53,7 @@ public class AudioManager : MonoBehaviour {
     IEnumerator PlaySoundtrack() {
         soundtrackSource.loop = false; // since we now play the soundtrack track by track, we don't want looping.
         while (true) {
+            Debug.Log("Am i looping");
             if (stateManager.IsDay()) {
                 currentDaySongIndex++;
                 if (currentDaySongIndex > sizeOfDaySoundtrack) {

@@ -8,12 +8,9 @@ using UnityEngine;
 
 // NOTE: revisit if these enums are even worth having at all.
 public enum CycleState {
-    //MORNING = 0,
-    DAY = 1,
-    NIGHT = 2
-    //DUSK = 3,
-    
- }
+    DAY = 0,
+    NIGHT = 1
+}
 
 [Serializable]
 public class WorldState {
