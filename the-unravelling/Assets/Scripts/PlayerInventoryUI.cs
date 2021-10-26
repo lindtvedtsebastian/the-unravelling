@@ -14,7 +14,7 @@ public class PlayerInventoryUI : MonoBehaviour {
         CraftingSlot[] craftingSlots;
         
         public GameObject previewTurret;
-        public CraftingData turret;
+        //public CraftingData turret;
 
         void Start()
         {
@@ -85,13 +85,13 @@ public class PlayerInventoryUI : MonoBehaviour {
                         }
                 }
 
-                for (int i = 0; i < craftingSlots.Length; i++)
+                /*for (int i = 0; i < craftingSlots.Length; i++)
                 {
                         if (i < inventory.craftItems.Count)
                         {
                                 Debug.Log("Adding crafting item");
                                 craftingSlots[i].AddCraftingItem(inventory.craftItems[i]);
                         }
-                }
+                }*/
         }
 }

@@ -9,9 +9,9 @@ public class PlayerInventory: MonoBehaviour {
     public OnItemChanged onItemChangedCallback;
     
     public List<ItemData> items = new List<ItemData>();
-    public List<CraftingData> craftItems = new List<CraftingData>();
+    //public List<CraftingData> craftItems = new List<CraftingData>();
 
-    public CraftingData turret;
+    //public CraftingData turret;
 
     public void Add(ItemData item)
     {
@@ -23,7 +23,7 @@ public class PlayerInventory: MonoBehaviour {
             {
                 items[i].itemAmount++;
                 
-                CheckItemsForCrafting(items, turret);
+                //CheckItemsForCrafting(items, turret);
                 
                 if(onItemChangedCallback != null)
                     onItemChangedCallback.Invoke();
@@ -36,12 +36,12 @@ public class PlayerInventory: MonoBehaviour {
         if(onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
         
-        CheckItemsForCrafting(items, turret);
+        //CheckItemsForCrafting(items, turret);
     }
 
-    public void CheckItemsForCrafting(List<ItemData> items, CraftingData craftingItem)
+    /*public void CheckItemsForCrafting(List<ItemData> items, CraftingData craftingItem)
     {
-        craftItems = new List<CraftingData>();
+        //craftItems = new List<CraftingData>();
         bool enoughStone = false;
         bool enoughWood = false;
         
@@ -63,5 +63,5 @@ public class PlayerInventory: MonoBehaviour {
             //Debug.Log("We can build a : " + craftingItem.craftingName);
             craftItems.Add(craftingItem);
         }
-    }
+    }*/
 }

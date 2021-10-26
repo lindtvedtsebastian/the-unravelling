@@ -52,7 +52,7 @@ public class InventoryKeyPair : SerializedDictionary<int, InventoryItem> {
 /// </summary>
 [Serializable]
 [CreateAssetMenu(fileName = "Inventory", menuName = "Items/Inventory", order = 2)]
-public class Inventory : ScriptableObject {
+public class InventoryClass : ScriptableObject {
     // Stores the items in the inventory, where instance id is the key and the item data and item count is the value
     public InventoryKeyPair items = new InventoryKeyPair();
 

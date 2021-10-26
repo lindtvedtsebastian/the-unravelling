@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-    public CraftingData[] craftingdata;
+    public CraftingRecipes craftingdata;
 }

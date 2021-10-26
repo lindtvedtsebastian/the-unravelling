@@ -2,7 +2,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public delegate void OnClickInventory(in CraftingData item);
+//public delegate void OnClickInventory(in CraftingData item);
 
 /// <summary>
 /// The inventory UI Behaviour drives the UI for the inventory, by handling opening and closing the UI, as well as keeping the list of items up to data.
@@ -15,14 +15,14 @@ public class InventoryUIBehaviour : MonoBehaviour {
     public GameObject panel;
 
     // Player callback, called when the inventory ui closes
-    private OnClickInventory callback;
+    //private OnClickInventory callback;
 
     /// <summary>
     /// Activate the UI, and populate the list of items.
     /// </summary>
     /// <param name="inventory">Inventory (list of items)</param>
     /// <param name="click">Callback called when the inventory is closed again</param>
-    public void OnActivate(in Inventory inventory, OnClickInventory click) {
+    /*public void OnActivate(in Inventory inventory, OnClickInventory click) {
         callback = click;
         
         Debug.Log("This happens");
@@ -35,13 +35,13 @@ public class InventoryUIBehaviour : MonoBehaviour {
             //var cell = Instantiate(itemPrefab, panel.transform, true);
             //cell.AddItemData(item, CloseInventory);
         //}
-    }
+    }*/
 
     /// <summary>
     /// Actually close the inventory UI.
     /// </summary>
     /// <param name="item">Item that was selected, or null</param>
-    public void CloseInventory(in CraftingData item) {
+    /*public void CloseInventory(in CraftingData item) {
         callback(item);
         gameObject.SetActive(false);
         
@@ -57,5 +57,5 @@ public class InventoryUIBehaviour : MonoBehaviour {
     /// <param name="ctx">Callback context</param>
     public void OnClose(InputAction.CallbackContext ctx) {
         CloseInventory(null);
-    }
+    }*/
 }
