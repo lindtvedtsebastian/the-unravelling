@@ -60,6 +60,7 @@ public class World {
     public int worldSize;
     public int[,] map;
     public int[,] background;
+    public int[,] pathfindingMap;
     public string mapName;
 
     public World() {
