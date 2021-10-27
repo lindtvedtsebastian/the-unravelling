@@ -60,7 +60,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
 
-        //inventory.AddItem(item, 2);
+        // inventory.AddItem(item, 2);
 
         // We need to make a new instance of the game object, so that we can use it.
         previewGameObject = Instantiate(previewGameObject);
@@ -168,12 +168,12 @@ public class PlayerBehaviour : MonoBehaviour {
     }*/
 
     // Called when cancel action is triggered
-    private void OnActionCancel(InputAction.CallbackContext ctx) {
+    /*private void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
         if (previewGameObject.activeSelf) {
             previewGameObject.SetActive(false);
         }
-    }
+    }*/
 
     // Called when destroy action is triggered
     /*private void OnActionDestroy(InputAction.CallbackContext ctx) {

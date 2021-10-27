@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1577288512042991337}
   - component: {fileID: 6191765499509040339}
   - component: {fileID: 849299664213310749}
+  - component: {fileID: 2794000180995235600}
   m_Layer: 0
   m_Name: Stone
   m_TagString: ItemPickUp
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
   player: {fileID: 0}
+--- !u!58 &2794000180995235600
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242763888240086024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

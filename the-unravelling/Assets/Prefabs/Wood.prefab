@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8858175991660067822}
   - component: {fileID: 8009851153056262081}
   - component: {fileID: 2879798035873630652}
+  - component: {fileID: 5309941464359156168}
   m_Layer: 0
   m_Name: Wood
   m_TagString: ItemPickUp
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 1f05873801d596c49a5ae56eb981e4a6, type: 2}
   player: {fileID: 0}
+--- !u!58 &5309941464359156168
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130932075069219489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
