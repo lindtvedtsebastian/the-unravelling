@@ -16,4 +16,9 @@ public class EnemyAI : StateManager
 	void Update() {
         currentState.DoState();
     }
+
+	void OnDestroy() {
+        enemyWalk.LeaveState();
+        enemyIdle.LeaveState();
+    }
 }
