@@ -622,6 +622,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6118059310133498912, guid: f9c32d202af63954982c0865844818c2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6118059310133498912, guid: f9c32d202af63954982c0865844818c2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 6118059310549047598, guid: f9c32d202af63954982c0865844818c2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -862,12 +870,6 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 1875077170}
   playerInventory: {fileID: 533545723}
   itemPanel: {fileID: 720430027}
-  stone:
-    item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
-    amount: 1
-  wood:
-    item: {fileID: 11400000, guid: 1f05873801d596c49a5ae56eb981e4a6, type: 2}
-    amount: 1
 --- !u!224 &720430027 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5477642595947171769, guid: f9c32d202af63954982c0865844818c2, type: 3}

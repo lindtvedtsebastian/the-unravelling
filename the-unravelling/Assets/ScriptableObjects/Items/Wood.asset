@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   itemName: WoodItem
+  itemAmount: 1
   type: 0
-  preview: {fileID: 21300000, guid: c1aa9f9044599444a92695f84612ab59, type: 3}
+  preview: {fileID: 21300000, guid: 5b8beb4b3cf336149b2a7cabb6b5ed84, type: 3}
   manifestation: {fileID: 7130932075069219489, guid: c0382142a76446d47ae9788333644b36, type: 3}

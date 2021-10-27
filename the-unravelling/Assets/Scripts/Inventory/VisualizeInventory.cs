@@ -14,42 +14,24 @@ public class VisualizeInventory : MonoBehaviour {
 
     private ItemSlot[] itemSlots;
 
-    public Item stone;
-    public Item wood;
-
     void Start()
     {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
-        
-        //playerInventory.Add(stone);
-        //playerInventory.Add(wood);
-        
+
         updateInventory();
     }
     
     public void ActivateInventory()
     {
         updateInventory();
-        Debug.Log("Visualize inventory activate");
-        displayList(playerInventory.items);
-        Debug.Log("Slot count : " + itemSlots.Length);
         inventoryCanvas.SetActive(true);
     }
 
     public void DeActivateInventory()
     {
-        Debug.Log("Visualize inventory deactivate");
         inventoryCanvas.SetActive(false);
     }
-
-    private void displayList(List<Item> list)
-    {
-        foreach (var i in list)
-        {
-            Debug.Log(i.item.itemName);
-        }
-    }
-
+    
     private void updateInventory()
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -60,9 +42,22 @@ public class VisualizeInventory : MonoBehaviour {
             }
         }
     }
+}
 
-    /*public void OnClose(InputAction.CallbackContext ctx)
+/*public void OnClose(InputAction.CallbackContext ctx)
     {
         DeActivateInventory();
     }*/
-}
+/*private void displayList(List<Item> list)
+{
+    foreach (var i in list)
+    {
+        Debug.Log(i.item.itemName);
+    }
+}*/
+       
+//Debug.Log("Visualize inventory activate");
+//displayList(playerInventory.items);
+//Debug.Log("Slot count : " + itemSlots.Length);
+
+//Debug.Log("Visualize inventory deactivate");
