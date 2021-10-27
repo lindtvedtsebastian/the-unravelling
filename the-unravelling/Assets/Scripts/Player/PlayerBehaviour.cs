@@ -143,14 +143,14 @@ public class PlayerBehaviour : MonoBehaviour {
     }*/
     
     private void OnOpenInventory(InputAction.CallbackContext ctx) {
-        Debug.Log("Activate UI");
+        //Debug.Log("Activate UI");
         playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
     }
 
     // Called when the inventory UI closes
     private void OnCloseInventory(InputAction.CallbackContext ctx) {
-        Debug.Log("Deactivate UI");
+        //Debug.Log("Deactivate UI");
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeActivateInventory();
     }

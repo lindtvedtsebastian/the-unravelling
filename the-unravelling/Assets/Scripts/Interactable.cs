@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
     
-    public ItemData item;
+    public Item item;
+    
+    //private ItemSlot[] itemSlots;
     
     public GameObject player;
+
+    public Inventory playerInventory;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerInventory = FindObjectOfType<Inventory>();
+        //itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
     }
     
     private void OnTriggerEnter2D(Collider2D player)
     {
-        Debug.Log(player.name + " picked up : " + item.itemName);
+        Debug.Log(player.name + " picked up : " + item.item.itemName);
+        playerInventory.Add(item);
         Destroy(gameObject);
     }
 }

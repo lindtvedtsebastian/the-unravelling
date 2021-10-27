@@ -317,6 +317,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7257778549970449003, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
   m_PrefabInstance: {fileID: 533545715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &533545723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+  m_PrefabInstance: {fileID: 533545715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533545716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5be647ac8d916248b6391a4c41c2627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &566386166
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,8 +860,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryCanvas: {fileID: 1875077170}
-  stone: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
-  wood: {fileID: 11400000, guid: 1f05873801d596c49a5ae56eb981e4a6, type: 2}
+  playerInventory: {fileID: 533545723}
+  itemPanel: {fileID: 720430027}
+  stone:
+    item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
+    amount: 1
+  wood:
+    item: {fileID: 11400000, guid: 1f05873801d596c49a5ae56eb981e4a6, type: 2}
+    amount: 1
+--- !u!224 &720430027 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5477642595947171769, guid: f9c32d202af63954982c0865844818c2, type: 3}
+  m_PrefabInstance: {fileID: 720430020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028428428
 GameObject:
   m_ObjectHideFlags: 0
