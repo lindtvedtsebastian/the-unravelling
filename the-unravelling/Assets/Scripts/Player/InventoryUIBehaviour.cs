@@ -16,12 +16,7 @@ public class InventoryUIBehaviour : MonoBehaviour {
 
     // Player callback, called when the inventory ui closes
     //private OnClickInventory callback;
-
-    /// <summary>
-    /// Activate the UI, and populate the list of items.
-    /// </summary>
-    /// <param name="inventory">Inventory (list of items)</param>
-    /// <param name="click">Callback called when the inventory is closed again</param>
+    
     /*public void OnActivate(in Inventory inventory, OnClickInventory click) {
         callback = click;
         
@@ -36,11 +31,7 @@ public class InventoryUIBehaviour : MonoBehaviour {
             //cell.AddItemData(item, CloseInventory);
         //}
     }*/
-
-    /// <summary>
-    /// Actually close the inventory UI.
-    /// </summary>
-    /// <param name="item">Item that was selected, or null</param>
+    
     /*public void CloseInventory(in CraftingData item) {
         callback(item);
         gameObject.SetActive(false);

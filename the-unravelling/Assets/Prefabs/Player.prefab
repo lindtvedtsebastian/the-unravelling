@@ -147,6 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7257778549970449006}
   - component: {fileID: 7447295850811837085}
+  - component: {fileID: 4766609290081581639}
   - component: {fileID: -6751475238691911543}
   - component: {fileID: 7257778549970449007}
   - component: {fileID: 7257778549970449000}
@@ -188,6 +189,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!114 &4766609290081581639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257778549970449003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714e5df52ca8418a971d2e9962d70b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
 --- !u!114 &-6751475238691911543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   inventoryUI: {fileID: 0}
-  inventory: {fileID: 11400000, guid: 7e59c6f26732f2144abc78d4ae454ba1, type: 2}
+  playerInventory: {fileID: 0}
   item: {fileID: 11400000, guid: 73ba29c97e5fe6a429d23d13cd35a90b, type: 2}
   previewGameObject: {fileID: 5246288179638492474, guid: 90fc443ec8c387d4fbd0b5e9d10c2a59, type: 3}
 --- !u!50 &7257778549970449007

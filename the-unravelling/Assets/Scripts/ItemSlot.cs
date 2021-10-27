@@ -4,18 +4,18 @@ using UnityEngine.UI;
 
 
 public class ItemSlot : MonoBehaviour {
-        ItemData item;
+        Item item;
 
         public Image itemImg;
         public Text itemNum;
 
-        public void AddItem(ItemData newItem)
+        public void AddItem(Item newItem)
         {
                 item = newItem;
-                itemImg.sprite = item.preview;
+                itemImg.sprite = item.item.preview;
                 itemImg.enabled = true;
                 itemNum.enabled = true;
-                itemNum.text = item.itemAmount.ToString();
+                itemNum.text = item.amount.ToString();
         }
 }
 

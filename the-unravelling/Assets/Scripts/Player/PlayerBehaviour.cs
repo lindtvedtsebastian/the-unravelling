@@ -8,14 +8,16 @@ public class PlayerBehaviour : MonoBehaviour {
     public float speed = 200.0f;
 
     // The inventory UI
-    public InventoryUIBehaviour inventoryUI;
+    //public InventoryUIBehaviour inventoryUI;
+
+    public VisualizeInventory playerInventory;
 
     // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
-    public ItemData item;
+    //public ItemData item;
     //public CraftingData craft;
 
     // GameObject that previews where to place tiles
-    public GameObject previewGameObject;
+    //public GameObject previewGameObject;
 
     // Components
     private Rigidbody2D body;
@@ -38,6 +40,8 @@ public class PlayerBehaviour : MonoBehaviour {
         var actions = playerInput.actions;
 
         playerAnimation = GetComponent<Animator>();
+        
+        
 
         // Test var for capturing movement for animations
 
@@ -45,12 +49,12 @@ public class PlayerBehaviour : MonoBehaviour {
         moveAction = actions["Move"];
 
         // Setup action handlers
-        /*actions["Player/Inventory"].performed += OnActionInventory;
-        actions["Player/Interact"].performed += OnActionInteract;
+        actions["Player/Inventory"].performed += OnOpenInventory;
+        /*actions["Player/Interact"].performed += OnActionInteract;
         actions["Player/Place"].performed += OnActionPlace;
         actions["Player/Cancel"].performed += OnActionCancel;
-        actions["Player/Destroy"].performed += OnActionDestroy;
-        actions["UI/Cancel"].performed += inventoryUI.OnClose;*/
+        actions["Player/Destroy"].performed += OnActionDestroy;*/
+        actions["UI/Cancel"].performed += OnCloseInventory;
 
         // Grab global objects
         mouse = Mouse.current;
@@ -63,9 +67,9 @@ public class PlayerBehaviour : MonoBehaviour {
         // inventory.AddItem(item, 2);
 
         // We need to make a new instance of the game object, so that we can use it.
-        previewGameObject = Instantiate(previewGameObject);
+        //previewGameObject = Instantiate(previewGameObject);
         // But it should still be disabled
-        previewGameObject.SetActive(false);
+        //previewGameObject.SetActive(false);
     }
 
     private void Update() {
@@ -136,26 +140,22 @@ public class PlayerBehaviour : MonoBehaviour {
 
         // Convert to world space coordinates
         return currentCamera.ScreenToWorldPoint(mousePos);
+    }*/
+    
+    private void OnOpenInventory(InputAction.CallbackContext ctx) {
+        Debug.Log("Activate UI");
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInventory.ActivateInventory();
     }
 
     // Called when the inventory UI closes
-    private void OnCloseInventory(in CraftingData item) {
+    private void OnCloseInventory(InputAction.CallbackContext ctx) {
+        Debug.Log("Deactivate UI");
         playerInput.SwitchCurrentActionMap("Player");
-
-        if (item != null) {
-            Debug.Log("Item is not null, will preview");
-            CreatePreview(item);
-            return;
-        }
-        Debug.Log("Item is null, no preview");
+        playerInventory.DeActivateInventory();
     }
-
     // Called when inventory action is triggered
-    private void OnActionInventory(InputAction.CallbackContext ctx) {
-        playerInput.SwitchCurrentActionMap("UI");
-        inventoryUI.OnActivate(inventory, OnCloseInventory);
-    }
-
+/*
     // Called when interact action is triggered
     private void OnActionInteract(InputAction.CallbackContext ctx) {
     }

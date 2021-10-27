@@ -19,7 +19,7 @@ public class PlayerInventoryUI : MonoBehaviour {
         void Start()
         {
                 inventory = FindObjectOfType<PlayerInventory>();
-                inventory.onItemChangedCallback += UpdateUI;
+                //inventory.onItemChangedCallback += UpdateUI;
 
                 itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
                 craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
@@ -75,7 +75,7 @@ public class PlayerInventoryUI : MonoBehaviour {
                 //}
         }*/
 
-        void UpdateUI()
+        /*void UpdateUI()
         { 
                 for (int i = 0; i < itemSlots.Length; i++)
                 {
@@ -92,6 +92,6 @@ public class PlayerInventoryUI : MonoBehaviour {
                                 Debug.Log("Adding crafting item");
                                 craftingSlots[i].AddCraftingItem(inventory.craftItems[i]);
                         }
-                }*/
-        }
+                }#1#
+        }*/
 }

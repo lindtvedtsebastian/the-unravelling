@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour {
     /// Adds or updates a item in the inventory list 
     /// </summary>
     /// <param name="newItem">The item to be added</param>
-    void Add(Item newItem) {
+    public void Add(Item newItem) {
 		if (!checkIfItemExists(newItem.item)) {
             items.Add(newItem);
         } else {
