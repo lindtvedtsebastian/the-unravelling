@@ -8,6 +8,7 @@ public class WorldStateManager : MonoBehaviour {
     [FormerlySerializedAs("gameState")] public WorldState worldState;
     
     private void Start() {
+        worldState = GameData.Get.world.state;
         InvokeRepeating(nameof(IncrementGameTimeAndDay), 0.0f, 1.0f);
     }
 
@@ -19,14 +20,14 @@ public class WorldStateManager : MonoBehaviour {
         worldState.TickTime();
     }
     
-    // NOTE: You can create various functions such as this that are utility based. Something such as this could be used for ui if wanted.
-    // They are cheap,expandable and expendable.
     public int getCurrentIngameDay() {
         return worldState.currentGameDay;
     }
+	
     public bool IsNight() {
         return worldState.stateOfDay == CycleState.NIGHT;
     }
+
     public bool IsDay() {
         return worldState.stateOfDay == CycleState.DAY;
     }
