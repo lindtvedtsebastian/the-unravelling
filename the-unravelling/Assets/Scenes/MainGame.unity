@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 183097239}
   m_Layer: 0
   m_Name: WaveManager
-  m_TagString: Untagged
+  m_TagString: WaveManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bebfeefa707a85947aecefd54cd53ac3, type: 2}
   - {fileID: 11400000, guid: 2c575655b29317e4da03ec5317e19a71, type: 2}
   enemyContainer: {fileID: 185746056}
+  spawnedEnemies: []
 --- !u!4 &183097240
 Transform:
   m_ObjectHideFlags: 0

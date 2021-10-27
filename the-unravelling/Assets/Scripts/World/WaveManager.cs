@@ -4,39 +4,44 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
 	[SerializeField] private Wave[] waves;
+    [SerializeField] private bool[] completedWaves;
     [SerializeField] private GameObject enemyContainer;
     private Wave currentWave;
-    private List<GameObject> spawnedEnemies;
+	
+    public List<GameObject> spawnedEnemies;
+
+    private bool newWave;
+
     private int mapSize;
 	
     private int waveIndex;
     private int waveEnemyIndex;
+	[SerializeField]
     private int remainingWaveEnemyCount;
 
     // Start is called before the first frame update
     void Start() {
         mapSize = GameData.Get.world.worldSize;
         spawnedEnemies = new List<GameObject>();
+        completedWaves = new bool[waves.Length];
 
-        waveIndex = 0;
-        waveEnemyIndex = 0;
-        remainingWaveEnemyCount = -1;
+        waveIndex = -1;
+        UpdateWaveManagerValues();
     }
 
     // Update is called once per frame
     void Update() {
-		if (currentWave == null) {
-            GetCurrentWave();
-        }
-		DoWaveAction();
-        if (GameData.Get.world.state.stateOfDay == CycleState.NIGHT) {
+        if (GameData.Get.world.state.stateOfDay == CycleState.MORNING && !completedWaves[waveIndex]) {
             DoWaveAction();
-        }
+            StartCoroutine(spawnDelay());
+        } else
+			UpdateWaveManagerValues();
     }
 
 	void DoWaveAction() {
-		if (spawnedEnemies.Count <= currentWave.maxConcurrentEnemies) {
-            currentWave = waves[waveIndex];
+        Debug.Log(spawnedEnemies.Count);
+        Debug.Log(currentWave.maxConcurrentEnemies);
+        if (spawnedEnemies.Count < currentWave.maxConcurrentEnemies) {
             WaveEnemy waveEnemy = currentWave.waveEnemies[waveEnemyIndex];
 			
 			GameObject newEnemy = Instantiate(original: waveEnemy.enemy,
@@ -45,10 +50,12 @@ public class WaveManager : MonoBehaviour {
 											  parent: enemyContainer.transform);
             spawnedEnemies.Add(newEnemy);
             remainingWaveEnemyCount--;
-			
-			if (remainingWaveEnemyCount <= 0) {
-				if (waveEnemyIndex > currentWave.waveEnemies.Length-1) {
+            Debug.Log(remainingWaveEnemyCount);
+
+            if (remainingWaveEnemyCount <= 0) {
+				if (waveEnemyIndex >= currentWave.waveEnemies.Length-1) {
                     waveEnemyIndex = 0;
+                    completedWaves[waveIndex] = true;
                 } else {
 					waveEnemyIndex++;
                     remainingWaveEnemyCount = currentWave.waveEnemies[waveEnemyIndex].count;
@@ -57,9 +64,15 @@ public class WaveManager : MonoBehaviour {
 		}
     }
 
-	void GetCurrentWave() {
-        currentWave = waves[GameData.Get.world.state.currentGameDay];
-	}
+	void UpdateWaveManagerValues() {
+		if (waveIndex != GameData.Get.world.state.currentGameDay) {
+            waveIndex = GameData.Get.world.state.currentGameDay;
+            waveEnemyIndex = 0;
+            currentWave = waves[waveIndex];
+            remainingWaveEnemyCount = currentWave.waveEnemies[waveEnemyIndex].count;
+        }
+	} 
+
 
 	Vector3 spawnPosition() {
 		switch (currentWave.waveDirection) {
