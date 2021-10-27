@@ -8,6 +8,7 @@ using UnityEngine;
 [Serializable]
 public class Inventory : MonoBehaviour {
     public List<Item> items;
+    public List<Craft> craft;
 
     /// <summary>
     /// Constructs a new Inventory 
@@ -33,7 +34,7 @@ public class Inventory : MonoBehaviour {
     /// Checks if a given itemData exists in the inventory list
     /// </summary>
     /// <param name="itemData">The itemdata to check against the inv list</param>
-    /// <returns>Wheter or not the item exists</returns>
+    /// <returns>Whether or not the item exists</returns>
     private bool checkIfItemExists(ItemData itemData) {
 		foreach (Item item in items) {
 			if (item.item == itemData) {
@@ -91,5 +92,11 @@ public class Inventory : MonoBehaviour {
 [Serializable]
 public class Item {
     public ItemData item;
+    public int amount;
+}
+
+[Serializable]
+public class Craft {
+    public CraftingRecipe craftingRecipe;
     public int amount;
 }

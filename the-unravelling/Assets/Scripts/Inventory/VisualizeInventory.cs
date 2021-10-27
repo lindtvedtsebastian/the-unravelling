@@ -11,19 +11,22 @@ public class VisualizeInventory : MonoBehaviour {
     private Inventory playerInventory;
 
     public Transform itemPanel;
+    public Transform craftingPanel;
 
     private ItemSlot[] itemSlots;
+    private CraftingSlot[] craftingSlots;
 
     void Start()
     {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
-
-        updateInventory();
+        craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
+        updateItems();
     }
     
     public void ActivateInventory()
     {
-        updateInventory();
+        updateItems();
+        addCrafting();
         inventoryCanvas.SetActive(true);
     }
 
@@ -31,8 +34,19 @@ public class VisualizeInventory : MonoBehaviour {
     {
         inventoryCanvas.SetActive(false);
     }
-    
-    private void updateInventory()
+
+    private void addCrafting()
+    {
+        for (int i = 0; i < craftingSlots.Length; i++)
+        {
+            if (i < playerInventory.craft.Count)
+            {
+                craftingSlots[i].AddCraftingItem(playerInventory.craft[i]);
+            }
+        }
+    }
+
+    private void updateItems()
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
@@ -61,3 +75,5 @@ public class VisualizeInventory : MonoBehaviour {
 //Debug.Log("Slot count : " + itemSlots.Length);
 
 //Debug.Log("Visualize inventory deactivate");
+
+//Debug.Log(playerInventory.craft[0].craftingRecipe.recipeName);

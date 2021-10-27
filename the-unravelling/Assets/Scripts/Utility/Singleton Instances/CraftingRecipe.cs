@@ -11,6 +11,8 @@ public class CraftingRecipes : ScriptableObjectSingleton<CraftingRecipes> {
 public class CraftingRecipe : ScriptableObject {
     public int id;
     public string recipeName;
+    public Sprite craftPreview;
+    public GameObject manifestation;
     public int resultingAmount;
     public RecipeData[] recipeItems; 
 }

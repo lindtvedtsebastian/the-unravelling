@@ -308,6 +308,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[0].amount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[0].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: e929566dd8cc0744c86a693a81e26065, type: 2}
     m_RemovedComponents:
     - {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
     - {fileID: 4766609290081581639, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
@@ -870,6 +882,7 @@ MonoBehaviour:
   inventoryCanvas: {fileID: 1875077170}
   playerInventory: {fileID: 533545723}
   itemPanel: {fileID: 720430027}
+  craftingPanel: {fileID: 1116179828}
 --- !u!224 &720430027 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5477642595947171769, guid: f9c32d202af63954982c0865844818c2, type: 3}
@@ -993,6 +1006,11 @@ Transform:
   m_Father: {fileID: 1935653698}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1116179828 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6118059310133602881, guid: f9c32d202af63954982c0865844818c2, type: 3}
+  m_PrefabInstance: {fileID: 720430020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1875077170 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5477642595974732382, guid: f9c32d202af63954982c0865844818c2, type: 3}
