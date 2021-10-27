@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using UnityEngine.Video;
 
 public class AudioManager : MonoBehaviour {
     public AudioClip menuAudio; // this track loops throughout the all of the MainMenu scene.
