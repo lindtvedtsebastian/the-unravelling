@@ -17,4 +17,4 @@ MonoBehaviour:
     count: 5
   waveDirection: 2
   maxConcurrentEnemies: 2
-  spawnInterval: 3
+  spawnInterval: 5

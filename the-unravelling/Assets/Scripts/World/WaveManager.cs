@@ -31,7 +31,7 @@ public class WaveManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (GameData.Get.world.state.stateOfDay == CycleState.MORNING && !completedWaves[waveIndex]) {
+        if (GameData.Get.world.state.stateOfDay == CycleState.NIGHT && !completedWaves[waveIndex]) {
             DoWaveAction();
             StartCoroutine(spawnDelay());
         } else
