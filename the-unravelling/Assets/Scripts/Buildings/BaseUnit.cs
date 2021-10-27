@@ -64,7 +64,7 @@ public class BaseUnit : MonoBehaviour {
     private void Drop() {
         // Find the player and get the inventory
         var player = GameObject.FindWithTag("Player");
-        var inventory = player.gameObject.GetComponent<PlayerBehaviour>().inventory;
+        // var inventory = player.gameObject.GetComponent<PlayerBehaviour>().inventory;
         
         // Add the dropped item
         var count = Random.Range(minDropCount, maxDropCount);
