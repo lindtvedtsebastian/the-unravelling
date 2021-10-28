@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10bd24ef8bf596f468bbed120ecd83fa, type: 3}
   m_Name: WoodTurret
   m_EditorClassIdentifier: 
-  id: 0
+  id: 50
   itemName: WoodTurret
   itemAmount: 1
   type: 0

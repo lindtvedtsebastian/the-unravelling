@@ -115,7 +115,7 @@ MonoBehaviour:
   maxHealth: 300
   healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
   drops:
-  - item: {fileID: 11400000, guid: f4eca90c0c0334d43ba7634aad9d444a, type: 2}
+  - item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
     amount: 2
   - item: {fileID: 11400000, guid: 1f05873801d596c49a5ae56eb981e4a6, type: 2}
     amount: 2
