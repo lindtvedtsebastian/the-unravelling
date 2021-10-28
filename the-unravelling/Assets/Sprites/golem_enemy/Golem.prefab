@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3496865911431258505}
   m_Layer: 0
   m_Name: Golem
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993b86f0b409c7746af2d91c1e52c17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
+  enemyWalk: {fileID: 0}
+  enemyIdle: {fileID: 0}
 --- !u!50 &1351624298000550840
 Rigidbody2D:
   serializedVersion: 4
