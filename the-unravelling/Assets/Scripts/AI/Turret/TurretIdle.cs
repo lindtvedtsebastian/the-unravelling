@@ -8,7 +8,7 @@ public class TurretIdle : State {
     
     private float rotationSpeed;
     private Rigidbody2D _bowBody;
-    private Vector3 _bowPosition;
+    private ParticleSystem _particleSystem;
 
     /// <summary>
     /// The state "constructor"
@@ -18,7 +18,8 @@ public class TurretIdle : State {
         _stateManager = stateManager;
         rotationSpeed = _stateManager.GetComponent<TurretAI>().rotationSpeed;
         _bowBody = _stateManager.GetComponent<TurretAI>().bow.GetComponent<Rigidbody2D>();
-        _bowPosition = _stateManager.GetComponent<TurretAI>().bow.transform.position;
+        _particleSystem = _stateManager.GetComponent<TurretAI>().particleSystem;
+        _particleSystem.Stop();
     }
     
     /// <summary>

@@ -1,12 +1,19 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Transforms;
 using UnityEngine;
 
 public class TurretAI : StateManager {
     
+    // Variables for controlling turret animation
     [SerializeField] public GameObject bow;
     public float rotationSpeed = 25.0f;
     
-    // 
+    // ParticleSystem that controls the turrets shooting
+    public ParticleSystem particleSystem;
+
+    // List that holds the enemies within vision range
     public List<GameObject> targetList;
 
     // The different states of the turret.
@@ -60,6 +67,12 @@ public class TurretAI : StateManager {
     private void OnTriggerExit2D(Collider2D other) {
         if (targetList.Contains(other.gameObject)) {
             targetList.Remove(other.gameObject);
+        }
+    }
+
+    private void OnParticleCollision(GameObject other) {
+        if (other.gameObject.CompareTag("Enemy")) {
+            
         }
     }
 }
