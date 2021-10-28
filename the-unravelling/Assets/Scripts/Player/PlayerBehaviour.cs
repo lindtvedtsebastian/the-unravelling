@@ -48,6 +48,7 @@ public class PlayerBehaviour : MonoBehaviour {
         actions["Player/Place"].performed += OnActionPlace;
         actions["Player/Cancel"].performed += OnActionCancel;
         //actions["Player/Destroy"].performed += OnActionDestroy;
+        actions["Player/Destroy"].performed += OnActionDamage;
         actions["UI/Cancel"].performed += OnCloseInventory;
 
         // Grab global objects
@@ -113,20 +114,24 @@ public class PlayerBehaviour : MonoBehaviour {
         // Destroy the preview if it exists
         playerInventory.CancelInventoryAction();
     }
-    
-    private void OnActionDestroy(InputAction.CallbackContext ctx) {
-        // Look for a unit that is close to the mouse pointer
-        /*var units = GameObject.FindGameObjectsWithTag("Unit");
-        foreach (var unit in units) {
-            var pos = GetMousePosition();
-            if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
-                var bb = unit.GetComponent<BaseUnit>();
-                if (bb) {
-                    bb.Damage(50);
-                }
-                return;
-            }
-        }*/
+
+	private void OnActionDamage(InputAction.CallbackContext ctx) {
+		RaycastHit2D hit = Physics2D.Raycast(GetMousePosition2D(),Vector2.zero);
+		if (hit.collider != null) {
+            hit.collider.GetComponent<IClickable>()?.OnDamage(50);
+        }
+	}
+	
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    private Vector2 GetMousePosition2D() {
+        // Grab the position of the mouse in screen space
+        Vector3 mousePos = mouse.position.ReadValue();
+
+        // Convert to world space coordinates
+        return currentCamera.ScreenToWorldPoint(mousePos);
     }
+
     
 }
