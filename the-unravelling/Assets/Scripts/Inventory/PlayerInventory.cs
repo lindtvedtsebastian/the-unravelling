@@ -6,15 +6,16 @@ using UnityEngine.InputSystem;
 
 public delegate void OnClickInventory(in Craft craft);
 
-public class VisualizeInventory : MonoBehaviour {
+/// <summary>
+/// A class representing the player inventory
+/// </summary>
+public class PlayerInventory : MonoBehaviour {
     [SerializeField]
     private GameObject inventoryCanvas;
 
     [SerializeField]
     private Inventory playerInventory;
     
-    
-
     [SerializeField] 
     private PlayerBehaviour player;
 
@@ -32,7 +33,7 @@ public class VisualizeInventory : MonoBehaviour {
     public GameObject previewCraft;
 
     private OnClickInventory callback;
-
+    
     void Start()
     {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
@@ -52,6 +53,10 @@ public class VisualizeInventory : MonoBehaviour {
         MousePosPlacement();
     }
     
+    /// <summary>
+    /// Function to create a preview from a craft object
+    /// </summary>
+    /// <param name="craft">A craft object to create a preview from</param>
     public void CreatePreview(in Craft craft)
     {
         previewCraft = Instantiate(previewCraft);
@@ -65,6 +70,9 @@ public class VisualizeInventory : MonoBehaviour {
         player.CloseInventory();
     }
     
+    /// <summary>
+    /// Function to place a craft object
+    /// </summary>
     public void PlaceObject() {
         Debug.Log("Placing object");
 
@@ -72,10 +80,11 @@ public class VisualizeInventory : MonoBehaviour {
         
         Instantiate(previewCraft.GetComponent<PreviewData>().toBePlaced.craftingRecipe.manifestation, previewCraft.transform.position, Quaternion.identity);
         previewCraft.SetActive(false);
-
-        
     }
 
+    /// <summary>
+    /// Function to grab the mouse position for placing a craft object
+    /// </summary>
     public void MousePosPlacement()
     {
         if (previewCraft.activeSelf) {
@@ -86,6 +95,10 @@ public class VisualizeInventory : MonoBehaviour {
                 previewCraft.transform.position.z);
         }
     }
+    
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
     private Vector3 GetMousePosition() {
         // Grab the position of the mouse in screen space
         Vector3 mousePos = mouse.position.ReadValue();
@@ -95,6 +108,9 @@ public class VisualizeInventory : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
     
+    /// <summary>
+    /// Function to activate the inventory
+    /// </summary>
     public void ActivateInventory()
     {
         updateItems();
@@ -102,11 +118,17 @@ public class VisualizeInventory : MonoBehaviour {
         inventoryCanvas.SetActive(true);
     }
 
+    /// <summary>
+    /// Function to de-activate the inventory
+    /// </summary>
     public void DeActivateInventory()
     {
         inventoryCanvas.SetActive(false);
     }
 
+    /// <summary>
+    /// Function to cancel an inventory action
+    /// </summary>
     public void CancelInventoryAction()
     {
         foreach (var slot in craftingSlots)
@@ -117,6 +139,9 @@ public class VisualizeInventory : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Function to add the crafting items to the inventory
+    /// </summary>
     private void addCrafting()
     {
         for (int i = 0; i < craftingSlots.Length; i++)
@@ -131,6 +156,9 @@ public class VisualizeInventory : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Function to update the items in the inventory
+    /// </summary>
     private void updateItems()
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -142,23 +170,3 @@ public class VisualizeInventory : MonoBehaviour {
         }
     }
 }
-
-/*public void OnClose(InputAction.CallbackContext ctx)
-    {
-        DeActivateInventory();
-    }*/
-/*private void displayList(List<Item> list)
-{
-    foreach (var i in list)
-    {
-        Debug.Log(i.item.itemName);
-    }
-}*/
-       
-//Debug.Log("Visualize inventory activate");
-//displayList(playerInventory.items);
-//Debug.Log("Slot count : " + itemSlots.Length);
-
-//Debug.Log("Visualize inventory deactivate");
-
-//Debug.Log(playerInventory.craft[0].craftingRecipe.recipeName);

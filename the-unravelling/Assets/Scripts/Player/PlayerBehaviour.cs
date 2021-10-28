@@ -7,17 +7,7 @@ public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
 
-    // The inventory UI
-    //public InventoryUIBehaviour inventoryUI;
-
-    public VisualizeInventory playerInventory;
-
-    // NOTE: This is just a placeholder for having an inventory UI where this is the selected item
-    //public ItemData item;
-    //public CraftingData craft;
-
-    // GameObject that previews where to place tiles
-    //public GameObject previewGameObject;
+    public PlayerInventory playerInventory;
 
     // Components
     private Rigidbody2D body;
@@ -41,9 +31,6 @@ public class PlayerBehaviour : MonoBehaviour {
 
         playerAnimation = GetComponent<Animator>();
         
-        
-
-        // Test var for capturing movement for animations
 
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
@@ -59,29 +46,10 @@ public class PlayerBehaviour : MonoBehaviour {
         // Grab global objects
         mouse = Mouse.current;
         currentCamera = Camera.main;
-
-        // Assert that the scene is setup to support player behaviour
+        
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
-
-        // inventory.AddItem(item, 2);
-
-        // We need to make a new instance of the game object, so that we can use it.
-        //previewGameObject = Instantiate(previewGameObject);
-        // But it should still be disabled
-        //previewGameObject.SetActive(false);
-    }
-
-    private void Update() {
-        // Move the preview object to under the mouse
-        /*if (previewGameObject.activeSelf) {
-            previewGameObject.transform.position = GetMousePosition();
-            previewGameObject.transform.position = new Vector3(
-                Mathf.Floor(previewGameObject.transform.position.x) + 0.5f,
-                Mathf.Floor(previewGameObject.transform.position.y) + 0.5f,
-                previewGameObject.transform.position.z);
-        }*/
-        //FindObjectOfType<CraftingSlot>().MousePosPlacement();
+        
     }
 
     private void FixedUpdate() {
@@ -101,48 +69,6 @@ public class PlayerBehaviour : MonoBehaviour {
 		}
 	}
 
-    // Create a placement preview based on prefab object
-    /*private void CreatePreview(in CraftingData item) {
-        if (previewGameObject.activeSelf) return;
-        
-        Debug.Log("Create preview");
-
-        //if (!inventory.HasItem(item)) return;
-
-        previewGameObject.SetActive(true);
-        var sprite = previewGameObject.GetComponent<SpriteRenderer>();
-        sprite.sprite = item.preview;
-        
-        //FindObjectOfType<PlayerInventoryUI>().PreviewTurret();
-    }*/
-
-    // Place object into the scene, based on the location of the preview
-    /*private void PlaceObject(in CraftingData item) {
-        // Only place item, if preview was active
-        if (!previewGameObject.activeSelf) return;
-        
-        Debug.Log("Placing object");
-
-        // Remove item from inventory
-        //if (!inventory.RemoveItem(item)) return;
-
-        // Create final object
-        Instantiate(item.manifestation, previewGameObject.transform.position, Quaternion.identity);
-
-        // Deactivate the preview
-        previewGameObject.SetActive(false);
-    }
-
-    // Get the word space position of the mouse
-    private Vector3 GetMousePosition() {
-        // Grab the position of the mouse in screen space
-        Vector3 mousePos = mouse.position.ReadValue();
-        mousePos.z = 1.0f;
-
-        // Convert to world space coordinates
-        return currentCamera.ScreenToWorldPoint(mousePos);
-    }*/
-    
     public void OnOpenInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Activate UI");
         playerInput.SwitchCurrentActionMap("UI");
@@ -160,18 +86,10 @@ public class PlayerBehaviour : MonoBehaviour {
         //Debug.Log("Deactivate UI");
         CloseInventory();
     }
-    // Called when inventory action is triggered
-/*
-    // Called when interact action is triggered
-    private void OnActionInteract(InputAction.CallbackContext ctx) {
-    }*/
 
     // Called when place action is triggered
     public void OnActionPlace(InputAction.CallbackContext ctx) {
         // Destroy the preview object when real object is placed
-        Debug.Log("On place action");
-        //PlaceObject(craft);
-        //playerInput.SwitchCurrentActionMap("Player");
         playerInventory.PlaceObject();
     }
 
@@ -180,21 +98,5 @@ public class PlayerBehaviour : MonoBehaviour {
         // Destroy the preview if it exists
         playerInventory.CancelInventoryAction();
     }
-
-    // Called when destroy action is triggered
-    /*private void OnActionDestroy(InputAction.CallbackContext ctx) {
-        // Look for a unit that is close to the mouse pointer
-        var units = GameObject.FindGameObjectsWithTag("Unit");
-        foreach (var unit in units) {
-            var pos = GetMousePosition();
-            if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
-                var bb = unit.GetComponent<BaseUnit>();
-                if (bb) {
-                    bb.Damage(50);
-                }
-
-                return;
-            }
-        }
-    }*/
+    
 }

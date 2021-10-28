@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public delegate void OnClickCraft(in Craft craftObject);
 
+/// <summary>
+/// A class representing the crafting object slot in the inventory
+/// </summary>
 public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
     Craft craft;
 
@@ -15,7 +18,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
 
     private OnClickCraft callback;
 
-    public VisualizeInventory playerInventory;
+    public PlayerInventory playerInventory;
     
     private Mouse mouse;
     private Camera currentCamera;
@@ -24,6 +27,9 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
 
     public GameObject previewCraft;
 
+    /// <summary>
+    /// Function to add a craft object to the inventory
+    /// </summary>
     public void AddCraftingItem(Craft newCraft)
     {
         craft = newCraft;
@@ -37,7 +43,6 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
         }
         else
         {
-            // Debug.Log("name : " + newCraft.craftingRecipe.recipeName);
             craftingImg.sprite = craft.craftingRecipe.craftPreview;
             deactivateImg.enabled = false;
             craftingImg.enabled = true;
@@ -55,7 +60,10 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
     }
 
     
-    
+    /// <summary>
+    /// Function from the IPointerClickHandler to grab a pointer click
+    /// </summary>
+    /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerClick(PointerEventData eventData) {
         // might need craft == null on condition if slot is empty
         if (craft.craftingRecipe.resultingAmount < 1)
@@ -68,8 +76,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
         else
         {
             playerInventory.CreatePreview(craft);
-            //CreatePreview();
-            //playerInventory.GrabCraftingFromInventory(craft);
+
             Debug.Log("You can craft : " + craft.craftingRecipe.recipeName + " Now!");
         }
     }

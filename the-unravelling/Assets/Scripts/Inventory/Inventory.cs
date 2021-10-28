@@ -96,6 +96,9 @@ public class Item {
     public int amount;
 }
 
+/// <summary>
+/// Craft object in the context of an inventory 
+/// </summary>
 [Serializable]
 public class Craft {
     public CraftingRecipe craftingRecipe;
