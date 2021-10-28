@@ -38,7 +38,7 @@ public class PlayerInventory : MonoBehaviour {
     {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
         craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
-        
+
         mouse = Mouse.current;
         currentCamera = Camera.main;
 
