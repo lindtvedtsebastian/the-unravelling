@@ -1,3 +1,3 @@
 public interface IClickable {
-    void OnDamage();
+    void OnDamage(int damage);
 }

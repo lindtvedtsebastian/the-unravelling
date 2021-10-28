@@ -118,7 +118,7 @@ public class PlayerBehaviour : MonoBehaviour {
 	private void OnActionDamage(InputAction.CallbackContext ctx) {
 		RaycastHit2D hit = Physics2D.Raycast(GetMousePosition2D(),Vector2.zero);
 		if (hit.collider != null) {
-            hit.collider.GetComponent<IClickable>()?.OnDamage();
+            hit.collider.GetComponent<IClickable>()?.OnDamage(50);
         }
 	}
 	

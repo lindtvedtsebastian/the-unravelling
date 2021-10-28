@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 /// A base class for units.
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
-public class BaseUnit : MonoBehaviour {
+public class BaseUnit : MonoBehaviour, IClickable {
     // Maximum health of the unit. Configured in subclass or prefab.
     [SerializeField] protected int maxHealth;
 
@@ -13,11 +13,7 @@ public class BaseUnit : MonoBehaviour {
     [SerializeField] private GameObject healthBar;
 
     // Item that the unit drops when destroyed.
-    [SerializeField] private ItemData drops;
-
-    // Drop statistic of item `drops` from this unit.
-    [SerializeField] private int minDropCount;
-    [SerializeField] private int maxDropCount;
+    [SerializeField] private Item[] drops;
 
     // Current health of the unit.
     protected int health;
@@ -42,33 +38,35 @@ public class BaseUnit : MonoBehaviour {
     public float HealthFraction => (float)health / (float)maxHealth;
 
     /// <summary>
-    /// Damage the unit. Destroy the unit if health goes to zero.
+    /// The action that will be triggered when this object is clicked
     /// </summary>
-    /// <param name="damage">Points of damage</param>
-    /// <returns>Was the building destroyed?</returns>
-    public bool Damage(int damage) {
+    /// <param name="damage">The amount of damage to inflict on the object</param>
+    public void OnDamage(int damage) {
         health -= damage;
 
-        // Was the building destroyed?
-        if (health <= 0) {
-            Destroy(this.gameObject);
-            return true;
+		if (health <= 0) {
+            Destroy(gameObject);
         }
-
-        return false;
     }
 
     /// <summary>
-    /// Drop items based `drops` and on min and max drop count.
+    /// Generates "drop" gameobjects and scatters them around this entity
     /// </summary>
     private void Drop() {
-        // Find the player and get the inventory
-        var player = GameObject.FindWithTag("Player");
-        // var inventory = player.gameObject.GetComponent<PlayerBehaviour>().inventory;
-        
-        // Add the dropped item
-        var count = Random.Range(minDropCount, maxDropCount);
-        //inventory.AddItem(drops, count);
+        GameObject dropContainer = GameObject.FindWithTag("DropContainer");
+        foreach (Item drop in drops) {
+            Vector3 pos = gameObject.transform.position;
+
+            for (int i = 0; i < drop.amount; i++) {
+				Vector3 dropPos = new Vector3(Random.Range(pos.x - 1, pos.x + 1),
+											  Random.Range(pos.y - 1, pos.y + 1),
+											  pos.z);
+				Instantiate(drop.item.manifestation,
+							dropPos,
+							Quaternion.identity,
+							dropContainer.transform);
+			}
+        }
     }
 
     /// <summary>
@@ -77,4 +75,5 @@ public class BaseUnit : MonoBehaviour {
     private void OnDestroy() {
         Drop();
     }
+
 }
