@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour {
     /// <returns>The new inventory object</returns>
     public Inventory() {
         items = new List<Item>();
+        craft = new List<Craft>();
     }
 
     /// <summary>
@@ -65,7 +66,7 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="recipe">The recipe to be checked against the inventory</param>
     /// <returns>How many times a recipe can be crafted, or -1 if not</returns>
-    int calculateRecipeCraftingAmount(CraftingRecipe recipe) {
+    public int CalculateRecipeCraftingAmount(CraftingRecipe recipe) {
         int currentLowestCraftingAmount = int.MaxValue;
         foreach (RecipeData data in recipe.recipeItems) {
             int itemIndex = findItemDataIndex(data.item);

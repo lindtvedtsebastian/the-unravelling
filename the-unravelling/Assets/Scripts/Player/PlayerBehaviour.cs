@@ -51,9 +51,9 @@ public class PlayerBehaviour : MonoBehaviour {
         // Setup action handlers
         actions["Player/Inventory"].performed += OnOpenInventory;
         /*actions["Player/Interact"].performed += OnActionInteract;
-        actions["Player/Place"].performed += OnActionPlace;
+        actions["Player/Place"].performed += OnActionPlace;*/
         actions["Player/Cancel"].performed += OnActionCancel;
-        actions["Player/Destroy"].performed += OnActionDestroy;*/
+        //actions["Player/Destroy"].performed += OnActionDestroy;
         actions["UI/Cancel"].performed += OnCloseInventory;
 
         // Grab global objects
@@ -81,6 +81,7 @@ public class PlayerBehaviour : MonoBehaviour {
                 Mathf.Floor(previewGameObject.transform.position.y) + 0.5f,
                 previewGameObject.transform.position.z);
         }*/
+        //FindObjectOfType<CraftingSlot>().MousePosPlacement();
     }
 
     private void FixedUpdate() {
@@ -168,12 +169,10 @@ public class PlayerBehaviour : MonoBehaviour {
     }*/
 
     // Called when cancel action is triggered
-    /*private void OnActionCancel(InputAction.CallbackContext ctx) {
+    private void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
-        if (previewGameObject.activeSelf) {
-            previewGameObject.SetActive(false);
-        }
-    }*/
+        playerInventory.CancelInventoryAction();
+    }
 
     // Called when destroy action is triggered
     /*private void OnActionDestroy(InputAction.CallbackContext ctx) {
