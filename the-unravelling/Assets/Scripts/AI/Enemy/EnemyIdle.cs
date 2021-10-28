@@ -24,7 +24,7 @@ public class EnemyIdle : State {
     /// The state "destructor"
     /// </summary>
     public override void LeaveState() {
-        throw new System.NotImplementedException();
+        Debug.Log("Nothing to clean up");
     }
 
 }
