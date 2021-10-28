@@ -37,7 +37,7 @@ public class PlayerInventory : MonoBehaviour {
     void Start()
     {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
-        craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
+		craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
 
         mouse = Mouse.current;
         currentCamera = Camera.main;
@@ -77,8 +77,12 @@ public class PlayerInventory : MonoBehaviour {
         Debug.Log("Placing object");
 
         if (!previewCraft.activeSelf) return;
-        
-        Instantiate(previewCraft.GetComponent<PreviewData>().toBePlaced.craftingRecipe.manifestation, previewCraft.transform.position, Quaternion.identity);
+
+        CraftingRecipe recipe = previewCraft.GetComponent<PreviewData>().toBePlaced.craftingRecipe;
+		
+        Instantiate(recipe.manifestation, previewCraft.transform.position, Quaternion.identity);
+        playerInventory.SubstractRecipeFromInventory(recipe);
+		
         previewCraft.SetActive(false);
     }
 
@@ -159,14 +163,14 @@ public class PlayerInventory : MonoBehaviour {
     /// <summary>
     /// Function to update the items in the inventory
     /// </summary>
-    private void updateItems()
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if (i < playerInventory.items.Count)
-            {
-                itemSlots[i].AddItem(playerInventory.items[i]);
-            }
-        }
+    private void updateItems() {
+        playerInventory.removeEmpty();
+
+        for (int i = 0; i < itemSlots.Length; i++) {
+            itemSlots[i].ClearData();
+            if (i < playerInventory.items.Count) {
+				itemSlots[i].AddItem(playerInventory.items[i]);
+			}
+		}
     }
 }

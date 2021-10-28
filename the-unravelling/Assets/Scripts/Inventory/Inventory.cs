@@ -31,6 +31,12 @@ public class Inventory : MonoBehaviour {
         }
 	}
 
+	public void removeEmpty() {
+        items.RemoveAll((Item item) => {
+            return item.amount <= 0;
+        });
+    }
+
     /// <summary>
     /// Checks if a given itemData exists in the inventory list
     /// </summary>
@@ -85,6 +91,12 @@ public class Inventory : MonoBehaviour {
             return currentLowestCraftingAmount;
         } else return -1;
     }
+
+	public void SubstractRecipeFromInventory(CraftingRecipe recipe) {
+		foreach (RecipeData data in recipe.recipeItems) {
+            items[findItemDataIndex(data.item)].amount -= data.amount;
+        }
+	}
 }
 
 /// <summary>
