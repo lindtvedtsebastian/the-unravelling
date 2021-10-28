@@ -20,7 +20,7 @@ public class BaseUnit : MonoBehaviour {
     [SerializeField] private int maxDropCount;
 
     // Current health of the unit.
-    private int health;
+    protected int health;
 
     void Awake() {
         health = maxHealth;
