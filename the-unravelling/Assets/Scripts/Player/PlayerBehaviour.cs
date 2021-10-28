@@ -8,6 +8,9 @@ public class PlayerBehaviour : MonoBehaviour {
     public float speed = 200.0f;
 
     public PlayerInventory playerInventory;
+    
+    public AudioSource walkingLSound;
+    public AudioSource walkingRSound;
 
     // Components
     private Rigidbody2D body;
@@ -31,6 +34,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
         playerAnimation = GetComponent<Animator>();
         
+        walkingLSound = GetComponent<AudioSource>();
+        walkingLSound.volume = 0.2f;
+        walkingRSound = GetComponent<AudioSource>();
+        walkingRSound.volume = 0.2f;
 
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
@@ -74,6 +81,14 @@ public class PlayerBehaviour : MonoBehaviour {
         playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
     }
+    
+    private void PlayRightWalkingSound() {
+        walkingRSound.Play();
+    }
+
+    private void PlayLeftWalkingSound() {
+        walkingLSound.Play();
+    }
 
     public void CloseInventory()
     {
@@ -97,6 +112,21 @@ public class PlayerBehaviour : MonoBehaviour {
     public void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
         playerInventory.CancelInventoryAction();
+    }
+    
+    private void OnActionDestroy(InputAction.CallbackContext ctx) {
+        // Look for a unit that is close to the mouse pointer
+        /*var units = GameObject.FindGameObjectsWithTag("Unit");
+        foreach (var unit in units) {
+            var pos = GetMousePosition();
+            if (unit.GetComponent<Collider2D>().OverlapPoint(pos)) {
+                var bb = unit.GetComponent<BaseUnit>();
+                if (bb) {
+                    bb.Damage(50);
+                }
+                return;
+            }
+        }*/
     }
     
 }

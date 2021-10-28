@@ -6,20 +6,17 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-// NOTE: revisit if these enums are even worth having at all.
 public enum CycleState {
-    MORNING = 0,
-    DAY = 1,
-    NIGHT = 2,
-    DUSK = 3,
- }
+    DAY = 0,
+    NIGHT = 1
+}
 
 [Serializable]
 public class WorldState {
     public float globalGameTime;
 	public float Tick = 1.0f;
     public int currentGameDay;
-    public bool isGameOver;
+    //public bool isGameOver;
     
     public CycleState stateOfDay;
 
@@ -35,24 +32,13 @@ public class WorldState {
     ///  This function keeps track of the game days and whether it is currently night or day.
     ///  It is ran in the Start method every second. 
     /// </summary>
-    public void TickTime() { 
+    public void TickTime() {
         globalGameTime += Tick;
         stateOfDay = globalGameTime > nightDuration ? CycleState.NIGHT : CycleState.DAY;
 
         if (globalGameTime > dayDuration) {
             currentGameDay++;
             globalGameTime = 0;
-        }
-    }
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
