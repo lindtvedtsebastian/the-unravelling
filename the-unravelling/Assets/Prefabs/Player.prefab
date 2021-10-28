@@ -222,7 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   playerInventory: {fileID: 0}
-  playerInput: {fileID: 0}
+  walkingLSound: {fileID: 0}
+  walkingRSound: {fileID: 0}
+  playerInput: {fileID: 7257778549970449001}
 --- !u!50 &7257778549970449007
 Rigidbody2D:
   serializedVersion: 4

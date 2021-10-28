@@ -8,15 +8,15 @@ public class PlayerBehaviour : MonoBehaviour {
     public float speed = 200.0f;
 
     public PlayerInventory playerInventory;
-    
-    public AudioSource walkingLSound;
-    public AudioSource walkingRSound;
 
     // Components
     private Rigidbody2D body;
     public PlayerInput playerInput;
     private InputAction moveAction;
     private Animator playerAnimation;
+    
+    public AudioSource walkingLSound;
+    public AudioSource walkingRSound;
 
     // Global objects
     private Mouse mouse;
@@ -38,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour {
         walkingLSound.volume = 0.2f;
         walkingRSound = GetComponent<AudioSource>();
         walkingRSound.volume = 0.2f;
-
+        
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
 
@@ -75,12 +75,6 @@ public class PlayerBehaviour : MonoBehaviour {
 			playerAnimation.SetFloat(VelocityY, 0);	
 		}
 	}
-
-    public void OnOpenInventory(InputAction.CallbackContext ctx) {
-        //Debug.Log("Activate UI");
-        playerInput.SwitchCurrentActionMap("UI");
-        playerInventory.ActivateInventory();
-    }
     
     private void PlayRightWalkingSound() {
         walkingRSound.Play();
@@ -88,6 +82,12 @@ public class PlayerBehaviour : MonoBehaviour {
 
     private void PlayLeftWalkingSound() {
         walkingLSound.Play();
+    }
+
+    public void OnOpenInventory(InputAction.CallbackContext ctx) {
+        //Debug.Log("Activate UI");
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInventory.ActivateInventory();
     }
 
     public void CloseInventory()
