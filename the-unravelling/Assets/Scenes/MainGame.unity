@@ -329,6 +329,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7257778549970449003, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
   m_PrefabInstance: {fileID: 533545715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &533545719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7257778549970449001, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+  m_PrefabInstance: {fileID: 533545715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533545716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &533545722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6751475238691911543, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+  m_PrefabInstance: {fileID: 533545715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533545716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b694717369faf3e4382ba4ab866c2357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &533545723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
@@ -809,6 +831,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 533545722}
+    - target: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 533545719}
+    - target: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
+      propertyPath: previewCraft
+      value: 
+      objectReference: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
     - target: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
       propertyPath: playerInventory
       value: 

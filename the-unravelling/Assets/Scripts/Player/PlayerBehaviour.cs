@@ -21,7 +21,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Components
     private Rigidbody2D body;
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
     private InputAction moveAction;
     private Animator playerAnimation;
 
@@ -50,8 +50,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
         // Setup action handlers
         actions["Player/Inventory"].performed += OnOpenInventory;
-        /*actions["Player/Interact"].performed += OnActionInteract;
-        actions["Player/Place"].performed += OnActionPlace;*/
+        /*actions["Player/Interact"].performed += OnActionInteract;*/
+        actions["Player/Place"].performed += OnActionPlace;
         actions["Player/Cancel"].performed += OnActionCancel;
         //actions["Player/Destroy"].performed += OnActionDestroy;
         actions["UI/Cancel"].performed += OnCloseInventory;
@@ -143,33 +143,40 @@ public class PlayerBehaviour : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }*/
     
-    private void OnOpenInventory(InputAction.CallbackContext ctx) {
+    public void OnOpenInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Activate UI");
         playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
     }
 
-    // Called when the inventory UI closes
-    private void OnCloseInventory(InputAction.CallbackContext ctx) {
-        //Debug.Log("Deactivate UI");
+    public void CloseInventory()
+    {
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeActivateInventory();
+    }
+
+    // Called when the inventory UI closes
+    public void OnCloseInventory(InputAction.CallbackContext ctx) {
+        //Debug.Log("Deactivate UI");
+        CloseInventory();
     }
     // Called when inventory action is triggered
 /*
     // Called when interact action is triggered
     private void OnActionInteract(InputAction.CallbackContext ctx) {
-    }
-
-    // Called when place action is triggered
-    private void OnActionPlace(InputAction.CallbackContext ctx) {
-        // Destroy the preview object when real object is placed
-        Debug.Log("On place action");
-        PlaceObject(craft);
     }*/
 
+    // Called when place action is triggered
+    public void OnActionPlace(InputAction.CallbackContext ctx) {
+        // Destroy the preview object when real object is placed
+        Debug.Log("On place action");
+        //PlaceObject(craft);
+        //playerInput.SwitchCurrentActionMap("Player");
+        playerInventory.PlaceObject();
+    }
+
     // Called when cancel action is triggered
-    private void OnActionCancel(InputAction.CallbackContext ctx) {
+    public void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
         playerInventory.CancelInventoryAction();
     }

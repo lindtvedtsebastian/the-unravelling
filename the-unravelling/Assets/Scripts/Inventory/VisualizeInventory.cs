@@ -12,6 +12,11 @@ public class VisualizeInventory : MonoBehaviour {
 
     [SerializeField]
     private Inventory playerInventory;
+    
+    
+
+    [SerializeField] 
+    private PlayerBehaviour player;
 
     public Transform itemPanel;
     public Transform craftingPanel;
@@ -38,7 +43,7 @@ public class VisualizeInventory : MonoBehaviour {
 
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
-        
+
         updateItems();
     }
     
@@ -54,25 +59,21 @@ public class VisualizeInventory : MonoBehaviour {
         
         var sprite = previewCraft.GetComponent<SpriteRenderer>();
         sprite.sprite = craft.craftingRecipe.craftPreview;
+
+        previewCraft.GetComponent<PreviewData>().toBePlaced = craft;
         
-        DeActivateInventory();
-        //CancelInventoryAction();
+        player.CloseInventory();
     }
     
-    private void PlaceObject(in Craft craft) {
-        // Only place item, if preview was active
+    public void PlaceObject() {
+        Debug.Log("Placing object");
+
         if (!previewCraft.activeSelf) return;
         
-        //Debug.Log("Placing object");
-
-        // Remove item from inventory
-        //if (!inventory.RemoveItem(item)) return;
-
-        // Create final object
-        Instantiate(craft.craftingRecipe.manifestation, previewCraft.transform.position, Quaternion.identity);
-
-        // Deactivate the preview
+        Instantiate(previewCraft.GetComponent<PreviewData>().toBePlaced.craftingRecipe.manifestation, previewCraft.transform.position, Quaternion.identity);
         previewCraft.SetActive(false);
+
+        
     }
 
     public void MousePosPlacement()
