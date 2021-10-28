@@ -146,10 +146,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7257778549970449006}
+  - component: {fileID: 7447295850811837085}
+  - component: {fileID: 4766609290081581639}
+  - component: {fileID: -6751475238691911543}
   - component: {fileID: 7257778549970449007}
   - component: {fileID: 7257778549970449000}
   - component: {fileID: 7257778549970449001}
-  - component: {fileID: 7257778549970449002}
   - component: {fileID: 2199783109191021620}
   - component: {fileID: 6900033093664412679}
   m_Layer: 0
@@ -174,6 +176,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7447295850811837085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257778549970449003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f747011435a7dc449630a78912bb825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  craft: []
+--- !u!114 &4766609290081581639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257778549970449003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714e5df52ca8418a971d2e9962d70b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryCanvas: {fileID: 0}
+  playerInventory: {fileID: 0}
+  player: {fileID: 0}
+  itemPanel: {fileID: 0}
+  craftingPanel: {fileID: 0}
+  previewCraft: {fileID: 0}
+--- !u!114 &-6751475238691911543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257778549970449003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b694717369faf3e4382ba4ab866c2357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 200
+  playerInventory: {fileID: 0}
+  walkingLSound: {fileID: 0}
+  walkingRSound: {fileID: 0}
+  playerInput: {fileID: 7257778549970449001}
 --- !u!50 &7257778549970449007
 Rigidbody2D:
   serializedVersion: 4
@@ -315,23 +366,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 7257778549370968652}
---- !u!114 &7257778549970449002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7257778549970449003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b694717369faf3e4382ba4ab866c2357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 200
-  inventoryUI: {fileID: 0}
-  inventory: {fileID: 11400000, guid: 7e59c6f26732f2144abc78d4ae454ba1, type: 2}
-  item: {fileID: 11400000, guid: 73ba29c97e5fe6a429d23d13cd35a90b, type: 2}
-  previewGameObject: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
 --- !u!212 &2199783109191021620
 SpriteRenderer:
   m_ObjectHideFlags: 0
