@@ -326,16 +326,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.size
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.data[0].amount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.data[0].craftingRecipe
       value: 
       objectReference: {fileID: 11400000, guid: e929566dd8cc0744c86a693a81e26065, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[1].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 218fb9a31793ca24c84aa66fd42b5266, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[2].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: e71f51afac7023c46b0a826352de7a47, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[3].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: d5283f651e66e0a40ab2a86c49fa1675, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[4].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 984d3618669ced4499243a3b20e86415, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[5].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc6a3db2b3cad34aa5fe3443c76a6a6, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[6].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 5233193a09e89f640b2d8ceb1bd2e99a, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[7].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: bf4b927b03e36894b927222a359c930d, type: 2}
     m_RemovedComponents:
     - {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
     - {fileID: 4766609290081581639, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
@@ -1084,10 +1112,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2714389508160848417, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714389508160848418, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
-      propertyPath: m_UiScaleMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3963988477480065867, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
