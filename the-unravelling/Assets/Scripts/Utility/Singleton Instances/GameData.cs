@@ -52,6 +52,21 @@ public class GameData : ScriptableObjectSingleton<GameData> {
         }
         else world = new World();
     }
+    
+    /// <summary>
+    /// Deletes a single file located at application persistent storage path.
+    /// </summary>
+    /// <param name="filename">Name of the file we are attempting to delete</param>
+    public void DeleteWorld(string filename = "game-world") {
+        if (File.Exists(Application.persistentDataPath + "/" + filename)) {
+            File.Delete(Application.persistentDataPath + "/" + filename);
+            
+            var pngDelete = filename.Replace(".world", ".png");
+            File.Delete(Application.persistentDataPath + "/" + pngDelete);
+        } else {
+            Debug.LogError("Could not locate file" + Application.persistentDataPath + "/" + filename);
+        }
+    }
 }
 
 [Serializable]
