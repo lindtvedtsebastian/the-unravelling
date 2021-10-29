@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6022164582710407525}
   - component: {fileID: 6022164582710407526}
   - component: {fileID: 6022164582710407520}
-  - component: {fileID: 6022164582710407527}
+  - component: {fileID: 719014699449893377}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
@@ -101,8 +101,8 @@ MonoBehaviour:
   drops:
   - item: {fileID: 11400000, guid: 1f05873801d596c49a5ae56eb981e4a6, type: 2}
     amount: 4
---- !u!60 &6022164582710407527
-PolygonCollider2D:
+--- !u!61 &719014699449893377
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -114,7 +114,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -124,24 +124,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.859375, y: -0.015625}
-      - {x: 0.671875, y: 0.234375}
-      - {x: 0.796875, y: 0.390625}
-      - {x: 0.734375, y: 0.640625}
-      - {x: 0.296875, y: 1.421875}
-      - {x: 0.109375, y: 1.578125}
-      - {x: -0.171875, y: 1.578125}
-      - {x: -0.640625, y: 0.921875}
-      - {x: -0.859375, y: 0.390625}
-      - {x: -0.703125, y: 0.109375}
-      - {x: -0.859375, y: -0.296875}
-      - {x: -0.859375, y: -0.859375}
-      - {x: -0.421875, y: -0.921875}
-      - {x: -0.359375, y: -1.203125}
-      - {x: -0.234375, y: -1.359375}
-      - {x: 0.265625, y: -1.359375}
-      - {x: 0.390625, y: -1.171875}
-      - {x: 0.671875, y: -0.796875}
-      - {x: 0.859375, y: -0.640625}
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1}
+  m_EdgeRadius: 0
