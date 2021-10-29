@@ -54,8 +54,13 @@ public class LoadGameAddSave : MonoBehaviour
     }
 
     public void LoadGame() {
-        GameData.Get.LoadWorld(selectedWorld);
-        SceneManager.LoadScene("MainGame");
+        if (!string.IsNullOrEmpty(selectedWorld)) {
+            GameData.Get.LoadWorld(selectedWorld);
+            SceneManager.LoadScene("MainGame");
+        }
+        else {
+            Debug.LogError("No world save was selected!");
+        }
     }
 
     public void DeleteGameSave() {
