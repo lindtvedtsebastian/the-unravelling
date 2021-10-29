@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,10 +59,15 @@ public class LoadGameAddSave : MonoBehaviour
     }
 
     public void DeleteGameSave() {
-        var buttonThatIsPressedName = selectedWorld.Replace(".world", "");
-        var buttonThatIsPressed = GameObject.Find(buttonThatIsPressedName);
-        previewImage.GetComponent<RawImage>().texture = null;
-        GameData.Get.DeleteWorld(selectedWorld);
-        Destroy(buttonThatIsPressed);
+        if (!string.IsNullOrEmpty(selectedWorld)) {
+            var buttonThatIsPressedName = selectedWorld.Replace(".world", "");
+            var buttonThatIsPressed = GameObject.Find(buttonThatIsPressedName);
+            previewImage.GetComponent<RawImage>().texture = null;
+            GameData.Get.DeleteWorld(selectedWorld); 
+            Destroy(buttonThatIsPressed);
+        }
+        else {
+            Debug.LogError("No world save was selected!");
+        }
     }
 }
