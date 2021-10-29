@@ -53,6 +53,9 @@ public class LoadGameAddSave : MonoBehaviour
         previewImage.GetComponent<RawImage>().texture = tex;
     }
 
+    /// <summary>
+    /// Loads a selected game world if one is selected.
+    /// </summary>
     public void LoadGame() {
         if (!string.IsNullOrEmpty(selectedWorld)) {
             GameData.Get.LoadWorld(selectedWorld);
@@ -63,6 +66,9 @@ public class LoadGameAddSave : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deletes a selected game world by name.
+    /// </summary>
     public void DeleteGameSave() {
         if (!string.IsNullOrEmpty(selectedWorld)) {
             var buttonThatIsPressedName = selectedWorld.Replace(".world", "");
