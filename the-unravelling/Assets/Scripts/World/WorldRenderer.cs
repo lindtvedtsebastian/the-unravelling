@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class WorldRenderer : MonoBehaviour {
     public GameObject player;
+    public GameObject IEntityContainer;
     public Tilemap gameWorld;
     public Tilemap background;
     public Tilemap fog;
@@ -27,13 +28,23 @@ public class WorldRenderer : MonoBehaviour {
         for (int y = 0; y < GameData.Get.world.worldSize; y++) {
             for (int x = 0; x < GameData.Get.world.worldSize; x++) {
                 int tileID = GameData.Get.world.map[y, x];
-                tile = GameData.Get.worldEntities[tileID].SetSprite(y, x);
+                WorldEntity tileData = (WorldEntity) GameData.Get.worldEntities[tileID];
+                WorldEntity stone = (WorldEntity) GameData.Get.worldEntities[GameIDs.STONE];
+                tile = tileData.SetSprite(y, x);
 
                 gameWorld.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0), tile);
                 background.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0),
-                                   GameData.Get.worldEntities[GameIDs.STONE].SetSprite(y,x));
+                                   stone.SetSprite(y,x));
             }
         }
+
+		foreach (IEntity ientity in GameData.Get.world.iEntities) {
+            int id = ientity.entityID;
+            GameObject entity = GameData.Get.worldEntities[ientity.entityID].manifestation;
+            Vector3 pos = new Vector3(ientity.worldPosX + .5f, ientity.worldPosY + .5f, 0);
+            Instantiate(entity, pos, Quaternion.identity, IEntityContainer.transform);
+        }
+		
         GameData.Get.SaveWorld();
     }
 
