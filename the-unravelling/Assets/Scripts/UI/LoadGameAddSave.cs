@@ -5,22 +5,20 @@ using TMPro;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using System.IO;
+using System.Linq;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class LoadGameAddSave : MonoBehaviour, IPointerClickHandler
+public class LoadGameAddSave : MonoBehaviour
 {
+    
     private List<string> fileNames = new List<string>();
-    public List<int> GameSaveButtonIndices = new List<int>();
-    private int buttonIndex = 0;
     private string selectedWorld;
     private DirectoryInfo dir;
     private FileInfo[] files;
     public GameObject buttonPrefab;
     public GameObject loadGameButton;
     public RawImage previewImage;
-    public GameObject deleteButton;
-
 
     void Start() {
         dir = new DirectoryInfo(Application.persistentDataPath);
@@ -38,8 +36,6 @@ public class LoadGameAddSave : MonoBehaviour, IPointerClickHandler
             newButton.name = worldName;
             newButton.GetComponentInChildren<TMP_Text>().text = worldName;
             newButton.GetComponent<Button>().onClick.AddListener(() => SelectSave(fileName));
-            buttonIndex++;
-            GameSaveButtonIndices.Add(buttonIndex);
         }
     }
 
@@ -60,33 +56,12 @@ public class LoadGameAddSave : MonoBehaviour, IPointerClickHandler
         GameData.Get.LoadWorld(selectedWorld);
         SceneManager.LoadScene("MainGame");
     }
-    
-    //Detect if a click occurs
-    public void OnPointerClick(PointerEventData pointerEventData)
-    {
-        //Output to console the clicked GameObject's name and the following message. You can replace this with your own actions for when clicking the GameObject.
-        Debug.Log(name + " Game Object Clicked!");
-    }
-    
+
     public void DeleteGameSave() {
+        var buttonThatIsPressedName = selectedWorld.Replace(".world", "");
+        var buttonThatIsPressed = GameObject.Find(buttonThatIsPressedName);
+        previewImage.GetComponent<RawImage>().texture = null;
         GameData.Get.DeleteWorld(selectedWorld);
-        dir = new DirectoryInfo(Application.persistentDataPath);
-        files = dir.GetFiles("*.png");
-
-        foreach (FileInfo file in files) {
-            fileNames.Add(file.Name);
-        }
-
-        for (int i = 0; i < fileNames.Count; i++) {
-            GameObject newButton = Instantiate(buttonPrefab);
-            string fileName = fileNames[i];
-            string worldName = fileNames[i].Replace(".png", "");
-            newButton.transform.SetParent(transform,false);
-            newButton.name = worldName;
-            newButton.GetComponentInChildren<TMP_Text>().text = worldName;
-            newButton.GetComponent<Button>().onClick.AddListener(() => SelectSave(fileName));
-            buttonIndex++;
-            GameSaveButtonIndices.Add(buttonIndex);
-        }
+        Destroy(buttonThatIsPressed);
     }
 }
