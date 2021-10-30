@@ -9,6 +9,7 @@ TagManager:
   - ItemPickUp
   - WaveManager
   - DropContainer
+  - Tree
   layers:
   - Default
   - TransparentFX

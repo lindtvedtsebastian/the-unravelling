@@ -28,25 +28,97 @@ public static class MapGenerator {
         GameData.Get.world.background = new int[mapSize, mapSize];
         GameData.Get.world.pathfindingMap = new int[mapSize, mapSize];
 
-        float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity, offset);
-        float[,] moistureMap = generateNoiseMap(mapSize, seed+1, scale, octaves, persistance, lacunarity, offset);
+        float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity,1, offset);
+        float[,] moistureMap = generateNoiseMap(mapSize, seed + 1, scale, octaves, persistance, lacunarity,1, offset);
+		float[,] resourceClusters = generateNoiseMap(mapSize, seed + 2, scale, octaves, persistance, lacunarity,1, offset);
+        float[,] resourceDistribution = generateNoiseMap(mapSize, seed + 3, 20, 1, 1, 1, 10, offset);
+
+
+        GameData.Get.world.iEntities.Clear();
+
 
         // Assign tiles based on noise
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
-                if (heightMap[x, y] > 0.4f) {
-                    GameData.Get.world.map[x, y] = moistureMap[x,y] >= 0.5f ? GameIDs.GRASS : GameIDs.DIRT;
-                    GameData.Get.world.background[x, y] = GameIDs.STONE;
-                    GameData.Get.world.pathfindingMap[x, y] = 0;
+                GameData.Get.world.background[x, y] = GameIDs.STONE;
+				GameData.Get.world.pathfindingMap[x, y] = 0; // set pathfinding to 0, will be overwritten if necessary
+
+                if (heightMap[y, x] > 0.4f) {
+                    if (moistureMap[x, y] >= 0.5f) {
+                        GameData.Get.world.map[y, x] = GameIDs.GRASS;
+                        if (resourceClusters[x, y] >= 0.10f) {
+							double max = findMaxAround(x, y, 5, resourceDistribution);
+							if (resourceDistribution[x,y] == max) {
+								GameData.Get.world.iEntities.Add(new IEntity(x, GameData.Get.world.worldSize - y, GameIDs.TREE));
+								GameData.Get.world.pathfindingMap[x, y] = 9999;
+							}                         }
+                    }
+                    else {
+                        GameData.Get.world.map[y, x] = GameIDs.DIRT;
+                        if (resourceClusters[x, y] >= 0.30f) {
+							double max = findMaxAround(x, y, 8, resourceDistribution);
+							if (resourceDistribution[x,y] == max) {
+                                GameData.Get.world.iEntities.Add(new IEntity(x,GameData.Get.world.worldSize - y,GameIDs.DRY_TREE));
+								GameData.Get.world.pathfindingMap[x, y] = 9999;
+							}
+						}
+                    }
                 } else {
-                    GameData.Get.world.map[x, y] = GameIDs.STONE;
-                    GameData.Get.world.background[x, y] = GameIDs.STONE;
-                    GameData.Get.world.pathfindingMap[x, y] = 0;
+                    GameData.Get.world.map[y, x] = GameIDs.STONE;
+					if (resourceClusters[x,y] > 0.50f) {
+                        double max = findMaxAround(x, y, 3, resourceDistribution);
+						if (resourceDistribution[x,y] == max) {
+                            GameData.Get.world.iEntities.Add(new IEntity(x, GameData.Get.world.worldSize - y, determineOreType()));
+							GameData.Get.world.pathfindingMap[x, y] = 9999;
+                        }
+                    }
                 }
             }
         }
     }
 
+	public static int determineOreType() {
+        int rand = UnityEngine.Random.Range(0, 10);
+		if (rand < 6)
+            return GameIDs.STONE;
+		else if (rand < 8)
+            return GameIDs.COPPER_ORE;
+		else
+            return GameIDs.IRON_ORE;
+    }
+
+    /// <summary>
+    /// Determines the maximum noise value in an area around the coordinate
+    /// </summary>
+    /// <param name="x">The base x coordinate</param>
+    /// <param name="y">The base y coordinate</param>
+    /// <param name="radius">The radius around to check</param>
+    /// <param name="noise">The noise array to check in</param>
+    /// <returns>The highest noise value in the area</returns>
+    public static double findMaxAround(int x, int y, int radius, float[,] noise) {
+        double max = 0;
+        for (int iy = y - radius; iy <= y + radius; iy++) {
+            for (int ix = x - radius; ix <= x + radius; ix++) {
+				if (insideMap(iy,ix)) {
+					double value = noise[iy, ix];
+                    max = value > max ? value : max;
+                }
+			}
+        }
+        return max;
+    }
+
+    /// <summary>
+    /// Checks if a coordinate x,y is inside the map
+    /// </summary>
+	/// <param name="x">The x coordinate</param>
+    /// <param name="y">The y coordinate</param>
+    /// <returns>Wheter or not the coord is inside the map</returns>
+    public static bool insideMap(int x, int y) {
+        int size = GameData.Get.world.worldSize;
+        return (x >= 0 && x < size && y >= 0 && y < size);
+    }
+		
     /// <summary>
     /// Generates a noisemap, that is to be consumed by the tilemap generator 
     /// </summary> 
@@ -59,7 +131,7 @@ public static class MapGenerator {
     /// <param name="offset">An offset of the noise in (x,y)</param>
     /// <returns>A 2D array of size [mapsize,mapsize] with noise values</returns>
     public static float[,] generateNoiseMap(int mapSize, int seed, float scale, int octaves,
-                                     float persistance, float lacunarity, Vector2 offset) {
+											float persistance, float lacunarity, float startFrequency, Vector2 offset) {
 
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
@@ -80,7 +152,7 @@ public static class MapGenerator {
             for (int x = 0; x < mapSize; x++) {
                 
                 float amplitude = 1;
-                float frequency = 1;
+                float frequency = startFrequency;
                 float noiseHeight = 0;
 
                 for (int i = 0; i < octaves; i++) {
