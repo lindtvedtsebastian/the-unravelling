@@ -71,7 +71,15 @@ public static class MapGenerator {
         }
     }
 
-	public static double findMaxAround(int x, int y, int radius, float[,] noise) {
+    /// <summary>
+    /// Determines the maximum noise value in an area around the coordinate
+    /// </summary>
+    /// <param name="x">The base x coordinate</param>
+    /// <param name="y">The base y coordinate</param>
+    /// <param name="radius">The radius around to check</param>
+    /// <param name="noise">The noise array to check in</param>
+    /// <returns>The highest noise value in the area</returns>
+    public static double findMaxAround(int x, int y, int radius, float[,] noise) {
         double max = 0;
         for (int iy = y - radius; iy <= y + radius; iy++) {
             for (int ix = x - radius; ix <= x + radius; ix++) {
@@ -84,7 +92,13 @@ public static class MapGenerator {
         return max;
     }
 
-	public static bool insideMap(int x, int y) {
+    /// <summary>
+    /// Checks if a coordinate x,y is inside the map
+    /// </summary>
+	/// <param name="x">The x coordinate</param>
+    /// <param name="y">The y coordinate</param>
+    /// <returns>Wheter or not the coord is inside the map</returns>
+    public static bool insideMap(int x, int y) {
         int size = GameData.Get.world.worldSize;
         return (x >= 0 && x < size && y >= 0 && y < size);
     }
