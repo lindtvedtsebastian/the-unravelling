@@ -6,10 +6,12 @@ using UnityEngine.Serialization;
 
 public class WorldStateManager : MonoBehaviour {
     [FormerlySerializedAs("gameState")] public WorldState worldState;
-    
+    public GameObject NightEffect;
+
     private void Start() {
         worldState = GameData.Get.world.state;
         InvokeRepeating(nameof(IncrementGameTimeAndDay), 0.0f, 1.0f);
+		NightEffect = GameObject.FindWithTag("NightEffect");
     }
 
     /// <summary>
@@ -18,6 +20,7 @@ public class WorldStateManager : MonoBehaviour {
     /// </summary>
     public void IncrementGameTimeAndDay() {
         worldState.TickTime();
+        NightEffect.SetActive(IsNight());
     }
     
     public int getCurrentIngameDay() {

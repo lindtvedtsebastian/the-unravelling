@@ -16,8 +16,7 @@ public class WorldState {
     public float globalGameTime;
 	public float Tick = 1.0f;
     public int currentGameDay;
-    //public bool isGameOver;
-    
+
     public CycleState stateOfDay;
 
     private const int dayDuration = 1800;
@@ -26,7 +25,11 @@ public class WorldState {
 	public WorldState() {
         currentGameDay = 0;
         globalGameTime = 0;
+
     }
+
+	void OnEnable() {
+	}
 
     /// <summary>
     ///  This function keeps track of the game days and whether it is currently night or day.

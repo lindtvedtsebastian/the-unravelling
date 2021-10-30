@@ -27,6 +27,7 @@ public static class MapGenerator {
         GameData.Get.world.map = new int[mapSize, mapSize];
         GameData.Get.world.background = new int[mapSize, mapSize];
         GameData.Get.world.pathfindingMap = new int[mapSize, mapSize];
+        GameData.Get.world.state = new WorldState();
 
         float[,] heightMap = generateNoiseMap(mapSize, seed, scale, octaves, persistance, lacunarity,1, offset);
         float[,] moistureMap = generateNoiseMap(mapSize, seed + 1, scale, octaves, persistance, lacunarity,1, offset);

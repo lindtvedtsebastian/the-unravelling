@@ -10,11 +10,12 @@ TagManager:
   - WaveManager
   - DropContainer
   - Tree
+  - NightEffect
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - UI-Particels
