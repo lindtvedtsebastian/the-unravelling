@@ -19,8 +19,8 @@ public class WorldState {
 
     public CycleState stateOfDay;
 
-    private const int dayDuration = 1800;
-    private const int nightDuration = 1200;
+    private const int cycleDuration = 1800;
+    private const int startNight = 1200;
 
     public WorldState() {
         currentGameDay = 0;
@@ -30,24 +30,25 @@ public class WorldState {
 	void OnEnable() {
 	}
 
-	public int getDayDuration()
+	public int getCycleDuration()
 	{
-		return dayDuration;
+		return cycleDuration;
 	}
 
-	public int getNightDuration()
+	public int getStartNight()
 	{
-		return nightDuration;
+		return startNight;
 	}
-    /// <summary>
+
+	/// <summary>
     ///  This function keeps track of the game days and whether it is currently night or day.
     ///  It is ran in the Start method every second. 
     /// </summary>
     public void TickTime() {
         globalGameTime += Tick;
-        stateOfDay = globalGameTime > nightDuration ? CycleState.NIGHT : CycleState.DAY;
+        stateOfDay = globalGameTime > startNight ? CycleState.NIGHT : CycleState.DAY;
 
-        if (globalGameTime > dayDuration) {
+        if (globalGameTime > cycleDuration) {
             currentGameDay++;
             globalGameTime = 0;
         }
