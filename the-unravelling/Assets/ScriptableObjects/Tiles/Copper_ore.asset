@@ -17,4 +17,4 @@ MonoBehaviour:
   itemAmount: 1
   type: 0
   preview: {fileID: 0}
-  manifestation: {fileID: 0}
+  manifestation: {fileID: 2964498978364332506, guid: 27f141f7746b7fc4f8bcbf6454998435, type: 3}
