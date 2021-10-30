@@ -39,8 +39,6 @@ public class WaveManager : MonoBehaviour {
     }
 
 	void DoWaveAction() {
-        Debug.Log(spawnedEnemies.Count);
-        Debug.Log(currentWave.maxConcurrentEnemies);
         if (spawnedEnemies.Count < currentWave.maxConcurrentEnemies) {
             WaveEnemy waveEnemy = currentWave.waveEnemies[waveEnemyIndex];
 			
@@ -50,7 +48,6 @@ public class WaveManager : MonoBehaviour {
 											  parent: enemyContainer.transform);
             spawnedEnemies.Add(newEnemy);
             remainingWaveEnemyCount--;
-            Debug.Log(remainingWaveEnemyCount);
 
             if (remainingWaveEnemyCount <= 0) {
 				if (waveEnemyIndex >= currentWave.waveEnemies.Length-1) {

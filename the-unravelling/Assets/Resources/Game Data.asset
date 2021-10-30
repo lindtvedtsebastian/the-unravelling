@@ -14,4180 +14,3820 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world:
     state:
-      globalGameTime: 72
+      globalGameTime: 1225
       Tick: 1
       currentGameDay: 0
-      stateOfDay: 0
+      stateOfDay: 1
     worldSize: 256
     iEntities:
-    - worldPosX: 1
-      worldPosY: 256
-      entityID: 2
-    - worldPosX: 51
-      worldPosY: 256
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 256
-      entityID: 3
-    - worldPosX: 143
-      worldPosY: 256
-      entityID: 3
-    - worldPosX: 151
-      worldPosY: 256
-      entityID: 2
-    - worldPosX: 219
-      worldPosY: 256
-      entityID: 5
-    - worldPosX: 255
-      worldPosY: 256
-      entityID: 4
-    - worldPosX: 12
-      worldPosY: 255
-      entityID: 3
-    - worldPosX: 50
-      worldPosY: 255
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 255
-      entityID: 3
-    - worldPosX: 136
-      worldPosY: 255
-      entityID: 3
-    - worldPosX: 150
-      worldPosY: 255
-      entityID: 5
-    - worldPosX: 155
-      worldPosY: 255
-      entityID: 2
-    - worldPosX: 170
-      worldPosY: 255
-      entityID: 5
-    - worldPosX: 216
-      worldPosY: 255
-      entityID: 2
-    - worldPosX: 250
-      worldPosY: 255
-      entityID: 4
-    - worldPosX: 11
-      worldPosY: 254
-      entityID: 2
-    - worldPosX: 131
-      worldPosY: 254
-      entityID: 3
-    - worldPosX: 169
-      worldPosY: 254
-      entityID: 2
-    - worldPosX: 203
-      worldPosY: 254
-      entityID: 3
-    - worldPosX: 225
-      worldPosY: 254
-      entityID: 2
-    - worldPosX: 229
-      worldPosY: 254
-      entityID: 2
-    - worldPosX: 10
-      worldPosY: 253
-      entityID: 5
-    - worldPosX: 131
-      worldPosY: 253
-      entityID: 3
-    - worldPosX: 144
-      worldPosY: 253
-      entityID: 3
-    - worldPosX: 162
-      worldPosY: 253
-      entityID: 5
-    - worldPosX: 167
-      worldPosY: 253
-      entityID: 6
-    - worldPosX: 169
-      worldPosY: 253
-      entityID: 6
-    - worldPosX: 203
-      worldPosY: 253
-      entityID: 3
-    - worldPosX: 215
-      worldPosY: 253
-      entityID: 5
-    - worldPosX: 228
-      worldPosY: 253
-      entityID: 6
-    - worldPosX: 234
-      worldPosY: 253
-      entityID: 3
-    - worldPosX: 19
-      worldPosY: 252
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 252
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 252
-      entityID: 2
-    - worldPosX: 177
-      worldPosY: 252
-      entityID: 5
-    - worldPosX: 231
-      worldPosY: 252
-      entityID: 3
-    - worldPosX: 251
-      worldPosY: 252
-      entityID: 4
-    - worldPosX: 2
-      worldPosY: 251
-      entityID: 6
-    - worldPosX: 142
-      worldPosY: 251
-      entityID: 3
-    - worldPosX: 146
-      worldPosY: 251
-      entityID: 3
-    - worldPosX: 152
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 153
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 170
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 172
-      worldPosY: 251
-      entityID: 5
-    - worldPosX: 173
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 224
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 225
-      worldPosY: 251
-      entityID: 2
-    - worldPosX: 230
-      worldPosY: 251
-      entityID: 3
-    - worldPosX: 15
-      worldPosY: 250
-      entityID: 6
-    - worldPosX: 29
-      worldPosY: 250
-      entityID: 2
-    - worldPosX: 133
-      worldPosY: 250
-      entityID: 3
-    - worldPosX: 229
-      worldPosY: 250
-      entityID: 3
-    - worldPosX: 7
-      worldPosY: 249
-      entityID: 2
-    - worldPosX: 69
-      worldPosY: 249
-      entityID: 3
-    - worldPosX: 166
-      worldPosY: 249
-      entityID: 2
-    - worldPosX: 206
-      worldPosY: 249
-      entityID: 2
-    - worldPosX: 207
-      worldPosY: 249
-      entityID: 2
-    - worldPosX: 137
-      worldPosY: 248
-      entityID: 4
-    - worldPosX: 169
-      worldPosY: 248
-      entityID: 6
-    - worldPosX: 181
-      worldPosY: 248
-      entityID: 5
-    - worldPosX: 3
-      worldPosY: 247
-      entityID: 2
-    - worldPosX: 12
-      worldPosY: 247
-      entityID: 5
     - worldPosX: 113
-      worldPosY: 247
+      worldPosY: 256
+      entityID: 2
+    - worldPosX: 117
+      worldPosY: 256
       entityID: 4
-    - worldPosX: 146
-      worldPosY: 247
-      entityID: 4
-    - worldPosX: 251
-      worldPosY: 247
-      entityID: 6
-    - worldPosX: 254
-      worldPosY: 247
-      entityID: 2
-    - worldPosX: 143
-      worldPosY: 246
-      entityID: 4
-    - worldPosX: 167
-      worldPosY: 246
-      entityID: 2
-    - worldPosX: 179
-      worldPosY: 246
-      entityID: 6
-    - worldPosX: 226
-      worldPosY: 245
-      entityID: 4
-    - worldPosX: 248
-      worldPosY: 245
-      entityID: 6
-    - worldPosX: 65
-      worldPosY: 244
-      entityID: 4
-    - worldPosX: 221
-      worldPosY: 244
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 243
-      entityID: 2
-    - worldPosX: 57
-      worldPosY: 243
-      entityID: 3
-    - worldPosX: 58
-      worldPosY: 243
-      entityID: 3
-    - worldPosX: 119
-      worldPosY: 243
-      entityID: 4
-    - worldPosX: 147
-      worldPosY: 243
-      entityID: 2
-    - worldPosX: 158
-      worldPosY: 243
-      entityID: 2
-    - worldPosX: 224
-      worldPosY: 243
-      entityID: 3
-    - worldPosX: 147
-      worldPosY: 242
-      entityID: 2
-    - worldPosX: 167
-      worldPosY: 242
-      entityID: 5
-    - worldPosX: 6
-      worldPosY: 241
-      entityID: 2
-    - worldPosX: 9
-      worldPosY: 241
-      entityID: 2
-    - worldPosX: 10
-      worldPosY: 241
-      entityID: 5
-    - worldPosX: 13
-      worldPosY: 241
-      entityID: 6
-    - worldPosX: 53
-      worldPosY: 241
-      entityID: 3
-    - worldPosX: 60
-      worldPosY: 241
-      entityID: 3
-    - worldPosX: 152
-      worldPosY: 241
-      entityID: 2
-    - worldPosX: 162
-      worldPosY: 241
-      entityID: 6
-    - worldPosX: 166
-      worldPosY: 241
-      entityID: 5
-    - worldPosX: 226
-      worldPosY: 241
-      entityID: 3
-    - worldPosX: 246
-      worldPosY: 241
-      entityID: 2
-    - worldPosX: 252
-      worldPosY: 241
-      entityID: 5
-    - worldPosX: 49
-      worldPosY: 240
-      entityID: 3
-    - worldPosX: 53
-      worldPosY: 240
-      entityID: 3
-    - worldPosX: 75
-      worldPosY: 240
-      entityID: 2
-    - worldPosX: 153
-      worldPosY: 240
-      entityID: 2
-    - worldPosX: 215
-      worldPosY: 240
-      entityID: 3
-    - worldPosX: 28
-      worldPosY: 239
-      entityID: 3
-    - worldPosX: 48
-      worldPosY: 239
-      entityID: 3
-    - worldPosX: 58
-      worldPosY: 239
-      entityID: 3
-    - worldPosX: 62
-      worldPosY: 239
-      entityID: 3
-    - worldPosX: 63
-      worldPosY: 239
-      entityID: 3
-    - worldPosX: 74
-      worldPosY: 239
-      entityID: 5
-    - worldPosX: 75
-      worldPosY: 239
-      entityID: 6
-    - worldPosX: 156
-      worldPosY: 239
-      entityID: 6
-    - worldPosX: 159
-      worldPosY: 239
-      entityID: 6
-    - worldPosX: 151
-      worldPosY: 238
-      entityID: 2
-    - worldPosX: 159
-      worldPosY: 238
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 238
-      entityID: 3
-    - worldPosX: 243
-      worldPosY: 238
-      entityID: 6
-    - worldPosX: 12
-      worldPosY: 237
-      entityID: 2
-    - worldPosX: 23
-      worldPosY: 237
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 237
-      entityID: 3
-    - worldPosX: 72
-      worldPosY: 237
-      entityID: 5
-    - worldPosX: 166
-      worldPosY: 237
-      entityID: 2
-    - worldPosX: 168
-      worldPosY: 237
-      entityID: 2
-    - worldPosX: 217
-      worldPosY: 237
-      entityID: 3
-    - worldPosX: 227
-      worldPosY: 237
-      entityID: 4
-    - worldPosX: 244
-      worldPosY: 237
-      entityID: 6
-    - worldPosX: 246
-      worldPosY: 237
-      entityID: 6
-    - worldPosX: 254
-      worldPosY: 237
-      entityID: 5
-    - worldPosX: 255
-      worldPosY: 237
-      entityID: 5
-    - worldPosX: 171
-      worldPosY: 236
-      entityID: 5
-    - worldPosX: 213
-      worldPosY: 236
-      entityID: 3
-    - worldPosX: 243
-      worldPosY: 236
-      entityID: 5
-    - worldPosX: 247
-      worldPosY: 236
-      entityID: 2
-    - worldPosX: 47
-      worldPosY: 235
-      entityID: 3
-    - worldPosX: 59
-      worldPosY: 235
-      entityID: 3
-    - worldPosX: 78
-      worldPosY: 235
-      entityID: 2
-    - worldPosX: 115
-      worldPosY: 235
-      entityID: 4
-    - worldPosX: 116
-      worldPosY: 235
-      entityID: 4
-    - worldPosX: 212
-      worldPosY: 235
-      entityID: 3
-    - worldPosX: 11
-      worldPosY: 234
-      entityID: 2
-    - worldPosX: 59
-      worldPosY: 234
-      entityID: 3
-    - worldPosX: 167
-      worldPosY: 234
-      entityID: 2
-    - worldPosX: 209
-      worldPosY: 234
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 233
-      entityID: 5
-    - worldPosX: 14
-      worldPosY: 233
-      entityID: 2
-    - worldPosX: 15
-      worldPosY: 233
-      entityID: 2
-    - worldPosX: 36
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 38
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 233
-      entityID: 4
-    - worldPosX: 147
-      worldPosY: 233
-      entityID: 2
-    - worldPosX: 148
-      worldPosY: 233
-      entityID: 2
-    - worldPosX: 167
-      worldPosY: 233
-      entityID: 6
-    - worldPosX: 168
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 207
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 208
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 210
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 228
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 229
-      worldPosY: 233
-      entityID: 3
-    - worldPosX: 9
-      worldPosY: 232
-      entityID: 2
-    - worldPosX: 169
-      worldPosY: 232
-      entityID: 3
-    - worldPosX: 247
-      worldPosY: 232
-      entityID: 2
-    - worldPosX: 255
-      worldPosY: 232
-      entityID: 2
-    - worldPosX: 8
-      worldPosY: 231
-      entityID: 2
-    - worldPosX: 118
-      worldPosY: 231
-      entityID: 4
-    - worldPosX: 169
-      worldPosY: 231
-      entityID: 3
-    - worldPosX: 170
-      worldPosY: 231
-      entityID: 3
-    - worldPosX: 172
-      worldPosY: 231
-      entityID: 3
-    - worldPosX: 221
-      worldPosY: 231
-      entityID: 3
-    - worldPosX: 252
-      worldPosY: 231
-      entityID: 2
-    - worldPosX: 253
-      worldPosY: 231
-      entityID: 5
-    - worldPosX: 254
-      worldPosY: 231
-      entityID: 6
-    - worldPosX: 255
-      worldPosY: 231
-      entityID: 6
-    - worldPosX: 35
-      worldPosY: 230
-      entityID: 3
-    - worldPosX: 165
-      worldPosY: 230
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 230
-      entityID: 3
-    - worldPosX: 30
-      worldPosY: 229
-      entityID: 3
-    - worldPosX: 42
-      worldPosY: 229
-      entityID: 3
-    - worldPosX: 134
-      worldPosY: 229
-      entityID: 2
-    - worldPosX: 148
-      worldPosY: 229
-      entityID: 6
-    - worldPosX: 166
-      worldPosY: 229
-      entityID: 3
-    - worldPosX: 207
-      worldPosY: 229
-      entityID: 3
-    - worldPosX: 246
-      worldPosY: 229
-      entityID: 2
     - worldPosX: 123
-      worldPosY: 228
+      worldPosY: 256
       entityID: 4
-    - worldPosX: 12
-      worldPosY: 227
-      entityID: 6
-    - worldPosX: 32
-      worldPosY: 227
-      entityID: 3
-    - worldPosX: 58
-      worldPosY: 227
-      entityID: 3
-    - worldPosX: 59
-      worldPosY: 227
-      entityID: 3
-    - worldPosX: 118
-      worldPosY: 227
-      entityID: 4
-    - worldPosX: 120
-      worldPosY: 227
-      entityID: 4
-    - worldPosX: 121
-      worldPosY: 227
-      entityID: 4
-    - worldPosX: 122
-      worldPosY: 227
-      entityID: 4
-    - worldPosX: 124
-      worldPosY: 227
-      entityID: 3
     - worldPosX: 143
-      worldPosY: 227
-      entityID: 2
-    - worldPosX: 167
-      worldPosY: 227
+      worldPosY: 256
+      entityID: 4
+    - worldPosX: 201
+      worldPosY: 256
+      entityID: 4
+    - worldPosX: 229
+      worldPosY: 256
+      entityID: 4
+    - worldPosX: 44
+      worldPosY: 255
       entityID: 3
-    - worldPosX: 168
-      worldPosY: 227
-      entityID: 3
-    - worldPosX: 170
-      worldPosY: 227
-      entityID: 3
-    - worldPosX: 214
-      worldPosY: 227
-      entityID: 3
-    - worldPosX: 9
-      worldPosY: 226
-      entityID: 2
-    - worldPosX: 151
-      worldPosY: 226
-      entityID: 6
-    - worldPosX: 157
-      worldPosY: 226
-      entityID: 2
     - worldPosX: 56
-      worldPosY: 225
+      worldPosY: 255
       entityID: 3
-    - worldPosX: 64
-      worldPosY: 225
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 225
-      entityID: 3
+    - worldPosX: 97
+      worldPosY: 255
+      entityID: 5
+    - worldPosX: 110
+      worldPosY: 255
+      entityID: 6
     - worldPosX: 146
-      worldPosY: 225
-      entityID: 2
-    - worldPosX: 151
-      worldPosY: 225
-      entityID: 5
-    - worldPosX: 157
-      worldPosY: 225
-      entityID: 6
-    - worldPosX: 11
-      worldPosY: 224
-      entityID: 6
-    - worldPosX: 119
-      worldPosY: 224
-      entityID: 4
-    - worldPosX: 127
-      worldPosY: 224
-      entityID: 3
-    - worldPosX: 51
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 124
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 127
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 144
-      worldPosY: 223
-      entityID: 5
-    - worldPosX: 205
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 206
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 213
-      worldPosY: 223
-      entityID: 3
-    - worldPosX: 9
-      worldPosY: 222
-      entityID: 2
-    - worldPosX: 57
-      worldPosY: 222
-      entityID: 3
-    - worldPosX: 63
-      worldPosY: 222
-      entityID: 3
-    - worldPosX: 17
-      worldPosY: 221
-      entityID: 4
-    - worldPosX: 118
-      worldPosY: 221
-      entityID: 4
-    - worldPosX: 146
-      worldPosY: 221
-      entityID: 2
-    - worldPosX: 152
-      worldPosY: 221
-      entityID: 3
-    - worldPosX: 245
-      worldPosY: 221
-      entityID: 2
-    - worldPosX: 207
-      worldPosY: 220
-      entityID: 3
-    - worldPosX: 245
-      worldPosY: 220
-      entityID: 5
-    - worldPosX: 125
-      worldPosY: 219
-      entityID: 3
-    - worldPosX: 65
-      worldPosY: 218
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 218
-      entityID: 3
-    - worldPosX: 125
-      worldPosY: 218
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 218
-      entityID: 3
-    - worldPosX: 241
-      worldPosY: 218
-      entityID: 6
-    - worldPosX: 41
-      worldPosY: 217
-      entityID: 3
-    - worldPosX: 52
-      worldPosY: 217
-      entityID: 3
-    - worldPosX: 59
-      worldPosY: 217
-      entityID: 3
-    - worldPosX: 65
-      worldPosY: 217
-      entityID: 3
-    - worldPosX: 158
-      worldPosY: 217
-      entityID: 2
-    - worldPosX: 241
-      worldPosY: 217
-      entityID: 2
-    - worldPosX: 242
-      worldPosY: 217
-      entityID: 2
-    - worldPosX: 243
-      worldPosY: 217
-      entityID: 6
-    - worldPosX: 59
-      worldPosY: 216
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 216
-      entityID: 3
-    - worldPosX: 147
-      worldPosY: 216
-      entityID: 3
-    - worldPosX: 187
-      worldPosY: 216
-      entityID: 3
-    - worldPosX: 78
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 88
-      worldPosY: 215
-      entityID: 4
-    - worldPosX: 124
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 128
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 140
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 185
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 186
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 226
-      worldPosY: 215
-      entityID: 2
-    - worldPosX: 227
-      worldPosY: 215
-      entityID: 3
-    - worldPosX: 55
-      worldPosY: 214
-      entityID: 3
-    - worldPosX: 145
-      worldPosY: 214
-      entityID: 3
-    - worldPosX: 45
-      worldPosY: 213
-      entityID: 4
-    - worldPosX: 69
-      worldPosY: 213
-      entityID: 3
-    - worldPosX: 86
-      worldPosY: 213
-      entityID: 4
-    - worldPosX: 146
-      worldPosY: 213
-      entityID: 3
-    - worldPosX: 177
-      worldPosY: 213
-      entityID: 3
-    - worldPosX: 188
-      worldPosY: 213
-      entityID: 3
-    - worldPosX: 79
-      worldPosY: 212
-      entityID: 3
-    - worldPosX: 84
-      worldPosY: 211
-      entityID: 3
-    - worldPosX: 109
-      worldPosY: 211
-      entityID: 3
-    - worldPosX: 140
-      worldPosY: 211
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 211
-      entityID: 3
-    - worldPosX: 186
-      worldPosY: 211
-      entityID: 3
-    - worldPosX: 133
-      worldPosY: 210
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 210
-      entityID: 3
-    - worldPosX: 185
-      worldPosY: 210
-      entityID: 3
-    - worldPosX: 51
-      worldPosY: 209
-      entityID: 2
-    - worldPosX: 52
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 53
-      worldPosY: 209
-      entityID: 5
-    - worldPosX: 75
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 76
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 80
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 103
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 106
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 134
-      worldPosY: 209
-      entityID: 3
-    - worldPosX: 47
-      worldPosY: 208
-      entityID: 6
-    - worldPosX: 133
-      worldPosY: 208
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 208
-      entityID: 3
-    - worldPosX: 31
-      worldPosY: 207
-      entityID: 4
-    - worldPosX: 33
-      worldPosY: 207
-      entityID: 4
-    - worldPosX: 82
-      worldPosY: 207
-      entityID: 3
-    - worldPosX: 86
-      worldPosY: 207
-      entityID: 3
-    - worldPosX: 108
-      worldPosY: 207
-      entityID: 3
-    - worldPosX: 127
-      worldPosY: 207
+      worldPosY: 255
       entityID: 3
     - worldPosX: 176
-      worldPosY: 207
+      worldPosY: 255
       entityID: 3
-    - worldPosX: 181
-      worldPosY: 207
+    - worldPosX: 184
+      worldPosY: 255
       entityID: 3
-    - worldPosX: 182
-      worldPosY: 207
+    - worldPosX: 206
+      worldPosY: 255
+      entityID: 4
+    - worldPosX: 207
+      worldPosY: 255
+      entityID: 4
+    - worldPosX: 49
+      worldPosY: 254
       entityID: 3
-    - worldPosX: 190
-      worldPosY: 207
-      entityID: 3
-    - worldPosX: 226
-      worldPosY: 207
-      entityID: 3
-    - worldPosX: 77
-      worldPosY: 206
-      entityID: 3
-    - worldPosX: 223
-      worldPosY: 206
-      entityID: 3
-    - worldPosX: 255
-      worldPosY: 206
+    - worldPosX: 97
+      worldPosY: 254
       entityID: 2
-    - worldPosX: 55
-      worldPosY: 205
-      entityID: 3
-    - worldPosX: 56
-      worldPosY: 205
-      entityID: 3
-    - worldPosX: 224
-      worldPosY: 205
-      entityID: 3
-    - worldPosX: 232
-      worldPosY: 205
-      entityID: 3
-    - worldPosX: 233
-      worldPosY: 205
-      entityID: 3
-    - worldPosX: 234
-      worldPosY: 205
-      entityID: 3
-    - worldPosX: 248
-      worldPosY: 205
-      entityID: 2
-    - worldPosX: 254
-      worldPosY: 205
-      entityID: 2
-    - worldPosX: 109
-      worldPosY: 204
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 204
-      entityID: 3
+    - worldPosX: 111
+      worldPosY: 254
+      entityID: 6
     - worldPosX: 175
-      worldPosY: 204
+      worldPosY: 254
       entityID: 3
     - worldPosX: 179
-      worldPosY: 204
+      worldPosY: 254
       entityID: 3
-    - worldPosX: 255
-      worldPosY: 204
-      entityID: 2
-    - worldPosX: 70
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 75
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 76
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 87
-      worldPosY: 203
+    - worldPosX: 213
+      worldPosY: 254
       entityID: 4
-    - worldPosX: 109
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 125
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 149
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 166
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 236
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 240
-      worldPosY: 203
-      entityID: 3
-    - worldPosX: 109
-      worldPosY: 202
-      entityID: 3
-    - worldPosX: 123
-      worldPosY: 202
-      entityID: 3
-    - worldPosX: 159
-      worldPosY: 202
-      entityID: 3
-    - worldPosX: 167
-      worldPosY: 202
-      entityID: 3
-    - worldPosX: 191
-      worldPosY: 202
-      entityID: 3
-    - worldPosX: 63
-      worldPosY: 201
-      entityID: 3
-    - worldPosX: 64
-      worldPosY: 201
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 201
-      entityID: 3
-    - worldPosX: 128
-      worldPosY: 201
-      entityID: 3
-    - worldPosX: 198
-      worldPosY: 201
-      entityID: 3
-    - worldPosX: 234
-      worldPosY: 201
-      entityID: 3
-    - worldPosX: 43
-      worldPosY: 200
-      entityID: 5
-    - worldPosX: 67
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 77
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 101
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 107
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 133
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 163
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 195
-      worldPosY: 200
-      entityID: 3
-    - worldPosX: 253
-      worldPosY: 200
-      entityID: 6
-    - worldPosX: 101
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 104
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 108
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 163
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 194
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 236
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 241
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 243
-      worldPosY: 199
-      entityID: 3
-    - worldPosX: 252
-      worldPosY: 199
-      entityID: 5
-    - worldPosX: 17
-      worldPosY: 198
+    - worldPosX: 221
+      worldPosY: 254
       entityID: 4
-    - worldPosX: 65
-      worldPosY: 198
-      entityID: 3
-    - worldPosX: 115
-      worldPosY: 198
-      entityID: 3
-    - worldPosX: 163
-      worldPosY: 198
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 198
-      entityID: 3
-    - worldPosX: 18
-      worldPosY: 197
-      entityID: 4
-    - worldPosX: 19
-      worldPosY: 197
-      entityID: 4
-    - worldPosX: 20
-      worldPosY: 197
-      entityID: 4
-    - worldPosX: 61
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 95
-      worldPosY: 197
-      entityID: 4
-    - worldPosX: 116
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 128
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 130
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 133
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 134
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 157
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 158
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 162
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 171
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 172
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 192
-      worldPosY: 197
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 197
-      entityID: 6
-    - worldPosX: 225
-      worldPosY: 197
-      entityID: 3
-    - worldPosX: 3
-      worldPosY: 196
-      entityID: 4
-    - worldPosX: 9
-      worldPosY: 196
-      entityID: 4
-    - worldPosX: 109
-      worldPosY: 196
-      entityID: 3
-    - worldPosX: 115
-      worldPosY: 196
-      entityID: 3
-    - worldPosX: 195
-      worldPosY: 196
-      entityID: 2
-    - worldPosX: 205
-      worldPosY: 196
-      entityID: 5
-    - worldPosX: 217
-      worldPosY: 196
-      entityID: 2
     - worldPosX: 0
-      worldPosY: 195
-      entityID: 4
-    - worldPosX: 2
-      worldPosY: 195
-      entityID: 4
-    - worldPosX: 4
-      worldPosY: 195
-      entityID: 4
-    - worldPosX: 12
-      worldPosY: 195
-      entityID: 4
-    - worldPosX: 68
-      worldPosY: 195
-      entityID: 3
-    - worldPosX: 110
-      worldPosY: 195
-      entityID: 3
-    - worldPosX: 175
-      worldPosY: 195
-      entityID: 3
-    - worldPosX: 194
-      worldPosY: 195
-      entityID: 2
-    - worldPosX: 195
-      worldPosY: 195
-      entityID: 2
-    - worldPosX: 204
-      worldPosY: 195
+      worldPosY: 253
       entityID: 6
-    - worldPosX: 216
-      worldPosY: 195
-      entityID: 6
-    - worldPosX: 43
-      worldPosY: 194
+    - worldPosX: 1
+      worldPosY: 253
       entityID: 2
     - worldPosX: 49
-      worldPosY: 194
-      entityID: 2
-    - worldPosX: 71
-      worldPosY: 194
+      worldPosY: 253
       entityID: 3
-    - worldPosX: 117
-      worldPosY: 194
-      entityID: 3
-    - worldPosX: 209
-      worldPosY: 194
-      entityID: 5
-    - worldPosX: 251
-      worldPosY: 194
-      entityID: 3
-    - worldPosX: 19
-      worldPosY: 193
-      entityID: 4
-    - worldPosX: 20
-      worldPosY: 193
-      entityID: 4
-    - worldPosX: 36
-      worldPosY: 193
-      entityID: 2
-    - worldPosX: 37
-      worldPosY: 193
-      entityID: 2
-    - worldPosX: 43
-      worldPosY: 193
-      entityID: 2
-    - worldPosX: 44
-      worldPosY: 193
-      entityID: 2
-    - worldPosX: 46
-      worldPosY: 193
-      entityID: 6
     - worldPosX: 50
-      worldPosY: 193
-      entityID: 2
-    - worldPosX: 71
-      worldPosY: 193
-      entityID: 3
-    - worldPosX: 209
-      worldPosY: 193
-      entityID: 6
-    - worldPosX: 212
-      worldPosY: 193
-      entityID: 5
-    - worldPosX: 1
-      worldPosY: 192
+      worldPosY: 253
       entityID: 4
-    - worldPosX: 65
-      worldPosY: 192
-      entityID: 3
-    - worldPosX: 163
-      worldPosY: 192
-      entityID: 3
-    - worldPosX: 217
-      worldPosY: 192
-      entityID: 6
-    - worldPosX: 2
-      worldPosY: 191
+    - worldPosX: 61
+      worldPosY: 253
       entityID: 4
-    - worldPosX: 16
-      worldPosY: 191
+    - worldPosX: 94
+      worldPosY: 253
+      entityID: 2
+    - worldPosX: 178
+      worldPosY: 253
+      entityID: 3
+    - worldPosX: 180
+      worldPosY: 253
+      entityID: 3
+    - worldPosX: 224
+      worldPosY: 253
       entityID: 4
-    - worldPosX: 48
-      worldPosY: 191
-      entityID: 2
-    - worldPosX: 65
-      worldPosY: 191
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 191
-      entityID: 3
-    - worldPosX: 164
-      worldPosY: 191
-      entityID: 3
-    - worldPosX: 216
-      worldPosY: 191
-      entityID: 2
-    - worldPosX: 51
-      worldPosY: 190
-      entityID: 5
-    - worldPosX: 69
-      worldPosY: 190
-      entityID: 3
-    - worldPosX: 133
-      worldPosY: 190
-      entityID: 3
-    - worldPosX: 45
-      worldPosY: 189
-      entityID: 2
-    - worldPosX: 50
-      worldPosY: 189
-      entityID: 2
-    - worldPosX: 114
-      worldPosY: 189
-      entityID: 3
-    - worldPosX: 214
-      worldPosY: 189
-      entityID: 5
-    - worldPosX: 236
-      worldPosY: 189
-      entityID: 3
-    - worldPosX: 55
-      worldPosY: 188
-      entityID: 5
-    - worldPosX: 63
-      worldPosY: 188
-      entityID: 6
-    - worldPosX: 207
-      worldPosY: 188
-      entityID: 2
-    - worldPosX: 233
-      worldPosY: 188
-      entityID: 3
+    - worldPosX: 226
+      worldPosY: 253
+      entityID: 4
     - worldPosX: 239
-      worldPosY: 188
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 187
+      worldPosY: 253
       entityID: 4
     - worldPosX: 5
-      worldPosY: 187
-      entityID: 4
-    - worldPosX: 55
-      worldPosY: 187
-      entityID: 2
-    - worldPosX: 58
-      worldPosY: 187
-      entityID: 5
-    - worldPosX: 64
-      worldPosY: 187
-      entityID: 5
-    - worldPosX: 131
-      worldPosY: 187
-      entityID: 3
-    - worldPosX: 132
-      worldPosY: 187
-      entityID: 3
-    - worldPosX: 164
-      worldPosY: 187
-      entityID: 3
-    - worldPosX: 165
-      worldPosY: 187
-      entityID: 3
-    - worldPosX: 167
-      worldPosY: 187
-      entityID: 3
-    - worldPosX: 195
-      worldPosY: 187
+      worldPosY: 252
       entityID: 6
-    - worldPosX: 196
-      worldPosY: 187
-      entityID: 6
-    - worldPosX: 207
-      worldPosY: 187
+    - worldPosX: 89
+      worldPosY: 252
       entityID: 2
-    - worldPosX: 210
-      worldPosY: 187
+    - worldPosX: 111
+      worldPosY: 252
       entityID: 2
-    - worldPosX: 253
-      worldPosY: 187
+    - worldPosX: 147
+      worldPosY: 252
       entityID: 3
-    - worldPosX: 1
-      worldPosY: 186
+    - worldPosX: 187
+      worldPosY: 252
+      entityID: 3
+    - worldPosX: 193
+      worldPosY: 252
+      entityID: 3
+    - worldPosX: 213
+      worldPosY: 252
       entityID: 4
-    - worldPosX: 55
-      worldPosY: 186
-      entityID: 5
-    - worldPosX: 61
-      worldPosY: 186
-      entityID: 5
-    - worldPosX: 195
-      worldPosY: 186
-      entityID: 5
-    - worldPosX: 2
-      worldPosY: 185
-      entityID: 4
-    - worldPosX: 41
-      worldPosY: 185
-      entityID: 2
-    - worldPosX: 48
-      worldPosY: 185
-      entityID: 2
-    - worldPosX: 60
-      worldPosY: 185
-      entityID: 2
-    - worldPosX: 160
-      worldPosY: 185
-      entityID: 3
-    - worldPosX: 198
-      worldPosY: 185
-      entityID: 6
-    - worldPosX: 202
-      worldPosY: 185
-      entityID: 6
-    - worldPosX: 53
-      worldPosY: 184
-      entityID: 2
-    - worldPosX: 165
-      worldPosY: 184
-      entityID: 3
-    - worldPosX: 203
-      worldPosY: 184
-      entityID: 2
-    - worldPosX: 4
-      worldPosY: 183
-      entityID: 4
-    - worldPosX: 22
-      worldPosY: 183
-      entityID: 3
-    - worldPosX: 53
-      worldPosY: 183
-      entityID: 2
     - worldPosX: 54
-      worldPosY: 183
-      entityID: 5
-    - worldPosX: 62
-      worldPosY: 183
-      entityID: 2
-    - worldPosX: 88
-      worldPosY: 183
+      worldPosY: 251
       entityID: 4
-    - worldPosX: 89
-      worldPosY: 183
-      entityID: 4
-    - worldPosX: 90
-      worldPosY: 183
-      entityID: 4
-    - worldPosX: 116
-      worldPosY: 183
-      entityID: 3
-    - worldPosX: 178
-      worldPosY: 183
-      entityID: 3
-    - worldPosX: 47
-      worldPosY: 182
-      entityID: 5
-    - worldPosX: 213
-      worldPosY: 182
+    - worldPosX: 111
+      worldPosY: 251
       entityID: 6
-    - worldPosX: 47
-      worldPosY: 181
+    - worldPosX: 114
+      worldPosY: 251
       entityID: 2
-    - worldPosX: 50
-      worldPosY: 181
-      entityID: 2
-    - worldPosX: 51
-      worldPosY: 181
-      entityID: 2
-    - worldPosX: 86
-      worldPosY: 181
-      entityID: 4
-    - worldPosX: 161
-      worldPosY: 181
-      entityID: 3
-    - worldPosX: 168
-      worldPosY: 181
-      entityID: 3
-    - worldPosX: 186
-      worldPosY: 181
-      entityID: 6
-    - worldPosX: 206
-      worldPosY: 181
-      entityID: 6
-    - worldPosX: 208
-      worldPosY: 181
-      entityID: 2
-    - worldPosX: 209
-      worldPosY: 181
-      entityID: 2
-    - worldPosX: 213
-      worldPosY: 181
-      entityID: 5
-    - worldPosX: 214
-      worldPosY: 181
-      entityID: 5
-    - worldPosX: 238
-      worldPosY: 181
-      entityID: 3
-    - worldPosX: 117
-      worldPosY: 180
-      entityID: 3
-    - worldPosX: 161
-      worldPosY: 180
-      entityID: 3
-    - worldPosX: 241
-      worldPosY: 180
-      entityID: 3
-    - worldPosX: 22
-      worldPosY: 179
-      entityID: 3
-    - worldPosX: 28
-      worldPosY: 179
-      entityID: 3
-    - worldPosX: 64
-      worldPosY: 179
-      entityID: 2
-    - worldPosX: 79
-      worldPosY: 179
-      entityID: 4
-    - worldPosX: 120
-      worldPosY: 179
-      entityID: 3
-    - worldPosX: 183
-      worldPosY: 179
-      entityID: 3
-    - worldPosX: 242
-      worldPosY: 179
-      entityID: 3
-    - worldPosX: 23
-      worldPosY: 178
-      entityID: 3
-    - worldPosX: 27
-      worldPosY: 178
-      entityID: 3
-    - worldPosX: 45
-      worldPosY: 178
-      entityID: 2
-    - worldPosX: 61
-      worldPosY: 178
-      entityID: 5
-    - worldPosX: 87
-      worldPosY: 178
-      entityID: 4
-    - worldPosX: 161
-      worldPosY: 178
-      entityID: 3
-    - worldPosX: 165
-      worldPosY: 178
-      entityID: 3
-    - worldPosX: 6
-      worldPosY: 177
-      entityID: 3
-    - worldPosX: 57
-      worldPosY: 177
-      entityID: 5
-    - worldPosX: 58
-      worldPosY: 177
-      entityID: 6
-    - worldPosX: 69
-      worldPosY: 177
-      entityID: 2
-    - worldPosX: 87
-      worldPosY: 177
-      entityID: 4
-    - worldPosX: 88
-      worldPosY: 177
-      entityID: 4
-    - worldPosX: 206
-      worldPosY: 177
-      entityID: 2
-    - worldPosX: 208
-      worldPosY: 177
-      entityID: 2
-    - worldPosX: 236
-      worldPosY: 177
-      entityID: 3
-    - worldPosX: 3
-      worldPosY: 176
-      entityID: 3
-    - worldPosX: 23
-      worldPosY: 176
-      entityID: 3
-    - worldPosX: 195
-      worldPosY: 176
-      entityID: 5
-    - worldPosX: 239
-      worldPosY: 176
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 175
-      entityID: 3
-    - worldPosX: 8
-      worldPosY: 175
-      entityID: 3
-    - worldPosX: 12
-      worldPosY: 175
-      entityID: 3
-    - worldPosX: 28
-      worldPosY: 175
-      entityID: 4
-    - worldPosX: 44
-      worldPosY: 175
-      entityID: 6
-    - worldPosX: 64
-      worldPosY: 175
-      entityID: 2
-    - worldPosX: 66
-      worldPosY: 175
-      entityID: 5
-    - worldPosX: 120
-      worldPosY: 175
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 175
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 175
-      entityID: 3
-    - worldPosX: 124
-      worldPosY: 175
-      entityID: 4
-    - worldPosX: 126
-      worldPosY: 175
-      entityID: 4
-    - worldPosX: 195
-      worldPosY: 175
-      entityID: 2
-    - worldPosX: 198
-      worldPosY: 175
-      entityID: 5
-    - worldPosX: 200
-      worldPosY: 175
-      entityID: 2
-    - worldPosX: 202
-      worldPosY: 175
-      entityID: 2
-    - worldPosX: 27
-      worldPosY: 174
-      entityID: 3
-    - worldPosX: 31
-      worldPosY: 174
-      entityID: 3
-    - worldPosX: 35
-      worldPosY: 174
-      entityID: 3
-    - worldPosX: 57
-      worldPosY: 174
-      entityID: 6
-    - worldPosX: 89
-      worldPosY: 174
-      entityID: 4
-    - worldPosX: 107
-      worldPosY: 174
-      entityID: 3
-    - worldPosX: 30
-      worldPosY: 173
-      entityID: 3
-    - worldPosX: 38
-      worldPosY: 173
-      entityID: 3
-    - worldPosX: 57
-      worldPosY: 173
-      entityID: 5
-    - worldPosX: 68
-      worldPosY: 173
-      entityID: 2
-    - worldPosX: 163
-      worldPosY: 173
-      entityID: 4
-    - worldPosX: 164
-      worldPosY: 173
-      entityID: 4
-    - worldPosX: 47
-      worldPosY: 172
-      entityID: 6
-    - worldPosX: 36
-      worldPosY: 171
-      entityID: 3
-    - worldPosX: 42
-      worldPosY: 171
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 171
-      entityID: 4
-    - worldPosX: 126
-      worldPosY: 171
-      entityID: 4
-    - worldPosX: 133
-      worldPosY: 171
-      entityID: 4
-    - worldPosX: 200
-      worldPosY: 171
-      entityID: 2
-    - worldPosX: 201
-      worldPosY: 171
-      entityID: 2
-    - worldPosX: 205
-      worldPosY: 171
-      entityID: 6
-    - worldPosX: 254
-      worldPosY: 171
-      entityID: 3
-    - worldPosX: 255
-      worldPosY: 171
-      entityID: 3
-    - worldPosX: 23
-      worldPosY: 170
-      entityID: 3
-    - worldPosX: 69
-      worldPosY: 170
-      entityID: 6
     - worldPosX: 129
-      worldPosY: 170
+      worldPosY: 251
       entityID: 4
-    - worldPosX: 201
-      worldPosY: 170
+    - worldPosX: 139
+      worldPosY: 251
+      entityID: 3
+    - worldPosX: 182
+      worldPosY: 251
+      entityID: 3
+    - worldPosX: 202
+      worldPosY: 251
+      entityID: 4
+    - worldPosX: 220
+      worldPosY: 251
+      entityID: 4
+    - worldPosX: 232
+      worldPosY: 251
       entityID: 2
-    - worldPosX: 251
-      worldPosY: 170
-      entityID: 3
-    - worldPosX: 255
-      worldPosY: 170
-      entityID: 3
-    - worldPosX: 23
-      worldPosY: 169
-      entityID: 3
-    - worldPosX: 26
-      worldPosY: 169
-      entityID: 3
-    - worldPosX: 61
-      worldPosY: 169
+    - worldPosX: 233
+      worldPosY: 251
       entityID: 2
-    - worldPosX: 69
-      worldPosY: 169
-      entityID: 2
-    - worldPosX: 70
-      worldPosY: 169
-      entityID: 6
-    - worldPosX: 72
-      worldPosY: 169
+    - worldPosX: 3
+      worldPosY: 250
       entityID: 2
     - worldPosX: 91
-      worldPosY: 169
-      entityID: 4
-    - worldPosX: 185
-      worldPosY: 169
-      entityID: 3
-    - worldPosX: 191
-      worldPosY: 169
+      worldPosY: 250
       entityID: 2
-    - worldPosX: 250
-      worldPosY: 169
-      entityID: 3
-    - worldPosX: 252
-      worldPosY: 169
-      entityID: 3
-    - worldPosX: 23
-      worldPosY: 168
-      entityID: 3
-    - worldPosX: 29
-      worldPosY: 168
-      entityID: 3
-    - worldPosX: 49
-      worldPosY: 168
-      entityID: 5
-    - worldPosX: 123
-      worldPosY: 168
+    - worldPosX: 219
+      worldPosY: 250
       entityID: 4
-    - worldPosX: 191
-      worldPosY: 168
+    - worldPosX: 223
+      worldPosY: 250
+      entityID: 4
+    - worldPosX: 0
+      worldPosY: 249
+      entityID: 6
+    - worldPosX: 6
+      worldPosY: 249
       entityID: 2
     - worldPosX: 44
-      worldPosY: 167
-      entityID: 3
-    - worldPosX: 49
-      worldPosY: 167
-      entityID: 2
-    - worldPosX: 64
-      worldPosY: 167
-      entityID: 5
-    - worldPosX: 120
-      worldPosY: 167
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 167
-      entityID: 4
-    - worldPosX: 131
-      worldPosY: 167
-      entityID: 4
-    - worldPosX: 132
-      worldPosY: 167
-      entityID: 4
-    - worldPosX: 233
-      worldPosY: 167
-      entityID: 4
-    - worldPosX: 246
-      worldPosY: 167
-      entityID: 3
-    - worldPosX: 248
-      worldPosY: 167
-      entityID: 3
-    - worldPosX: 33
-      worldPosY: 166
-      entityID: 3
-    - worldPosX: 49
-      worldPosY: 166
-      entityID: 2
-    - worldPosX: 71
-      worldPosY: 166
-      entityID: 5
-    - worldPosX: 123
-      worldPosY: 166
-      entityID: 4
-    - worldPosX: 22
-      worldPosY: 165
+      worldPosY: 249
       entityID: 3
     - worldPosX: 48
-      worldPosY: 165
-      entityID: 2
-    - worldPosX: 109
-      worldPosY: 165
-      entityID: 3
-    - worldPosX: 110
-      worldPosY: 165
-      entityID: 3
-    - worldPosX: 124
-      worldPosY: 165
+      worldPosY: 249
       entityID: 4
-    - worldPosX: 136
-      worldPosY: 165
-      entityID: 4
-    - worldPosX: 252
-      worldPosY: 165
-      entityID: 3
-    - worldPosX: 65
-      worldPosY: 164
-      entityID: 3
-    - worldPosX: 247
-      worldPosY: 164
-      entityID: 3
-    - worldPosX: 8
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 36
-      worldPosY: 163
-      entityID: 2
-    - worldPosX: 44
-      worldPosY: 163
-      entityID: 2
-    - worldPosX: 108
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 114
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 127
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 140
-      worldPosY: 163
+    - worldPosX: 120
+      worldPosY: 249
       entityID: 5
-    - worldPosX: 202
-      worldPosY: 163
-      entityID: 2
-    - worldPosX: 248
-      worldPosY: 163
+    - worldPosX: 188
+      worldPosY: 249
       entityID: 3
-    - worldPosX: 254
-      worldPosY: 163
-      entityID: 3
-    - worldPosX: 23
-      worldPosY: 162
-      entityID: 3
-    - worldPosX: 27
-      worldPosY: 162
-      entityID: 3
-    - worldPosX: 37
-      worldPosY: 162
-      entityID: 2
-    - worldPosX: 47
-      worldPosY: 162
-      entityID: 2
-    - worldPosX: 117
-      worldPosY: 162
-      entityID: 3
-    - worldPosX: 123
-      worldPosY: 162
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 162
-      entityID: 3
-    - worldPosX: 249
-      worldPosY: 162
-      entityID: 3
-    - worldPosX: 11
-      worldPosY: 161
-      entityID: 3
-    - worldPosX: 16
-      worldPosY: 161
-      entityID: 3
-    - worldPosX: 24
-      worldPosY: 161
-      entityID: 3
-    - worldPosX: 42
-      worldPosY: 161
+    - worldPosX: 200
+      worldPosY: 249
+      entityID: 4
+    - worldPosX: 91
+      worldPosY: 248
       entityID: 6
+    - worldPosX: 133
+      worldPosY: 248
+      entityID: 3
+    - worldPosX: 157
+      worldPosY: 248
+      entityID: 2
+    - worldPosX: 163
+      worldPosY: 248
+      entityID: 6
+    - worldPosX: 54
+      worldPosY: 247
+      entityID: 4
     - worldPosX: 113
-      worldPosY: 160
-      entityID: 3
-    - worldPosX: 117
-      worldPosY: 160
-      entityID: 3
-    - worldPosX: 197
-      worldPosY: 160
-      entityID: 5
-    - worldPosX: 203
-      worldPosY: 160
-      entityID: 6
-    - worldPosX: 233
-      worldPosY: 160
-      entityID: 4
-    - worldPosX: 241
-      worldPosY: 160
-      entityID: 4
-    - worldPosX: 253
-      worldPosY: 160
-      entityID: 3
-    - worldPosX: 114
-      worldPosY: 159
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 159
-      entityID: 3
-    - worldPosX: 128
-      worldPosY: 159
-      entityID: 3
-    - worldPosX: 232
-      worldPosY: 159
-      entityID: 4
-    - worldPosX: 234
-      worldPosY: 159
-      entityID: 4
-    - worldPosX: 250
-      worldPosY: 159
-      entityID: 4
-    - worldPosX: 67
-      worldPosY: 158
-      entityID: 3
-    - worldPosX: 79
-      worldPosY: 158
-      entityID: 3
-    - worldPosX: 95
-      worldPosY: 158
-      entityID: 3
-    - worldPosX: 203
-      worldPosY: 158
+      worldPosY: 247
       entityID: 2
-    - worldPosX: 235
-      worldPosY: 158
-      entityID: 4
-    - worldPosX: 247
-      worldPosY: 158
-      entityID: 4
-    - worldPosX: 22
-      worldPosY: 157
-      entityID: 4
-    - worldPosX: 25
-      worldPosY: 157
-      entityID: 4
-    - worldPosX: 98
-      worldPosY: 157
+    - worldPosX: 114
+      worldPosY: 247
+      entityID: 2
+    - worldPosX: 133
+      worldPosY: 247
       entityID: 3
+    - worldPosX: 141
+      worldPosY: 247
+      entityID: 3
+    - worldPosX: 148
+      worldPosY: 247
+      entityID: 3
+    - worldPosX: 152
+      worldPosY: 247
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 247
+      entityID: 2
+    - worldPosX: 164
+      worldPosY: 247
+      entityID: 2
+    - worldPosX: 243
+      worldPosY: 247
+      entityID: 4
+    - worldPosX: 47
+      worldPosY: 246
+      entityID: 4
+    - worldPosX: 61
+      worldPosY: 246
+      entityID: 4
+    - worldPosX: 65
+      worldPosY: 246
+      entityID: 4
+    - worldPosX: 175
+      worldPosY: 246
+      entityID: 2
+    - worldPosX: 181
+      worldPosY: 246
+      entityID: 2
+    - worldPosX: 0
+      worldPosY: 245
+      entityID: 5
+    - worldPosX: 6
+      worldPosY: 245
+      entityID: 2
+    - worldPosX: 86
+      worldPosY: 245
+      entityID: 6
+    - worldPosX: 87
+      worldPosY: 245
+      entityID: 2
+    - worldPosX: 92
+      worldPosY: 245
+      entityID: 5
+    - worldPosX: 94
+      worldPosY: 245
+      entityID: 2
+    - worldPosX: 95
+      worldPosY: 245
+      entityID: 2
+    - worldPosX: 116
+      worldPosY: 245
+      entityID: 2
+    - worldPosX: 131
+      worldPosY: 245
+      entityID: 6
+    - worldPosX: 150
+      worldPosY: 245
+      entityID: 3
+    - worldPosX: 162
+      worldPosY: 245
+      entityID: 6
+    - worldPosX: 166
+      worldPosY: 245
+      entityID: 2
+    - worldPosX: 167
+      worldPosY: 245
+      entityID: 6
+    - worldPosX: 119
+      worldPosY: 244
+      entityID: 2
+    - worldPosX: 131
+      worldPosY: 244
+      entityID: 5
+    - worldPosX: 163
+      worldPosY: 244
+      entityID: 5
+    - worldPosX: 175
+      worldPosY: 244
+      entityID: 2
+    - worldPosX: 62
+      worldPosY: 243
+      entityID: 4
     - worldPosX: 118
-      worldPosY: 157
-      entityID: 3
-    - worldPosX: 134
-      worldPosY: 157
+      worldPosY: 243
+      entityID: 2
+    - worldPosX: 119
+      worldPosY: 243
+      entityID: 6
+    - worldPosX: 131
+      worldPosY: 243
       entityID: 2
     - worldPosX: 138
-      worldPosY: 157
-      entityID: 4
-    - worldPosX: 151
-      worldPosY: 157
-      entityID: 4
-    - worldPosX: 192
-      worldPosY: 157
-      entityID: 5
-    - worldPosX: 196
-      worldPosY: 157
+      worldPosY: 243
       entityID: 2
-    - worldPosX: 236
-      worldPosY: 157
-      entityID: 4
-    - worldPosX: 67
-      worldPosY: 156
-      entityID: 3
-    - worldPosX: 81
-      worldPosY: 156
-      entityID: 3
-    - worldPosX: 85
-      worldPosY: 156
-      entityID: 3
-    - worldPosX: 115
-      worldPosY: 156
-      entityID: 3
+    - worldPosX: 158
+      worldPosY: 243
+      entityID: 2
+    - worldPosX: 164
+      worldPosY: 243
+      entityID: 2
+    - worldPosX: 183
+      worldPosY: 243
+      entityID: 2
+    - worldPosX: 184
+      worldPosY: 243
+      entityID: 2
     - worldPosX: 237
-      worldPosY: 156
+      worldPosY: 243
       entityID: 4
-    - worldPosX: 0
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 54
-      worldPosY: 155
-      entityID: 3
+    - worldPosX: 243
+      worldPosY: 243
+      entityID: 4
+    - worldPosX: 7
+      worldPosY: 242
+      entityID: 2
+    - worldPosX: 57
+      worldPosY: 242
+      entityID: 4
     - worldPosX: 63
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 79
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 84
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 86
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 114
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 128
-      worldPosY: 155
-      entityID: 3
-    - worldPosX: 130
-      worldPosY: 155
-      entityID: 3
+      worldPosY: 242
+      entityID: 4
+    - worldPosX: 89
+      worldPosY: 242
+      entityID: 2
     - worldPosX: 131
-      worldPosY: 155
+      worldPosY: 242
+      entityID: 2
+    - worldPosX: 165
+      worldPosY: 242
+      entityID: 5
+    - worldPosX: 169
+      worldPosY: 242
+      entityID: 2
+    - worldPosX: 177
+      worldPosY: 242
+      entityID: 6
+    - worldPosX: 197
+      worldPosY: 242
       entityID: 3
-    - worldPosX: 142
-      worldPosY: 155
+    - worldPosX: 13
+      worldPosY: 241
+      entityID: 2
+    - worldPosX: 57
+      worldPosY: 241
+      entityID: 4
+    - worldPosX: 165
+      worldPosY: 241
+      entityID: 2
+    - worldPosX: 169
+      worldPosY: 241
+      entityID: 6
+    - worldPosX: 170
+      worldPosY: 241
+      entityID: 5
+    - worldPosX: 176
+      worldPosY: 241
+      entityID: 2
+    - worldPosX: 231
+      worldPosY: 241
       entityID: 4
     - worldPosX: 57
-      worldPosY: 154
-      entityID: 3
-    - worldPosX: 233
-      worldPosY: 154
+      worldPosY: 240
       entityID: 4
-    - worldPosX: 124
-      worldPosY: 153
-      entityID: 3
-    - worldPosX: 139
-      worldPosY: 153
+    - worldPosX: 61
+      worldPosY: 240
       entityID: 4
-    - worldPosX: 149
-      worldPosY: 153
-      entityID: 4
-    - worldPosX: 163
-      worldPosY: 153
-      entityID: 4
-    - worldPosX: 233
-      worldPosY: 153
-      entityID: 4
-    - worldPosX: 234
-      worldPosY: 153
+    - worldPosX: 153
+      worldPosY: 240
+      entityID: 2
+    - worldPosX: 45
+      worldPosY: 239
       entityID: 4
     - worldPosX: 54
-      worldPosY: 151
+      worldPosY: 239
+      entityID: 4
+    - worldPosX: 60
+      worldPosY: 239
+      entityID: 4
+    - worldPosX: 88
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 89
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 124
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 127
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 131
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 154
+      worldPosY: 239
+      entityID: 6
+    - worldPosX: 159
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 168
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 178
+      worldPosY: 239
+      entityID: 2
+    - worldPosX: 141
+      worldPosY: 238
+      entityID: 2
+    - worldPosX: 171
+      worldPosY: 238
+      entityID: 5
+    - worldPosX: 203
+      worldPosY: 238
+      entityID: 4
+    - worldPosX: 18
+      worldPosY: 237
+      entityID: 6
+    - worldPosX: 56
+      worldPosY: 237
+      entityID: 4
+    - worldPosX: 64
+      worldPosY: 237
+      entityID: 4
+    - worldPosX: 77
+      worldPosY: 237
+      entityID: 5
+    - worldPosX: 106
+      worldPosY: 237
       entityID: 3
-    - worldPosX: 55
-      worldPosY: 151
+    - worldPosX: 255
+      worldPosY: 237
+      entityID: 4
+    - worldPosX: 53
+      worldPosY: 236
+      entityID: 4
+    - worldPosX: 89
+      worldPosY: 236
+      entityID: 6
+    - worldPosX: 153
+      worldPosY: 236
+      entityID: 6
+    - worldPosX: 163
+      worldPosY: 236
+      entityID: 2
+    - worldPosX: 203
+      worldPosY: 236
+      entityID: 4
+    - worldPosX: 53
+      worldPosY: 235
+      entityID: 4
+    - worldPosX: 108
+      worldPosY: 235
       entityID: 3
-    - worldPosX: 116
-      worldPosY: 151
+    - worldPosX: 109
+      worldPosY: 235
+      entityID: 3
+    - worldPosX: 153
+      worldPosY: 235
+      entityID: 6
+    - worldPosX: 168
+      worldPosY: 235
+      entityID: 2
+    - worldPosX: 185
+      worldPosY: 235
+      entityID: 3
+    - worldPosX: 229
+      worldPosY: 235
+      entityID: 4
+    - worldPosX: 105
+      worldPosY: 234
+      entityID: 3
+    - worldPosX: 109
+      worldPosY: 234
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 234
+      entityID: 6
+    - worldPosX: 12
+      worldPosY: 233
+      entityID: 2
+    - worldPosX: 13
+      worldPosY: 233
+      entityID: 2
+    - worldPosX: 18
+      worldPosY: 233
+      entityID: 2
+    - worldPosX: 64
+      worldPosY: 233
+      entityID: 4
+    - worldPosX: 130
+      worldPosY: 233
+      entityID: 3
+    - worldPosX: 132
+      worldPosY: 233
+      entityID: 3
+    - worldPosX: 146
+      worldPosY: 233
+      entityID: 5
+    - worldPosX: 150
+      worldPosY: 233
+      entityID: 6
+    - worldPosX: 162
+      worldPosY: 233
+      entityID: 2
+    - worldPosX: 176
+      worldPosY: 233
+      entityID: 6
+    - worldPosX: 179
+      worldPosY: 233
+      entityID: 2
+    - worldPosX: 180
+      worldPosY: 233
+      entityID: 5
+    - worldPosX: 1
+      worldPosY: 232
+      entityID: 2
+    - worldPosX: 65
+      worldPosY: 232
+      entityID: 4
+    - worldPosX: 87
+      worldPosY: 232
+      entityID: 2
+    - worldPosX: 1
+      worldPosY: 231
+      entityID: 5
+    - worldPosX: 7
+      worldPosY: 231
+      entityID: 2
+    - worldPosX: 8
+      worldPosY: 231
+      entityID: 2
+    - worldPosX: 43
+      worldPosY: 231
+      entityID: 4
+    - worldPosX: 69
+      worldPosY: 231
+      entityID: 4
+    - worldPosX: 144
+      worldPosY: 231
+      entityID: 5
+    - worldPosX: 152
+      worldPosY: 231
+      entityID: 2
+    - worldPosX: 158
+      worldPosY: 231
+      entityID: 2
+    - worldPosX: 213
+      worldPosY: 231
+      entityID: 3
+    - worldPosX: 240
+      worldPosY: 231
+      entityID: 2
+    - worldPosX: 11
+      worldPosY: 230
+      entityID: 2
+    - worldPosX: 21
+      worldPosY: 230
+      entityID: 3
+    - worldPosX: 129
+      worldPosY: 230
+      entityID: 3
+    - worldPosX: 145
+      worldPosY: 230
+      entityID: 3
+    - worldPosX: 161
+      worldPosY: 230
+      entityID: 2
+    - worldPosX: 165
+      worldPosY: 230
+      entityID: 5
+    - worldPosX: 20
+      worldPosY: 229
+      entityID: 2
+    - worldPosX: 26
+      worldPosY: 229
+      entityID: 3
+    - worldPosX: 62
+      worldPosY: 229
+      entityID: 4
+    - worldPosX: 156
+      worldPosY: 229
+      entityID: 6
+    - worldPosX: 166
+      worldPosY: 229
+      entityID: 6
+    - worldPosX: 197
+      worldPosY: 229
+      entityID: 4
+    - worldPosX: 29
+      worldPosY: 228
+      entityID: 3
+    - worldPosX: 109
+      worldPosY: 228
+      entityID: 3
+    - worldPosX: 153
+      worldPosY: 228
+      entityID: 2
+    - worldPosX: 3
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 4
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 16
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 18
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 60
+      worldPosY: 227
+      entityID: 4
+    - worldPosX: 108
+      worldPosY: 227
+      entityID: 3
+    - worldPosX: 110
+      worldPosY: 227
+      entityID: 3
+    - worldPosX: 124
+      worldPosY: 227
+      entityID: 3
+    - worldPosX: 134
+      worldPosY: 227
+      entityID: 3
+    - worldPosX: 148
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 149
+      worldPosY: 227
+      entityID: 6
+    - worldPosX: 151
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 152
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 153
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 229
+      worldPosY: 227
+      entityID: 3
+    - worldPosX: 234
+      worldPosY: 227
+      entityID: 2
+    - worldPosX: 243
+      worldPosY: 226
+      entityID: 2
+    - worldPosX: 20
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 21
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 22
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 23
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 28
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 33
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 136
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 185
+      worldPosY: 225
+      entityID: 4
+    - worldPosX: 186
+      worldPosY: 225
+      entityID: 4
+    - worldPosX: 211
+      worldPosY: 225
+      entityID: 3
+    - worldPosX: 17
+      worldPosY: 224
+      entityID: 3
+    - worldPosX: 23
+      worldPosY: 224
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 224
+      entityID: 3
+    - worldPosX: 233
+      worldPosY: 224
+      entityID: 3
+    - worldPosX: 2
+      worldPosY: 223
+      entityID: 2
+    - worldPosX: 9
+      worldPosY: 223
+      entityID: 2
+    - worldPosX: 16
+      worldPosY: 223
+      entityID: 3
+    - worldPosX: 17
+      worldPosY: 223
+      entityID: 3
+    - worldPosX: 110
+      worldPosY: 223
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 223
+      entityID: 5
+    - worldPosX: 240
+      worldPosY: 223
+      entityID: 2
+    - worldPosX: 9
+      worldPosY: 222
+      entityID: 2
+    - worldPosX: 243
+      worldPosY: 222
+      entityID: 2
+    - worldPosX: 19
+      worldPosY: 221
+      entityID: 3
+    - worldPosX: 20
+      worldPosY: 221
+      entityID: 3
+    - worldPosX: 28
+      worldPosY: 221
+      entityID: 3
+    - worldPosX: 37
+      worldPosY: 221
+      entityID: 4
+    - worldPosX: 246
+      worldPosY: 221
+      entityID: 2
+    - worldPosX: 5
+      worldPosY: 220
+      entityID: 2
+    - worldPosX: 29
+      worldPosY: 220
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 220
+      entityID: 2
+    - worldPosX: 9
+      worldPosY: 219
+      entityID: 5
+    - worldPosX: 15
+      worldPosY: 219
+      entityID: 3
+    - worldPosX: 16
+      worldPosY: 219
+      entityID: 3
+    - worldPosX: 82
+      worldPosY: 219
+      entityID: 3
+    - worldPosX: 173
+      worldPosY: 219
+      entityID: 4
+    - worldPosX: 239
+      worldPosY: 219
+      entityID: 2
+    - worldPosX: 9
+      worldPosY: 218
+      entityID: 2
+    - worldPosX: 15
+      worldPosY: 218
       entityID: 3
     - worldPosX: 236
+      worldPosY: 217
+      entityID: 2
+    - worldPosX: 11
+      worldPosY: 216
+      entityID: 5
+    - worldPosX: 87
+      worldPosY: 215
+      entityID: 3
+    - worldPosX: 88
+      worldPosY: 215
+      entityID: 3
+    - worldPosX: 13
+      worldPosY: 214
+      entityID: 2
+    - worldPosX: 19
+      worldPosY: 213
+      entityID: 3
+    - worldPosX: 37
+      worldPosY: 213
+      entityID: 4
+    - worldPosX: 86
+      worldPosY: 213
+      entityID: 3
+    - worldPosX: 246
+      worldPosY: 213
+      entityID: 2
+    - worldPosX: 247
+      worldPosY: 213
+      entityID: 2
+    - worldPosX: 156
+      worldPosY: 211
+      entityID: 3
+    - worldPosX: 71
+      worldPosY: 210
+      entityID: 3
+    - worldPosX: 85
+      worldPosY: 210
+      entityID: 3
+    - worldPosX: 10
+      worldPosY: 209
+      entityID: 2
+    - worldPosX: 41
+      worldPosY: 209
+      entityID: 4
+    - worldPosX: 72
+      worldPosY: 209
+      entityID: 3
+    - worldPosX: 80
+      worldPosY: 209
+      entityID: 3
+    - worldPosX: 84
+      worldPosY: 209
+      entityID: 3
+    - worldPosX: 243
+      worldPosY: 209
+      entityID: 4
+    - worldPosX: 41
+      worldPosY: 208
+      entityID: 4
+    - worldPosX: 79
+      worldPosY: 208
+      entityID: 3
+    - worldPosX: 157
+      worldPosY: 208
+      entityID: 3
+    - worldPosX: 243
+      worldPosY: 208
+      entityID: 3
+    - worldPosX: 6
+      worldPosY: 207
+      entityID: 3
+    - worldPosX: 48
+      worldPosY: 207
+      entityID: 4
+    - worldPosX: 79
+      worldPosY: 207
+      entityID: 3
+    - worldPosX: 152
+      worldPosY: 207
+      entityID: 3
+    - worldPosX: 246
+      worldPosY: 207
+      entityID: 3
+    - worldPosX: 45
+      worldPosY: 206
+      entityID: 4
+    - worldPosX: 153
+      worldPosY: 206
+      entityID: 3
+    - worldPosX: 154
+      worldPosY: 205
+      entityID: 3
+    - worldPosX: 166
+      worldPosY: 205
+      entityID: 3
+    - worldPosX: 21
+      worldPosY: 204
+      entityID: 3
+    - worldPosX: 143
+      worldPosY: 204
+      entityID: 4
+    - worldPosX: 159
+      worldPosY: 204
+      entityID: 3
+    - worldPosX: 6
+      worldPosY: 203
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 203
+      entityID: 4
+    - worldPosX: 42
+      worldPosY: 203
+      entityID: 3
+    - worldPosX: 115
+      worldPosY: 203
+      entityID: 4
+    - worldPosX: 144
+      worldPosY: 203
+      entityID: 4
+    - worldPosX: 149
+      worldPosY: 203
+      entityID: 4
+    - worldPosX: 150
+      worldPosY: 203
+      entityID: 4
+    - worldPosX: 159
+      worldPosY: 203
+      entityID: 3
+    - worldPosX: 183
+      worldPosY: 203
+      entityID: 3
+    - worldPosX: 5
+      worldPosY: 202
+      entityID: 3
+    - worldPosX: 19
+      worldPosY: 202
+      entityID: 3
+    - worldPosX: 121
+      worldPosY: 202
+      entityID: 4
+    - worldPosX: 125
+      worldPosY: 202
+      entityID: 4
+    - worldPosX: 5
+      worldPosY: 201
+      entityID: 3
+    - worldPosX: 19
+      worldPosY: 201
+      entityID: 3
+    - worldPosX: 27
+      worldPosY: 201
+      entityID: 3
+    - worldPosX: 124
+      worldPosY: 201
+      entityID: 4
+    - worldPosX: 156
+      worldPosY: 201
+      entityID: 4
+    - worldPosX: 179
+      worldPosY: 201
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 200
+      entityID: 3
+    - worldPosX: 131
+      worldPosY: 200
+      entityID: 4
+    - worldPosX: 34
+      worldPosY: 199
+      entityID: 3
+    - worldPosX: 57
+      worldPosY: 199
+      entityID: 3
+    - worldPosX: 127
+      worldPosY: 199
+      entityID: 4
+    - worldPosX: 144
+      worldPosY: 199
+      entityID: 4
+    - worldPosX: 148
+      worldPosY: 199
+      entityID: 4
+    - worldPosX: 159
+      worldPosY: 199
+      entityID: 3
+    - worldPosX: 160
+      worldPosY: 199
+      entityID: 3
+    - worldPosX: 151
+      worldPosY: 198
+      entityID: 4
+    - worldPosX: 30
+      worldPosY: 197
+      entityID: 3
+    - worldPosX: 173
+      worldPosY: 197
+      entityID: 3
+    - worldPosX: 35
+      worldPosY: 196
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 195
+      entityID: 3
+    - worldPosX: 57
+      worldPosY: 195
+      entityID: 3
+    - worldPosX: 176
+      worldPosY: 195
+      entityID: 3
+    - worldPosX: 37
+      worldPosY: 194
+      entityID: 3
+    - worldPosX: 144
+      worldPosY: 193
+      entityID: 3
+    - worldPosX: 162
+      worldPosY: 193
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 193
+      entityID: 3
+    - worldPosX: 164
+      worldPosY: 193
+      entityID: 3
+    - worldPosX: 183
+      worldPosY: 193
+      entityID: 3
+    - worldPosX: 234
+      worldPosY: 193
+      entityID: 3
+    - worldPosX: 31
+      worldPosY: 192
+      entityID: 3
+    - worldPosX: 59
+      worldPosY: 192
+      entityID: 3
+    - worldPosX: 179
+      worldPosY: 192
+      entityID: 3
+    - worldPosX: 33
+      worldPosY: 191
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 191
+      entityID: 3
+    - worldPosX: 42
+      worldPosY: 191
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 190
+      entityID: 3
+    - worldPosX: 107
+      worldPosY: 190
+      entityID: 3
+    - worldPosX: 185
+      worldPosY: 190
+      entityID: 3
+    - worldPosX: 63
+      worldPosY: 189
+      entityID: 3
+    - worldPosX: 78
+      worldPosY: 189
+      entityID: 6
+    - worldPosX: 148
+      worldPosY: 189
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 189
+      entityID: 3
+    - worldPosX: 174
+      worldPosY: 189
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 189
+      entityID: 3
+    - worldPosX: 178
+      worldPosY: 189
+      entityID: 3
+    - worldPosX: 63
+      worldPosY: 188
+      entityID: 3
+    - worldPosX: 105
+      worldPosY: 188
+      entityID: 3
+    - worldPosX: 33
+      worldPosY: 187
+      entityID: 3
+    - worldPosX: 38
+      worldPosY: 187
+      entityID: 3
+    - worldPosX: 60
+      worldPosY: 187
+      entityID: 3
+    - worldPosX: 80
+      worldPosY: 187
+      entityID: 2
+    - worldPosX: 118
+      worldPosY: 187
+      entityID: 3
+    - worldPosX: 172
+      worldPosY: 187
+      entityID: 3
+    - worldPosX: 187
+      worldPosY: 187
+      entityID: 3
+    - worldPosX: 37
+      worldPosY: 186
+      entityID: 3
+    - worldPosX: 77
+      worldPosY: 186
+      entityID: 2
+    - worldPosX: 107
+      worldPosY: 186
+      entityID: 3
+    - worldPosX: 117
+      worldPosY: 186
+      entityID: 3
+    - worldPosX: 147
+      worldPosY: 186
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 186
+      entityID: 3
+    - worldPosX: 58
+      worldPosY: 185
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 185
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 185
+      entityID: 3
+    - worldPosX: 176
+      worldPosY: 185
+      entityID: 3
+    - worldPosX: 97
+      worldPosY: 184
+      entityID: 3
+    - worldPosX: 109
+      worldPosY: 184
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 183
+      entityID: 3
+    - worldPosX: 54
+      worldPosY: 183
+      entityID: 3
+    - worldPosX: 97
+      worldPosY: 183
+      entityID: 3
+    - worldPosX: 98
+      worldPosY: 183
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 182
+      entityID: 3
+    - worldPosX: 121
+      worldPosY: 182
+      entityID: 3
+    - worldPosX: 179
+      worldPosY: 182
+      entityID: 3
+    - worldPosX: 213
+      worldPosY: 182
+      entityID: 6
+    - worldPosX: 40
+      worldPosY: 181
+      entityID: 3
+    - worldPosX: 77
+      worldPosY: 181
+      entityID: 4
+    - worldPosX: 168
+      worldPosY: 181
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 181
+      entityID: 3
+    - worldPosX: 214
+      worldPosY: 181
+      entityID: 5
+    - worldPosX: 215
+      worldPosY: 181
+      entityID: 2
+    - worldPosX: 99
+      worldPosY: 180
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 180
+      entityID: 3
+    - worldPosX: 181
+      worldPosY: 180
+      entityID: 4
+    - worldPosX: 51
+      worldPosY: 179
+      entityID: 3
+    - worldPosX: 62
+      worldPosY: 179
+      entityID: 3
+    - worldPosX: 64
+      worldPosY: 179
+      entityID: 3
+    - worldPosX: 160
+      worldPosY: 179
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 179
+      entityID: 3
+    - worldPosX: 176
+      worldPosY: 179
+      entityID: 3
+    - worldPosX: 180
+      worldPosY: 179
+      entityID: 4
+    - worldPosX: 186
+      worldPosY: 179
+      entityID: 4
+    - worldPosX: 1
+      worldPosY: 178
+      entityID: 3
+    - worldPosX: 57
+      worldPosY: 178
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 178
+      entityID: 3
+    - worldPosX: 119
+      worldPosY: 178
+      entityID: 4
+    - worldPosX: 145
+      worldPosY: 178
+      entityID: 5
+    - worldPosX: 183
+      worldPosY: 178
+      entityID: 4
+    - worldPosX: 239
+      worldPosY: 178
+      entityID: 4
+    - worldPosX: 58
+      worldPosY: 177
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 177
+      entityID: 3
+    - worldPosX: 116
+      worldPosY: 177
+      entityID: 3
+    - worldPosX: 146
+      worldPosY: 177
+      entityID: 2
+    - worldPosX: 182
+      worldPosY: 177
+      entityID: 4
+    - worldPosX: 183
+      worldPosY: 177
+      entityID: 4
+    - worldPosX: 190
+      worldPosY: 177
+      entityID: 4
+    - worldPosX: 240
+      worldPosY: 177
+      entityID: 4
+    - worldPosX: 245
+      worldPosY: 177
+      entityID: 4
+    - worldPosX: 53
+      worldPosY: 176
+      entityID: 3
+    - worldPosX: 125
+      worldPosY: 176
+      entityID: 3
+    - worldPosX: 177
+      worldPosY: 176
+      entityID: 3
+    - worldPosX: 219
+      worldPosY: 176
+      entityID: 2
+    - worldPosX: 0
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 2
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 27
+      worldPosY: 175
+      entityID: 4
+    - worldPosX: 97
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 120
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 152
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 153
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 235
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 236
+      worldPosY: 175
+      entityID: 3
+    - worldPosX: 235
+      worldPosY: 174
+      entityID: 3
+    - worldPosX: 76
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 77
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 82
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 128
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 150
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 187
+      worldPosY: 173
+      entityID: 4
+    - worldPosX: 234
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 235
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 238
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 173
+      entityID: 3
+    - worldPosX: 131
+      worldPosY: 172
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 172
+      entityID: 3
+    - worldPosX: 31
+      worldPosY: 171
+      entityID: 4
+    - worldPosX: 244
+      worldPosY: 171
+      entityID: 4
+    - worldPosX: 85
+      worldPosY: 170
+      entityID: 3
+    - worldPosX: 167
+      worldPosY: 170
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 170
+      entityID: 3
+    - worldPosX: 63
+      worldPosY: 169
+      entityID: 3
+    - worldPosX: 208
+      worldPosY: 169
+      entityID: 3
+    - worldPosX: 225
+      worldPosY: 169
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 169
+      entityID: 3
+    - worldPosX: 242
+      worldPosY: 169
+      entityID: 4
+    - worldPosX: 69
+      worldPosY: 168
+      entityID: 3
+    - worldPosX: 69
+      worldPosY: 167
+      entityID: 3
+    - worldPosX: 100
+      worldPosY: 167
+      entityID: 3
+    - worldPosX: 136
+      worldPosY: 167
+      entityID: 3
+    - worldPosX: 150
+      worldPosY: 167
+      entityID: 3
+    - worldPosX: 177
+      worldPosY: 167
+      entityID: 2
+    - worldPosX: 178
+      worldPosY: 167
+      entityID: 2
+    - worldPosX: 189
+      worldPosY: 167
+      entityID: 2
+    - worldPosX: 232
+      worldPosY: 167
+      entityID: 3
+    - worldPosX: 240
+      worldPosY: 167
+      entityID: 3
+    - worldPosX: 244
+      worldPosY: 167
+      entityID: 4
+    - worldPosX: 239
+      worldPosY: 166
+      entityID: 3
+    - worldPosX: 251
+      worldPosY: 166
+      entityID: 4
+    - worldPosX: 59
+      worldPosY: 165
+      entityID: 4
+    - worldPosX: 93
+      worldPosY: 165
+      entityID: 3
+    - worldPosX: 164
+      worldPosY: 165
+      entityID: 3
+    - worldPosX: 196
+      worldPosY: 165
+      entityID: 2
+    - worldPosX: 204
+      worldPosY: 165
+      entityID: 2
+    - worldPosX: 208
+      worldPosY: 165
+      entityID: 3
+    - worldPosX: 238
+      worldPosY: 165
+      entityID: 3
+    - worldPosX: 251
+      worldPosY: 165
+      entityID: 4
+    - worldPosX: 167
+      worldPosY: 164
+      entityID: 3
+    - worldPosX: 195
+      worldPosY: 164
+      entityID: 6
+    - worldPosX: 227
+      worldPosY: 164
+      entityID: 3
+    - worldPosX: 233
+      worldPosY: 164
+      entityID: 3
+    - worldPosX: 241
+      worldPosY: 164
+      entityID: 3
+    - worldPosX: 32
+      worldPosY: 163
+      entityID: 4
+    - worldPosX: 81
+      worldPosY: 163
+      entityID: 3
+    - worldPosX: 138
+      worldPosY: 163
+      entityID: 3
+    - worldPosX: 150
+      worldPosY: 163
+      entityID: 3
+    - worldPosX: 190
+      worldPosY: 163
+      entityID: 6
+    - worldPosX: 191
+      worldPosY: 163
+      entityID: 2
+    - worldPosX: 206
+      worldPosY: 163
+      entityID: 4
+    - worldPosX: 227
+      worldPosY: 163
+      entityID: 3
+    - worldPosX: 133
+      worldPosY: 162
+      entityID: 3
+    - worldPosX: 149
+      worldPosY: 162
+      entityID: 3
+    - worldPosX: 221
+      worldPosY: 162
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 161
+      entityID: 4
+    - worldPosX: 101
+      worldPosY: 161
+      entityID: 4
+    - worldPosX: 117
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 133
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 143
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 164
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 172
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 197
+      worldPosY: 161
+      entityID: 2
+    - worldPosX: 198
+      worldPosY: 161
+      entityID: 2
+    - worldPosX: 208
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 221
+      worldPosY: 161
+      entityID: 3
+    - worldPosX: 101
+      worldPosY: 160
+      entityID: 3
+    - worldPosX: 107
+      worldPosY: 160
+      entityID: 4
+    - worldPosX: 143
+      worldPosY: 160
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 160
+      entityID: 2
+    - worldPosX: 83
+      worldPosY: 159
+      entityID: 3
+    - worldPosX: 174
+      worldPosY: 159
+      entityID: 3
+    - worldPosX: 206
+      worldPosY: 159
+      entityID: 4
+    - worldPosX: 220
+      worldPosY: 159
+      entityID: 2
+    - worldPosX: 226
+      worldPosY: 159
+      entityID: 3
+    - worldPosX: 238
+      worldPosY: 159
+      entityID: 3
+    - worldPosX: 107
+      worldPosY: 158
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 158
+      entityID: 3
+    - worldPosX: 143
+      worldPosY: 158
+      entityID: 3
+    - worldPosX: 215
+      worldPosY: 158
+      entityID: 3
+    - worldPosX: 223
+      worldPosY: 158
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 157
+      entityID: 4
+    - worldPosX: 152
+      worldPosY: 157
+      entityID: 3
+    - worldPosX: 154
+      worldPosY: 157
+      entityID: 3
+    - worldPosX: 202
+      worldPosY: 157
+      entityID: 2
+    - worldPosX: 203
+      worldPosY: 157
+      entityID: 2
+    - worldPosX: 204
+      worldPosY: 157
+      entityID: 2
+    - worldPosX: 216
+      worldPosY: 157
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 156
+      entityID: 3
+    - worldPosX: 179
+      worldPosY: 156
+      entityID: 2
+    - worldPosX: 211
+      worldPosY: 156
+      entityID: 3
+    - worldPosX: 255
+      worldPosY: 156
+      entityID: 3
+    - worldPosX: 3
+      worldPosY: 155
+      entityID: 4
+    - worldPosX: 101
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 104
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 108
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 159
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 200
+      worldPosY: 155
+      entityID: 2
+    - worldPosX: 211
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 214
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 255
+      worldPosY: 155
+      entityID: 3
+    - worldPosX: 211
+      worldPosY: 154
+      entityID: 3
+    - worldPosX: 227
+      worldPosY: 154
+      entityID: 3
+    - worldPosX: 11
+      worldPosY: 153
+      entityID: 4
+    - worldPosX: 110
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 146
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 151
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 174
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 176
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 188
+      worldPosY: 153
+      entityID: 2
+    - worldPosX: 198
+      worldPosY: 153
+      entityID: 6
+    - worldPosX: 199
+      worldPosY: 153
+      entityID: 2
+    - worldPosX: 204
+      worldPosY: 153
+      entityID: 6
+    - worldPosX: 208
+      worldPosY: 153
+      entityID: 5
+    - worldPosX: 218
+      worldPosY: 153
+      entityID: 6
+    - worldPosX: 227
+      worldPosY: 153
+      entityID: 3
+    - worldPosX: 83
+      worldPosY: 152
+      entityID: 3
+    - worldPosX: 107
+      worldPosY: 152
+      entityID: 3
+    - worldPosX: 147
+      worldPosY: 152
+      entityID: 3
+    - worldPosX: 187
+      worldPosY: 152
+      entityID: 5
+    - worldPosX: 191
+      worldPosY: 152
+      entityID: 6
+    - worldPosX: 227
+      worldPosY: 152
+      entityID: 3
+    - worldPosX: 14
       worldPosY: 151
       entityID: 4
+    - worldPosX: 84
+      worldPosY: 151
+      entityID: 3
+    - worldPosX: 104
+      worldPosY: 151
+      entityID: 3
     - worldPosX: 169
+      worldPosY: 151
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 151
+      entityID: 3
+    - worldPosX: 222
+      worldPosY: 151
+      entityID: 2
+    - worldPosX: 250
+      worldPosY: 151
+      entityID: 3
+    - worldPosX: 171
       worldPosY: 150
-      entityID: 4
-    - worldPosX: 235
+      entityID: 3
+    - worldPosX: 197
       worldPosY: 150
+      entityID: 2
+    - worldPosX: 209
+      worldPosY: 150
+      entityID: 2
+    - worldPosX: 253
+      worldPosY: 150
+      entityID: 3
+    - worldPosX: 11
+      worldPosY: 149
       entityID: 4
-    - worldPosX: 6
+    - worldPosX: 79
+      worldPosY: 149
+      entityID: 3
+    - worldPosX: 80
+      worldPosY: 149
+      entityID: 3
+    - worldPosX: 117
+      worldPosY: 149
+      entityID: 3
+    - worldPosX: 118
+      worldPosY: 149
+      entityID: 3
+    - worldPosX: 138
+      worldPosY: 149
+      entityID: 2
+    - worldPosX: 174
       worldPosY: 149
       entityID: 3
     - worldPosX: 197
       worldPosY: 149
-      entityID: 4
-    - worldPosX: 232
+      entityID: 2
+    - worldPosX: 218
       worldPosY: 149
-      entityID: 6
-    - worldPosX: 51
+      entityID: 2
+    - worldPosX: 224
+      worldPosY: 149
+      entityID: 3
+    - worldPosX: 87
       worldPosY: 148
       entityID: 3
-    - worldPosX: 41
+    - worldPosX: 109
+      worldPosY: 148
+      entityID: 3
+    - worldPosX: 139
+      worldPosY: 148
+      entityID: 2
+    - worldPosX: 177
+      worldPosY: 148
+      entityID: 2
+    - worldPosX: 249
+      worldPosY: 148
+      entityID: 3
+    - worldPosX: 74
       worldPosY: 147
       entityID: 3
-    - worldPosX: 155
+    - worldPosX: 87
       worldPosY: 147
-      entityID: 4
-    - worldPosX: 203
+      entityID: 3
+    - worldPosX: 106
       worldPosY: 147
-      entityID: 4
-    - worldPosX: 221
+      entityID: 3
+    - worldPosX: 120
       worldPosY: 147
-      entityID: 4
-    - worldPosX: 243
+      entityID: 3
+    - worldPosX: 123
       worldPosY: 147
-      entityID: 4
-    - worldPosX: 243
-      worldPosY: 145
-      entityID: 4
+      entityID: 3
+    - worldPosX: 144
+      worldPosY: 147
+      entityID: 3
+    - worldPosX: 168
+      worldPosY: 147
+      entityID: 5
+    - worldPosX: 172
+      worldPosY: 147
+      entityID: 3
+    - worldPosX: 177
+      worldPosY: 147
+      entityID: 2
+    - worldPosX: 178
+      worldPosY: 147
+      entityID: 2
+    - worldPosX: 180
+      worldPosY: 147
+      entityID: 6
+    - worldPosX: 200
+      worldPosY: 147
+      entityID: 6
+    - worldPosX: 216
+      worldPosY: 147
+      entityID: 2
+    - worldPosX: 220
+      worldPosY: 147
+      entityID: 2
+    - worldPosX: 240
+      worldPosY: 147
+      entityID: 3
+    - worldPosX: 241
+      worldPosY: 147
+      entityID: 3
+    - worldPosX: 87
+      worldPosY: 146
+      entityID: 3
+    - worldPosX: 123
+      worldPosY: 146
+      entityID: 3
+    - worldPosX: 167
+      worldPosY: 146
+      entityID: 6
+    - worldPosX: 197
+      worldPosY: 146
+      entityID: 6
+    - worldPosX: 211
+      worldPosY: 146
+      entityID: 2
     - worldPosX: 255
+      worldPosY: 146
+      entityID: 3
+    - worldPosX: 41
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 55
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 88
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 114
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 118
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 140
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 142
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 160
+      worldPosY: 145
+      entityID: 2
+    - worldPosX: 182
+      worldPosY: 145
+      entityID: 6
+    - worldPosX: 196
+      worldPosY: 145
+      entityID: 2
+    - worldPosX: 197
+      worldPosY: 145
+      entityID: 2
+    - worldPosX: 204
+      worldPosY: 145
+      entityID: 2
+    - worldPosX: 238
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 244
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 245
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 248
+      worldPosY: 145
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 144
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 144
+      entityID: 3
+    - worldPosX: 117
+      worldPosY: 144
+      entityID: 3
+    - worldPosX: 141
+      worldPosY: 144
+      entityID: 3
+    - worldPosX: 145
+      worldPosY: 144
+      entityID: 3
+    - worldPosX: 151
       worldPosY: 144
       entityID: 5
+    - worldPosX: 167
+      worldPosY: 144
+      entityID: 2
+    - worldPosX: 171
+      worldPosY: 144
+      entityID: 3
+    - worldPosX: 76
+      worldPosY: 143
+      entityID: 3
+    - worldPosX: 78
+      worldPosY: 143
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 143
+      entityID: 3
     - worldPosX: 82
       worldPosY: 143
       entityID: 3
-    - worldPosX: 84
-      worldPosY: 143
-      entityID: 3
-    - worldPosX: 211
-      worldPosY: 143
-      entityID: 4
-    - worldPosX: 212
-      worldPosY: 143
-      entityID: 4
-    - worldPosX: 75
-      worldPosY: 142
-      entityID: 3
-    - worldPosX: 42
-      worldPosY: 141
-      entityID: 3
-    - worldPosX: 75
-      worldPosY: 141
-      entityID: 3
-    - worldPosX: 152
-      worldPosY: 141
-      entityID: 3
-    - worldPosX: 254
-      worldPosY: 141
-      entityID: 2
-    - worldPosX: 25
-      worldPosY: 140
-      entityID: 3
     - worldPosX: 111
-      worldPosY: 140
-      entityID: 4
-    - worldPosX: 209
-      worldPosY: 140
+      worldPosY: 143
       entityID: 3
-    - worldPosX: 2
-      worldPosY: 139
+    - worldPosX: 120
+      worldPosY: 143
       entityID: 3
-    - worldPosX: 25
-      worldPosY: 139
+    - worldPosX: 121
+      worldPosY: 143
       entityID: 3
-    - worldPosX: 71
-      worldPosY: 139
+    - worldPosX: 148
+      worldPosY: 143
       entityID: 3
-    - worldPosX: 72
-      worldPosY: 139
-      entityID: 3
-    - worldPosX: 151
-      worldPosY: 139
-      entityID: 3
-    - worldPosX: 176
-      worldPosY: 139
-      entityID: 3
-    - worldPosX: 199
-      worldPosY: 139
-      entityID: 3
-    - worldPosX: 209
-      worldPosY: 139
-      entityID: 3
-    - worldPosX: 234
-      worldPosY: 139
+    - worldPosX: 162
+      worldPosY: 143
+      entityID: 2
+    - worldPosX: 167
+      worldPosY: 143
       entityID: 6
-    - worldPosX: 250
-      worldPosY: 139
+    - worldPosX: 170
+      worldPosY: 143
+      entityID: 3
+    - worldPosX: 200
+      worldPosY: 143
       entityID: 6
-    - worldPosX: 151
-      worldPosY: 138
-      entityID: 3
-    - worldPosX: 255
-      worldPosY: 138
-      entityID: 6
-    - worldPosX: 42
-      worldPosY: 137
-      entityID: 3
-    - worldPosX: 192
-      worldPosY: 137
-      entityID: 3
-    - worldPosX: 195
-      worldPosY: 137
-      entityID: 3
-    - worldPosX: 43
-      worldPosY: 136
+    - worldPosX: 213
+      worldPosY: 143
+      entityID: 2
+    - worldPosX: 220
+      worldPosY: 143
+      entityID: 2
+    - worldPosX: 242
+      worldPosY: 143
       entityID: 3
     - worldPosX: 73
-      worldPosY: 136
+      worldPosY: 142
+      entityID: 3
+    - worldPosX: 103
+      worldPosY: 142
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 142
       entityID: 3
     - worldPosX: 115
-      worldPosY: 136
+      worldPosY: 142
       entityID: 3
-    - worldPosX: 191
-      worldPosY: 136
+    - worldPosX: 121
+      worldPosY: 142
       entityID: 3
-    - worldPosX: 21
-      worldPosY: 135
-      entityID: 3
-    - worldPosX: 102
-      worldPosY: 135
-      entityID: 3
-    - worldPosX: 118
-      worldPosY: 135
+    - worldPosX: 63
+      worldPosY: 141
       entityID: 4
-    - worldPosX: 231
-      worldPosY: 135
-      entityID: 4
-    - worldPosX: 244
-      worldPosY: 135
-      entityID: 6
-    - worldPosX: 250
-      worldPosY: 135
-      entityID: 6
-    - worldPosX: 252
-      worldPosY: 135
-      entityID: 2
-    - worldPosX: 21
-      worldPosY: 134
-      entityID: 3
-    - worldPosX: 219
-      worldPosY: 134
-      entityID: 3
-    - worldPosX: 251
-      worldPosY: 134
-      entityID: 2
-    - worldPosX: 70
-      worldPosY: 133
-      entityID: 4
-    - worldPosX: 72
-      worldPosY: 133
-      entityID: 3
     - worldPosX: 74
-      worldPosY: 133
+      worldPosY: 141
       entityID: 3
-    - worldPosX: 95
-      worldPosY: 133
+    - worldPosX: 84
+      worldPosY: 141
+      entityID: 3
+    - worldPosX: 86
+      worldPosY: 141
+      entityID: 3
+    - worldPosX: 114
+      worldPosY: 141
+      entityID: 3
+    - worldPosX: 150
+      worldPosY: 141
+      entityID: 3
+    - worldPosX: 194
+      worldPosY: 141
+      entityID: 5
+    - worldPosX: 196
+      worldPosY: 141
+      entityID: 2
+    - worldPosX: 227
+      worldPosY: 141
+      entityID: 5
+    - worldPosX: 244
+      worldPosY: 141
+      entityID: 5
+    - worldPosX: 246
+      worldPosY: 141
+      entityID: 2
+    - worldPosX: 169
+      worldPosY: 140
+      entityID: 3
+    - worldPosX: 80
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 81
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 82
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 87
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 88
+      worldPosY: 139
       entityID: 3
     - worldPosX: 116
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 118
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 119
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 136
+      worldPosY: 139
+      entityID: 3
+    - worldPosX: 175
+      worldPosY: 139
+      entityID: 2
+    - worldPosX: 192
+      worldPosY: 139
+      entityID: 6
+    - worldPosX: 71
+      worldPosY: 138
+      entityID: 3
+    - worldPosX: 77
+      worldPosY: 138
+      entityID: 3
+    - worldPosX: 113
+      worldPosY: 138
+      entityID: 3
+    - worldPosX: 127
+      worldPosY: 138
+      entityID: 3
+    - worldPosX: 149
+      worldPosY: 138
+      entityID: 3
+    - worldPosX: 36
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 69
+      worldPosY: 137
+      entityID: 4
+    - worldPosX: 70
+      worldPosY: 137
+      entityID: 4
+    - worldPosX: 114
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 127
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 130
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 159
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 185
+      worldPosY: 137
+      entityID: 6
+    - worldPosX: 194
+      worldPosY: 137
+      entityID: 2
+    - worldPosX: 229
+      worldPosY: 137
+      entityID: 3
+    - worldPosX: 107
+      worldPosY: 136
+      entityID: 3
+    - worldPosX: 149
+      worldPosY: 136
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 136
+      entityID: 2
+    - worldPosX: 41
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 42
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 99
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 103
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 112
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 120
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 126
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 136
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 152
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 211
+      worldPosY: 135
+      entityID: 3
+    - worldPosX: 41
+      worldPosY: 134
+      entityID: 3
+    - worldPosX: 135
+      worldPosY: 134
+      entityID: 3
+    - worldPosX: 165
+      worldPosY: 134
+      entityID: 3
+    - worldPosX: 211
+      worldPosY: 134
+      entityID: 3
+    - worldPosX: 22
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 32
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 36
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 90
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 91
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 124
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 125
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 128
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 129
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 166
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 168
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 183
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 184
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 217
+      worldPosY: 133
+      entityID: 3
+    - worldPosX: 239
       worldPosY: 133
       entityID: 5
-    - worldPosX: 192
+    - worldPosX: 244
       worldPosY: 133
-      entityID: 3
-    - worldPosX: 214
-      worldPosY: 133
-      entityID: 3
-    - worldPosX: 219
-      worldPosY: 133
-      entityID: 3
-    - worldPosX: 254
-      worldPosY: 133
-      entityID: 2
-    - worldPosX: 95
+      entityID: 6
+    - worldPosX: 35
       worldPosY: 132
       entityID: 3
-    - worldPosX: 109
-      worldPosY: 132
-      entityID: 4
-    - worldPosX: 219
+    - worldPosX: 45
       worldPosY: 132
       entityID: 3
-    - worldPosX: 247
+    - worldPosX: 133
+      worldPosY: 132
+      entityID: 3
+    - worldPosX: 163
       worldPosY: 132
       entityID: 2
-    - worldPosX: 9
+    - worldPosX: 20
       worldPosY: 131
       entityID: 3
-    - worldPosX: 10
+    - worldPosX: 28
       worldPosY: 131
       entityID: 3
-    - worldPosX: 11
+    - worldPosX: 44
       worldPosY: 131
       entityID: 3
     - worldPosX: 65
       worldPosY: 131
       entityID: 4
-    - worldPosX: 112
+    - worldPosX: 99
       worldPosY: 131
-      entityID: 6
-    - worldPosX: 21
-      worldPosY: 130
       entityID: 3
-    - worldPosX: 111
-      worldPosY: 130
-      entityID: 6
-    - worldPosX: 121
-      worldPosY: 130
-      entityID: 6
-    - worldPosX: 221
-      worldPosY: 130
+    - worldPosX: 110
+      worldPosY: 131
       entityID: 3
-    - worldPosX: 239
-      worldPosY: 130
-      entityID: 5
-    - worldPosX: 47
-      worldPosY: 129
-      entityID: 3
-    - worldPosX: 100
-      worldPosY: 129
-      entityID: 6
-    - worldPosX: 122
-      worldPosY: 129
-      entityID: 5
-    - worldPosX: 186
-      worldPosY: 129
-      entityID: 3
-    - worldPosX: 214
-      worldPosY: 129
-      entityID: 3
-    - worldPosX: 222
-      worldPosY: 129
-      entityID: 3
-    - worldPosX: 232
-      worldPosY: 129
+    - worldPosX: 116
+      worldPosY: 131
       entityID: 3
     - worldPosX: 117
-      worldPosY: 128
-      entityID: 6
-    - worldPosX: 70
-      worldPosY: 127
-      entityID: 4
-    - worldPosX: 104
-      worldPosY: 127
-      entityID: 2
-    - worldPosX: 112
-      worldPosY: 127
-      entityID: 2
-    - worldPosX: 124
-      worldPosY: 127
-      entityID: 2
-    - worldPosX: 132
-      worldPosY: 127
+      worldPosY: 131
       entityID: 3
-    - worldPosX: 142
-      worldPosY: 127
-      entityID: 3
-    - worldPosX: 149
-      worldPosY: 127
-      entityID: 3
-    - worldPosX: 158
-      worldPosY: 127
-      entityID: 4
-    - worldPosX: 252
-      worldPosY: 127
-      entityID: 5
-    - worldPosX: 254
-      worldPosY: 127
-      entityID: 2
-    - worldPosX: 123
-      worldPosY: 126
-      entityID: 2
-    - worldPosX: 129
-      worldPosY: 126
-      entityID: 3
-    - worldPosX: 137
-      worldPosY: 126
-      entityID: 3
-    - worldPosX: 141
-      worldPosY: 126
-      entityID: 3
-    - worldPosX: 241
-      worldPosY: 126
-      entityID: 6
-    - worldPosX: 115
-      worldPosY: 125
-      entityID: 2
-    - worldPosX: 130
-      worldPosY: 125
+    - worldPosX: 122
+      worldPosY: 131
       entityID: 3
     - worldPosX: 134
-      worldPosY: 125
-      entityID: 3
-    - worldPosX: 140
-      worldPosY: 125
+      worldPosY: 131
       entityID: 3
     - worldPosX: 141
-      worldPosY: 125
+      worldPosY: 131
       entityID: 3
-    - worldPosX: 232
-      worldPosY: 125
-      entityID: 3
-    - worldPosX: 238
-      worldPosY: 125
-      entityID: 3
-    - worldPosX: 93
-      worldPosY: 124
-      entityID: 2
-    - worldPosX: 103
-      worldPosY: 124
-      entityID: 2
-    - worldPosX: 127
-      worldPosY: 124
-      entityID: 3
-    - worldPosX: 33
-      worldPosY: 123
-      entityID: 4
-    - worldPosX: 122
-      worldPosY: 123
+    - worldPosX: 255
+      worldPosY: 131
       entityID: 5
-    - worldPosX: 153
-      worldPosY: 123
-      entityID: 4
-    - worldPosX: 179
-      worldPosY: 123
+    - worldPosX: 31
+      worldPosY: 130
       entityID: 3
-    - worldPosX: 213
-      worldPosY: 123
+    - worldPosX: 35
+      worldPosY: 130
       entityID: 3
-    - worldPosX: 254
-      worldPosY: 123
-      entityID: 2
-    - worldPosX: 115
-      worldPosY: 122
-      entityID: 2
-    - worldPosX: 139
-      worldPosY: 122
-      entityID: 3
-    - worldPosX: 249
-      worldPosY: 122
-      entityID: 2
-    - worldPosX: 77
-      worldPosY: 121
-      entityID: 6
-    - worldPosX: 120
-      worldPosY: 121
-      entityID: 5
-    - worldPosX: 125
-      worldPosY: 121
-      entityID: 6
-    - worldPosX: 130
-      worldPosY: 121
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 121
-      entityID: 3
-    - worldPosX: 140
-      worldPosY: 121
-      entityID: 3
-    - worldPosX: 240
-      worldPosY: 121
-      entityID: 2
-    - worldPosX: 245
-      worldPosY: 121
-      entityID: 2
-    - worldPosX: 250
-      worldPosY: 121
-      entityID: 2
-    - worldPosX: 252
-      worldPosY: 121
-      entityID: 2
-    - worldPosX: 91
-      worldPosY: 120
-      entityID: 5
-    - worldPosX: 117
-      worldPosY: 120
-      entityID: 2
-    - worldPosX: 72
-      worldPosY: 119
-      entityID: 2
-    - worldPosX: 87
-      worldPosY: 119
-      entityID: 2
-    - worldPosX: 98
-      worldPosY: 119
-      entityID: 2
-    - worldPosX: 107
-      worldPosY: 119
-      entityID: 2
-    - worldPosX: 117
-      worldPosY: 119
-      entityID: 2
-    - worldPosX: 123
-      worldPosY: 119
-      entityID: 6
-    - worldPosX: 136
-      worldPosY: 119
-      entityID: 3
-    - worldPosX: 137
-      worldPosY: 119
-      entityID: 3
-    - worldPosX: 146
-      worldPosY: 119
-      entityID: 3
-    - worldPosX: 150
-      worldPosY: 119
-      entityID: 3
-    - worldPosX: 87
-      worldPosY: 118
-      entityID: 5
-    - worldPosX: 91
-      worldPosY: 118
-      entityID: 2
-    - worldPosX: 97
-      worldPosY: 118
-      entityID: 2
-    - worldPosX: 113
-      worldPosY: 118
-      entityID: 2
-    - worldPosX: 247
-      worldPosY: 118
-      entityID: 5
-    - worldPosX: 76
-      worldPosY: 117
-      entityID: 2
-    - worldPosX: 78
-      worldPosY: 117
-      entityID: 2
-    - worldPosX: 80
-      worldPosY: 117
-      entityID: 2
-    - worldPosX: 84
-      worldPosY: 117
-      entityID: 2
-    - worldPosX: 91
-      worldPosY: 117
-      entityID: 6
-    - worldPosX: 114
-      worldPosY: 117
-      entityID: 5
-    - worldPosX: 187
-      worldPosY: 117
-      entityID: 3
-    - worldPosX: 252
-      worldPosY: 117
-      entityID: 2
-    - worldPosX: 253
-      worldPosY: 117
-      entityID: 2
-    - worldPosX: 61
-      worldPosY: 116
-      entityID: 4
-    - worldPosX: 85
-      worldPosY: 116
-      entityID: 6
-    - worldPosX: 111
-      worldPosY: 116
-      entityID: 2
-    - worldPosX: 121
-      worldPosY: 116
-      entityID: 2
-    - worldPosX: 253
-      worldPosY: 116
-      entityID: 5
-    - worldPosX: 29
-      worldPosY: 115
-      entityID: 4
-    - worldPosX: 51
-      worldPosY: 115
-      entityID: 4
-    - worldPosX: 96
-      worldPosY: 115
-      entityID: 5
-    - worldPosX: 110
-      worldPosY: 115
-      entityID: 2
-    - worldPosX: 117
-      worldPosY: 115
-      entityID: 5
-    - worldPosX: 118
-      worldPosY: 115
-      entityID: 2
-    - worldPosX: 79
-      worldPosY: 114
-      entityID: 2
-    - worldPosX: 107
-      worldPosY: 114
-      entityID: 5
-    - worldPosX: 251
-      worldPosY: 114
-      entityID: 2
-    - worldPosX: 78
-      worldPosY: 113
-      entityID: 5
-    - worldPosX: 82
-      worldPosY: 113
-      entityID: 2
-    - worldPosX: 88
-      worldPosY: 113
-      entityID: 2
-    - worldPosX: 89
-      worldPosY: 113
-      entityID: 6
-    - worldPosX: 102
-      worldPosY: 113
-      entityID: 6
-    - worldPosX: 215
-      worldPosY: 113
-      entityID: 3
-    - worldPosX: 250
-      worldPosY: 113
-      entityID: 2
-    - worldPosX: 254
-      worldPosY: 113
-      entityID: 2
-    - worldPosX: 23
-      worldPosY: 112
-      entityID: 3
-    - worldPosX: 93
-      worldPosY: 112
-      entityID: 2
-    - worldPosX: 98
-      worldPosY: 111
-      entityID: 2
-    - worldPosX: 114
-      worldPosY: 111
-      entityID: 2
-    - worldPosX: 116
-      worldPosY: 111
-      entityID: 2
-    - worldPosX: 118
-      worldPosY: 111
-      entityID: 2
-    - worldPosX: 143
-      worldPosY: 111
-      entityID: 3
-    - worldPosX: 199
-      worldPosY: 111
-      entityID: 3
-    - worldPosX: 212
-      worldPosY: 111
-      entityID: 3
-    - worldPosX: 95
-      worldPosY: 110
-      entityID: 5
-    - worldPosX: 18
-      worldPosY: 109
-      entityID: 3
-    - worldPosX: 71
-      worldPosY: 109
-      entityID: 2
-    - worldPosX: 85
-      worldPosY: 109
-      entityID: 6
-    - worldPosX: 86
-      worldPosY: 109
-      entityID: 2
-    - worldPosX: 180
-      worldPosY: 109
-      entityID: 3
-    - worldPosX: 213
-      worldPosY: 109
-      entityID: 3
-    - worldPosX: 221
-      worldPosY: 109
-      entityID: 3
-    - worldPosX: 7
-      worldPosY: 108
-      entityID: 3
-    - worldPosX: 79
-      worldPosY: 108
-      entityID: 6
-    - worldPosX: 91
-      worldPosY: 108
-      entityID: 2
-    - worldPosX: 213
-      worldPosY: 108
-      entityID: 3
-    - worldPosX: 40
-      worldPosY: 107
-      entityID: 3
-    - worldPosX: 71
-      worldPosY: 107
-      entityID: 5
-    - worldPosX: 72
-      worldPosY: 107
-      entityID: 5
-    - worldPosX: 73
-      worldPosY: 107
-      entityID: 2
-    - worldPosX: 90
-      worldPosY: 107
-      entityID: 6
-    - worldPosX: 94
-      worldPosY: 107
-      entityID: 2
-    - worldPosX: 114
-      worldPosY: 107
-      entityID: 5
-    - worldPosX: 107
-      worldPosY: 106
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 106
-      entityID: 3
-    - worldPosX: 61
-      worldPosY: 105
-      entityID: 4
-    - worldPosX: 79
-      worldPosY: 105
-      entityID: 2
-    - worldPosX: 108
-      worldPosY: 105
-      entityID: 2
-    - worldPosX: 109
-      worldPosY: 105
-      entityID: 6
-    - worldPosX: 182
-      worldPosY: 105
-      entityID: 3
-    - worldPosX: 212
-      worldPosY: 105
+    - worldPosX: 45
+      worldPosY: 130
       entityID: 3
     - worldPosX: 69
-      worldPosY: 104
+      worldPosY: 130
       entityID: 4
-    - worldPosX: 73
-      worldPosY: 104
-      entityID: 4
+    - worldPosX: 77
+      worldPosY: 130
+      entityID: 3
     - worldPosX: 125
-      worldPosY: 104
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 104
+      worldPosY: 130
       entityID: 3
+    - worldPosX: 205
+      worldPosY: 130
+      entityID: 4
+    - worldPosX: 1
+      worldPosY: 129
+      entityID: 2
+    - worldPosX: 68
+      worldPosY: 129
+      entityID: 4
+    - worldPosX: 89
+      worldPosY: 129
+      entityID: 3
+    - worldPosX: 90
+      worldPosY: 129
+      entityID: 3
+    - worldPosX: 132
+      worldPosY: 129
+      entityID: 3
+    - worldPosX: 136
+      worldPosY: 129
+      entityID: 3
+    - worldPosX: 138
+      worldPosY: 129
+      entityID: 3
+    - worldPosX: 243
+      worldPosY: 129
+      entityID: 2
+    - worldPosX: 1
+      worldPosY: 128
+      entityID: 5
+    - worldPosX: 39
+      worldPosY: 128
+      entityID: 3
+    - worldPosX: 109
+      worldPosY: 128
+      entityID: 3
+    - worldPosX: 32
+      worldPosY: 127
+      entityID: 4
     - worldPosX: 40
-      worldPosY: 103
+      worldPosY: 127
       entityID: 3
-    - worldPosX: 42
-      worldPosY: 103
+    - worldPosX: 217
+      worldPosY: 127
       entityID: 3
-    - worldPosX: 74
-      worldPosY: 103
+    - worldPosX: 37
+      worldPosY: 126
+      entityID: 3
+    - worldPosX: 48
+      worldPosY: 125
+      entityID: 3
+    - worldPosX: 161
+      worldPosY: 125
+      entityID: 3
+    - worldPosX: 167
+      worldPosY: 125
+      entityID: 3
+    - worldPosX: 35
+      worldPosY: 124
+      entityID: 3
+    - worldPosX: 38
+      worldPosY: 123
+      entityID: 3
+    - worldPosX: 46
+      worldPosY: 123
+      entityID: 3
+    - worldPosX: 81
+      worldPosY: 123
+      entityID: 3
+    - worldPosX: 81
+      worldPosY: 122
+      entityID: 3
+    - worldPosX: 48
+      worldPosY: 121
+      entityID: 3
+    - worldPosX: 145
+      worldPosY: 121
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 121
       entityID: 4
-    - worldPosX: 128
-      worldPosY: 103
+    - worldPosX: 255
+      worldPosY: 120
       entityID: 2
-    - worldPosX: 190
-      worldPosY: 103
+    - worldPosX: 37
+      worldPosY: 119
       entityID: 3
-    - worldPosX: 191
-      worldPosY: 103
+    - worldPosX: 49
+      worldPosY: 119
       entityID: 3
-    - worldPosX: 192
-      worldPosY: 103
-      entityID: 3
-    - worldPosX: 208
-      worldPosY: 103
-      entityID: 3
-    - worldPosX: 9
-      worldPosY: 102
-      entityID: 3
-    - worldPosX: 179
-      worldPosY: 102
-      entityID: 3
-    - worldPosX: 213
-      worldPosY: 102
-      entityID: 3
-    - worldPosX: 99
-      worldPosY: 101
+    - worldPosX: 101
+      worldPosY: 119
       entityID: 4
-    - worldPosX: 183
-      worldPosY: 100
+    - worldPosX: 79
+      worldPosY: 118
       entityID: 3
-    - worldPosX: 1
-      worldPosY: 99
+    - worldPosX: 79
+      worldPosY: 117
       entityID: 3
-    - worldPosX: 232
-      worldPosY: 99
+    - worldPosX: 82
+      worldPosY: 117
       entityID: 3
-    - worldPosX: 151
-      worldPosY: 98
+    - worldPosX: 83
+      worldPosY: 117
+      entityID: 3
+    - worldPosX: 159
+      worldPosY: 117
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 116
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 115
+      entityID: 3
+    - worldPosX: 143
+      worldPosY: 115
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 115
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 114
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 114
+      entityID: 3
+    - worldPosX: 255
+      worldPosY: 114
+      entityID: 2
+    - worldPosX: 46
+      worldPosY: 113
       entityID: 6
-    - worldPosX: 179
-      worldPosY: 98
+    - worldPosX: 82
+      worldPosY: 113
       entityID: 3
-    - worldPosX: 187
-      worldPosY: 98
+    - worldPosX: 88
+      worldPosY: 113
       entityID: 3
-    - worldPosX: 113
-      worldPosY: 97
+    - worldPosX: 190
+      worldPosY: 113
       entityID: 4
-    - worldPosX: 213
-      worldPosY: 96
-      entityID: 3
-    - worldPosX: 8
-      worldPosY: 95
-      entityID: 3
-    - worldPosX: 179
-      worldPosY: 95
-      entityID: 3
-    - worldPosX: 180
-      worldPosY: 95
-      entityID: 3
-    - worldPosX: 252
-      worldPosY: 95
+    - worldPosX: 254
+      worldPosY: 113
+      entityID: 5
+    - worldPosX: 255
+      worldPosY: 113
       entityID: 2
-    - worldPosX: 189
-      worldPosY: 94
+    - worldPosX: 45
+      worldPosY: 112
       entityID: 3
-    - worldPosX: 149
-      worldPosY: 93
-      entityID: 2
-    - worldPosX: 188
-      worldPosY: 93
+    - worldPosX: 87
+      worldPosY: 112
       entityID: 3
-    - worldPosX: 1
-      worldPosY: 92
+    - worldPosX: 141
+      worldPosY: 111
       entityID: 3
-    - worldPosX: 119
-      worldPosY: 92
-      entityID: 4
-    - worldPosX: 183
-      worldPosY: 92
+    - worldPosX: 47
+      worldPosY: 110
       entityID: 3
-    - worldPosX: 97
-      worldPosY: 91
-      entityID: 4
-    - worldPosX: 116
-      worldPosY: 91
-      entityID: 4
-    - worldPosX: 120
-      worldPosY: 91
-      entityID: 4
-    - worldPosX: 184
-      worldPosY: 91
+    - worldPosX: 81
+      worldPosY: 110
       entityID: 3
-    - worldPosX: 212
-      worldPosY: 91
+    - worldPosX: 85
+      worldPosY: 110
       entityID: 3
-    - worldPosX: 232
-      worldPosY: 91
-      entityID: 3
-    - worldPosX: 245
-      worldPosY: 90
-      entityID: 3
-    - worldPosX: 135
-      worldPosY: 89
-      entityID: 4
-    - worldPosX: 151
-      worldPosY: 89
-      entityID: 4
-    - worldPosX: 113
-      worldPosY: 88
-      entityID: 3
-    - worldPosX: 117
-      worldPosY: 88
-      entityID: 3
-    - worldPosX: 101
-      worldPosY: 87
-      entityID: 3
-    - worldPosX: 116
-      worldPosY: 87
-      entityID: 3
-    - worldPosX: 117
-      worldPosY: 87
-      entityID: 3
-    - worldPosX: 120
-      worldPosY: 87
-      entityID: 4
-    - worldPosX: 175
-      worldPosY: 87
-      entityID: 4
-    - worldPosX: 183
-      worldPosY: 87
-      entityID: 3
-    - worldPosX: 101
-      worldPosY: 86
-      entityID: 3
-    - worldPosX: 175
-      worldPosY: 86
-      entityID: 4
-    - worldPosX: 101
-      worldPosY: 85
-      entityID: 3
-    - worldPosX: 114
-      worldPosY: 85
-      entityID: 3
-    - worldPosX: 137
-      worldPosY: 85
-      entityID: 4
-    - worldPosX: 148
-      worldPosY: 85
-      entityID: 4
-    - worldPosX: 151
-      worldPosY: 85
-      entityID: 4
-    - worldPosX: 224
-      worldPosY: 85
+    - worldPosX: 237
+      worldPosY: 110
       entityID: 3
     - worldPosX: 241
-      worldPosY: 85
+      worldPosY: 110
       entityID: 3
-    - worldPosX: 242
-      worldPosY: 85
+    - worldPosX: 38
+      worldPosY: 109
+      entityID: 3
+    - worldPosX: 47
+      worldPosY: 109
+      entityID: 3
+    - worldPosX: 131
+      worldPosY: 109
+      entityID: 3
+    - worldPosX: 216
+      worldPosY: 109
+      entityID: 3
+    - worldPosX: 240
+      worldPosY: 109
+      entityID: 3
+    - worldPosX: 241
+      worldPosY: 109
+      entityID: 3
+    - worldPosX: 254
+      worldPosY: 109
+      entityID: 2
+    - worldPosX: 41
+      worldPosY: 108
+      entityID: 3
+    - worldPosX: 147
+      worldPosY: 108
+      entityID: 3
+    - worldPosX: 233
+      worldPosY: 108
+      entityID: 3
+    - worldPosX: 40
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 72
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 80
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 174
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 188
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 220
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 238
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 249
+      worldPosY: 107
+      entityID: 3
+    - worldPosX: 83
+      worldPosY: 106
+      entityID: 3
+    - worldPosX: 173
+      worldPosY: 106
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 106
+      entityID: 3
+    - worldPosX: 13
+      worldPosY: 105
+      entityID: 2
+    - worldPosX: 14
+      worldPosY: 105
+      entityID: 2
+    - worldPosX: 82
+      worldPosY: 105
+      entityID: 3
+    - worldPosX: 61
+      worldPosY: 104
+      entityID: 3
+    - worldPosX: 219
+      worldPosY: 104
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 104
+      entityID: 3
+    - worldPosX: 61
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 62
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 84
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 148
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 188
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 236
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 103
+      entityID: 3
+    - worldPosX: 11
+      worldPosY: 102
+      entityID: 6
+    - worldPosX: 81
+      worldPosY: 102
+      entityID: 3
+    - worldPosX: 243
+      worldPosY: 102
+      entityID: 3
+    - worldPosX: 56
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 65
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 77
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 78
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 81
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 86
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 150
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 179
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 243
+      worldPosY: 101
+      entityID: 3
+    - worldPosX: 13
+      worldPosY: 100
+      entityID: 6
+    - worldPosX: 93
+      worldPosY: 100
+      entityID: 3
+    - worldPosX: 187
+      worldPosY: 100
+      entityID: 3
+    - worldPosX: 235
+      worldPosY: 100
+      entityID: 3
+    - worldPosX: 54
+      worldPosY: 99
+      entityID: 2
+    - worldPosX: 92
+      worldPosY: 99
       entityID: 3
     - worldPosX: 9
-      worldPosY: 83
+      worldPosY: 98
+      entityID: 2
+    - worldPosX: 53
+      worldPosY: 98
+      entityID: 2
+    - worldPosX: 227
+      worldPosY: 98
+      entityID: 4
+    - worldPosX: 17
+      worldPosY: 97
+      entityID: 6
+    - worldPosX: 50
+      worldPosY: 97
+      entityID: 2
+    - worldPosX: 57
+      worldPosY: 97
+      entityID: 3
+    - worldPosX: 58
+      worldPosY: 97
+      entityID: 3
+    - worldPosX: 119
+      worldPosY: 97
+      entityID: 4
+    - worldPosX: 172
+      worldPosY: 97
+      entityID: 3
+    - worldPosX: 236
+      worldPosY: 97
+      entityID: 3
+    - worldPosX: 242
+      worldPosY: 97
+      entityID: 3
+    - worldPosX: 31
+      worldPosY: 96
+      entityID: 6
+    - worldPosX: 35
+      worldPosY: 96
+      entityID: 2
+    - worldPosX: 83
+      worldPosY: 96
+      entityID: 3
+    - worldPosX: 89
+      worldPosY: 96
+      entityID: 3
+    - worldPosX: 189
+      worldPosY: 96
+      entityID: 3
+    - worldPosX: 7
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 10
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 95
+      entityID: 2
+    - worldPosX: 38
+      worldPosY: 95
+      entityID: 2
+    - worldPosX: 39
+      worldPosY: 95
+      entityID: 2
+    - worldPosX: 60
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 61
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 70
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 72
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 76
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 79
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 84
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 93
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 185
+      worldPosY: 95
+      entityID: 3
+    - worldPosX: 1
+      worldPosY: 94
+      entityID: 3
+    - worldPosX: 7
+      worldPosY: 94
+      entityID: 3
+    - worldPosX: 61
+      worldPosY: 94
+      entityID: 3
+    - worldPosX: 45
+      worldPosY: 93
+      entityID: 5
+    - worldPosX: 135
+      worldPosY: 93
+      entityID: 4
+    - worldPosX: 200
+      worldPosY: 93
+      entityID: 3
+    - worldPosX: 9
+      worldPosY: 92
+      entityID: 3
+    - worldPosX: 59
+      worldPosY: 92
+      entityID: 3
+    - worldPosX: 171
+      worldPosY: 92
+      entityID: 3
+    - worldPosX: 197
+      worldPosY: 92
+      entityID: 3
+    - worldPosX: 6
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 59
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 60
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 170
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 190
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 201
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 202
+      worldPosY: 91
+      entityID: 3
+    - worldPosX: 3
+      worldPosY: 90
+      entityID: 3
+    - worldPosX: 15
+      worldPosY: 90
+      entityID: 3
+    - worldPosX: 201
+      worldPosY: 90
+      entityID: 3
+    - worldPosX: 8
+      worldPosY: 89
+      entityID: 3
+    - worldPosX: 42
+      worldPosY: 89
+      entityID: 2
+    - worldPosX: 68
+      worldPosY: 89
+      entityID: 3
+    - worldPosX: 177
+      worldPosY: 89
+      entityID: 3
+    - worldPosX: 216
+      worldPosY: 89
+      entityID: 3
+    - worldPosX: 218
+      worldPosY: 89
+      entityID: 3
+    - worldPosX: 5
+      worldPosY: 88
+      entityID: 3
+    - worldPosX: 253
+      worldPosY: 88
+      entityID: 4
+    - worldPosX: 2
+      worldPosY: 87
+      entityID: 3
+    - worldPosX: 6
+      worldPosY: 87
+      entityID: 3
+    - worldPosX: 18
+      worldPosY: 87
+      entityID: 3
+    - worldPosX: 137
+      worldPosY: 87
+      entityID: 4
+    - worldPosX: 186
+      worldPosY: 87
+      entityID: 3
+    - worldPosX: 210
+      worldPosY: 87
+      entityID: 3
+    - worldPosX: 211
+      worldPosY: 87
+      entityID: 3
+    - worldPosX: 252
+      worldPosY: 87
+      entityID: 4
+    - worldPosX: 254
+      worldPosY: 87
+      entityID: 4
+    - worldPosX: 67
+      worldPosY: 86
+      entityID: 3
+    - worldPosX: 189
+      worldPosY: 86
+      entityID: 3
+    - worldPosX: 0
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 4
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 8
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 28
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 171
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 189
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 197
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 198
+      worldPosY: 85
+      entityID: 3
+    - worldPosX: 21
+      worldPosY: 84
       entityID: 3
     - worldPosX: 12
       worldPosY: 83
       entityID: 3
-    - worldPosX: 15
-      worldPosY: 83
-      entityID: 4
-    - worldPosX: 78
+    - worldPosX: 21
       worldPosY: 83
       entityID: 3
-    - worldPosX: 155
+    - worldPosX: 214
       worldPosY: 83
-      entityID: 4
-    - worldPosX: 222
+      entityID: 5
+    - worldPosX: 247
       worldPosY: 83
       entityID: 3
-    - worldPosX: 75
-      worldPosY: 82
-      entityID: 3
-    - worldPosX: 239
-      worldPosY: 82
-      entityID: 3
-    - worldPosX: 245
-      worldPosY: 82
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 24
-      worldPosY: 81
-      entityID: 4
-    - worldPosX: 26
-      worldPosY: 81
-      entityID: 4
-    - worldPosX: 27
-      worldPosY: 81
-      entityID: 4
-    - worldPosX: 35
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 36
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 118
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 124
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 132
-      worldPosY: 81
-      entityID: 2
-    - worldPosX: 152
-      worldPosY: 81
-      entityID: 2
-    - worldPosX: 153
-      worldPosY: 81
-      entityID: 6
-    - worldPosX: 224
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 225
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 239
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 242
-      worldPosY: 81
-      entityID: 3
-    - worldPosX: 31
-      worldPosY: 80
-      entityID: 3
-    - worldPosX: 153
-      worldPosY: 80
-      entityID: 2
-    - worldPosX: 225
-      worldPosY: 80
-      entityID: 3
-    - worldPosX: 245
-      worldPosY: 80
-      entityID: 3
-    - worldPosX: 0
-      worldPosY: 79
-      entityID: 3
-    - worldPosX: 2
-      worldPosY: 79
-      entityID: 3
-    - worldPosX: 20
-      worldPosY: 79
+    - worldPosX: 254
+      worldPosY: 83
       entityID: 4
     - worldPosX: 30
-      worldPosY: 79
+      worldPosY: 81
       entityID: 3
-    - worldPosX: 98
-      worldPosY: 79
+    - worldPosX: 73
+      worldPosY: 81
       entityID: 3
-    - worldPosX: 154
-      worldPosY: 79
+    - worldPosX: 74
+      worldPosY: 81
+      entityID: 3
+    - worldPosX: 217
+      worldPosY: 80
       entityID: 2
-    - worldPosX: 160
+    - worldPosX: 20
       worldPosY: 79
-      entityID: 5
-    - worldPosX: 23
-      worldPosY: 78
-      entityID: 4
-    - worldPosX: 75
-      worldPosY: 78
-      entityID: 3
-    - worldPosX: 117
-      worldPosY: 78
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 78
-      entityID: 3
-    - worldPosX: 127
-      worldPosY: 78
-      entityID: 3
-    - worldPosX: 223
-      worldPosY: 78
-      entityID: 4
-    - worldPosX: 227
-      worldPosY: 78
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 77
       entityID: 3
     - worldPosX: 22
-      worldPosY: 77
+      worldPosY: 79
       entityID: 3
-    - worldPosX: 41
-      worldPosY: 77
+    - worldPosX: 45
+      worldPosY: 79
       entityID: 4
-    - worldPosX: 106
-      worldPosY: 77
-      entityID: 3
-    - worldPosX: 112
-      worldPosY: 77
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 77
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 77
-      entityID: 3
-    - worldPosX: 220
-      worldPosY: 77
-      entityID: 2
-    - worldPosX: 31
-      worldPosY: 76
-      entityID: 3
-    - worldPosX: 115
-      worldPosY: 76
-      entityID: 3
-    - worldPosX: 123
-      worldPosY: 76
-      entityID: 3
-    - worldPosX: 0
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 2
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 18
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 33
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 59
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 78
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 123
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 161
-      worldPosY: 75
-      entityID: 5
-    - worldPosX: 197
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 226
-      worldPosY: 75
-      entityID: 3
-    - worldPosX: 1
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 33
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 113
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 119
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 123
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 127
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 197
-      worldPosY: 74
-      entityID: 3
-    - worldPosX: 4
-      worldPosY: 73
-      entityID: 3
-    - worldPosX: 5
-      worldPosY: 73
-      entityID: 3
-    - worldPosX: 30
-      worldPosY: 73
-      entityID: 3
-    - worldPosX: 102
-      worldPosY: 73
-      entityID: 3
-    - worldPosX: 106
-      worldPosY: 73
-      entityID: 3
-    - worldPosX: 120
-      worldPosY: 73
-      entityID: 3
-    - worldPosX: 223
-      worldPosY: 73
-      entityID: 4
-    - worldPosX: 5
-      worldPosY: 72
-      entityID: 3
-    - worldPosX: 159
-      worldPosY: 72
-      entityID: 6
-    - worldPosX: 179
-      worldPosY: 72
-      entityID: 3
-    - worldPosX: 197
-      worldPosY: 72
-      entityID: 3
-    - worldPosX: 19
-      worldPosY: 71
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 71
-      entityID: 2
-    - worldPosX: 68
-      worldPosY: 71
-      entityID: 2
-    - worldPosX: 69
-      worldPosY: 71
-      entityID: 5
     - worldPosX: 88
-      worldPosY: 71
-      entityID: 3
-    - worldPosX: 122
-      worldPosY: 71
-      entityID: 3
-    - worldPosX: 160
-      worldPosY: 71
-      entityID: 6
-    - worldPosX: 83
-      worldPosY: 70
-      entityID: 3
-    - worldPosX: 87
-      worldPosY: 70
-      entityID: 3
-    - worldPosX: 103
-      worldPosY: 70
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 70
-      entityID: 3
-    - worldPosX: 251
-      worldPosY: 70
-      entityID: 3
-    - worldPosX: 5
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 8
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 10
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 63
-      worldPosY: 69
-      entityID: 6
-    - worldPosX: 64
-      worldPosY: 69
-      entityID: 5
-    - worldPosX: 86
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 114
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 188
-      worldPosY: 69
-      entityID: 3
-    - worldPosX: 198
-      worldPosY: 69
+      worldPosY: 79
+      entityID: 4
+    - worldPosX: 115
+      worldPosY: 79
+      entityID: 4
+    - worldPosX: 218
+      worldPosY: 79
+      entityID: 2
+    - worldPosX: 71
+      worldPosY: 78
       entityID: 3
     - worldPosX: 245
-      worldPosY: 69
+      worldPosY: 78
       entityID: 3
     - worldPosX: 251
-      worldPosY: 69
-      entityID: 4
-    - worldPosX: 252
-      worldPosY: 69
+      worldPosY: 78
       entityID: 3
-    - worldPosX: 81
-      worldPosY: 68
+    - worldPosX: 12
+      worldPosY: 77
       entityID: 3
-    - worldPosX: 89
-      worldPosY: 68
-      entityID: 3
-    - worldPosX: 117
-      worldPosY: 68
+    - worldPosX: 16
+      worldPosY: 77
       entityID: 3
     - worldPosX: 123
-      worldPosY: 68
-      entityID: 3
-    - worldPosX: 251
-      worldPosY: 68
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 67
-      entityID: 2
-    - worldPosX: 68
-      worldPosY: 67
-      entityID: 6
-    - worldPosX: 88
-      worldPosY: 67
-      entityID: 3
-    - worldPosX: 95
-      worldPosY: 67
-      entityID: 3
-    - worldPosX: 104
-      worldPosY: 67
-      entityID: 3
-    - worldPosX: 108
-      worldPosY: 67
-      entityID: 3
-    - worldPosX: 11
-      worldPosY: 66
-      entityID: 3
-    - worldPosX: 67
-      worldPosY: 66
-      entityID: 5
-    - worldPosX: 87
-      worldPosY: 66
-      entityID: 3
-    - worldPosX: 101
-      worldPosY: 66
-      entityID: 3
-    - worldPosX: 107
-      worldPosY: 66
-      entityID: 3
-    - worldPosX: 189
-      worldPosY: 66
-      entityID: 3
-    - worldPosX: 64
-      worldPosY: 65
-      entityID: 2
-    - worldPosX: 65
-      worldPosY: 65
-      entityID: 6
-    - worldPosX: 80
-      worldPosY: 65
-      entityID: 3
-    - worldPosX: 81
-      worldPosY: 65
-      entityID: 3
-    - worldPosX: 82
-      worldPosY: 65
-      entityID: 3
-    - worldPosX: 186
-      worldPosY: 65
-      entityID: 3
-    - worldPosX: 11
-      worldPosY: 64
-      entityID: 3
-    - worldPosX: 65
-      worldPosY: 64
-      entityID: 5
-    - worldPosX: 79
-      worldPosY: 64
-      entityID: 3
-    - worldPosX: 129
-      worldPosY: 64
-      entityID: 3
-    - worldPosX: 76
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 96
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 98
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 109
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 128
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 130
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 180
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 181
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 182
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 217
-      worldPosY: 63
-      entityID: 4
-    - worldPosX: 247
-      worldPosY: 63
-      entityID: 3
-    - worldPosX: 9
-      worldPosY: 62
-      entityID: 3
-    - worldPosX: 85
-      worldPosY: 62
-      entityID: 3
-    - worldPosX: 181
-      worldPosY: 62
-      entityID: 3
-    - worldPosX: 185
-      worldPosY: 62
-      entityID: 3
-    - worldPosX: 82
-      worldPosY: 61
-      entityID: 3
-    - worldPosX: 85
-      worldPosY: 61
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 61
-      entityID: 3
-    - worldPosX: 161
-      worldPosY: 61
-      entityID: 4
-    - worldPosX: 65
-      worldPosY: 60
-      entityID: 5
-    - worldPosX: 129
-      worldPosY: 60
-      entityID: 3
-    - worldPosX: 68
-      worldPosY: 59
-      entityID: 2
-    - worldPosX: 69
-      worldPosY: 59
-      entityID: 6
-    - worldPosX: 70
-      worldPosY: 59
-      entityID: 2
-    - worldPosX: 98
-      worldPosY: 59
-      entityID: 3
-    - worldPosX: 194
-      worldPosY: 59
-      entityID: 4
-    - worldPosX: 224
-      worldPosY: 59
-      entityID: 3
-    - worldPosX: 244
-      worldPosY: 59
-      entityID: 3
-    - worldPosX: 75
-      worldPosY: 58
-      entityID: 5
-    - worldPosX: 187
-      worldPosY: 58
-      entityID: 4
-    - worldPosX: 191
-      worldPosY: 58
-      entityID: 4
-    - worldPosX: 9
-      worldPosY: 57
-      entityID: 3
-    - worldPosX: 64
-      worldPosY: 57
-      entityID: 2
-    - worldPosX: 66
-      worldPosY: 57
-      entityID: 5
-    - worldPosX: 121
-      worldPosY: 57
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 57
-      entityID: 3
-    - worldPosX: 187
-      worldPosY: 57
-      entityID: 4
-    - worldPosX: 69
-      worldPosY: 56
-      entityID: 2
-    - worldPosX: 77
-      worldPosY: 56
-      entityID: 2
-    - worldPosX: 192
-      worldPosY: 55
-      entityID: 3
-    - worldPosX: 247
-      worldPosY: 55
-      entityID: 3
-    - worldPosX: 77
-      worldPosY: 54
-      entityID: 2
-    - worldPosX: 123
-      worldPosY: 54
-      entityID: 3
-    - worldPosX: 185
-      worldPosY: 54
-      entityID: 3
-    - worldPosX: 195
-      worldPosY: 54
-      entityID: 4
-    - worldPosX: 8
-      worldPosY: 53
-      entityID: 3
-    - worldPosX: 119
-      worldPosY: 53
-      entityID: 3
-    - worldPosX: 143
-      worldPosY: 53
-      entityID: 4
-    - worldPosX: 145
-      worldPosY: 53
-      entityID: 4
-    - worldPosX: 127
-      worldPosY: 52
-      entityID: 3
-    - worldPosX: 135
-      worldPosY: 52
-      entityID: 4
-    - worldPosX: 183
-      worldPosY: 52
-      entityID: 3
-    - worldPosX: 197
-      worldPosY: 52
-      entityID: 3
-    - worldPosX: 131
-      worldPosY: 51
-      entityID: 4
-    - worldPosX: 164
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 175
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 183
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 192
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 196
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 202
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 211
-      worldPosY: 51
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 50
-      entityID: 3
-    - worldPosX: 125
-      worldPosY: 50
-      entityID: 3
-    - worldPosX: 145
-      worldPosY: 50
-      entityID: 3
-    - worldPosX: 165
-      worldPosY: 50
-      entityID: 3
-    - worldPosX: 83
-      worldPosY: 49
-      entityID: 3
-    - worldPosX: 126
-      worldPosY: 49
-      entityID: 3
-    - worldPosX: 145
-      worldPosY: 49
-      entityID: 3
-    - worldPosX: 194
-      worldPosY: 49
-      entityID: 3
-    - worldPosX: 167
-      worldPosY: 48
-      entityID: 3
-    - worldPosX: 181
-      worldPosY: 48
-      entityID: 3
-    - worldPosX: 101
-      worldPosY: 47
-      entityID: 3
-    - worldPosX: 133
-      worldPosY: 47
-      entityID: 4
-    - worldPosX: 73
-      worldPosY: 46
-      entityID: 6
-    - worldPosX: 121
-      worldPosY: 46
-      entityID: 3
-    - worldPosX: 181
-      worldPosY: 46
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 45
-      entityID: 2
-    - worldPosX: 73
-      worldPosY: 45
-      entityID: 6
-    - worldPosX: 121
-      worldPosY: 45
-      entityID: 3
-    - worldPosX: 106
-      worldPosY: 43
-      entityID: 3
-    - worldPosX: 107
-      worldPosY: 43
-      entityID: 3
-    - worldPosX: 139
-      worldPosY: 43
-      entityID: 4
-    - worldPosX: 172
-      worldPosY: 43
-      entityID: 3
-    - worldPosX: 178
-      worldPosY: 43
-      entityID: 3
-    - worldPosX: 180
-      worldPosY: 43
-      entityID: 3
-    - worldPosX: 69
-      worldPosY: 42
-      entityID: 6
-    - worldPosX: 167
-      worldPosY: 42
-      entityID: 3
-    - worldPosX: 84
-      worldPosY: 41
-      entityID: 5
-    - worldPosX: 85
-      worldPosY: 41
+      worldPosY: 77
       entityID: 3
     - worldPosX: 124
-      worldPosY: 41
+      worldPosY: 77
       entityID: 3
-    - worldPosX: 125
-      worldPosY: 41
+    - worldPosX: 133
+      worldPosY: 77
       entityID: 3
-    - worldPosX: 167
-      worldPosY: 41
-      entityID: 3
-    - worldPosX: 187
-      worldPosY: 41
-      entityID: 3
-    - worldPosX: 197
-      worldPosY: 41
-      entityID: 3
-    - worldPosX: 209
-      worldPosY: 41
-      entityID: 3
-    - worldPosX: 212
-      worldPosY: 41
-      entityID: 3
-    - worldPosX: 215
-      worldPosY: 41
-      entityID: 3
-    - worldPosX: 71
-      worldPosY: 40
-      entityID: 5
-    - worldPosX: 79
-      worldPosY: 40
-      entityID: 2
-    - worldPosX: 173
-      worldPosY: 40
-      entityID: 3
-    - worldPosX: 74
-      worldPosY: 39
-      entityID: 2
-    - worldPosX: 168
-      worldPosY: 39
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 39
-      entityID: 3
-    - worldPosX: 224
-      worldPosY: 39
-      entityID: 3
-    - worldPosX: 231
-      worldPosY: 39
+    - worldPosX: 203
+      worldPosY: 77
       entityID: 4
-    - worldPosX: 75
-      worldPosY: 38
-      entityID: 2
-    - worldPosX: 79
-      worldPosY: 38
-      entityID: 5
-    - worldPosX: 155
-      worldPosY: 38
-      entityID: 2
-    - worldPosX: 70
-      worldPosY: 37
-      entityID: 5
-    - worldPosX: 88
-      worldPosY: 37
-      entityID: 3
-    - worldPosX: 116
-      worldPosY: 37
-      entityID: 3
-    - worldPosX: 147
-      worldPosY: 37
-      entityID: 2
-    - worldPosX: 154
-      worldPosY: 37
-      entityID: 3
-    - worldPosX: 166
-      worldPosY: 37
-      entityID: 3
-    - worldPosX: 170
-      worldPosY: 37
-      entityID: 3
-    - worldPosX: 176
-      worldPosY: 37
-      entityID: 3
     - worldPosX: 214
-      worldPosY: 37
-      entityID: 3
-    - worldPosX: 161
-      worldPosY: 36
-      entityID: 3
-    - worldPosX: 201
-      worldPosY: 36
-      entityID: 3
-    - worldPosX: 205
-      worldPosY: 36
-      entityID: 3
-    - worldPosX: 20
-      worldPosY: 35
-      entityID: 5
-    - worldPosX: 100
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 162
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 167
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 168
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 172
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 201
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 204
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 206
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 226
-      worldPosY: 35
-      entityID: 3
-    - worldPosX: 141
-      worldPosY: 34
+      worldPosY: 77
       entityID: 2
-    - worldPosX: 161
-      worldPosY: 34
+    - worldPosX: 249
+      worldPosY: 77
       entityID: 3
-    - worldPosX: 167
-      worldPosY: 34
+    - worldPosX: 250
+      worldPosY: 77
       entityID: 3
-    - worldPosX: 219
-      worldPosY: 34
-      entityID: 3
-    - worldPosX: 13
-      worldPosY: 33
-      entityID: 2
-    - worldPosX: 33
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 38
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 80
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 84
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 85
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 102
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 152
-      worldPosY: 33
-      entityID: 2
-    - worldPosX: 211
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 224
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 229
-      worldPosY: 33
-      entityID: 3
-    - worldPosX: 239
-      worldPosY: 33
+    - worldPosX: 251
+      worldPosY: 77
       entityID: 4
-    - worldPosX: 97
-      worldPosY: 32
-      entityID: 3
-    - worldPosX: 101
-      worldPosY: 32
-      entityID: 3
-    - worldPosX: 157
-      worldPosY: 32
-      entityID: 3
-    - worldPosX: 165
-      worldPosY: 32
-      entityID: 3
-    - worldPosX: 8
-      worldPosY: 31
+    - worldPosX: 255
+      worldPosY: 76
       entityID: 4
-    - worldPosX: 135
-      worldPosY: 31
+    - worldPosX: 46
+      worldPosY: 75
       entityID: 4
-    - worldPosX: 158
-      worldPosY: 31
-      entityID: 3
-    - worldPosX: 166
-      worldPosY: 31
-      entityID: 3
-    - worldPosX: 172
-      worldPosY: 31
-      entityID: 3
-    - worldPosX: 202
-      worldPosY: 31
-      entityID: 3
-    - worldPosX: 205
-      worldPosY: 31
-      entityID: 3
-    - worldPosX: 206
-      worldPosY: 31
-      entityID: 3
-    - worldPosX: 233
-      worldPosY: 31
-      entityID: 4
-    - worldPosX: 7
-      worldPosY: 30
-      entityID: 4
-    - worldPosX: 103
-      worldPosY: 30
-      entityID: 3
-    - worldPosX: 141
-      worldPosY: 30
-      entityID: 5
+    - worldPosX: 95
+      worldPosY: 75
+      entityID: 6
     - worldPosX: 175
-      worldPosY: 30
+      worldPosY: 75
+      entityID: 4
+    - worldPosX: 184
+      worldPosY: 75
       entityID: 3
-    - worldPosX: 205
-      worldPosY: 30
+    - worldPosX: 208
+      worldPosY: 75
+      entityID: 2
+    - worldPosX: 220
+      worldPosY: 75
+      entityID: 5
+    - worldPosX: 254
+      worldPosY: 75
+      entityID: 4
+    - worldPosX: 217
+      worldPosY: 74
+      entityID: 2
+    - worldPosX: 218
+      worldPosY: 73
+      entityID: 2
+    - worldPosX: 45
+      worldPosY: 72
+      entityID: 4
+    - worldPosX: 59
+      worldPosY: 72
+      entityID: 5
+    - worldPosX: 93
+      worldPosY: 72
+      entityID: 2
+    - worldPosX: 92
+      worldPosY: 71
+      entityID: 6
+    - worldPosX: 176
+      worldPosY: 71
+      entityID: 4
+    - worldPosX: 191
+      worldPosY: 71
+      entityID: 4
+    - worldPosX: 208
+      worldPosY: 71
+      entityID: 6
+    - worldPosX: 243
+      worldPosY: 71
       entityID: 3
     - worldPosX: 3
-      worldPosY: 29
-      entityID: 4
-    - worldPosX: 4
-      worldPosY: 29
-      entityID: 4
-    - worldPosX: 10
-      worldPosY: 29
-      entityID: 4
-    - worldPosX: 140
-      worldPosY: 29
+      worldPosY: 70
+      entityID: 3
+    - worldPosX: 221
+      worldPosY: 70
       entityID: 2
-    - worldPosX: 141
-      worldPosY: 29
-      entityID: 2
-    - worldPosX: 9
-      worldPosY: 28
-      entityID: 4
-    - worldPosX: 203
-      worldPosY: 28
+    - worldPosX: 3
+      worldPosY: 69
       entityID: 3
-    - worldPosX: 168
-      worldPosY: 27
-      entityID: 3
-    - worldPosX: 201
-      worldPosY: 27
-      entityID: 4
-    - worldPosX: 202
-      worldPosY: 27
-      entityID: 4
-    - worldPosX: 163
-      worldPosY: 26
-      entityID: 6
-    - worldPosX: 173
-      worldPosY: 26
-      entityID: 3
-    - worldPosX: 201
-      worldPosY: 26
-      entityID: 4
-    - worldPosX: 143
-      worldPosY: 25
-      entityID: 2
-    - worldPosX: 195
-      worldPosY: 25
-      entityID: 4
-    - worldPosX: 200
-      worldPosY: 25
-      entityID: 4
-    - worldPosX: 201
-      worldPosY: 25
-      entityID: 4
-    - worldPosX: 204
-      worldPosY: 25
-      entityID: 4
-    - worldPosX: 75
-      worldPosY: 24
-      entityID: 3
-    - worldPosX: 151
-      worldPosY: 24
-      entityID: 2
-    - worldPosX: 171
-      worldPosY: 24
-      entityID: 5
-    - worldPosX: 181
-      worldPosY: 24
-      entityID: 4
-    - worldPosX: 187
-      worldPosY: 24
-      entityID: 4
-    - worldPosX: 74
-      worldPosY: 23
-      entityID: 3
-    - worldPosX: 75
-      worldPosY: 23
-      entityID: 3
-    - worldPosX: 78
-      worldPosY: 23
-      entityID: 3
-    - worldPosX: 106
-      worldPosY: 23
-      entityID: 3
-    - worldPosX: 152
-      worldPosY: 23
-      entityID: 2
-    - worldPosX: 172
-      worldPosY: 23
-      entityID: 2
-    - worldPosX: 184
-      worldPosY: 23
-      entityID: 4
-    - worldPosX: 207
-      worldPosY: 23
-      entityID: 4
-    - worldPosX: 225
-      worldPosY: 23
-      entityID: 3
-    - worldPosX: 253
-      worldPosY: 23
-      entityID: 4
-    - worldPosX: 151
-      worldPosY: 22
-      entityID: 2
-    - worldPosX: 146
-      worldPosY: 21
-      entityID: 5
-    - worldPosX: 151
-      worldPosY: 21
-      entityID: 2
-    - worldPosX: 162
-      worldPosY: 21
-      entityID: 6
-    - worldPosX: 163
-      worldPosY: 21
-      entityID: 6
-    - worldPosX: 164
-      worldPosY: 21
-      entityID: 6
-    - worldPosX: 178
-      worldPosY: 21
-      entityID: 3
-    - worldPosX: 107
-      worldPosY: 20
-      entityID: 3
-    - worldPosX: 113
-      worldPosY: 20
-      entityID: 3
-    - worldPosX: 151
-      worldPosY: 20
-      entityID: 6
-    - worldPosX: 183
-      worldPosY: 20
-      entityID: 3
-    - worldPosX: 66
-      worldPosY: 19
-      entityID: 4
-    - worldPosX: 151
-      worldPosY: 19
-      entityID: 2
-    - worldPosX: 173
-      worldPosY: 19
-      entityID: 6
-    - worldPosX: 174
-      worldPosY: 19
-      entityID: 5
-    - worldPosX: 212
-      worldPosY: 19
-      entityID: 3
-    - worldPosX: 241
-      worldPosY: 19
-      entityID: 4
-    - worldPosX: 9
-      worldPosY: 17
-      entityID: 4
     - worldPosX: 64
-      worldPosY: 17
-      entityID: 2
-    - worldPosX: 120
-      worldPosY: 17
-      entityID: 3
-    - worldPosX: 121
-      worldPosY: 17
-      entityID: 4
-    - worldPosX: 166
-      worldPosY: 17
-      entityID: 2
-    - worldPosX: 178
-      worldPosY: 17
-      entityID: 2
-    - worldPosX: 179
-      worldPosY: 17
-      entityID: 2
-    - worldPosX: 214
-      worldPosY: 17
-      entityID: 3
-    - worldPosX: 217
-      worldPosY: 17
-      entityID: 3
-    - worldPosX: 67
-      worldPosY: 16
-      entityID: 4
-    - worldPosX: 93
-      worldPosY: 16
-      entityID: 3
-    - worldPosX: 173
-      worldPosY: 16
-      entityID: 2
-    - worldPosX: 213
-      worldPosY: 16
-      entityID: 3
-    - worldPosX: 0
-      worldPosY: 15
-      entityID: 4
-    - worldPosX: 93
-      worldPosY: 15
-      entityID: 3
-    - worldPosX: 227
-      worldPosY: 15
-      entityID: 4
-    - worldPosX: 151
-      worldPosY: 14
-      entityID: 2
-    - worldPosX: 215
-      worldPosY: 14
-      entityID: 3
-    - worldPosX: 59
-      worldPosY: 13
-      entityID: 4
-    - worldPosX: 103
-      worldPosY: 13
-      entityID: 3
-    - worldPosX: 150
-      worldPosY: 13
-      entityID: 2
-    - worldPosX: 160
-      worldPosY: 13
-      entityID: 6
-    - worldPosX: 214
-      worldPosY: 13
-      entityID: 3
-    - worldPosX: 155
-      worldPosY: 12
-      entityID: 6
-    - worldPosX: 183
-      worldPosY: 12
+      worldPosY: 69
       entityID: 5
-    - worldPosX: 211
-      worldPosY: 12
-      entityID: 3
-    - worldPosX: 109
-      worldPosY: 11
-      entityID: 3
-    - worldPosX: 187
-      worldPosY: 11
-      entityID: 6
-    - worldPosX: 194
-      worldPosY: 11
-      entityID: 2
-    - worldPosX: 161
-      worldPosY: 10
-      entityID: 5
-    - worldPosX: 191
-      worldPosY: 10
-      entityID: 5
-    - worldPosX: 69
-      worldPosY: 9
-      entityID: 4
-    - worldPosX: 161
-      worldPosY: 9
-      entityID: 2
-    - worldPosX: 178
-      worldPosY: 9
-      entityID: 5
-    - worldPosX: 182
-      worldPosY: 9
-      entityID: 2
-    - worldPosX: 183
-      worldPosY: 9
-      entityID: 2
-    - worldPosX: 79
-      worldPosY: 7
-      entityID: 4
-    - worldPosX: 99
-      worldPosY: 7
-      entityID: 3
-    - worldPosX: 149
-      worldPosY: 7
-      entityID: 6
-    - worldPosX: 164
-      worldPosY: 7
-      entityID: 2
-    - worldPosX: 170
-      worldPosY: 7
-      entityID: 2
-    - worldPosX: 222
-      worldPosY: 7
-      entityID: 3
-    - worldPosX: 1
-      worldPosY: 6
-      entityID: 4
-    - worldPosX: 7
-      worldPosY: 6
-      entityID: 4
-    - worldPosX: 173
-      worldPosY: 6
-      entityID: 5
-    - worldPosX: 207
-      worldPosY: 6
-      entityID: 3
-    - worldPosX: 0
-      worldPosY: 5
-      entityID: 4
-    - worldPosX: 1
-      worldPosY: 5
-      entityID: 4
-    - worldPosX: 6
-      worldPosY: 5
-      entityID: 4
-    - worldPosX: 7
-      worldPosY: 5
-      entityID: 4
-    - worldPosX: 28
-      worldPosY: 5
-      entityID: 4
-    - worldPosX: 30
-      worldPosY: 5
+    - worldPosX: 231
+      worldPosY: 69
       entityID: 4
     - worldPosX: 45
-      worldPosY: 5
+      worldPosY: 68
       entityID: 4
-    - worldPosX: 116
-      worldPosY: 5
-      entityID: 2
-    - worldPosX: 176
-      worldPosY: 5
-      entityID: 2
-    - worldPosX: 200
-      worldPosY: 5
-      entityID: 2
-    - worldPosX: 219
-      worldPosY: 5
-      entityID: 3
-    - worldPosX: 147
-      worldPosY: 4
-      entityID: 5
-    - worldPosX: 157
-      worldPosY: 4
-      entityID: 5
-    - worldPosX: 171
-      worldPosY: 4
-      entityID: 2
+    - worldPosX: 173
+      worldPosY: 68
+      entityID: 4
     - worldPosX: 195
-      worldPosY: 4
+      worldPosY: 68
+      entityID: 4
+    - worldPosX: 199
+      worldPosY: 68
+      entityID: 4
+    - worldPosX: 249
+      worldPosY: 68
+      entityID: 2
+    - worldPosX: 46
+      worldPosY: 67
+      entityID: 2
+    - worldPosX: 47
+      worldPosY: 67
+      entityID: 6
+    - worldPosX: 48
+      worldPosY: 67
+      entityID: 2
+    - worldPosX: 58
+      worldPosY: 67
+      entityID: 3
+    - worldPosX: 239
+      worldPosY: 67
+      entityID: 4
+    - worldPosX: 249
+      worldPosY: 67
+      entityID: 2
+    - worldPosX: 65
+      worldPosY: 65
+      entityID: 3
+    - worldPosX: 66
+      worldPosY: 65
+      entityID: 2
+    - worldPosX: 80
+      worldPosY: 65
       entityID: 5
-    - worldPosX: 3
-      worldPosY: 3
+    - worldPosX: 208
+      worldPosY: 65
+      entityID: 2
+    - worldPosX: 209
+      worldPosY: 65
+      entityID: 2
+    - worldPosX: 251
+      worldPosY: 65
+      entityID: 2
+    - worldPosX: 53
+      worldPosY: 64
       entityID: 4
-    - worldPosX: 4
-      worldPosY: 3
+    - worldPosX: 173
+      worldPosY: 64
       entityID: 4
-    - worldPosX: 8
-      worldPosY: 3
+    - worldPosX: 46
+      worldPosY: 63
       entityID: 4
+    - worldPosX: 53
+      worldPosY: 63
+      entityID: 4
+    - worldPosX: 58
+      worldPosY: 63
+      entityID: 4
+    - worldPosX: 82
+      worldPosY: 63
+      entityID: 6
+    - worldPosX: 69
+      worldPosY: 62
+      entityID: 3
+    - worldPosX: 73
+      worldPosY: 62
+      entityID: 5
+    - worldPosX: 60
+      worldPosY: 61
+      entityID: 4
+    - worldPosX: 70
+      worldPosY: 61
+      entityID: 3
     - worldPosX: 75
-      worldPosY: 3
+      worldPosY: 61
+      entityID: 2
+    - worldPosX: 247
+      worldPosY: 61
+      entityID: 2
+    - worldPosX: 65
+      worldPosY: 60
+      entityID: 3
+    - worldPosX: 75
+      worldPosY: 60
+      entityID: 6
+    - worldPosX: 57
+      worldPosY: 59
       entityID: 4
-    - worldPosX: 76
-      worldPosY: 3
-      entityID: 4
+    - worldPosX: 66
+      worldPosY: 59
+      entityID: 3
     - worldPosX: 78
-      worldPosY: 3
+      worldPosY: 59
+      entityID: 2
+    - worldPosX: 57
+      worldPosY: 58
+      entityID: 4
+    - worldPosX: 53
+      worldPosY: 57
+      entityID: 4
+    - worldPosX: 255
+      worldPosY: 56
+      entityID: 2
+    - worldPosX: 29
+      worldPosY: 55
+      entityID: 4
+    - worldPosX: 52
+      worldPosY: 55
+      entityID: 4
+    - worldPosX: 62
+      worldPosY: 55
+      entityID: 3
+    - worldPosX: 63
+      worldPosY: 55
+      entityID: 3
+    - worldPosX: 199
+      worldPosY: 55
+      entityID: 4
+    - worldPosX: 236
+      worldPosY: 55
+      entityID: 5
+    - worldPosX: 252
+      worldPosY: 55
+      entityID: 2
+    - worldPosX: 229
+      worldPosY: 54
+      entityID: 5
+    - worldPosX: 247
+      worldPosY: 54
+      entityID: 2
+    - worldPosX: 233
+      worldPosY: 53
+      entityID: 4
+    - worldPosX: 234
+      worldPosY: 53
+      entityID: 2
+    - worldPosX: 239
+      worldPosY: 53
+      entityID: 5
+    - worldPosX: 247
+      worldPosY: 53
+      entityID: 6
+    - worldPosX: 7
+      worldPosY: 52
+      entityID: 4
+    - worldPosX: 233
+      worldPosY: 52
+      entityID: 2
+    - worldPosX: 239
+      worldPosY: 52
+      entityID: 6
+    - worldPosX: 247
+      worldPosY: 52
+      entityID: 5
+    - worldPosX: 52
+      worldPosY: 51
+      entityID: 4
+    - worldPosX: 164
+      worldPosY: 51
+      entityID: 4
+    - worldPosX: 236
+      worldPosY: 51
+      entityID: 2
+    - worldPosX: 248
+      worldPosY: 51
+      entityID: 2
+    - worldPosX: 67
+      worldPosY: 50
+      entityID: 3
+    - worldPosX: 225
+      worldPosY: 50
+      entityID: 5
+    - worldPosX: 33
+      worldPosY: 49
+      entityID: 4
+    - worldPosX: 175
+      worldPosY: 49
+      entityID: 4
+    - worldPosX: 254
+      worldPosY: 49
+      entityID: 4
+    - worldPosX: 1
+      worldPosY: 48
+      entityID: 4
+    - worldPosX: 223
+      worldPosY: 48
+      entityID: 2
+    - worldPosX: 247
+      worldPosY: 48
+      entityID: 2
+    - worldPosX: 37
+      worldPosY: 47
+      entityID: 4
+    - worldPosX: 52
+      worldPosY: 47
+      entityID: 4
+    - worldPosX: 163
+      worldPosY: 47
+      entityID: 4
+    - worldPosX: 205
+      worldPosY: 47
+      entityID: 4
+    - worldPosX: 218
+      worldPosY: 47
+      entityID: 6
+    - worldPosX: 252
+      worldPosY: 47
+      entityID: 4
+    - worldPosX: 2
+      worldPosY: 45
+      entityID: 3
+    - worldPosX: 226
+      worldPosY: 45
+      entityID: 6
+    - worldPosX: 227
+      worldPosY: 45
+      entityID: 2
+    - worldPosX: 0
+      worldPosY: 43
+      entityID: 4
+    - worldPosX: 62
+      worldPosY: 43
+      entityID: 3
+    - worldPosX: 64
+      worldPosY: 43
+      entityID: 3
+    - worldPosX: 68
+      worldPosY: 43
+      entityID: 3
+    - worldPosX: 51
+      worldPosY: 42
+      entityID: 4
+    - worldPosX: 225
+      worldPosY: 42
+      entityID: 5
+    - worldPosX: 231
+      worldPosY: 42
+      entityID: 2
+    - worldPosX: 27
+      worldPosY: 41
+      entityID: 4
+    - worldPosX: 41
+      worldPosY: 41
+      entityID: 4
+    - worldPosX: 42
+      worldPosY: 41
+      entityID: 4
+    - worldPosX: 240
+      worldPosY: 41
+      entityID: 2
+    - worldPosX: 5
+      worldPosY: 40
+      entityID: 4
+    - worldPosX: 51
+      worldPosY: 39
+      entityID: 4
+    - worldPosX: 52
+      worldPosY: 39
+      entityID: 4
+    - worldPosX: 71
+      worldPosY: 39
+      entityID: 3
+    - worldPosX: 254
+      worldPosY: 39
+      entityID: 4
+    - worldPosX: 45
+      worldPosY: 38
+      entityID: 4
+    - worldPosX: 59
+      worldPosY: 38
+      entityID: 5
+    - worldPosX: 60
+      worldPosY: 37
+      entityID: 6
+    - worldPosX: 75
+      worldPosY: 37
+      entityID: 3
+    - worldPosX: 78
+      worldPosY: 37
+      entityID: 3
+    - worldPosX: 102
+      worldPosY: 37
+      entityID: 2
+    - worldPosX: 81
+      worldPosY: 36
+      entityID: 3
+    - worldPosX: 153
+      worldPosY: 36
+      entityID: 3
+    - worldPosX: 41
+      worldPosY: 35
+      entityID: 4
+    - worldPosX: 42
+      worldPosY: 35
+      entityID: 4
+    - worldPosX: 80
+      worldPosY: 35
+      entityID: 3
+    - worldPosX: 81
+      worldPosY: 35
+      entityID: 3
+    - worldPosX: 109
+      worldPosY: 35
+      entityID: 5
+    - worldPosX: 147
+      worldPosY: 34
+      entityID: 4
+    - worldPosX: 153
+      worldPosY: 34
+      entityID: 3
+    - worldPosX: 254
+      worldPosY: 33
+      entityID: 4
+    - worldPosX: 167
+      worldPosY: 32
+      entityID: 3
+    - worldPosX: 85
+      worldPosY: 31
+      entityID: 3
+    - worldPosX: 111
+      worldPosY: 31
+      entityID: 6
+    - worldPosX: 133
+      worldPosY: 31
+      entityID: 3
+    - worldPosX: 166
+      worldPosY: 31
+      entityID: 3
+    - worldPosX: 183
+      worldPosY: 31
+      entityID: 6
+    - worldPosX: 237
+      worldPosY: 31
+      entityID: 3
+    - worldPosX: 243
+      worldPosY: 31
+      entityID: 4
+    - worldPosX: 177
+      worldPosY: 30
+      entityID: 4
+    - worldPosX: 237
+      worldPosY: 30
+      entityID: 3
+    - worldPosX: 255
+      worldPosY: 30
+      entityID: 4
+    - worldPosX: 27
+      worldPosY: 29
+      entityID: 4
+    - worldPosX: 39
+      worldPosY: 29
+      entityID: 4
+    - worldPosX: 47
+      worldPosY: 29
+      entityID: 4
+    - worldPosX: 110
+      worldPosY: 29
+      entityID: 2
+    - worldPosX: 159
+      worldPosY: 29
+      entityID: 3
+    - worldPosX: 160
+      worldPosY: 29
+      entityID: 3
+    - worldPosX: 176
+      worldPosY: 29
+      entityID: 4
+    - worldPosX: 175
+      worldPosY: 28
+      entityID: 3
+    - worldPosX: 137
+      worldPosY: 27
+      entityID: 4
+    - worldPosX: 166
+      worldPosY: 27
+      entityID: 3
+    - worldPosX: 233
+      worldPosY: 27
+      entityID: 4
+    - worldPosX: 175
+      worldPosY: 26
+      entityID: 3
+    - worldPosX: 181
+      worldPosY: 26
+      entityID: 3
+    - worldPosX: 141
+      worldPosY: 25
+      entityID: 3
+    - worldPosX: 161
+      worldPosY: 25
+      entityID: 3
+    - worldPosX: 180
+      worldPosY: 25
+      entityID: 3
+    - worldPosX: 191
+      worldPosY: 25
+      entityID: 4
+    - worldPosX: 227
+      worldPosY: 25
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 25
+      entityID: 3
+    - worldPosX: 89
+      worldPosY: 24
+      entityID: 3
+    - worldPosX: 171
+      worldPosY: 24
+      entityID: 3
+    - worldPosX: 241
+      worldPosY: 24
+      entityID: 3
+    - worldPosX: 2
+      worldPosY: 23
+      entityID: 3
+    - worldPosX: 3
+      worldPosY: 23
+      entityID: 3
+    - worldPosX: 70
+      worldPosY: 23
+      entityID: 4
+    - worldPosX: 176
+      worldPosY: 23
+      entityID: 3
+    - worldPosX: 61
+      worldPosY: 22
+      entityID: 4
+    - worldPosX: 45
+      worldPosY: 21
+      entityID: 3
+    - worldPosX: 94
+      worldPosY: 21
+      entityID: 3
+    - worldPosX: 131
+      worldPosY: 21
+      entityID: 4
+    - worldPosX: 170
+      worldPosY: 21
+      entityID: 3
+    - worldPosX: 172
+      worldPosY: 21
+      entityID: 3
+    - worldPosX: 238
+      worldPosY: 21
+      entityID: 3
+    - worldPosX: 49
+      worldPosY: 20
+      entityID: 3
+    - worldPosX: 127
+      worldPosY: 20
+      entityID: 3
+    - worldPosX: 45
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 46
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 48
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 58
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 59
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 90
+      worldPosY: 19
+      entityID: 4
+    - worldPosX: 139
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 165
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 166
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 168
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 169
+      worldPosY: 19
+      entityID: 3
+    - worldPosX: 95
+      worldPosY: 18
+      entityID: 3
+    - worldPosX: 151
+      worldPosY: 18
+      entityID: 3
+    - worldPosX: 237
+      worldPosY: 18
+      entityID: 3
+    - worldPosX: 9
+      worldPosY: 17
+      entityID: 3
+    - worldPosX: 29
+      worldPosY: 17
+      entityID: 3
+    - worldPosX: 33
+      worldPosY: 17
+      entityID: 3
+    - worldPosX: 98
+      worldPosY: 17
+      entityID: 2
+    - worldPosX: 185
+      worldPosY: 17
+      entityID: 2
+    - worldPosX: 191
+      worldPosY: 17
+      entityID: 3
+    - worldPosX: 39
+      worldPosY: 16
+      entityID: 3
+    - worldPosX: 173
+      worldPosY: 16
+      entityID: 3
+    - worldPosX: 241
+      worldPosY: 16
+      entityID: 3
+    - worldPosX: 90
+      worldPosY: 15
       entityID: 4
     - worldPosX: 142
+      worldPosY: 15
+      entityID: 3
+    - worldPosX: 231
+      worldPosY: 15
+      entityID: 3
+    - worldPosX: 232
+      worldPosY: 15
+      entityID: 3
+    - worldPosX: 233
+      worldPosY: 15
+      entityID: 3
+    - worldPosX: 240
+      worldPosY: 15
+      entityID: 3
+    - worldPosX: 241
+      worldPosY: 15
+      entityID: 3
+    - worldPosX: 33
+      worldPosY: 14
+      entityID: 3
+    - worldPosX: 119
+      worldPosY: 14
+      entityID: 3
+    - worldPosX: 92
+      worldPosY: 13
+      entityID: 3
+    - worldPosX: 129
+      worldPosY: 13
+      entityID: 3
+    - worldPosX: 171
+      worldPosY: 13
+      entityID: 3
+    - worldPosX: 187
+      worldPosY: 13
+      entityID: 2
+    - worldPosX: 117
+      worldPosY: 12
+      entityID: 3
+    - worldPosX: 23
+      worldPosY: 11
+      entityID: 3
+    - worldPosX: 32
+      worldPosY: 11
+      entityID: 3
+    - worldPosX: 38
+      worldPosY: 11
+      entityID: 3
+    - worldPosX: 40
+      worldPosY: 11
+      entityID: 3
+    - worldPosX: 220
+      worldPosY: 11
+      entityID: 2
+    - worldPosX: 221
+      worldPosY: 11
+      entityID: 3
+    - worldPosX: 240
+      worldPosY: 11
+      entityID: 3
+    - worldPosX: 139
+      worldPosY: 10
+      entityID: 3
+    - worldPosX: 231
+      worldPosY: 10
+      entityID: 3
+    - worldPosX: 235
+      worldPosY: 10
+      entityID: 3
+    - worldPosX: 0
+      worldPosY: 9
+      entityID: 2
+    - worldPosX: 9
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 34
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 67
+      worldPosY: 9
+      entityID: 5
+    - worldPosX: 68
+      worldPosY: 9
+      entityID: 6
+    - worldPosX: 108
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 116
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 117
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 189
+      worldPosY: 9
+      entityID: 6
+    - worldPosX: 196
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 203
+      worldPosY: 9
+      entityID: 3
+    - worldPosX: 251
+      worldPosY: 9
+      entityID: 4
+    - worldPosX: 29
+      worldPosY: 8
+      entityID: 3
+    - worldPosX: 137
+      worldPosY: 8
+      entityID: 3
+    - worldPosX: 183
+      worldPosY: 8
+      entityID: 2
+    - worldPosX: 235
+      worldPosY: 8
+      entityID: 3
+    - worldPosX: 56
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 147
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 158
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 162
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 163
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 198
+      worldPosY: 7
+      entityID: 2
+    - worldPosX: 224
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 240
+      worldPosY: 7
+      entityID: 3
+    - worldPosX: 13
+      worldPosY: 6
+      entityID: 3
+    - worldPosX: 97
+      worldPosY: 6
+      entityID: 2
+    - worldPosX: 141
+      worldPosY: 6
+      entityID: 3
+    - worldPosX: 155
+      worldPosY: 6
+      entityID: 3
+    - worldPosX: 195
+      worldPosY: 6
+      entityID: 3
+    - worldPosX: 205
+      worldPosY: 6
+      entityID: 6
+    - worldPosX: 239
+      worldPosY: 6
+      entityID: 3
+    - worldPosX: 6
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 58
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 59
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 160
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 196
+      worldPosY: 5
+      entityID: 5
+    - worldPosX: 202
+      worldPosY: 5
+      entityID: 2
+    - worldPosX: 204
+      worldPosY: 5
+      entityID: 5
+    - worldPosX: 205
+      worldPosY: 5
+      entityID: 2
+    - worldPosX: 218
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 226
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 228
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 229
+      worldPosY: 5
+      entityID: 3
+    - worldPosX: 1
+      worldPosY: 4
+      entityID: 5
+    - worldPosX: 13
+      worldPosY: 4
+      entityID: 3
+    - worldPosX: 95
+      worldPosY: 4
+      entityID: 2
+    - worldPosX: 159
+      worldPosY: 4
+      entityID: 3
+    - worldPosX: 195
+      worldPosY: 4
+      entityID: 3
+    - worldPosX: 47
       worldPosY: 3
       entityID: 3
-    - worldPosX: 148
+    - worldPosX: 51
+      worldPosY: 3
+      entityID: 3
+    - worldPosX: 52
+      worldPosY: 3
+      entityID: 3
+    - worldPosX: 80
+      worldPosY: 3
+      entityID: 3
+    - worldPosX: 82
+      worldPosY: 3
+      entityID: 3
+    - worldPosX: 96
       worldPosY: 3
       entityID: 2
     - worldPosX: 156
       worldPosY: 3
-      entityID: 2
-    - worldPosX: 158
+      entityID: 3
+    - worldPosX: 198
+      worldPosY: 3
+      entityID: 3
+    - worldPosX: 200
+      worldPosY: 3
+      entityID: 3
+    - worldPosX: 210
       worldPosY: 3
       entityID: 2
-    - worldPosX: 164
+    - worldPosX: 224
       worldPosY: 3
-      entityID: 6
-    - worldPosX: 170
-      worldPosY: 3
-      entityID: 2
-    - worldPosX: 194
-      worldPosY: 3
-      entityID: 2
-    - worldPosX: 196
-      worldPosY: 3
-      entityID: 6
-    - worldPosX: 7
-      worldPosY: 2
-      entityID: 4
-    - worldPosX: 29
-      worldPosY: 2
-      entityID: 4
-    - worldPosX: 93
+      entityID: 3
+    - worldPosX: 97
       worldPosY: 2
       entityID: 3
-    - worldPosX: 131
+    - worldPosX: 117
       worldPosY: 2
-      entityID: 2
+      entityID: 3
+    - worldPosX: 159
+      worldPosY: 2
+      entityID: 3
+    - worldPosX: 203
+      worldPosY: 2
+      entityID: 3
+    - worldPosX: 219
+      worldPosY: 2
+      entityID: 3
+    - worldPosX: 225
+      worldPosY: 2
+      entityID: 3
+    - worldPosX: 8
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 13
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 59
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 60
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 142
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 143
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 144
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 148
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 159
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 188
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 202
+      worldPosY: 1
+      entityID: 3
     - worldPosX: 207
-      worldPosY: 2
-      entityID: 3
-    - worldPosX: 6
-      worldPosY: 1
-      entityID: 4
-    - worldPosX: 29
-      worldPosY: 1
-      entityID: 4
-    - worldPosX: 32
-      worldPosY: 1
-      entityID: 4
-    - worldPosX: 102
       worldPosY: 1
       entityID: 3
-    - worldPosX: 106
+    - worldPosX: 208
+      worldPosY: 1
+      entityID: 3
+    - worldPosX: 212
       worldPosY: 1
       entityID: 5
-    - worldPosX: 108
+    - worldPosX: 228
       worldPosY: 1
       entityID: 3
-    - worldPosX: 146
-      worldPosY: 1
-      entityID: 2
-    - worldPosX: 174
-      worldPosY: 1
-      entityID: 2
-    - worldPosX: 207
+    - worldPosX: 229
       worldPosY: 1
       entityID: 3
-    mapName: test
+    - worldPosX: 238
+      worldPosY: 1
+      entityID: 3
+    mapName: NewWorld
   worldEntities:
   - {fileID: 11400000, guid: 0999e2332e896ad429d0006255764ad0, type: 2}
   - {fileID: 11400000, guid: 9221880e1f7089847bf8aedc2239df5f, type: 2}
