@@ -65,10 +65,26 @@ public static class MapGenerator {
                     }
                 } else {
                     GameData.Get.world.map[y, x] = GameIDs.STONE;
-                    GameData.Get.world.pathfindingMap[x, y] = 0;
+					if (resourceClusters[x,y] > 0.50f) {
+                        double max = findMaxAround(x, y, 3, resourceDistribution);
+						if (resourceDistribution[x,y] == max) {
+                            GameData.Get.world.iEntities.Add(new IEntity(x, GameData.Get.world.worldSize - y, determineOreType()));
+							GameData.Get.world.pathfindingMap[x, y] = 9999;
+                        }
+                    }
                 }
             }
         }
+    }
+
+	public static int determineOreType() {
+        int rand = UnityEngine.Random.Range(0, 10);
+		if (rand < 6)
+            return GameIDs.STONE;
+		else if (rand < 8)
+            return GameIDs.COPPER_ORE;
+		else
+            return GameIDs.IRON_ORE;
     }
 
     /// <summary>
