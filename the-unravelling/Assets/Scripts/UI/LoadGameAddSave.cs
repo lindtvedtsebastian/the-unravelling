@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,13 @@ using TMPro;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using System.IO;
+using System.Linq;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LoadGameAddSave : MonoBehaviour
 {
+    
     private List<string> fileNames = new List<string>();
     private string selectedWorld;
     private DirectoryInfo dir;
@@ -16,8 +20,6 @@ public class LoadGameAddSave : MonoBehaviour
     public GameObject buttonPrefab;
     public GameObject loadGameButton;
     public RawImage previewImage;
-    public GameObject deleteButton;
-
 
     void Start() {
         dir = new DirectoryInfo(Application.persistentDataPath);
@@ -50,9 +52,33 @@ public class LoadGameAddSave : MonoBehaviour
         tex.LoadImage(image);
         previewImage.GetComponent<RawImage>().texture = tex;
     }
-    
+
+    /// <summary>
+    /// Loads a selected game world if one is selected.
+    /// </summary>
     public void LoadGame() {
-        GameData.Get.LoadWorld(selectedWorld);
-        SceneManager.LoadScene("MainGame");
+        if (!string.IsNullOrEmpty(selectedWorld)) {
+            GameData.Get.LoadWorld(selectedWorld);
+            SceneManager.LoadScene("MainGame");
+        }
+        else {
+            Debug.LogError("No world save was selected!");
+        }
+    }
+
+    /// <summary>
+    /// Deletes a selected game world by name.
+    /// </summary>
+    public void DeleteGameSave() {
+        if (!string.IsNullOrEmpty(selectedWorld)) {
+            var buttonThatIsPressedName = selectedWorld.Replace(".world", "");
+            var buttonThatIsPressed = GameObject.Find(buttonThatIsPressedName);
+            previewImage.GetComponent<RawImage>().texture = null;
+            GameData.Get.DeleteWorld(selectedWorld); 
+            Destroy(buttonThatIsPressed);
+        }
+        else {
+            Debug.LogError("No world save was selected!");
+        }
     }
 }
