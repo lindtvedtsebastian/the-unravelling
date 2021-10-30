@@ -13,6 +13,7 @@ Given we are using git you could also use @name to assign parts of the design to
 
 
 ** Overview
+
 *Base Builder*
 
 - *Sebastian Lindtvedt*
@@ -30,14 +31,14 @@ A player defending themselves and the base against hordes of enemies that try to
 What other games is it like?
 
 - Factorio
-- Base builder
-- Automation
-- Stategy
+  - Base builder
+  - Automation
+  - Stategy
   
 *** Target Audience
 Who will play it?
 
-- 12+
+- Anyone 12+
 
 *** Game Flow Summary
 How does the player move through the game?
@@ -54,16 +55,17 @@ What is the basic look and feel of the game?  What is the visual style?
 - Top down 2D view
 - Day and night cycle
 - Tile-based 
-- 64x64 pixels per tile (Initial plan)
+- 32x32 pixels per tile (Initial plan)
 
   
   [[./img/32x32_look.png]]
 
 ** Gameplay and Mechanics
+
 *** Gameplay
 What is the core of the players interaction with the game?
 
-- Controls one entity
+- Run around as an old man
 - Build automated machinery
   - Gather resources
   - Defend against enemies
@@ -81,14 +83,14 @@ How does the player progress through the experience and how do they know they ar
 - The automation of resources acquisition will get progressively better
 
 **** Mission/challenge Structure
-Is there a heirachy to the challenges in the game?
+Is there a hierarchy to the challenges in the game?
 
 - The progression will get harder as you play
   - More difficult to go from Iron -> Steel than Wood -> Stone
 - You need to automate to succeed, the game will be hard/impossible to succeed in without automating
 
 **** Puzzle Structure
-Are there puzzles, ie challenges that have a correct answer?
+Are there puzzles, i.e. challenges that have a correct answer?
 
 - Not initially, but perhaps after MVP has been implemented?
 - Generally it is up to the players themselves to set their own goals/puzzles.
@@ -124,7 +126,8 @@ What are the objects in the game?
 - Production buildings
 - Mineral veins
 - Trees
-- Wall/defensive structures
+- Rocks
+- Walls
 - Enemies
 
 How does the player interact with them?
@@ -151,13 +154,34 @@ What is the economy of the game? How does it work?
   - Mana/Lifeforce/etc
 - Will exist some kind of "higher entity" that crafts and sells magical items that can be acquired by spending this magical currency
 - The currency can be acquired from killing enemies or gathered from some kind of vein resource node
+
 **** Screen Flow
 A graphical description of how each screen is related to every other and a description of the purpose of each screen.
 
 - Main menu
-  - Start game
+  - New game
+    - Generate new world
+    - Start game
+    - Back
+  - Load game
+    - _list of saves_
+      - _loads game_
+    - Back
   - Options
-  - End game
+    - Graphics
+      - Fullscreen on/off
+      - Vsync on/off
+      - Resolution
+      - Back
+    - Controls
+      - _list of controls_
+      - Save
+      - Back
+    - Audio
+      - _list of volume sliders_
+      - Back
+    - Back
+  - Quit
 
 *** Game Options
 What are the options and how do they affect gameplay and mechanics?
@@ -166,9 +190,13 @@ What are the options and how do they affect gameplay and mechanics?
   - Hardcore/softcore mode
   - Enemy scaling factor
 - Map generation options
+  - World name
+  - Map size
+  - Map generation seed
 
 *** Replay and Saving
 - The game can be saved and loaded
+
 *** Cheats and Easter Eggs
 - Initially we are not planning on cheats
 - Easter eggs will be implemented somehow
@@ -229,9 +257,11 @@ How is onboarding managed?
 *** Visual System
 If you have a HUD, what is on it?  What menus are you displaying? What is the camera model?
 
-- Simple HUD
-  - Inventory bar
-  - Bigger inventory on key press
+- Minimal HUD in normal gameplay
+- Inventory and crafting menu on keypress
+  - Shows what items the player has and what they can craft
+- The camera follows the player overhead
+  
 *** Control System
 How does the game player control the game?   What are the specific commands?
 
@@ -239,22 +269,28 @@ How does the game player control the game?   What are the specific commands?
 - S -> Down
 - A -> Left
 - D -> Right
-- E -> Inventory
-- F -> Interact
+- Tab -> Inventory
+- E -> Interact
 - Left click -> Place
-- Right click -> Harvest
-- ESC -> Cancel action / Menu
+- Right click -> Destroy/Harvest
+- ESC -> Cancel action / Close Menu
+
 *** Audio, Music, Sound Effects
-- In house music person
+
+- Elvis will make the music for the game
 - Will attempt to make a full OST
+
 *** Help System
+
 - Hint system
+
 ** Artificial Intelligence
+
 *** Opponent and Enemy AI
 The active opponent that plays against the player and therefore requires strategic decision making.
-- 
+ 
 *** Non-combat and Friendly Characters
-- Some "higher entity" that sells magical artifacts, perhaps not so friendly eventually (?)
+Some "higher entity" that sells magical artifacts, perhaps not so friendly eventually (?)
   
 *** Support AI
 - The towers
@@ -272,20 +308,22 @@ The active opponent that plays against the player and therefore requires strateg
 
 *** Target Hardware
 - PC (Initially Windows, will be compiled for Mac and Linux if this works out of the box)
+
 *** Development Hardware and Software (including game engine)
 - Unity
+- Aseprite
   
 *** Network requirements
-- Ney
+No networking in this game
+
 ** Game Art
 
 *** Key assets
-- We aim to produce the majority of the assets ourselves
+- We aim to produce the majority of the assets ourselves, in addition to some store bought ones.
 - Pixel art, simple style
-- 64x64 pixels
+- 32x32 pixels
 - Tile based worlds
 - Dynamic tiling
-
   
 How are they being developed.  Intended style.
 
