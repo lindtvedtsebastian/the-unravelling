@@ -22,15 +22,23 @@ public class WorldState {
     private const int dayDuration = 1800;
     private const int nightDuration = 1200;
 
-	public WorldState() {
+    public WorldState() {
         currentGameDay = 0;
         globalGameTime = 0;
-
-    }
+	}
 
 	void OnEnable() {
 	}
 
+	public int getDayDuration()
+	{
+		return dayDuration;
+	}
+
+	public int getNightDuration()
+	{
+		return nightDuration;
+	}
     /// <summary>
     ///  This function keeps track of the game days and whether it is currently night or day.
     ///  It is ran in the Start method every second. 
@@ -42,6 +50,6 @@ public class WorldState {
         if (globalGameTime > dayDuration) {
             currentGameDay++;
             globalGameTime = 0;
-		}
+        }
 	}
 }
