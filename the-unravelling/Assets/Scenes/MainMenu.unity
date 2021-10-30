@@ -16542,7 +16542,6 @@ MonoBehaviour:
   buttonPrefab: {fileID: 7298579106219210901, guid: 1d456c6b7d2b085438e0532931d727fc, type: 3}
   loadGameButton: {fileID: 2072373267}
   previewImage: {fileID: 1510893800}
-  deleteButton: {fileID: 0}
 --- !u!1 &2140168110
 GameObject:
   m_ObjectHideFlags: 0
