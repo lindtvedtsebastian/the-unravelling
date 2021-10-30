@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3242763888240086024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 258.92023, y: 263.94028, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,9 +99,6 @@ MonoBehaviour:
   item:
     item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
     amount: 1
-  itemPanel: {fileID: 0}
-  player: {fileID: 0}
-  playerInventory: {fileID: 0}
 --- !u!58 &2794000180995235600
 CircleCollider2D:
   m_ObjectHideFlags: 0

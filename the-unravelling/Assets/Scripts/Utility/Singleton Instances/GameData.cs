@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     public const int S  = 0b1000000;
     public const int SE = 0b10000000;
 
-    public WorldEntity[] worldEntities;
+    public ItemData[] worldEntities;
     public TileBase[] FOG;
 
     /// <summary>
@@ -76,9 +77,25 @@ public class World {
     public int[,] map;
     public int[,] background;
     public int[,] pathfindingMap;
+    public List<IEntity> iEntities;
     public string mapName;
 
     public World() {
         state = new WorldState();
+        iEntities = new List<IEntity>();
+    }
+}
+
+[Serializable]
+public class IEntity {
+    public float worldPosX;
+    public float worldPosY;
+    public int entityID;
+
+
+    public IEntity(float x, float y, int entityID) {
+        worldPosX = x;
+        worldPosY = y;
+        this.entityID = entityID;
     }
 }

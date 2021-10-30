@@ -16,5 +16,5 @@ MonoBehaviour:
   itemName: 
   itemAmount: 1
   type: 0
-  preview: {fileID: 21300000, guid: a85e88bc753fb4b4d981bfc2b198c3dc, type: 3}
+  preview: {fileID: 21300000, guid: d6d2b4a7f559f9c409e735254c575d1f, type: 3}
   manifestation: {fileID: 2389733086512934763, guid: 21f4a79b1e9ca9345bfc4f79dbe6de9a, type: 3}
