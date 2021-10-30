@@ -9,6 +9,7 @@ public class TurretAttack : State {
     private Rigidbody2D _bowBody;
     private Vector3 _bowPosition;
     private ParticleSystem _particleSystem;
+	private ParticleSystem.MainModule _particleMain;
 
     /// <summary>
     /// The state "constructor"
@@ -19,6 +20,8 @@ public class TurretAttack : State {
         _bowBody = _stateManager.GetComponent<TurretAI>().bow.GetComponent<Rigidbody2D>();
         _bowPosition = _stateManager.GetComponent<TurretAI>().bow.transform.position;
         _particleSystem = _stateManager.GetComponent<TurretAI>().particleSystem;
+        _particleMain = _particleSystem.main;
+        _particleMain.startRotation3D = true;
         _particleSystem.Play();
     }
     
@@ -42,9 +45,11 @@ public class TurretAttack : State {
 
             float offset = -90f;
             float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
-            
-            
+
+
             _bowBody.transform.rotation = UnityEngine.Quaternion.Euler(Vector3.forward * (angle + offset));
+            _particleMain.startRotationX = _bowBody.transform.rotation.x;
+            _particleMain.startRotationY = _bowBody.transform.rotation.y;
         }
     }
 }
