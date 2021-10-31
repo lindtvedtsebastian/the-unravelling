@@ -43,13 +43,18 @@ public class TurretAttack : State {
             
             Vector3 directionToTarget = targetPosition - _bowPosition;
 
-            float offset = -90f;
-            float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+            float offset = 90f;
+            float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x);
+            float angleInDeg = angle * Mathf.Rad2Deg;
 
 
-            _bowBody.transform.rotation = UnityEngine.Quaternion.Euler(Vector3.forward * (angle + offset));
-            _particleMain.startRotationX = _bowBody.transform.rotation.x;
-            _particleMain.startRotationY = _bowBody.transform.rotation.y;
+            _bowBody.transform.rotation = UnityEngine.Quaternion.Euler(Vector3.forward * (angleInDeg - offset));
+			
+            _particleMain.startRotationX = 0;
+            _particleMain.startRotationY = 0;
+            _particleMain.startRotationZ = (angle - (offset * Mathf.Deg2Rad)) * -1;
+
         }
     }
 }
+ 

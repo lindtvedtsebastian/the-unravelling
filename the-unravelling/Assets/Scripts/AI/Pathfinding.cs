@@ -65,7 +65,8 @@ public class Pathfinding : MonoBehaviour {
                 node.isWalkable = true;
 				node.previousIndex = -1;
 
-                node.additionalCost = 0;//GameData.Get.world.pathfindingMap[y, x];
+                // node.additionalCost = 0;
+				node.additionalCost = GameData.Get.world.pathfindingMap[y, x];
 
                 node.gCost = int.MaxValue;
 				node.hCost = CalculateHeuristics(new int2(x, y), endPos);
