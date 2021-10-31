@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput))]
 public class PlayerBehaviour : MonoBehaviour {
@@ -8,6 +10,11 @@ public class PlayerBehaviour : MonoBehaviour {
     public float speed = 200.0f;
 
     public PlayerInventory playerInventory;
+    [SerializeField]
+    public GameObject InGameMenu;
+
+    [SerializeField]
+    public GameObject lol;
 
     // Components
     private Rigidbody2D body;
@@ -91,6 +98,11 @@ public class PlayerBehaviour : MonoBehaviour {
         playerInventory.ActivateInventory();
     }
 
+    public void SaveGameAndExitButtonClick() {
+        GameData.Get.SaveWorld();
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
     public void CloseInventory()
     {
         playerInput.SwitchCurrentActionMap("Player");
@@ -101,6 +113,7 @@ public class PlayerBehaviour : MonoBehaviour {
     public void OnCloseInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Deactivate UI");
         CloseInventory();
+        InGameMenu.SetActive(false);
     }
 
     // Called when place action is triggered
@@ -112,6 +125,8 @@ public class PlayerBehaviour : MonoBehaviour {
     // Called when cancel action is triggered
     public void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
+        playerInput.SwitchCurrentActionMap("UI");
+        InGameMenu.SetActive(true);
         playerInventory.CancelInventoryAction();
     }
 
