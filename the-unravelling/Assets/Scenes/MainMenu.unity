@@ -1387,16 +1387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fb8313aacf7f844ae97b4c552ff108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullscreen: {fileID: 200373188}
-  vSync: {fileID: 1205073364}
-  resolutions:
-  - horizontal: 1920
-    vertical: 1080
-  - horizontal: 1280
-    vertical: 720
-  - horizontal: 800
-    vertical: 600
-  resolutionLabelText: {fileID: 941451604}
+  fullscreen: {fileID: 0}
+  vSync: {fileID: 0}
+  resolutions: []
+  resolutionLabelText: {fileID: 0}
 --- !u!1 &200373186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,18 +4708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95c060e9d8edd94789fd010ea6bec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuAudio: {fileID: 8300000, guid: c87f3236327d20e4c81a7e739a77cd03, type: 3}
-  dayMusic:
-  - {fileID: 8300000, guid: f0a1b54302fe2484d98a44b82fe62526, type: 3}
-  - {fileID: 8300000, guid: e456e9bf93f29c54bb35aaca94ef9d07, type: 3}
-  - {fileID: 8300000, guid: e1938491debe1f64eb779cdd0e49fb8e, type: 3}
-  - {fileID: 8300000, guid: d7af56571f797694fa511990a6b34692, type: 3}
-  - {fileID: 8300000, guid: e332cd3574451164aac8128a8e3dd72b, type: 3}
-  - {fileID: 8300000, guid: c5fe3cba2cd6d93498bba214093ba2da, type: 3}
-  - {fileID: 8300000, guid: 28ac711ae0df1364f9362598049ddaa5, type: 3}
-  nightMusic:
-  - {fileID: 8300000, guid: 4e6fa5afc5fbf0046926a781cdde9034, type: 3}
-  - {fileID: 8300000, guid: ac20ec00c15fbce42864fe234f9034ae, type: 3}
+  menuAudio: {fileID: 0}
+  dayMusic: []
+  nightMusic: []
 --- !u!1 &661995813
 GameObject:
   m_ObjectHideFlags: 0
@@ -7324,7 +7309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbde1bd2a4a87b4ba3615e6d5cc802a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapPreview: {fileID: 1063821960}
+  mapPreview: {fileID: 0}
 --- !u!114 &1063821960
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using System.IO;
-using System.Linq;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LoadGameAddSave : MonoBehaviour
