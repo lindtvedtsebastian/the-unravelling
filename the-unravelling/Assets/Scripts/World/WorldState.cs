@@ -19,8 +19,8 @@ public class WorldState {
 
     public CycleState stateOfDay;
 
-    private const int cycleDuration = 1800;
-    private const int startNight = 1200;
+    private const int cycleDuration = 240;
+    private const int startNight = 120;
 
     public WorldState() {
         currentGameDay = 0;

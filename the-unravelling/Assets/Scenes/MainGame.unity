@@ -203,10 +203,10 @@ RectTransform:
   m_Father: {fileID: 2128602839}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455.6509, y: 510.41}
-  m_SizeDelta: {x: 350.1981, y: 59.185}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -175, y: -30}
+  m_SizeDelta: {x: 350, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &378656575
 MonoBehaviour:
@@ -975,8 +975,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -164.6241, y: -29.5899}
-  m_SizeDelta: {x: 329.2484, y: 59.1799}
+  m_AnchoredPosition: {x: -175, y: -100}
+  m_SizeDelta: {x: 350, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107380419
 MonoBehaviour:
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 2128602836}
   - component: {fileID: 2128602840}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
