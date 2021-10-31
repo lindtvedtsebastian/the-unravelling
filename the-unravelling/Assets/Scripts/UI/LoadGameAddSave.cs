@@ -61,6 +61,12 @@ public class LoadGameAddSave : MonoBehaviour
             Debug.LogError("No world save was selected!");
         }
     }
+    
+    public void testFunction() {
+        Debug.Log("BUTTON CLICK!\n");
+        GameData.Get.GetAllWorlds();
+    }
+
 
     /// <summary>
     /// Deletes a selected game world by name.
