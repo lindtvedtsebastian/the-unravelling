@@ -13,8 +13,9 @@ public class PlayerBehaviour : MonoBehaviour {
     [SerializeField]
     public GameObject InGameMenu;
 
-    [SerializeField]
-    public GameObject lol;
+    [SerializeField] 
+    public GameObject SaveButton; // Save and exit button displayed on the in game menu ui
+    public GameObject ResumeButton; // resumeButton in ingame ui
 
     // Components
     private Rigidbody2D body;
@@ -99,8 +100,15 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     public void SaveGameAndExitButtonClick() {
+        InGameMenu.SetActive(false);
+        
         GameData.Get.SaveWorld();
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+    
+    public void ResumeButtonClick() {
+        InGameMenu.SetActive(false);
+        playerInput.SwitchCurrentActionMap("Player");
     }
 
     public void CloseInventory()

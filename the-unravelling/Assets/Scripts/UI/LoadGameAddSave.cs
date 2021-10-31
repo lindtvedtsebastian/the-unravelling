@@ -4,20 +4,25 @@ using TMPro;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using System.IO;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class LoadGameAddSave : MonoBehaviour
 {
     
     private List<string> fileNames = new List<string>();
+    private List<World> worlds = new List<World>();
     private string selectedWorld;
     private DirectoryInfo dir;
     private FileInfo[] files;
     public GameObject buttonPrefab;
     public GameObject loadGameButton;
     public RawImage previewImage;
+    public TMP_Text TimeInfo;
+    public TMP_Text GameDayInfo;
 
     void Start() {
+        worlds = GameData.Get.GetAllWorlds();
         dir = new DirectoryInfo(Application.persistentDataPath);
         files = dir.GetFiles("*.png");
 
@@ -43,10 +48,17 @@ public class LoadGameAddSave : MonoBehaviour
     public void SelectSave(string fileName) {
         loadGameButton.SetActive(true);
         selectedWorld = fileName.Replace(".png", ".world");
+        var selectedWorldNoSuffix = fileName.Replace(".png", "");
         byte[] image = File.ReadAllBytes(Application.persistentDataPath + "/" + fileName);
         Texture2D tex = new Texture2D(1, 1); // Size does not matter, will be overwritten
         tex.LoadImage(image);
         previewImage.GetComponent<RawImage>().texture = tex;
+
+        foreach (var worldInList in worlds.Where(worldInList => worldInList.mapName == selectedWorldNoSuffix)) {
+            TimeInfo.text = worldInList.state.globalGameTime.ToString();
+            GameDayInfo.text = worldInList.state.currentGameDay.ToString();
+        }
+        
     }
 
     /// <summary>
@@ -61,12 +73,6 @@ public class LoadGameAddSave : MonoBehaviour
             Debug.LogError("No world save was selected!");
         }
     }
-    
-    public void testFunction() {
-        Debug.Log("BUTTON CLICK!\n");
-        GameData.Get.GetAllWorlds();
-    }
-
 
     /// <summary>
     /// Deletes a selected game world by name.

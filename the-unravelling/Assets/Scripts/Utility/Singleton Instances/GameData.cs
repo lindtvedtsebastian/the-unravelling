@@ -54,23 +54,17 @@ public class GameData : ScriptableObjectSingleton<GameData> {
         }
         else world = new World();
     }
-    public void GetAllWorlds() {
+    public List<World> GetAllWorlds() {
         List<World> returnList = new List<World>();
         string[] files = Directory.GetFiles(Application.persistentDataPath, "*.world");
         BinaryFormatter bf = new BinaryFormatter();
-       
+        FileStream loadFile;
         foreach (var file in files) {
-            Debug.Log("File: " + file);
-            
-            FileStream loadFile = File.Open(file , FileMode.Open);
+            loadFile = File.Open(file , FileMode.Open);
             world = (World) bf.Deserialize(loadFile);
             returnList.Add(world);
         }
-       
-        foreach (var w in returnList) {
-            Debug.Log(w.state.currentGameDay.ToString());
-        }
-        //return returnList;
+        return returnList;
     }
     
     /// <summary>
