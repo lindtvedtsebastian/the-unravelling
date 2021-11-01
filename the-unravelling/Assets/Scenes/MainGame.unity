@@ -509,6 +509,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6751475238691911543, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 2128602835}
+    - target: {fileID: -6751475238691911543, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: lol
       value: 
       objectReference: {fileID: 1654393213}
