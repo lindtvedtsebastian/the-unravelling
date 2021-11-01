@@ -20,6 +20,10 @@ public class LoadGameAddSave : MonoBehaviour
     public RawImage previewImage;
     public TMP_Text TimeInfo;
     public TMP_Text GameDayInfo;
+    public TMP_Text WorldDeleteText;
+    public Button ConfirmButton;
+    public GameObject ConfirmBox;
+    public GameObject NoWorldSelectedBox;
 
     void Start() {
         worlds = GameData.Get.GetAllWorlds();
@@ -73,6 +77,18 @@ public class LoadGameAddSave : MonoBehaviour
             Debug.LogError("No world save was selected!");
         }
     }
+
+    public void DisplayConfirmBox() {
+        if (!string.IsNullOrEmpty(selectedWorld)) {
+            ConfirmBox.SetActive(true);
+            WorldDeleteText.text = "Are you sure you want to delete\n\n" + selectedWorld;
+        }
+        else {
+            NoWorldSelectedBox.SetActive(true);
+        }
+    }
+    
+    
 
     /// <summary>
     /// Deletes a selected game world by name.
