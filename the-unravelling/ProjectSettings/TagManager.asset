@@ -11,6 +11,7 @@ TagManager:
   - DropContainer
   - Tree
   - NightEffect
+  - Particle
   layers:
   - Default
   - TransparentFX

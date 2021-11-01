@@ -16,6 +16,8 @@ public class EnemyWalk : State
     private float pathRecalculateTimer = 0;
     private float recalculateTime = 7.5f;
 
+    private Vector3 prevLocation;
+
     /// <summary>
     /// All necessary preparations before "do"ing the state 
     /// </summary>
@@ -25,6 +27,8 @@ public class EnemyWalk : State
 
         _player = GameObject.FindGameObjectWithTag("Player");
         _stateManager = stateManager;
+
+        prevLocation = gameObject.transform.position;
     }
 
     /// <summary>
@@ -37,6 +41,8 @@ public class EnemyWalk : State
             if (_resultPath.Length <= 0 || pathRecalculateTimer <= 0) {
                 CalculatePath();
                 pathRecalculateTimer = recalculateTime;
+
+				
             }
 
             Move();
@@ -45,6 +51,15 @@ public class EnemyWalk : State
         }
     }
 
+	bool isStuck() {
+        Vector3 enemyPos = gameObject.transform.position;
+        if (Mathf.Abs(prevLocation.x - enemyPos.x) < 1f)
+            return true;
+        else if (Mathf.Abs(prevLocation.y - enemyPos.y) < 1f)
+            return true;
+		else return false;
+    }
+	
     /// <summary>
     /// Prepares the State for exit
     /// </summary>

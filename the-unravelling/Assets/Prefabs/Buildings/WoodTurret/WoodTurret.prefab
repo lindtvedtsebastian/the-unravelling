@@ -206,6 +206,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6283706474914660032, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
       propertyPath: m_Name
       value: TurretBow

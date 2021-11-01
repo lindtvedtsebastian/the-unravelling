@@ -10,6 +10,8 @@ public class TurretAttack : State {
     private Vector3 _bowPosition;
     private ParticleSystem _particleSystem;
 	private ParticleSystem.MainModule _particleMain;
+    private float attackTimer;
+    private float attackThreshold = 2f;
 
     /// <summary>
     /// The state "constructor"
@@ -22,7 +24,6 @@ public class TurretAttack : State {
         _particleSystem = _stateManager.GetComponent<TurretAI>().particleSystem;
         _particleMain = _particleSystem.main;
         _particleMain.startRotation3D = true;
-        _particleSystem.Play();
     }
     
     /// <summary>
@@ -30,6 +31,12 @@ public class TurretAttack : State {
     /// </summary>
     public override void DoState() {
         TurretAnimation();
+
+        attackTimer += Time.deltaTime;
+		if (attackTimer >= attackThreshold) {
+            attackTimer = 0;
+            _particleSystem.Play();
+		}
     }
 
     public override void LeaveState() {
