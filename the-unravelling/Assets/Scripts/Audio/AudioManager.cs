@@ -62,6 +62,7 @@ public class AudioManager : MonoBehaviour {
                     currentDaySongIndex = 1;
                 }
                 soundtrackSource.clip = dayMusic[currentDaySongIndex - 1];
+                previousState = CycleState.DAY;
                 soundtrackSource.Play();
             } else if (stateManager.IsNight() && !soundtrackSource.isPlaying) {
                 currentNightSongIndex++;
@@ -69,6 +70,7 @@ public class AudioManager : MonoBehaviour {
                     currentNightSongIndex = 1;
                 }
                 soundtrackSource.clip = nightMusic[currentNightSongIndex - 1];
+                previousState = CycleState.NIGHT;
                 soundtrackSource.Play();
             }
             yield return new WaitForSeconds(5f);
