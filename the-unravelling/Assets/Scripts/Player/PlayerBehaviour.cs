@@ -121,7 +121,8 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
 	private void OnActionDamage(InputAction.CallbackContext ctx) {
-		RaycastHit2D hit = Physics2D.Raycast(GetMousePosition2D(),Vector2.zero);
+		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition2D(),Vector2.zero);
+		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             hit.collider.GetComponent<IClickable>()?.OnDamage(50);
         }
@@ -138,5 +139,4 @@ public class PlayerBehaviour : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
 
-    
 }

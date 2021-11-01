@@ -16,6 +16,9 @@ public class EnemyWalk : State
     private float pathRecalculateTimer = 0;
     private float recalculateTime = 7.5f;
 
+    private float stuckTimer;
+    private float stuckThreshold = 3;
+
     private Vector3 prevLocation;
 
     /// <summary>
@@ -36,21 +39,26 @@ public class EnemyWalk : State
     /// </summary>
     public override void DoState() {
         pathRecalculateTimer -= Time.deltaTime;
+        stuckTimer -= Time.deltaTime;
+
+
+        if (stuckTimer <= 0) {
+			if (isStuck()) {
+                Vector3 middleOfMap = new Vector3(GameData.Get.world.worldSize / 2, GameData.Get.world.worldSize / 2, 0);
+                Vector3 dirTowardsPlayer = (gameObject.transform.position - middleOfMap).normalized;
+				gameObject.transform.position = gameObject.transform.position - dirTowardsPlayer;
+                CalculatePath();
+            }
+			prevLocation = gameObject.transform.position;
+            stuckTimer = stuckThreshold;
+        }
+		
         if (distanceTo(_player.transform.position) > proximityRange) {
             // If no path exists, calculate one
             if (_resultPath.Length <= 0 || pathRecalculateTimer <= 0) {
-				if (isStuck()) {
-                    Vector3 newPos;
-                    newPos.x = gameObject.transform.position.x + 2;
-                    newPos.y = gameObject.transform.position.y + 2;
-                    newPos.z = gameObject.transform.position.z;
-
-                    gameObject.transform.position = newPos;
-                }
 				
                 CalculatePath();
                 pathRecalculateTimer = recalculateTime;
-                prevLocation = gameObject.transform.position;
             }
 
             Move();
