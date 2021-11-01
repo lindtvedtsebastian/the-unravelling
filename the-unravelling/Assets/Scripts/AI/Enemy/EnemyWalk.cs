@@ -39,10 +39,18 @@ public class EnemyWalk : State
         if (distanceTo(_player.transform.position) > proximityRange) {
             // If no path exists, calculate one
             if (_resultPath.Length <= 0 || pathRecalculateTimer <= 0) {
+				if (isStuck()) {
+                    Vector3 newPos;
+                    newPos.x = gameObject.transform.position.x + 2;
+                    newPos.y = gameObject.transform.position.y + 2;
+                    newPos.z = gameObject.transform.position.z;
+
+                    gameObject.transform.position = newPos;
+                }
+				
                 CalculatePath();
                 pathRecalculateTimer = recalculateTime;
-
-				
+                prevLocation = gameObject.transform.position;
             }
 
             Move();
