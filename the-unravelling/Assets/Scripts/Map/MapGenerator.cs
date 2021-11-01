@@ -36,23 +36,26 @@ public static class MapGenerator {
 
 
         GameData.Get.world.iEntities.Clear();
-
+		
 
         // Assign tiles based on noise
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++) {
                 GameData.Get.world.background[x, y] = GameIDs.STONE;
-				GameData.Get.world.pathfindingMap[x, y] = 0; // set pathfinding to 0, will be overwritten if necessary
+                GameData.Get.world.pathfindingMap[y, x] = 0; // Sets to 0 as a base, will be updated if necessary
 
                 if (heightMap[y, x] > 0.4f) {
                     if (moistureMap[x, y] >= 0.5f) {
                         GameData.Get.world.map[y, x] = GameIDs.GRASS;
+
+
                         if (resourceClusters[x, y] >= 0.10f) {
 							double max = findMaxAround(x, y, 5, resourceDistribution);
 							if (resourceDistribution[x,y] == max) {
-								GameData.Get.world.iEntities.Add(new IEntity(x, GameData.Get.world.worldSize - y, GameIDs.TREE));
-								GameData.Get.world.pathfindingMap[x, y] = 9999;
-							}                         }
+                                GameData.Get.world.iEntities.Add(new IEntity(x, GameData.Get.world.worldSize - y, GameIDs.TREE));
+								GameData.Get.world.pathfindingMap[y, x] = 9999;
+                            }
+						}
                     }
                     else {
                         GameData.Get.world.map[y, x] = GameIDs.DIRT;
@@ -60,7 +63,7 @@ public static class MapGenerator {
 							double max = findMaxAround(x, y, 8, resourceDistribution);
 							if (resourceDistribution[x,y] == max) {
                                 GameData.Get.world.iEntities.Add(new IEntity(x,GameData.Get.world.worldSize - y,GameIDs.DRY_TREE));
-								GameData.Get.world.pathfindingMap[x, y] = 9999;
+								GameData.Get.world.pathfindingMap[y, x] = 9999;
 							}
 						}
                     }
@@ -70,7 +73,7 @@ public static class MapGenerator {
                         double max = findMaxAround(x, y, 3, resourceDistribution);
 						if (resourceDistribution[x,y] == max) {
                             GameData.Get.world.iEntities.Add(new IEntity(x, GameData.Get.world.worldSize - y, determineOreType()));
-							GameData.Get.world.pathfindingMap[x, y] = 9999;
+							GameData.Get.world.pathfindingMap[y, x] = 9999;
                         }
                     }
                 }

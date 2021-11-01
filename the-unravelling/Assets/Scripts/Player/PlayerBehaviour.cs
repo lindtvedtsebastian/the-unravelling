@@ -65,7 +65,12 @@ public class PlayerBehaviour : MonoBehaviour {
 
         body.velocity = move * (Time.deltaTime * speed);
 
-		if (move.x != 0) {
+        // int x =  Mathf.FloorToInt(body.transform.position.x);
+        // int y = Mathf.CeilToInt(body.transform.position.y -0.5f) - 1;
+
+        // Debug.Log(GameData.Get.world.pathfindingMap[256 - y, x]);
+
+        if (move.x != 0) {
 			playerAnimation.SetFloat(VelocityX, move.x);
 			playerAnimation.SetFloat(VelocityY, 0);	
 		} else if (move.y != 0) {

@@ -12,6 +12,9 @@ public class EnemyWalk : State
 
     private float speed = 3f;
     private float proximityRange = 0.5f;
+	[SerializeField]
+    private float pathRecalculateTimer = 0;
+    private float recalculateTime = 7.5f;
 
     /// <summary>
     /// All necessary preparations before "do"ing the state 
@@ -28,10 +31,13 @@ public class EnemyWalk : State
     /// The state "update" loop 
     /// </summary>
     public override void DoState() {
-		if (distanceTo(_player.transform.position) > proximityRange) {
+        pathRecalculateTimer -= Time.deltaTime;
+        if (distanceTo(_player.transform.position) > proximityRange) {
             // If no path exists, calculate one
-            if (_resultPath.Length <= 0)
+            if (_resultPath.Length <= 0 || pathRecalculateTimer <= 0) {
                 CalculatePath();
+                pathRecalculateTimer = recalculateTime;
+            }
 
             Move();
 		} else {
