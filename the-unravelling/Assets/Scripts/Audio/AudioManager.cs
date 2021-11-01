@@ -16,7 +16,10 @@ public class AudioManager : MonoBehaviour {
     private int currentDaySongIndex;
     private int currentNightSongIndex;
 
+    private CycleState previousState;
+
     private WorldStateManager stateManager;
+
     private void Awake() {
         soundtrackSource = gameObject.AddComponent<AudioSource>();
         soundtrackSource.clip = menuAudio;
@@ -50,24 +53,25 @@ public class AudioManager : MonoBehaviour {
     IEnumerator PlaySoundtrack() {
         soundtrackSource.loop = false; // since we now play the soundtrack track by track, we don't want looping.
         while (true) {
-            if (stateManager.IsDay()) {
+			if (previousState != stateManager.worldState.stateOfDay)
+                soundtrackSource.Stop();
+			
+            if (stateManager.IsDay() && !soundtrackSource.isPlaying) {
                 currentDaySongIndex++;
                 if (currentDaySongIndex > sizeOfDaySoundtrack) {
                     currentDaySongIndex = 1;
                 }
                 soundtrackSource.clip = dayMusic[currentDaySongIndex - 1];
                 soundtrackSource.Play();
-                yield return new WaitForSeconds(soundtrackSource.clip.length);
-            } else if (stateManager.IsNight()) {
+            } else if (stateManager.IsNight() && !soundtrackSource.isPlaying) {
                 currentNightSongIndex++;
                 if (currentNightSongIndex > sizeOfNightSoundtrack) {
                     currentNightSongIndex = 1;
                 }
                 soundtrackSource.clip = nightMusic[currentNightSongIndex - 1];
                 soundtrackSource.Play();
-                yield return new WaitForSeconds(soundtrackSource.clip.length);
             }
+            yield return new WaitForSeconds(5f);
         } 
     }
-    
 }
