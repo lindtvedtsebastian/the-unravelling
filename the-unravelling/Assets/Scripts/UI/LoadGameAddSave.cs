@@ -15,15 +15,16 @@ public class LoadGameAddSave : MonoBehaviour
     private string selectedWorld;
     private DirectoryInfo dir;
     private FileInfo[] files;
+    
     public GameObject buttonPrefab;
     public GameObject loadGameButton;
+    public GameObject ConfirmBox;
+    public GameObject NoWorldSelectedBox;
+    
     public RawImage previewImage;
     public TMP_Text TimeInfo;
     public TMP_Text GameDayInfo;
     public TMP_Text WorldDeleteText;
-    public Button ConfirmButton;
-    public GameObject ConfirmBox;
-    public GameObject NoWorldSelectedBox;
 
     void Start() {
         worlds = GameData.Get.GetAllWorlds();
@@ -74,7 +75,7 @@ public class LoadGameAddSave : MonoBehaviour
             SceneManager.LoadScene("MainGame");
         }
         else {
-            Debug.LogError("No world save was selected!");
+            NoWorldSelectedBox.SetActive(true);
         }
     }
 
