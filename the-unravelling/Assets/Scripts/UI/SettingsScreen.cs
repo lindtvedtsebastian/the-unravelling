@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using UnityEngine.UI;
 using UnityEngine;
@@ -13,101 +14,38 @@ public class SettingsScreen : MonoBehaviour {
     public Toggle vSync;
 
     public TMP_Dropdown dropdown;
-    
-    public List<ScreenDimensions> resolutions = new List<ScreenDimensions>();
-    private int currentResIndex;
+    private Resolution[] resolutions;
 
-    private Resolution[] resolutionstest;
+    private int[] refreshRatesToAvoid = {50 ,56 ,59, 72, 75, 99, 119};
     
-    public TMP_Text resolutionLabelText;
-
     // Start is called before the first frame update
     void Start() {
-        resolutionstest = Screen.resolutions;
+        resolutions = Screen.resolutions;
 
         List<string> chooseOptions = new List<string>();
 
         var resIndex = 0;
 
-        for (int i = 0; i < resolutionstest.Length; i++) {
-            string test = resolutionstest[i].width + " x " + resolutionstest[i].height;
+        for (var i = 0; i < resolutions.Length; i++) {
+            //if (refreshRatesToAvoid.Contains(resolutions[i].refreshRate)) continue;
+            var test = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "hz";
             chooseOptions.Add(test);
-
-            if (resolutionstest[i].width == Screen.currentResolution.width && resolutionstest[i].height == Screen.currentResolution.height) {
+                
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate) {
                 resIndex = i;
             }
         }
-
         dropdown.AddOptions(chooseOptions);
         dropdown.value = resIndex;
         dropdown.RefreshShownValue();
-
-        /*fullscreen.isOn = Screen.fullScreen;
-        vSync.isOn = QualitySettings.vSyncCount != 0;
-
-        bool switchLabelToCurrentRes = false;
-        for (int i = 0; i < resolutions.Count; i++) {
-            if (Screen.width == resolutions[i].horizontal && Screen.height == resolutions[i].vertical) {
-                switchLabelToCurrentRes = true;
-                currentResIndex = i;
-                UpdateResolutionLabel();
-            }
-        }
-
-        if (!switchLabelToCurrentRes) {
-            ScreenDimensions newScreenDimension = new ScreenDimensions();
-            newScreenDimension.horizontal = Screen.width;
-            newScreenDimension.vertical = Screen.height;
-            
-            // TODO(Elvis): The displayed resolution in the label is the smallest one, ideally that we show the largest one.
-            resolutions.Insert(0,newScreenDimension);
-            currentResIndex = resolutions.Count - 1;
-            
-            UpdateResolutionLabel();
-        }*/
-
     }
 
-    public void setFullscreen(bool fullscreen) {
-        Screen.fullScreen = fullscreen;
+    public void SetFullscreen(bool fullscreenFlag) {
+        Screen.fullScreen = fullscreenFlag;
     }
 
-    public void setResolution(int resIndex) {
-        Resolution res = resolutionstest[resIndex];
+    public void SetResolution(int newResIndex) {
+        Resolution res = resolutions[newResIndex];
         Screen.SetResolution(res.width,res.height,Screen.fullScreen);
     }
-
-    /*
-    public void ResolutionSwitchLeft() {
-        currentResIndex--;
-        if (currentResIndex < 0) {
-            currentResIndex = 0;
-        }
-
-        UpdateResolutionLabel();
-    }
-
-    public void ResolutionSwitchRight() {
-        currentResIndex++;
-        if (currentResIndex > resolutions.Count - 1) {
-            currentResIndex = resolutions.Count - 1;
-        }
-
-        UpdateResolutionLabel();
-    }
-
-    public void UpdateResolutionLabel() {
-        resolutionLabelText.text = resolutions[currentResIndex].horizontal.ToString() + " x " +
-                                   resolutions[currentResIndex].vertical.ToString();
-    }
-    
-    public void ApplyGraphicsChanges() {
-        QualitySettings.vSyncCount = vSync.isOn ? 1 : 0;
-        Screen.SetResolution(resolutions[currentResIndex].horizontal,resolutions[currentResIndex].vertical,fullscreen.isOn); // save 1 line of code by having fullscreen here!
-    }*/
-}
-// TODO(Elvis): This did not work with an Vector2Int, why? Find out a more appropriate data structure than this class!
-[System.Serializable]
-public class ScreenDimensions {
-    public int horizontal, vertical;
 }

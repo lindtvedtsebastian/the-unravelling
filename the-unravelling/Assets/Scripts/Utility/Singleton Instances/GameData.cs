@@ -50,6 +50,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
             world = (World) bf.Deserialize(loadFile);
+            loadFile.Close();
         }
         else world = new World();
     }
