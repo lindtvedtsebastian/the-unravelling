@@ -20,13 +20,18 @@ public class SettingsScreen : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
-        resolutions = Screen.resolutions;
-
+        resolutions = Screen.resolutions; // this varies greatly, on my system it's about 30. This is given to the operating system by the monitor directly
         List<string> chooseOptions = new List<string>();
-
         var resIndex = 0;
+        var highestResolution = resolutions.Length-1;
+        
+        Debug.Log(resolutions.Length.ToString());
+        //var highestResolution = resolutions.Last();
+        // var test2 = resolutions[highestResolution].width;
+        // var test3 = resolutions[highestResolution].height;
+        // var test4 = resolutions[highestResolution].refreshRate;
 
-        for (var i = 0; i < resolutions.Length; i++) {
+        for (var i = highestResolution-5; i < resolutions.Length; i++) { // give the top 5 of the list
             //if (refreshRatesToAvoid.Contains(resolutions[i].refreshRate)) continue;
             var oneResolutionOption = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "hz";
             chooseOptions.Add(oneResolutionOption);
