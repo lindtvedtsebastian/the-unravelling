@@ -33,7 +33,6 @@ public class MainMenuController : MonoBehaviour {
         int seed = int.Parse(newWorldSeed.text); // Know that content type is int 
         MapGenerator.GenerateTilemap(newWorldName.text,GameData.Get.world.worldSize,seed,50f,6,0.5f,2f,new Vector2(0,0));
         mapPreview.drawMap();
-        newWorldName.text = "";
     }
 
     public void MapSizeChanged(Dropdown change) {

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bow: {fileID: 185099144464413872}
   rotationSpeed: 25
-  particleSystem: {fileID: 2534633929253646159}
+  particleSystem: {fileID: 3720669946235707744}
   targetList: []
 --- !u!58 &6850194366257165644
 CircleCollider2D:
@@ -160,9 +160,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5946385565457818949, guid: 566e3bbf53d28dd4fb0d3824b5f3c287, type: 3}
   m_PrefabInstance: {fileID: 458561462954128054}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2534633929253646159 stripped
+--- !u!198 &3720669946235707744 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2698209341734952441, guid: 566e3bbf53d28dd4fb0d3824b5f3c287, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3890928259009450966, guid: 566e3bbf53d28dd4fb0d3824b5f3c287, type: 3}
   m_PrefabInstance: {fileID: 458561462954128054}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3267808104022556354

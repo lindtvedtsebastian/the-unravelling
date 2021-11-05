@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993b86f0b409c7746af2d91c1e52c17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
+  health: 0
   enemyWalk: {fileID: 0}
   enemyIdle: {fileID: 0}
 --- !u!50 &7722072069971398034

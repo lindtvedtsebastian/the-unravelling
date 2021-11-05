@@ -23,7 +23,7 @@ public struct PathPart {
 /// <summary>
 /// A class for calculating pathfinding in the Unravelling world grid 
 /// </summary>
-public class Pathfinding : MonoBehaviour {
+public class Pathfinding {
 	private const int STRAIGHT_COST = 10;
 	private const int DIAGONAL_COST = 14;
 

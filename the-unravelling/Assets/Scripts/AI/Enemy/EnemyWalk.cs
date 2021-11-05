@@ -12,6 +12,14 @@ public class EnemyWalk : State
 
     private float speed = 3f;
     private float proximityRange = 0.5f;
+	[SerializeField]
+    private float pathRecalculateTimer = 0;
+    private float recalculateTime = 7.5f;
+
+    private float stuckTimer;
+    private float stuckThreshold = 3;
+
+    private Vector3 prevLocation;
 
     /// <summary>
     /// All necessary preparations before "do"ing the state 
@@ -22,16 +30,36 @@ public class EnemyWalk : State
 
         _player = GameObject.FindGameObjectWithTag("Player");
         _stateManager = stateManager;
+
+        prevLocation = gameObject.transform.position;
     }
 
     /// <summary>
     /// The state "update" loop 
     /// </summary>
     public override void DoState() {
-		if (distanceTo(_player.transform.position) > proximityRange) {
-            // If no path exists, calculate one
-            if (_resultPath.Length <= 0)
+        pathRecalculateTimer -= Time.deltaTime;
+        stuckTimer -= Time.deltaTime;
+
+
+        if (stuckTimer <= 0) {
+			if (isStuck()) {
+                Vector3 middleOfMap = new Vector3(GameData.Get.world.worldSize / 2, GameData.Get.world.worldSize / 2, 0);
+                Vector3 dirTowardsPlayer = (gameObject.transform.position - middleOfMap).normalized;
+				gameObject.transform.position = gameObject.transform.position - dirTowardsPlayer;
                 CalculatePath();
+            }
+			prevLocation = gameObject.transform.position;
+            stuckTimer = stuckThreshold;
+        }
+		
+        if (distanceTo(_player.transform.position) > proximityRange) {
+            // If no path exists, calculate one
+            if (_resultPath.Length <= 0 || pathRecalculateTimer <= 0) {
+				
+                CalculatePath();
+                pathRecalculateTimer = recalculateTime;
+            }
 
             Move();
 		} else {
@@ -39,6 +67,15 @@ public class EnemyWalk : State
         }
     }
 
+	bool isStuck() {
+        Vector3 enemyPos = gameObject.transform.position;
+        if (Mathf.Abs(prevLocation.x - enemyPos.x) < 1f)
+            return true;
+        else if (Mathf.Abs(prevLocation.y - enemyPos.y) < 1f)
+            return true;
+		else return false;
+    }
+	
     /// <summary>
     /// Prepares the State for exit
     /// </summary>

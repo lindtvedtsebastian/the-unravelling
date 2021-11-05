@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput))]
 public class PlayerBehaviour : MonoBehaviour {
@@ -8,7 +10,11 @@ public class PlayerBehaviour : MonoBehaviour {
     public float speed = 200.0f;
 
     public PlayerInventory playerInventory;
-
+    [SerializeField]
+    public GameObject InGameMenu;
+    [SerializeField]
+    public GameObject HUD;
+    
     // Components
     private Rigidbody2D body;
     public PlayerInput playerInput;
@@ -65,7 +71,12 @@ public class PlayerBehaviour : MonoBehaviour {
 
         body.velocity = move * (Time.deltaTime * speed);
 
-		if (move.x != 0) {
+        // int x =  Mathf.FloorToInt(body.transform.position.x);
+        // int y = Mathf.CeilToInt(body.transform.position.y -0.5f) - 1;
+
+        // Debug.Log(GameData.Get.world.pathfindingMap[256 - y, x]);
+
+        if (move.x != 0) {
 			playerAnimation.SetFloat(VelocityX, move.x);
 			playerAnimation.SetFloat(VelocityY, 0);	
 		} else if (move.y != 0) {
@@ -91,6 +102,18 @@ public class PlayerBehaviour : MonoBehaviour {
         playerInventory.ActivateInventory();
     }
 
+    public void SaveGameAndExitButtonClick() {
+        InGameMenu.SetActive(false);
+        HUD.SetActive(false);
+        GameData.Get.SaveWorld();
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+    
+    public void ResumeButtonClick() {
+        InGameMenu.SetActive(false);
+        playerInput.SwitchCurrentActionMap("Player");
+    }
+
     public void CloseInventory()
     {
         playerInput.SwitchCurrentActionMap("Player");
@@ -101,6 +124,7 @@ public class PlayerBehaviour : MonoBehaviour {
     public void OnCloseInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Deactivate UI");
         CloseInventory();
+        InGameMenu.SetActive(false);
     }
 
     // Called when place action is triggered
@@ -112,11 +136,14 @@ public class PlayerBehaviour : MonoBehaviour {
     // Called when cancel action is triggered
     public void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
+        playerInput.SwitchCurrentActionMap("UI");
+        InGameMenu.SetActive(true);
         playerInventory.CancelInventoryAction();
     }
 
 	private void OnActionDamage(InputAction.CallbackContext ctx) {
-		RaycastHit2D hit = Physics2D.Raycast(GetMousePosition2D(),Vector2.zero);
+		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition2D(),Vector2.zero);
+		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             hit.collider.GetComponent<IClickable>()?.OnDamage(50);
         }
@@ -133,5 +160,4 @@ public class PlayerBehaviour : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
 
-    
 }
