@@ -28,10 +28,10 @@ public class SettingsScreen : MonoBehaviour {
 
         for (var i = 0; i < resolutions.Length; i++) {
             //if (refreshRatesToAvoid.Contains(resolutions[i].refreshRate)) continue;
-            var test = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "hz";
-            chooseOptions.Add(test);
+            var oneResolutionOption = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "hz";
+            chooseOptions.Add(oneResolutionOption);
                 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate) {
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height) {
                 resIndex = i;
             }
         }
