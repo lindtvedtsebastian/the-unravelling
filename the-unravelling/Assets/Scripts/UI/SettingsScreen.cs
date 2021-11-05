@@ -15,28 +15,40 @@ public class SettingsScreen : MonoBehaviour {
 
     public TMP_Dropdown dropdown;
     private Resolution[] resolutions;
-
-    private int[] refreshRatesToAvoid = {50 ,56 ,59, 72, 75, 99, 119};
-    
     // Start is called before the first frame update
     void Start() {
-        resolutions = Screen.resolutions; // this varies greatly, on my system it's about 30. This is given to the operating system by the monitor directly
+        resolutions = Screen.resolutions; // this varies greatly, on my system it's about 24. This is given to the operating system by the monitor directly
         List<string> chooseOptions = new List<string>();
         var resIndex = 0;
-        var highestResolution = resolutions.Length-1;
         
-        Debug.Log(resolutions.Length.ToString());
-        //var highestResolution = resolutions.Last();
-        // var test2 = resolutions[highestResolution].width;
-        // var test3 = resolutions[highestResolution].height;
-        // var test4 = resolutions[highestResolution].refreshRate;
+        var highestResolution = resolutions.Last();
+        var test = resolutions.Length-1;
+        var lastres = resolutions[test];
+        Debug.Log(lastres.width + " " + lastres.height + " " + lastres.refreshRate);
+        
+        
+        var highestRefreshRate = highestResolution.refreshRate;
 
-        for (var i = highestResolution-5; i < resolutions.Length; i++) { // give the top 5 of the list
-            //if (refreshRatesToAvoid.Contains(resolutions[i].refreshRate)) continue;
-            var oneResolutionOption = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "hz";
+        // TODO: Make this one work.
+        /*for (var i = 0; i < resolutions.Length; i++) {
+            if (resolutions[i].refreshRate == highestRefreshRate) {
+                var oneResolutionOption = resolutions[i].width + " x " + resolutions[i].height + " " +
+                                          resolutions[i].refreshRate + "hz";
+                chooseOptions.Add(oneResolutionOption);
+
+                if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height) {
+                    resIndex = i;
+                }
+            }
+        }*/
+        
+        // TODO: Why does this work perfectly expect having to many refresh-rates but the one above builds completely wrong
+        for (var i = 0; i < resolutions.Length; i++) {
+            var oneResolutionOption = resolutions[i].width + " x " + resolutions[i].height + " " +
+                                      resolutions[i].refreshRate + "hz";
             chooseOptions.Add(oneResolutionOption);
-                
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height) {
+
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height) { 
                 resIndex = i;
             }
         }
@@ -50,7 +62,7 @@ public class SettingsScreen : MonoBehaviour {
     }
 
     public void SetResolution(int newResIndex) {
-        Resolution res = resolutions[newResIndex];
+        var res = resolutions[newResIndex];
         Screen.SetResolution(res.width,res.height,Screen.fullScreen);
     }
 }
