@@ -69,10 +69,4 @@ public class TurretAI : StateManager {
             targetList.Remove(other.gameObject);
         }
     }
-
-    private void OnParticleCollision(GameObject other) {
-        if (other.gameObject.CompareTag("Enemy")) {
-            
-        }
-    }
 }
