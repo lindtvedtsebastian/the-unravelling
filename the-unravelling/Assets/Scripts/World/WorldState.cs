@@ -49,7 +49,7 @@ public class WorldState {
         stateOfDay = globalGameTime > startNight ? CycleState.NIGHT : CycleState.DAY;
 
         if (globalGameTime > cycleDuration) {
-            currentGameDay++;
+	        currentGameDay++;
             globalGameTime = 0;
         }
 	}

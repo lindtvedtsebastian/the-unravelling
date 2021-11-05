@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -52,6 +53,18 @@ public class GameData : ScriptableObjectSingleton<GameData> {
             world = (World) bf.Deserialize(loadFile);
         }
         else world = new World();
+    }
+    public List<World> GetAllWorlds() {
+        List<World> returnList = new List<World>();
+        string[] files = Directory.GetFiles(Application.persistentDataPath, "*.world");
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream loadFile;
+        foreach (var file in files) {
+            loadFile = File.Open(file , FileMode.Open);
+            world = (World) bf.Deserialize(loadFile);
+            returnList.Add(world);
+        }
+        return returnList;
     }
     
     /// <summary>

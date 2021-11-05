@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
+    private static AudioManager _instance;
+
     public AudioClip menuAudio; // this track loops throughout the all of the MainMenu scene.
     
     public List<AudioClip> dayMusic = new List<AudioClip>();
@@ -19,8 +21,15 @@ public class AudioManager : MonoBehaviour {
     private CycleState previousState;
 
     private WorldStateManager stateManager;
-
+    
     private void Awake() {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        } else {
+            _instance = this;
+        }
+
         soundtrackSource = gameObject.AddComponent<AudioSource>();
         soundtrackSource.clip = menuAudio;
         soundtrackSource.volume = 0.32f;
