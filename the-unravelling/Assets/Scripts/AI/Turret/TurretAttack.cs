@@ -10,6 +10,8 @@ public class TurretAttack : State {
     private Vector3 _bowPosition;
     private ParticleSystem _particleSystem;
 	private ParticleSystem.MainModule _particleMain;
+    private float attackTimer;
+    private float attackThreshold = 2f;
 
     /// <summary>
     /// The state "constructor"
@@ -22,7 +24,6 @@ public class TurretAttack : State {
         _particleSystem = _stateManager.GetComponent<TurretAI>().particleSystem;
         _particleMain = _particleSystem.main;
         _particleMain.startRotation3D = true;
-        _particleSystem.Play();
     }
     
     /// <summary>
@@ -30,6 +31,12 @@ public class TurretAttack : State {
     /// </summary>
     public override void DoState() {
         TurretAnimation();
+
+        attackTimer += Time.deltaTime;
+		if (attackTimer >= attackThreshold) {
+            attackTimer = 0;
+            _particleSystem.Play();
+		}
     }
 
     public override void LeaveState() {
@@ -43,13 +50,18 @@ public class TurretAttack : State {
             
             Vector3 directionToTarget = targetPosition - _bowPosition;
 
-            float offset = -90f;
-            float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+            float offset = 90f;
+            float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x);
+            float angleInDeg = angle * Mathf.Rad2Deg;
 
 
-            _bowBody.transform.rotation = UnityEngine.Quaternion.Euler(Vector3.forward * (angle + offset));
-            _particleMain.startRotationX = _bowBody.transform.rotation.x;
-            _particleMain.startRotationY = _bowBody.transform.rotation.y;
+            _bowBody.transform.rotation = UnityEngine.Quaternion.Euler(Vector3.forward * (angleInDeg - offset));
+			
+            _particleMain.startRotationX = 0;
+            _particleMain.startRotationY = 0;
+            _particleMain.startRotationZ = (angle - (offset * Mathf.Deg2Rad)) * -1;
+
         }
     }
 }
+ 

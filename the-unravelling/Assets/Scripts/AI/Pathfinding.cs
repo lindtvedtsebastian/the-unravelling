@@ -23,7 +23,7 @@ public struct PathPart {
 /// <summary>
 /// A class for calculating pathfinding in the Unravelling world grid 
 /// </summary>
-public class Pathfinding : MonoBehaviour {
+public class Pathfinding {
 	private const int STRAIGHT_COST = 10;
 	private const int DIAGONAL_COST = 14;
 
@@ -65,7 +65,8 @@ public class Pathfinding : MonoBehaviour {
                 node.isWalkable = true;
 				node.previousIndex = -1;
 
-                node.additionalCost = 0;//GameData.Get.world.pathfindingMap[y, x];
+                // node.additionalCost = 0;
+				node.additionalCost = GameData.Get.world.pathfindingMap[y, x];
 
                 node.gCost = int.MaxValue;
 				node.hCost = CalculateHeuristics(new int2(x, y), endPos);

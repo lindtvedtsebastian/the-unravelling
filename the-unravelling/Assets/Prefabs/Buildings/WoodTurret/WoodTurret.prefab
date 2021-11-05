@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bow: {fileID: 3144376613254357819}
   rotationSpeed: 25
-  particleSystem: {fileID: 4556328742742933797}
+  particleSystem: {fileID: 7141943655852116525}
   targetList: []
 --- !u!58 &-7084669392426145512
 CircleCollider2D:
@@ -206,6 +206,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 6283706474914660032, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
       propertyPath: m_Name
       value: TurretBow
@@ -223,8 +239,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 107314662367059331, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
   m_PrefabInstance: {fileID: 8977684384824843771}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4556328742742933797 stripped
+--- !u!198 &7141943655852116525 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4876396432247364830, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2272738412826318806, guid: 91d809ca57ba7f046b4bea6043271b31, type: 3}
   m_PrefabInstance: {fileID: 8977684384824843771}
   m_PrefabAsset: {fileID: 0}

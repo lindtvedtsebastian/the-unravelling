@@ -2753,6 +2753,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8588021400887174902, guid: a51419a1f9da0c443812517feb10c03f, type: 3}
+      propertyPath: waves.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588021400887174902, guid: a51419a1f9da0c443812517feb10c03f, type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ca399722be5f364a97f3a721d56d86a, type: 2}
+    - target: {fileID: 8588021400887174902, guid: a51419a1f9da0c443812517feb10c03f, type: 3}
+      propertyPath: waves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 54116266d95a58448ba9ce7d3000c36f, type: 2}
+    - target: {fileID: 8588021400887174902, guid: a51419a1f9da0c443812517feb10c03f, type: 3}
+      propertyPath: waves.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: b4286f9f5de707440b246beeb07ddce7, type: 2}
     - target: {fileID: 8588021400887174903, guid: a51419a1f9da0c443812517feb10c03f, type: 3}
       propertyPath: m_Name
       value: WaveManager

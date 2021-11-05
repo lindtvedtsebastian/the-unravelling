@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveEnemies:
   - enemy: {fileID: 7722072069971398038, guid: 232d46edba674f54fbdad59a5fee418d, type: 3}
-    count: 15
-  waveDirection: 2
-  maxConcurrentEnemies: 3
+    count: 50
+  waveDirection: 1
+  maxConcurrentEnemies: 15
   spawnInterval: 3

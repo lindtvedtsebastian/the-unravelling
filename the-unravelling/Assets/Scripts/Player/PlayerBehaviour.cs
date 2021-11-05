@@ -71,7 +71,12 @@ public class PlayerBehaviour : MonoBehaviour {
 
         body.velocity = move * (Time.deltaTime * speed);
 
-		if (move.x != 0) {
+        // int x =  Mathf.FloorToInt(body.transform.position.x);
+        // int y = Mathf.CeilToInt(body.transform.position.y -0.5f) - 1;
+
+        // Debug.Log(GameData.Get.world.pathfindingMap[256 - y, x]);
+
+        if (move.x != 0) {
 			playerAnimation.SetFloat(VelocityX, move.x);
 			playerAnimation.SetFloat(VelocityY, 0);	
 		} else if (move.y != 0) {
@@ -137,7 +142,8 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
 	private void OnActionDamage(InputAction.CallbackContext ctx) {
-		RaycastHit2D hit = Physics2D.Raycast(GetMousePosition2D(),Vector2.zero);
+		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition2D(),Vector2.zero);
+		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             hit.collider.GetComponent<IClickable>()?.OnDamage(50);
         }
@@ -154,5 +160,4 @@ public class PlayerBehaviour : MonoBehaviour {
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
 
-    
 }

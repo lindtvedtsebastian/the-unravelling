@@ -7,13 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 719014699449893377, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 719014699449893377, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.78125
+      objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407520, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: drops.Array.data[0].amount
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407521, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: m_Name
-      value: Dry_tree
+      value: Dry_tree Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407525, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: m_RootOrder
@@ -21,11 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407525, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407525, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407525, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: m_LocalPosition.z
