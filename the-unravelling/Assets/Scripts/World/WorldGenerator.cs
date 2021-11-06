@@ -3,26 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour {
-	public static IWorld generateWorld(int size = 256) {
+	public static IWorld generateWorld(int size = 256, int seed = 123) {
         IWorld world = new IWorld();
         world.size = size;
-        world.terrain = createJagged2dArray(size,size);
+        float[][] terrainNoise = Noise.generateNoiseMap(seed:seed, offset: new Vector2(0,0));
 
+		
+		
         return world;
     }
 
-    /// <summary>
-    /// Creates a NxM jagged int array 
-    /// </summary>
-    /// <param name="width">The width of the array</param>
-    /// <param name="height">The height of the array</param>
-    /// <returns>The new jagged 2d array</returns>
-    public static int[][] createJagged2dArray(int width, int height) {
-        int[][] array = new int[height][];
-        for (int i = 0; i < array.Length; i++) {
-            array[i] = new int[width];
+}
+
+public static class PoissonDisc {
+	public static List<Vector2> sample(float radius,int width, int height, int rejectionRate = 30, int dimensions = 2) {
+        List<Vector2> points = new List<Vector2>();
+
+        float cellSize = Mathf.Floor(radius / Mathf.Sqrt(dimensions));
+
+        // Determine the amount of cells in the grid in total
+        int horizontal_cells = Mathf.CeilToInt(width / cellSize) + 1;
+        int vertical_cells = Mathf.CeilToInt(height / cellSize) + 1;
+
+
+		// Instantiate the grid to -1
+        int[][] grid = new int[height][];
+        for (int y = 0; y < height; y++) {
+            grid[y] = new int[width];
+            for (int x = 0; x < width; x++) {
+                grid[y][x] = -1;
+            }
         }
-        return array;
+
+		
+
+		return points;
     }
 }
 
