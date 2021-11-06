@@ -272,9 +272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: 50
-  seed: 150
+  seed: 179
   scale: 10
-  octaves: 2
+  octaves: 3
   persistance: 0.5
   lacunarity: 2
   startFrequency: 1
