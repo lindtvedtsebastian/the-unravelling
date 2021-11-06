@@ -4,35 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Toggle = UnityEngine.UI.Toggle;
-
-
 public class SettingsScreen : MonoBehaviour {
 
     public GameObject RevertChangesBox;
-
-    public Toggle fullscreen;
     public Toggle vSync;
-
     public TMP_Text timerText;
-
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown displayModeDropdown;
+    
     private Resolution[] resolutions;
-    List<string> displayModeOptions = new List<string> { "Exclusive FullScreen", "FullScreen Window", "Windowed"};
-
+    private Resolution oldResolutionState;
+    private FullScreenMode oldDisplayMode;
     private bool oldFullscreenState;
     private int oldVsyncState;
-    private Resolution oldResolutionState;
     private int oldResIndexOnDropdown;
-    private FullScreenMode oldDisplayMode;
+    List<string> displayModeOptions = new List<string> { "Exclusive FullScreen", "FullScreen Window", "Windowed"};
     
     // Start is called before the first frame update
     void Start() {
-        // Exclusive FullScreen 0 
-        // FullScreenWindow	1
-        // Windowed 3
-
-
         // fill the resolution dropdown with all resolutions.
         resolutions = Screen.resolutions; // this varies greatly, on my system it's about 24. This is given to the operating system by the monitor directly
         var chooseOptions = new List<string>();
@@ -57,6 +46,7 @@ public class SettingsScreen : MonoBehaviour {
     }
     
     public void ApplyGraphicsChanges() {
+        // We store the state of this data as it was in the moment you pressed the apply changes button so we can revert to it.
         oldResolutionState = new Resolution {
             width = Screen.currentResolution.width,
             height = Screen.currentResolution.height,
@@ -76,11 +66,19 @@ public class SettingsScreen : MonoBehaviour {
 
         StartCoroutine(Countdown());
     }
-
+    /// <summary>
+    /// To be able to keep the changes made by the user we run this function to stop the
+    /// co-routine which would revert the changes if kept running until the timer reaches
+    /// 0 in which case it would run the revertChanges() function.
+    /// </summary>
     public void KeepChanges() {
         StopAllCoroutines();
     }
 
+    /// <summary>
+    /// When the timer runs out in the co-routine (counter reaches 0) we set the state of the graphics to the previous state
+    /// before the changes were applied.
+    /// </summary>
     public void RevertChanges() {
         StopAllCoroutines();
         
@@ -90,6 +88,11 @@ public class SettingsScreen : MonoBehaviour {
         resolutionDropdown.value = oldResIndexOnDropdown;
     }
  
+    /// <summary>
+    /// Timer function that is used mainly for displaying a number on the UI but also to trigger as to when we should
+    /// revert to the previous graphics state.
+    /// </summary>
+    /// <returns>coruoutine </returns>
     IEnumerator Countdown () {
         var counter = 10;
         while (counter > 0) {
@@ -101,6 +104,14 @@ public class SettingsScreen : MonoBehaviour {
         RevertChanges();
     }
 
+    /// <summary>
+    /// Utility function to get the correct enum, we need to do this because we
+    /// do not support MaximizedWindow because of it's instability.
+    /// It is the second to last in the list of enum and because of that interferes with the indices in the dropdown menu
+    /// so we go by name instead.
+    /// </summary>
+    /// <param name="name">Name of the selection in the dropdown menu</param>
+    /// <returns>Display mode of the screen to apply</returns>
     private FullScreenMode GetDisplayModeFromInt(string name) {
         return name switch {
             "Exclusive FullScreen" => FullScreenMode.ExclusiveFullScreen,
