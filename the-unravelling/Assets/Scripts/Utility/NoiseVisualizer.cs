@@ -5,14 +5,21 @@ using UnityEngine;
 public class NoiseVisualizer : MonoBehaviour {
 	public int mapSize;
 	public int seed;
+	[Range(1,500)]
 	public float scale;
+	[Range(1,5)]
 	public int octaves;
+	[Range(0,5)]
 	public float persistance;
+	[Range(0,5)]
 	public float lacunarity;
+	[Range(1,10)]
 	public float startFrequency;
 	public Vector2 offset;
 
     public Renderer texRenderer;
+
+    public bool autoUpdate;
 
     public void visualizeNoise() {
 		float[,] noise = MapGenerator.generateNoiseMap(mapSize,seed,scale,octaves,persistance,

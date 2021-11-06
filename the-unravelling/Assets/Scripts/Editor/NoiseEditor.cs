@@ -8,10 +8,15 @@ public class NoiseEditor : Editor {
     public override void OnInspectorGUI() {
         NoiseVisualizer noiseViz = (NoiseVisualizer)target;
 
-        DrawDefaultInspector();
+        if (DrawDefaultInspector()) {
+            if (noiseViz.autoUpdate) {
+                noiseViz.visualizeNoise();
+            }
+        }
 
         if (GUILayout.Button("Generate")) {
             noiseViz.visualizeNoise();
         }
+
     }
 }
