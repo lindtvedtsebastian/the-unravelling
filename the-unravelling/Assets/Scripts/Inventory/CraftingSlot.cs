@@ -9,12 +9,18 @@ public delegate void OnClickCraft(in Craft craftObject);
 /// <summary>
 /// A class representing the crafting object slot in the inventory
 /// </summary>
-public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
+public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
     Craft craft;
 
     public Image craftingImg;
     public Image deactivateImg;
     public Text craftingNum;
+
+    public GameObject craftInfo;
+    public Text craftName;
+    public Image craftIngredient;
+    public Text craftIngredientAmount;
+    public Text craftIngredientName;
 
     private OnClickCraft callback;
 
@@ -79,5 +85,19 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler {
 
             Debug.Log("You can craft : " + craft.craftingRecipe.recipeName + " Now!");
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        craftName.text = craft.craftingRecipe.recipeName;
+        craftIngredient.sprite = craft.craftingRecipe.recipeItems[0].item.preview;
+        craftIngredientAmount.text = craft.craftingRecipe.recipeItems[0].amount.ToString();
+        craftIngredientName.text = craft.craftingRecipe.recipeItems[0].item.itemName;
+        craftInfo.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        craftInfo.SetActive(false);
     }
 }
