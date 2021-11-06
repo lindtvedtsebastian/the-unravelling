@@ -17,8 +17,9 @@ public static class Noise {
     /// <param name="lacunarity">How much detail each octave adds/removes</param>
     /// <param name="offset">An offset of the noise in (x,y)</param>
     /// <returns>A 2D array of size [mapsize,mapsize] with noise values</returns>
-    public static float[,] generateNoiseMap(int mapSize, int seed, float scale, int octaves,
-											float persistance, float lacunarity, float startFrequency, Vector2 offset) {
+    public static float[,] generateNoiseMap(Vector2 offset,int mapSize = 256, int seed = 10,
+											float scale = 1,int octaves = 3,float persistance = 0.5f,
+											float lacunarity = 2f, float startFrequency = 1) {
 
         float[,] noiseMap = new float[mapSize, mapSize];
         System.Random pseudo_rng = new System.Random(seed);
