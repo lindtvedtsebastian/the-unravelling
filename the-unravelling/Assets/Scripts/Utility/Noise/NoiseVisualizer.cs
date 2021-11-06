@@ -22,7 +22,7 @@ public class NoiseVisualizer : MonoBehaviour {
     public bool autoUpdate;
 
     public void visualizeNoise() {
-		float[,] noise = MapGenerator.generateNoiseMap(mapSize,seed,scale,octaves,persistance,
+		float[,] noise = Noise.generateNoiseMap(mapSize,seed,scale,octaves,persistance,
 													   lacunarity,startFrequency,offset);
         Texture2D tex = new Texture2D(mapSize, mapSize);
         Color[] colors = new Color[mapSize * mapSize];
