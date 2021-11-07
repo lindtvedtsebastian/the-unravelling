@@ -1659,7 +1659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &143865366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RevertChangesBox: {fileID: 1989237359}
-  fullscreen: {fileID: 200373188}
   vSync: {fileID: 1205073364}
   timerText: {fileID: 149733104}
   resolutionDropdown: {fileID: 1550670981}

@@ -24,12 +24,12 @@ public class SettingsScreen : MonoBehaviour {
     void Start() {
         // fill the resolution dropdown with all resolutions.
         resolutions = Screen.resolutions; // this varies greatly, on my system it's about 24. This is given to the operating system by the monitor directly
-        var chooseOptions = new List<string>();
+        var chooseOptions = new List<string>(); // dropdowns only understand lists so we have to use this.
         var resIndex = 0;
         
         Array.Reverse(resolutions,0,resolutions.Length); // put what is determined to be the largest at the top of the list.
         
-        for (var i = 0; i < resolutions.Length; i++) {
+        for (var i = 0; i < resolutions.Length; i++) { 
             var oneResolutionOption = resolutions[i].width + " x " + resolutions[i].height + " " + resolutions[i].refreshRate + "hz";
             chooseOptions.Add(oneResolutionOption);
                 
@@ -86,6 +86,7 @@ public class SettingsScreen : MonoBehaviour {
         QualitySettings.vSyncCount = oldVsyncState;
         RevertChangesBox.SetActive(false);
         resolutionDropdown.value = oldResIndexOnDropdown;
+        resolutionDropdown.RefreshShownValue();
     }
  
     /// <summary>
