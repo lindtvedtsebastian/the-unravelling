@@ -10,14 +10,14 @@ public class DisplayRequirements : MonoBehaviour
     [SerializeField]
     private CraftingSlot craftData;
 
-    public void GenerateRecipeData() {
-        for (int i = 0; i < craftData.craft.craftingRecipe.recipeItems.Length; i++)
+    public void GenerateRecipeData(Craft craft) {
+        for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++)
         {
             craftRequirement = Instantiate(craftRequirement, this.transform, true);
-            craftRequirement.ingredientImg.sprite = craftData.craft.craftingRecipe.recipeItems[i].item.preview;
-            craftRequirement.ingredientAmount.text = craftData.craft.craftingRecipe.recipeItems[i].amount.ToString();
+            craftRequirement.ingredientImg.sprite = craft.craftingRecipe.recipeItems[i].item.preview;
+            craftRequirement.ingredientAmount.text = craft.craftingRecipe.recipeItems[i].amount.ToString();
             craftRequirement.separator.text = "X";
-            craftRequirement.ingredientName.text = craftData.craft.craftingRecipe.recipeItems[i].item.itemName;
+            craftRequirement.ingredientName.text = craft.craftingRecipe.recipeItems[i].item.itemName;
         }
     }
 
@@ -26,5 +26,5 @@ public class DisplayRequirements : MonoBehaviour
         craftRequirement.separator.text = null;
         craftRequirement.ingredientImg.sprite = null;
         craftRequirement.ingredientName.text = null;
-}
+    }
 }

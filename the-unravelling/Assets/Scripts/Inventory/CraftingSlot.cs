@@ -11,7 +11,7 @@ public delegate void OnClickCraft(in Craft craftObject);
 /// A class representing the crafting object slot in the inventory
 /// </summary>
 public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
-    public Craft craft;
+    Craft craft;
 
     public Image craftingImg;
     public Image deactivateImg;
@@ -34,7 +34,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public GameObject previewCraft;
 
     void Start() {
-        craftDisplay.GenerateRecipeData();
+        craftDisplay.GenerateRecipeData(craft);
     }
 
     /// <summary>
@@ -67,6 +67,8 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set"); 
+
+        //craftDisplay = GetComponent<DisplayRequirements>();
     }
 
     
@@ -87,6 +89,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         if(craft == null) return;
 
         craftName.text = craft.craftingRecipe.recipeName;
+        //craftDisplay.enabled = true;
         craftInfo.SetActive(true);
     }
 
