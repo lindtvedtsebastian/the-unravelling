@@ -1,4 +1,5 @@
-﻿using Unity.Assertions;
+﻿using System;
+using Unity.Assertions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -76,6 +77,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public void OnPointerClick(PointerEventData eventData) {
         if(craft != null && craft.craftingRecipe.resultingAmount > 0) {
             playerInventory.CreatePreview(craft);
+            craftInfo.SetActive(false);
             Debug.Log("You can craft : " + craft.craftingRecipe.recipeName + " Now!");
         }
     }
@@ -90,8 +92,9 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(craft != null)
+        if(craft != null) {
             craftInfo.SetActive(false);
+        }
     }
 }
 

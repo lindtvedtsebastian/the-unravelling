@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientImg: {fileID: 7530681301563976479}
   ingredientAmount: {fileID: 3460792616605975020}
+  separator: {fileID: 7860083932057730864}
   ingredientName: {fileID: 4666070368212436959}
 --- !u!1 &8032316839558922291
 GameObject:

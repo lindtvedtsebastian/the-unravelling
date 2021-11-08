@@ -156,6 +156,7 @@ public class PlayerInventory : MonoBehaviour {
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory.craft[i].craftingRecipe);
                 
                 craftingSlots[i].AddCraftingItem(playerInventory.craft[i]);
+                //craftingSlots[i].Test();
             }
         }
     }
