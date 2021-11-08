@@ -83,6 +83,10 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         }
     }
 
+    /// <summary>
+    /// Function from the IPointerClickHandler to grab hovering over this object
+    /// </summary>
+    /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(craft == null) return;
@@ -91,6 +95,10 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         craftInfo.SetActive(true);
     }
 
+    /// <summary>
+    /// Function from the IPointerClickHandler to grab exit hovering from an object
+    /// </summary>
+    /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerExit(PointerEventData eventData)
     {
         if(craft != null) {
@@ -98,6 +106,12 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         }
     }
 
+    /// <summary>
+    /// Function to generate the data required for crafting this object. Loops through the length
+    /// of the list of required items. Instantiates a gameobject and inserts the correct data required
+    /// for crafting.
+    /// </summary>
+    /// <param name="Craft">the craft object to be checked</param>
     public void GenerateRecipeData(Craft craft) {
         for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++) {
             GameObject hoverData = Instantiate(craftData, craftDisplay.transform, true);
@@ -108,80 +122,4 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             hoverData.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-
-    /* public class IngredientPanel {
-        [SerializeField]
-        private IngredientData craftRequirement;
-
-        [SerializeField]
-        private CraftingSlot craftData;
-
-        public void GenerateRecipeData(Craft craft) {
-            for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++)
-            {
-                craftRequirement = Instantiate(craftRequirement, this.transform, true);
-                craftRequirement.ingredientImg.sprite = craft.craftingRecipe.recipeItems[i].item.preview;
-                craftRequirement.ingredientAmount.text = craft.craftingRecipe.recipeItems[i].amount.ToString();
-                craftRequirement.separator.text = "X";
-                craftRequirement.ingredientName.text = craft.craftingRecipe.recipeItems[i].item.itemName;
-                craftRequirement.transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-        }
-    }
-
-    public class IngredientData {
-        public Image ingredientImg;
-        public Text ingredientAmount;
-        public Text separator;
-        public Text ingredientName;
-    } */
 }
-
-// might need craft == null on condition if slot is empty
-/* if (craft.craftingRecipe.resultingAmount < 1)
-{
-    Debug.Log("Can't craft : " + craft.craftingRecipe.recipeName + " yet!");
-} else if (craft == null)
-{
-    Debug.Log("Nothing in this slot");
-}
-else
-{
-    playerInventory.CreatePreview(craft);
-
-    Debug.Log("You can craft : " + craft.craftingRecipe.recipeName + " Now!");
-} */
-
-//GameObject craftData = Instantiate(craftRequirement, ingredientPanel.transform, true);
-//craftData.GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].amount.ToString();
-//craftData.GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].item.itemName;
-
-//Debug.Log("Name : " + craft.craftingRecipe.recipeItems[i].item.itemName);
-//Debug.Log("Amount : " + craft.craftingRecipe.recipeItems[i].amount);
-
-/* craftIngredient.sprite = craft.craftingRecipe.recipeItems[0].item.preview;
-craftIngredientAmount.text = craft.craftingRecipe.recipeItems[0].amount.ToString();
-craftIngredientName.text = craft.craftingRecipe.recipeItems[0].item.itemName; */
-
-/* for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++)
-{
-    DisplayData craftData = Instantiate(craftRequirement, ingredientPanel.transform, true);
-    craftData.ingredientImg.sprite = craft.craftingRecipe.recipeItems[i].item.preview;
-    craftData.ingredientAmount.text = craft.craftingRecipe.recipeItems[i].amount.ToString();
-    craftData.ingredientName.text = craft.craftingRecipe.recipeItems[i].item.itemName;
-} */
-//craftInfo.AddComponent<DisplayData>();
-//craftInfo.AddComponent(craftRequirement);
-
-/* public Image craftIngredient;
-public Text craftIngredientAmount;
-public Text craftIngredientName; */
-
-//public DisplayData craftRequirement;
-
-//public Transform ingredientPanel;
-
-//Destroy(craftDisplay);
-//craftDisplay.ClearRecipeData();
-
-//craftDisplay = Instantiate(craftDisplay);
