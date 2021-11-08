@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 1897988560033832163}
   - component: {fileID: 5578682856532137916}
   - component: {fileID: 5867326725979705930}
-  - component: {fileID: 706322376646828447}
   m_Layer: 5
   m_Name: IngredientPanel
   m_TagString: Untagged
@@ -180,20 +179,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &706322376646828447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5802682790352666293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d079cf764b5fcf4bb27634e4496e391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftRequirement: {fileID: 1944498028871372834, guid: 7d7c8e43ed314234885d824b1463c15e, type: 3}
-  craftData: {fileID: 8405124554950759596}
 --- !u!1 &6008089270712126038
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,17 +492,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841684bd35cd4211ae26d198992cac54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craft:
-    craftingRecipe: {fileID: 0}
-    amount: 0
   craftingImg: {fileID: 7389581067552524251}
   deactivateImg: {fileID: 6957876667166534839}
   craftingNum: {fileID: 871689877213783650}
   craftInfo: {fileID: 6008089270712126038}
   craftName: {fileID: 621356264484967137}
-  ingredientPanel: {fileID: 7433121887566226589}
-  craftDisplay: {fileID: 706322376646828447}
-  craftRequirement: {fileID: 1944498028871372834, guid: 7d7c8e43ed314234885d824b1463c15e, type: 3}
+  craftDisplay: {fileID: 7433121887566226589}
+  craftData: {fileID: 7654119458121527964, guid: 7d7c8e43ed314234885d824b1463c15e, type: 3}
   playerInventory: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
   previewCraft: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
 --- !u!1 &7389581067552524253

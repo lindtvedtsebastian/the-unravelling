@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayRequirements : MonoBehaviour
+/* public class DisplayRequirements : MonoBehaviour
 {
     [SerializeField]
     private DisplayData craftRequirement;
@@ -18,13 +18,7 @@ public class DisplayRequirements : MonoBehaviour
             craftRequirement.ingredientAmount.text = craft.craftingRecipe.recipeItems[i].amount.ToString();
             craftRequirement.separator.text = "X";
             craftRequirement.ingredientName.text = craft.craftingRecipe.recipeItems[i].item.itemName;
+            craftRequirement.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-
-    public void ClearData() {
-        craftRequirement.ingredientAmount.text = null;
-        craftRequirement.separator.text = null;
-        craftRequirement.ingredientImg.sprite = null;
-        craftRequirement.ingredientName.text = null;
-    }
-}
+} */

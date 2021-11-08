@@ -46,6 +46,7 @@ public class PlayerInventory : MonoBehaviour {
         Assert.IsNotNull(currentCamera, "No main camera set");
 
         updateItems();
+        addCrafting();
     }
     
     private void Update()

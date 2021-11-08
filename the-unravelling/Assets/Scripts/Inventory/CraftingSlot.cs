@@ -16,12 +16,10 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public Image craftingImg;
     public Image deactivateImg;
     public Text craftingNum;
-
     public GameObject craftInfo;
     public Text craftName;
-
-    public DisplayRequirements craftDisplay;
-
+    public Transform craftDisplay;
+    public GameObject craftData;
     private OnClickCraft callback;
 
     public PlayerInventory playerInventory;
@@ -33,9 +31,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 
     public GameObject previewCraft;
 
-    void Start() {
-        craftDisplay.GenerateRecipeData(craft);
-    }
+    private bool hasRecipeDataBeenGenerated = false;
 
     /// <summary>
     /// Function to add a craft object to the inventory
@@ -68,7 +64,10 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set"); 
 
-        //craftDisplay = GetComponent<DisplayRequirements>();
+        if(!hasRecipeDataBeenGenerated) {
+            GenerateRecipeData(craft);
+            hasRecipeDataBeenGenerated = true;
+        }
     }
 
     
@@ -89,7 +88,6 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         if(craft == null) return;
 
         craftName.text = craft.craftingRecipe.recipeName;
-        //craftDisplay.enabled = true;
         craftInfo.SetActive(true);
     }
 
@@ -99,6 +97,44 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             craftInfo.SetActive(false);
         }
     }
+
+    public void GenerateRecipeData(Craft craft) {
+        for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++) {
+            GameObject hoverData = Instantiate(craftData, craftDisplay.transform, true);
+            hoverData.transform.GetChild(0).GetComponent<Image>().sprite = craft.craftingRecipe.recipeItems[i].item.preview;
+            hoverData.transform.GetChild(1).GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].amount.ToString();
+            hoverData.transform.GetChild(2).GetComponent<Text>().text = "X";
+            hoverData.transform.GetChild(3).GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].item.itemName;
+            hoverData.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+    }
+
+    /* public class IngredientPanel {
+        [SerializeField]
+        private IngredientData craftRequirement;
+
+        [SerializeField]
+        private CraftingSlot craftData;
+
+        public void GenerateRecipeData(Craft craft) {
+            for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++)
+            {
+                craftRequirement = Instantiate(craftRequirement, this.transform, true);
+                craftRequirement.ingredientImg.sprite = craft.craftingRecipe.recipeItems[i].item.preview;
+                craftRequirement.ingredientAmount.text = craft.craftingRecipe.recipeItems[i].amount.ToString();
+                craftRequirement.separator.text = "X";
+                craftRequirement.ingredientName.text = craft.craftingRecipe.recipeItems[i].item.itemName;
+                craftRequirement.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+        }
+    }
+
+    public class IngredientData {
+        public Image ingredientImg;
+        public Text ingredientAmount;
+        public Text separator;
+        public Text ingredientName;
+    } */
 }
 
 // might need craft == null on condition if slot is empty
