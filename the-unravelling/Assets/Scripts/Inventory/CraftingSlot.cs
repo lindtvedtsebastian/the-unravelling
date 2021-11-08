@@ -12,7 +12,6 @@ public delegate void OnClickCraft(in Craft craftObject);
 /// </summary>
 public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
     Craft craft;
-
     public Image craftingImg;
     public Image deactivateImg;
     public Text craftingNum;
