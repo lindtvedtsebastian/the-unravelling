@@ -12,6 +12,7 @@ TagManager:
   - Tree
   - NightEffect
   - Particle
+  - WorldCore
   layers:
   - Default
   - TransparentFX
