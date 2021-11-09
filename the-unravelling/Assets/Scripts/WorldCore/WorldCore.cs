@@ -6,26 +6,25 @@ using UnityEngine;
 /// <summary>
 ///  World core class
 /// </summary>
-public class WorldCore : BaseUnit {
+public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
     
     [SerializeField]public bool isLastDay = false;
     
-    public Collider2D collider;
     public Animator anim;
     
   
     void Awake() {
         // Set start-health to 100
         maxHealth = 100;
-
-        //Get collider
-        collider = GetComponent<Collider2D>();
         
         //Get animations
         anim = GetComponent<Animator>();
     }
 
 
+    /// <summary>
+    /// Run every frame
+    /// </summary>
     private void Update() {
         onLastDay();
     }
@@ -37,13 +36,16 @@ public class WorldCore : BaseUnit {
         anim.SetBool("isGameFinished", isLastDay);
     }
 
+    /// <summary>
+    ///  If portal has spawned and the player touches the portal
+    ///  the game is won. 
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Player") && isLastDay) {
+            //end game 
+        }
+    }
     
     
-    
-
-
-
-
-
-
 }
