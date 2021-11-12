@@ -32,8 +32,8 @@ public class PlayerInventory : MonoBehaviour {
 
     private OnClickInventory callback;
 
-    private Item passItem;
-    TMPro.TextMeshProUGUI previewAmount;
+    private Item previewItem;
+    private TMPro.TextMeshProUGUI previewAmount;
 
     void Start() {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
@@ -69,7 +69,7 @@ public class PlayerInventory : MonoBehaviour {
 
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
-        passItem = item;
+        previewItem = item;
         previewAmount.text = item.amount.ToString();  
 
         player.CloseInventory();
@@ -93,10 +93,10 @@ public class PlayerInventory : MonoBehaviour {
         ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
-        passItem.amount -= 1;
-        previewAmount.text = passItem.amount.ToString();
+        previewItem.amount -= 1;
+        previewAmount.text = previewItem.amount.ToString();
 
-        if(passItem.amount < 1) {
+        if(previewItem.amount < 1) {
             previewCraft.SetActive(false);
         }
         //Debug.Log("Placed object amount is : " + passItem.amount);
@@ -161,10 +161,8 @@ public class PlayerInventory : MonoBehaviour {
     /// Function to cancel an inventory action
     /// </summary>
     public void CancelInventoryAction() {
-        foreach (var slot in craftingSlots) {
-            if (slot.previewCraft.activeSelf) {
-                slot.previewCraft.SetActive(false);
-            }
+        if (previewCraft.activeSelf) {
+            previewCraft.SetActive(false);
         }
     }
 

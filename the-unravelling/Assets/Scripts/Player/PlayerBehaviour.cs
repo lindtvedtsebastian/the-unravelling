@@ -140,9 +140,12 @@ public class PlayerBehaviour : MonoBehaviour {
     // Called when cancel action is triggered
     public void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
-        playerInput.SwitchCurrentActionMap("UI");
-        InGameMenu.SetActive(true);
-        playerInventory.CancelInventoryAction();
+        if (playerInventory.previewCraft.activeSelf) {
+            playerInput.SwitchCurrentActionMap("Player");
+            playerInventory.CancelInventoryAction();
+        } else {
+            InGameMenu.SetActive(true);
+        }
     }
 
 	private void OnActionDamage(InputAction.CallbackContext ctx) {
