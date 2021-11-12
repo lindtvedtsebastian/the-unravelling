@@ -20,9 +20,8 @@ public class PlayerBehaviour : MonoBehaviour {
     public PlayerInput playerInput;
     private InputAction moveAction;
     private Animator playerAnimation;
-    
-    public AudioSource walkingLSound;
-    public AudioSource walkingRSound;
+
+    public AudioSource walkingSound;
 
     // Global objects
     private Mouse mouse;
@@ -40,11 +39,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
         playerAnimation = GetComponent<Animator>();
         
-        walkingLSound = GetComponent<AudioSource>();
-        walkingLSound.volume = 0.2f;
-        walkingRSound = GetComponent<AudioSource>();
-        walkingRSound.volume = 0.2f;
-        
+        walkingSound = GetComponent<AudioSource>();
+
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
 
@@ -88,12 +84,8 @@ public class PlayerBehaviour : MonoBehaviour {
 		}
 	}
     
-    private void PlayRightWalkingSound() {
-        walkingRSound.Play();
-    }
-
-    private void PlayLeftWalkingSound() {
-        walkingLSound.Play();
+    private void PlayWalkingSound() {
+        walkingSound.Play();
     }
 
     public void OnOpenInventory(InputAction.CallbackContext ctx) {
