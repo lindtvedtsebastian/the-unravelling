@@ -46,6 +46,7 @@ public class PlayerInventory : MonoBehaviour {
         Assert.IsNotNull(currentCamera, "No main camera set");
 
         updateItems();
+        addCrafting();
     }
     
     private void Update()
@@ -156,6 +157,7 @@ public class PlayerInventory : MonoBehaviour {
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory.craft[i].craftingRecipe);
                 
                 craftingSlots[i].AddCraftingItem(playerInventory.craft[i]);
+                //craftingSlots[i].craftDisplay.GenerateRecipeData(playerInventory.craft[i]);
             }
         }
     }
