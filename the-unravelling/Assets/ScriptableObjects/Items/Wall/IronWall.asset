@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: IronWall
   m_EditorClassIdentifier: 
   id: 0
-  itemName: 
+  itemName: Iron Wall
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: 281c01ea03dc54f4f87f8e0c772f645b, type: 3}
-  manifestation: {fileID: 0}
+  manifestation: {fileID: 7816334095941370973, guid: 0c00cf494f9fdf9408a424533ebf206b, type: 3}

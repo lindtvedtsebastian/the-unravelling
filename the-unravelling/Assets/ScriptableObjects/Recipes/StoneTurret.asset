@@ -16,7 +16,8 @@ MonoBehaviour:
   recipeName: Stone Turret
   craftPreview: {fileID: 21300000, guid: a0f87909b236cc1449d872a6c6440f7f, type: 3}
   manifestation: {fileID: 2719902124195903657, guid: 38adae01de86abb42b45c67d2458f20b, type: 3}
-  resultingAmount: 1
+  itemRepresentation: {fileID: 11400000, guid: 04e2176e5e17d8f4ba96834a35f29a3f, type: 2}
+  resultingAmount: -1
   recipeItems:
   - item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
     amount: 2
