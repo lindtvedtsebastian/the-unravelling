@@ -56,14 +56,16 @@ public class PlayerInventory : MonoBehaviour {
     /// Function to create a preview from a craft object
     /// </summary>
     /// <param name="craft">A craft object to create a preview from</param>
-    public void CreatePreview(in Craft craft) {
+    public void CreatePreview(in Item item) {
         previewCraft = Instantiate(previewCraft);
         previewCraft.SetActive(true);
         
         var sprite = previewCraft.GetComponent<SpriteRenderer>();
-        sprite.sprite = craft.craftingRecipe.craftPreview;
+        sprite.sprite = item.item.preview;
 
-        previewCraft.GetComponent<PreviewData>().toBePlaced = craft;
+        previewCraft.GetComponent<PreviewData>().toBePlaced = item;
+
+        item.amount -= 1;
         
         player.CloseInventory();
     }
@@ -85,10 +87,10 @@ public class PlayerInventory : MonoBehaviour {
 
         if (!previewCraft.activeSelf) return;
 
-        CraftingRecipe recipe = previewCraft.GetComponent<PreviewData>().toBePlaced.craftingRecipe;
+        ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
 		
-        Instantiate(recipe.manifestation, previewCraft.transform.position, Quaternion.identity);
-        playerInventory.SubstractRecipeFromInventory(recipe);
+        Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
+        //playerInventory.SubstractRecipeFromInventory(recipe);
 		
         previewCraft.SetActive(false);
     }
@@ -125,8 +127,8 @@ public class PlayerInventory : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
-        Debug.Log("From Player Inventory");
-        InventoryContent();
+        //Debug.Log("From Player Inventory");
+        //InventoryContent();
         inventoryCanvas.SetActive(true);
     }
 

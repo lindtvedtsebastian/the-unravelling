@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImg: {fileID: 741493086808002588}
   itemNum: {fileID: 4754981450499655625}
+  playerInventory: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
 --- !u!1 &8186497738759761881
 GameObject:
   m_ObjectHideFlags: 0
