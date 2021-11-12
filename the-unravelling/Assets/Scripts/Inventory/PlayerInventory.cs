@@ -33,7 +33,12 @@ public class PlayerInventory : MonoBehaviour {
     public GameObject previewCraft;
 
     private OnClickInventory callback;
-    
+
+    public bool isItemEmpty;
+
+    private Item passItem;
+    //private int itemAmount;
+
     void Start() {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
 		craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
@@ -43,6 +48,8 @@ public class PlayerInventory : MonoBehaviour {
 
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");
+
+        previewCraft = Instantiate(previewCraft);
 
         AddItems();
         AddCrafting();
@@ -57,7 +64,6 @@ public class PlayerInventory : MonoBehaviour {
     /// </summary>
     /// <param name="craft">A craft object to create a preview from</param>
     public void CreatePreview(in Item item) {
-        previewCraft = Instantiate(previewCraft);
         previewCraft.SetActive(true);
         
         var sprite = previewCraft.GetComponent<SpriteRenderer>();
@@ -65,8 +71,8 @@ public class PlayerInventory : MonoBehaviour {
 
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
-        item.amount -= 1;
-        
+        passItem = item;  
+
         player.CloseInventory();
     }
 
@@ -83,16 +89,18 @@ public class PlayerInventory : MonoBehaviour {
     /// Function to place a craft object
     /// </summary>
     public void PlaceObject() {
-        //Debug.Log("Placing object");
-
         if (!previewCraft.activeSelf) return;
 
         ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
 		
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
-        //playerInventory.SubstractRecipeFromInventory(recipe);
-		
-        previewCraft.SetActive(false);
+
+        passItem.amount -= 1;
+
+        if(passItem.amount < 1) {
+            previewCraft.SetActive(false);
+        }
+        Debug.Log("Placed object amount is : " + passItem.amount);
     }
 
     /// <summary>
