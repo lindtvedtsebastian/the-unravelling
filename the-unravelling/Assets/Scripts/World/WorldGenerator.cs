@@ -16,9 +16,10 @@ public class WorldGenerator : MonoBehaviour {
 }
 
 public static class PoissonDisc {
-	public static List<Vector2> sample(float radius,int width, int height, int rejectionRate = 30, int dimensions = 2) {
+    public static List<Vector2> sample(float radius,int width, int height, int rejectionRate = 30, int dimensions = 2) {
         List<Vector2> points = new List<Vector2>();
 
+		// The cell size guarantees that there is only one point in a given cell.
         float cellSize = Mathf.Floor(radius / Mathf.Sqrt(dimensions));
 
         // Determine the amount of cells in the grid in total
@@ -27,10 +28,10 @@ public static class PoissonDisc {
 
 
 		// Instantiate the grid to -1
-        int[][] grid = new int[height][];
-        for (int y = 0; y < height; y++) {
-            grid[y] = new int[width];
-            for (int x = 0; x < width; x++) {
+        int[][] grid = new int[vertical_cells][];
+        for (int y = 0; y < vertical_cells; y++) {
+            grid[y] = new int[horizontal_cells];
+            for (int x = 0; x < horizontal_cells; x++) {
                 grid[y][x] = -1;
             }
         }
@@ -38,6 +39,12 @@ public static class PoissonDisc {
 		
 
 		return points;
+    }
+
+	private static void insertPoint(int[][] grid, Vector2 point, int index, float cellsize) {
+        int xIndex = Mathf.FloorToInt(point.x / cellsize);
+        int yIndex = Mathf.FloorToInt(point.y / cellsize);
+        grid[xIndex][yIndex] = index;
     }
 }
 
