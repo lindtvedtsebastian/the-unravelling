@@ -13,6 +13,7 @@ public class CraftingRecipe : ScriptableObject {
     public string recipeName;
     public Sprite craftPreview;
     public GameObject manifestation;
+    public ItemData itemRepresentation;
     public int resultingAmount;
     public RecipeData[] recipeItems; 
 }

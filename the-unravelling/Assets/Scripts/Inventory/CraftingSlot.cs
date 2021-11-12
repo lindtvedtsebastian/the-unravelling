@@ -22,6 +22,9 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     private OnClickCraft callback;
 
     public PlayerInventory playerInventory;
+
+    public Inventory inventory;
+    public GameObject player;
     
     private Mouse mouse;
     private Camera currentCamera;
@@ -60,22 +63,39 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set"); 
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        inventory = player.GetComponent<Inventory>();
+
         if(!hasRecipeDataBeenGenerated) {
             GenerateRecipeData(craft);
             hasRecipeDataBeenGenerated = true;
         }
     }
-
     
     /// <summary>
-    /// Function from the IPointerClickHandler to grab a pointer click
+    /// Function from the IPointerClickHandler to add a craft object to the inventory side
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerClick(PointerEventData eventData) {
         if(craft != null && craft.craftingRecipe.resultingAmount > 0) {
-            playerInventory.CreatePreview(craft);
+            //playerInventory.CreatePreview(craft);
             craftInfo.SetActive(false);
-            //Debug.Log("You can craft : " + craft.craftingRecipe.recipeName + " Now!");
+
+            // Create a new item object
+            Item item = new Item();
+            // Copy the value in from the item representation of the craft object
+            item.item = craft.craftingRecipe.itemRepresentation;
+            item.amount = craft.craftingRecipe.itemRepresentation.itemAmount;
+
+            // Add it to the player inventory
+            playerInventory.playerInventory.Add(item);
+
+            // Subtract the item cost of the crafting the object
+            playerInventory.playerInventory.SubstractRecipeFromInventory(craft.craftingRecipe);
+
+            // Refresh the inventory by closing and opening
+            playerInventory.player.CloseInventory();
+            playerInventory.player.OpenInventory();
         }
     }
 

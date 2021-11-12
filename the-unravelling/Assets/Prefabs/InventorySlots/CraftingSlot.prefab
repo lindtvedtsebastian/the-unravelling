@@ -500,6 +500,7 @@ MonoBehaviour:
   craftDisplay: {fileID: 7433121887566226589}
   craftData: {fileID: 7654119458121527964, guid: 7d7c8e43ed314234885d824b1463c15e, type: 3}
   playerInventory: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
+  inventory: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
   previewCraft: {fileID: 9106066065057617313, guid: d6fd183692c010b478d219814f6f2386, type: 3}
 --- !u!1 &7389581067552524253
 GameObject:

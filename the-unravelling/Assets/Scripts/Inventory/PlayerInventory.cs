@@ -14,10 +14,10 @@ public class PlayerInventory : MonoBehaviour {
     private GameObject inventoryCanvas;
 
     [SerializeField]
-    private Inventory playerInventory;
+    public Inventory playerInventory;
     
     [SerializeField] 
-    private PlayerBehaviour player;
+    public PlayerBehaviour player;
 
     public Transform itemPanel;
     public Transform craftingPanel;
@@ -81,7 +81,7 @@ public class PlayerInventory : MonoBehaviour {
     /// Function to place a craft object
     /// </summary>
     public void PlaceObject() {
-        Debug.Log("Placing object");
+        //Debug.Log("Placing object");
 
         if (!previewCraft.activeSelf) return;
 
@@ -125,7 +125,16 @@ public class PlayerInventory : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
+        Debug.Log("From Player Inventory");
+        InventoryContent();
         inventoryCanvas.SetActive(true);
+    }
+
+    public void InventoryContent() {
+        for (int i = 0; i < playerInventory.items.Count; i++) {
+            if(playerInventory.items[i] == null) return;
+            Debug.Log("Item count : " + i + " is -> " + playerInventory.items[i].item.itemName + " count -> " + playerInventory.items[i].amount);
+        }
     }
 
     /// <summary>
@@ -163,7 +172,7 @@ public class PlayerInventory : MonoBehaviour {
     /// <summary>
     /// Function to update the items in the inventory
     /// </summary>
-    private void AddItems() {
+    public void AddItems() {
         playerInventory.removeEmpty();
 
         for (int i = 0; i < itemSlots.Length; i++) {

@@ -98,6 +98,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public void OnOpenInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Activate UI");
+        OpenInventory();
+    }
+
+    public void OpenInventory() {
         playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
     }
