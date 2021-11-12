@@ -28,16 +28,12 @@ public class PlayerInventory : MonoBehaviour {
     private Mouse mouse;
     private Camera currentCamera;
 
-    //private Sprite preview;
-
     public GameObject previewCraft;
 
     private OnClickInventory callback;
 
-    public bool isItemEmpty;
-
     private Item passItem;
-    //private int itemAmount;
+    TMPro.TextMeshProUGUI previewAmount;
 
     void Start() {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
@@ -50,6 +46,8 @@ public class PlayerInventory : MonoBehaviour {
         Assert.IsNotNull(currentCamera, "No main camera set");
 
         previewCraft = Instantiate(previewCraft);
+
+        previewAmount = previewCraft.transform.GetChild(0).transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
 
         AddItems();
         AddCrafting();
@@ -71,7 +69,8 @@ public class PlayerInventory : MonoBehaviour {
 
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
-        passItem = item;  
+        passItem = item;
+        previewAmount.text = item.amount.ToString();  
 
         player.CloseInventory();
     }
@@ -92,15 +91,15 @@ public class PlayerInventory : MonoBehaviour {
         if (!previewCraft.activeSelf) return;
 
         ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
-		
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         passItem.amount -= 1;
+        previewAmount.text = passItem.amount.ToString();
 
         if(passItem.amount < 1) {
             previewCraft.SetActive(false);
         }
-        Debug.Log("Placed object amount is : " + passItem.amount);
+        //Debug.Log("Placed object amount is : " + passItem.amount);
     }
 
     /// <summary>
@@ -140,10 +139,14 @@ public class PlayerInventory : MonoBehaviour {
         inventoryCanvas.SetActive(true);
     }
 
+    /// <summary>
+    /// Development function to check the inventory content
+    /// </summary>
     public void InventoryContent() {
         for (int i = 0; i < playerInventory.items.Count; i++) {
             if(playerInventory.items[i] == null) return;
-            Debug.Log("Item count : " + i + " is -> " + playerInventory.items[i].item.itemName + " count -> " + playerInventory.items[i].amount);
+            Debug.Log("Item count : " + i + " is -> " + playerInventory.items[i].item.itemName + 
+                                            " count -> " + playerInventory.items[i].amount);
         }
     }
 

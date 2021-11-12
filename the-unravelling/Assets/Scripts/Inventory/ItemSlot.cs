@@ -39,8 +39,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
 		if(item != null) {
-			Debug.Log("Clicked on item : " + item.item.itemName + " with amount : " + item.amount);
-			playerInventory.isItemEmpty = false;
+			//Debug.Log("Clicked on item : " + item.item.itemName + " with amount : " + item.amount);
 			playerInventory.CreatePreview(item);
 		} 	
     }
