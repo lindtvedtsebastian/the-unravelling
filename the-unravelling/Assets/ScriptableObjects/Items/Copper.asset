@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Copper
   m_EditorClassIdentifier: 
   id: 0
-  itemName: 
+  itemName: Copper
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: 6169a54d173ae3044a90982875f856f4, type: 3}
