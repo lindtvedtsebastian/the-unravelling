@@ -22,9 +22,6 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     private OnClickCraft callback;
 
     public PlayerInventory playerInventory;
-
-    public Inventory inventory;
-    public GameObject player;
     
     private Mouse mouse;
     private Camera currentCamera;
@@ -62,9 +59,6 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set"); 
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        inventory = player.GetComponent<Inventory>();
 
         if(!hasRecipeDataBeenGenerated) {
             GenerateRecipeData(craft);

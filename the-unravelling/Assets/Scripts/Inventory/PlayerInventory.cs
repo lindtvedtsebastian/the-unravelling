@@ -69,7 +69,7 @@ public class PlayerInventory : MonoBehaviour {
     }
 
     /// <summary>
-    /// Function to cancel all the hovering of the crafting
+    /// Function to cancel all the hovering of crafting objects in inventory
     /// </summary>
     public void CancelCraftingHover() {
         for (int i = 0; i < craftingSlots.Length; i++) {
