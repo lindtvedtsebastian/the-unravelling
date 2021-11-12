@@ -22,13 +22,13 @@ public class NoiseVisualizer : MonoBehaviour {
     public bool autoUpdate;
 
     public void visualizeNoise() {
-		float[,] noise = Noise.generateNoiseMap(mapSize,seed,scale,octaves,persistance,
-													   lacunarity,startFrequency,offset);
+		float[][] noise = Noise.generateNoiseMap(offset,mapSize,seed,scale,octaves,persistance,
+													   lacunarity,startFrequency);
         Texture2D tex = new Texture2D(mapSize, mapSize);
         Color[] colors = new Color[mapSize * mapSize];
         for (int y = 0; y < mapSize; y++) {
             for (int x = 0; x < mapSize; x++){
-                colors[y * mapSize + x] = Color.Lerp(Color.black, Color.white, noise[x, y]);
+                colors[y * mapSize + x] = Color.Lerp(Color.black, Color.white, noise[x][y]);
             }
         }
         tex.SetPixels(colors);
@@ -36,5 +36,7 @@ public class NoiseVisualizer : MonoBehaviour {
 
         texRenderer.sharedMaterial.mainTexture = tex;
         texRenderer.transform.localScale = new Vector3(mapSize, 1, mapSize);
+
+        List<Vector2> samples = PoissonDisc.sample(10f, 256, 256, 30, 2);
     }
 }
