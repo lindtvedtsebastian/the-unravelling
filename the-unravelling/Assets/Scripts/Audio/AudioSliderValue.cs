@@ -20,27 +20,29 @@ public class AudioSliderValue : MonoBehaviour {
     [SerializeField]
     Toggle masterVolumeToggle;
 
+    private bool disableToggleEvent;
+
     private void Awake() {
         slider.onValueChanged.AddListener(SliderAudioChanged);
         masterVolumeToggle.onValueChanged.AddListener(SliderToggleChanged);
     }
 
     private void SliderToggleChanged(bool mute) {
-        if (!mute) {
-            slider.value = slider.maxValue;
-        } else {
-            slider.value = slider.minValue;
-        }
+        if (disableToggleEvent) 
+            return;
+        slider.value = mute ? 0.5f : 0.0001f;
+    }
+    
+    private void SliderAudioChanged(float val) {
+        mixer.SetFloat(volumeParameter, Mathf.Log10(val) * sizer);
+        disableToggleEvent = true;
+        masterVolumeToggle.isOn = slider.value > 0.0001f;
+        disableToggleEvent = false;
     }
 
     private void OnDisable() {
         PlayerPrefs.SetFloat(volumeParameter, slider.value);
     }
-
-    private void SliderAudioChanged(float val) {
-        mixer.SetFloat(volumeParameter, Mathf.Log10(val) * sizer);
-    }
-
     // Start is called before the first frame update
     void Start() {
         slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
