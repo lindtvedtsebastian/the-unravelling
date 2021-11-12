@@ -7124,7 +7124,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 680178579}
+        m_TargetAssemblyTypeName: AudioSliderValue, Assembly-CSharp
+        m_MethodName: UpdateText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &680178579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7137,10 +7149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec6fcc559f5ec0438b0df4185458005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderValue: {fileID: 1187865841}
   volumeParameter: MusicVolume
   mixer: {fileID: 24100000, guid: 0f846d261ee81e249894978809c3fd75, type: 2}
   slider: {fileID: 680178578}
-  sizer: 25
+  sizer: 30
   masterVolumeToggle: {fileID: 891624285}
 --- !u!1 &685072244
 GameObject:
@@ -18884,10 +18897,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec6fcc559f5ec0438b0df4185458005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderValue: {fileID: 1147479847}
   volumeParameter: MasterVolume
   mixer: {fileID: 24100000, guid: 0f846d261ee81e249894978809c3fd75, type: 2}
   slider: {fileID: 1920016255}
-  sizer: 25
+  sizer: 30
   masterVolumeToggle: {fileID: 439696503}
 --- !u!1 &1924860453
 GameObject:
