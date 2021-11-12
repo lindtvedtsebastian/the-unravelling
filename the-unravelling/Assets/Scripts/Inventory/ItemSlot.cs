@@ -22,6 +22,9 @@ public class ItemSlot : MonoBehaviour {
 		itemNum.text = item.amount.ToString();
 	}
 	
+	/// <summary>
+	/// Function to clear the item data in the inventory
+	/// </summary>
 	public void ClearData() {
 		item = null;
 		
