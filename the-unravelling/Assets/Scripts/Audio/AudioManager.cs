@@ -2,19 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
     private static AudioManager _instance;
 
     public AudioClip menuAudio; // this track loops throughout the all of the MainMenu scene.
-    
+    public AudioMixerGroup MusicSoundGroup;
     public List<AudioClip> dayMusic = new List<AudioClip>();
     public List<AudioClip> nightMusic = new List<AudioClip>();
+   
     private const int sizeOfDaySoundtrack = 7;
     private const int sizeOfNightSoundtrack = 2;
     private AudioSource soundtrackSource;
-
+    
     private int currentDaySongIndex;
     private int currentNightSongIndex;
 
@@ -29,10 +31,11 @@ public class AudioManager : MonoBehaviour {
         } else {
             _instance = this;
         }
-
+        
         soundtrackSource = gameObject.AddComponent<AudioSource>();
+        soundtrackSource.outputAudioMixerGroup = MusicSoundGroup;
         soundtrackSource.clip = menuAudio;
-        soundtrackSource.volume = 0.32f;
+        //soundtrackSource.volume = 0.32f;
         soundtrackSource.loop = true;
         soundtrackSource.Play();
         SceneManager.sceneLoaded += OnSceneLoaded;
