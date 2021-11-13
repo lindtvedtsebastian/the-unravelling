@@ -7995,11 +7995,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 741493086808002589, guid: a88beff1b81da2241bb80fdb2356167c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 64
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 741493086808002589, guid: a88beff1b81da2241bb80fdb2356167c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 741493088077077081, guid: a88beff1b81da2241bb80fdb2356167c, type: 3}
       propertyPath: m_Pivot.x

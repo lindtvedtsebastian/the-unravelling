@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CopperWall
   m_EditorClassIdentifier: 
   id: 0
-  itemName: 
+  itemName: Copper Wall
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: 69437918311adf54aaa10c22bf8a1913, type: 3}
-  manifestation: {fileID: 0}
+  manifestation: {fileID: 2418854327453526005, guid: 355ef969d21af3b4fa206a1b911bea2d, type: 3}
