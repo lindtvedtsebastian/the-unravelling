@@ -7,11 +7,13 @@ using UnityEngine;
 public class WorldGenerator : MonoBehaviour {
 	public static IWorld generateWorld(int size = 256, int seed = 123) {
         IWorld world = new IWorld();
+        Vector2 offset = new Vector2(0, 0);
         world.size = size;
-        float[][] terrainNoise = Noise.generateNoiseMap(seed:seed, offset: new Vector2(0,0));
+        float[][] heightMap = Noise.generateNoiseMap(seed:seed++, offset: offset);
+        float[][] moistureMap = Noise.generateNoiseMap(seed: seed++, offset: offset);
 
-		
-		
+
+
         return world;
     }
 
