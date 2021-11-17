@@ -8,6 +8,7 @@ public class WorldStateManager : MonoBehaviour {
     [FormerlySerializedAs("gameState")] public WorldState worldState;
     public GameObject NightEffect;
 
+    
     private void Start() {
         worldState = GameData.Get.world.state;
         InvokeRepeating(nameof(IncrementGameTimeAndDay), 0.0f, 1.0f);
