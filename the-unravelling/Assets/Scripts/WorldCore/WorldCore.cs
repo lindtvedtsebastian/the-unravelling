@@ -46,6 +46,13 @@ public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
             //end game 
         }
     }
+
     
+    
+    /*  
+    private void onDestroy()
+    {
+        // display game over screen 
+    }*/
     
 }
