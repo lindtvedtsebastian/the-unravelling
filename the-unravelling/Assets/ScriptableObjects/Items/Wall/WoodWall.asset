@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WoodWall
   m_EditorClassIdentifier: 
   id: 0
-  itemName: 
+  itemName: Wood Wall
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: b2687e32099f4b34bb18455f47409b92, type: 3}
-  manifestation: {fileID: 0}
+  manifestation: {fileID: 4722149600951299177, guid: 753ba08085f6a3045804f57189fcc947, type: 3}

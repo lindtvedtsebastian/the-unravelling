@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -51,6 +50,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
             world = (World) bf.Deserialize(loadFile);
+            loadFile.Close();
         }
         else world = new World();
     }
