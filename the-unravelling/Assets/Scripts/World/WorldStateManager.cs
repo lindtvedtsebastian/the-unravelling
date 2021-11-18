@@ -7,7 +7,6 @@ using UnityEngine.Serialization;
 public class WorldStateManager : MonoBehaviour {
     [FormerlySerializedAs("gameState")] public WorldState worldState;
     public GameObject NightEffect;
-
     
     private void Start() {
         worldState = GameData.Get.world.state;

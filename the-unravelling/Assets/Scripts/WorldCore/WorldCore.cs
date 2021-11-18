@@ -11,8 +11,8 @@ public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
     [SerializeField]public bool isLastDay = false;
     
     public Animator anim;
-    
-  
+    public GameOverScreen GameOverScreen;
+    public WinningScreen WinningScreen;
     void Awake() {
         // Set start-health to 100
         maxHealth = 100;
@@ -41,18 +41,20 @@ public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
     ///  the game is won. 
     /// </summary>
     /// <param name="other"></param>
-    private void OnCollisionEnter(Collision other) {
+    public void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player") && isLastDay) {
-            //end game 
+            WinningScreen.Setup();
         }
     }
 
     
     
-    /*  
-    private void onDestroy()
-    {
-        // display game over screen 
-    }*/
+    
+    /// <summary>
+    /// When destroyed displays game over screen.
+    /// </summary>
+    private void onDestroy() {
+        GameOverScreen.Setup(0, "The world core was destroyed");
+    }
     
 }
