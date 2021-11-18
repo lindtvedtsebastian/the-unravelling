@@ -8,12 +8,12 @@ using UnityEngine.UI;
 
 public class AudioSliderValue : MonoBehaviour {
     public AudioMixer mixer;
+    [SerializeField] AudioManager manager;
     public Slider slider;
-    public TMP_Text sliderValue;
     public Toggle muteToggle;
     
     public float sizer;
-    public string volumeParameter = "";
+    public string volumeParameter = "MasterVolume";
     
     private bool disableToggleEvent;
    
@@ -56,14 +56,9 @@ public class AudioSliderValue : MonoBehaviour {
         disableToggleEvent = true;
         muteToggle.isOn = slider.value > 0.0001f;
         disableToggleEvent = false;
-    }
 
-    /// <summary>
-    /// Using this we update the text that is shown as to also give a visual
-    /// indicator to the user of the ui as to what level the audio is at.
-    /// </summary>
-    /// <param name="value">Current value of the slider</param>
-    public void UpdateText(float value) {
-        sliderValue.text = Mathf.RoundToInt(value * 100) + "%";
+        if (volumeParameter == "MasterVolume" && muteToggle.isOn) {
+            
+        }
     }
 }

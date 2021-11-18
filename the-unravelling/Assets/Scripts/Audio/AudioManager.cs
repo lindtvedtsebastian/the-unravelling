@@ -6,7 +6,8 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
-    private static AudioManager _instance;
+    private static AudioManager _instance; 
+    public static AudioManager Instance { get { return _instance; } }
 
     public AudioClip menuAudio; // this track loops throughout the all of the MainMenu scene.
     public AudioMixerGroup MusicSoundGroup;
@@ -25,22 +26,22 @@ public class AudioManager : MonoBehaviour {
     private WorldStateManager stateManager;
     
     private void Awake() {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-        } else {
-            _instance = this;
+        if (_instance != null && _instance != this) 
+        { 
+            Destroy(this.gameObject);
+            return;
         }
+
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
         
         soundtrackSource = gameObject.AddComponent<AudioSource>();
         soundtrackSource.outputAudioMixerGroup = MusicSoundGroup;
         soundtrackSource.clip = menuAudio;
-        //soundtrackSource.volume = 0.32f;
         soundtrackSource.volume = PlayerPrefs.GetFloat("MusicVolume");
         soundtrackSource.loop = true;
         soundtrackSource.Play();
         SceneManager.sceneLoaded += OnSceneLoaded;
-        DontDestroyOnLoad(this);
     }
     
     /// <summary>
