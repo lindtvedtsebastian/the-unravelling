@@ -90,6 +90,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public void OnOpenInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Activate UI");
+        OpenInventory();
+    }
+
+    public void OpenInventory() {
         playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
     }
@@ -128,9 +132,12 @@ public class PlayerBehaviour : MonoBehaviour {
     // Called when cancel action is triggered
     public void OnActionCancel(InputAction.CallbackContext ctx) {
         // Destroy the preview if it exists
-        playerInput.SwitchCurrentActionMap("UI");
-        InGameMenu.SetActive(true);
-        playerInventory.CancelInventoryAction();
+        if (playerInventory.previewCraft.activeSelf) {
+            playerInput.SwitchCurrentActionMap("Player");
+            playerInventory.CancelInventoryAction();
+        } else {
+            InGameMenu.SetActive(true);
+        }
     }
 
 	private void OnActionDamage(InputAction.CallbackContext ctx) {

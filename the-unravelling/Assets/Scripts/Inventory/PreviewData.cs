@@ -6,5 +6,6 @@ using UnityEngine;
 /// A class representing the preview of the craft data
 /// </summary>
 public class PreviewData : MonoBehaviour {
-    public Craft toBePlaced;
+    public Item toBePlaced;
+    
 }
