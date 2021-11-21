@@ -8,9 +8,9 @@ using UnityEngine.UI;
 
 public class AudioSliderValue : MonoBehaviour {
     public AudioMixer mixer;
-    [SerializeField] AudioManager manager;
     public Slider slider;
     public Toggle muteToggle;
+    public GameObject audioMenu;
     
     public float sizer;
     public string volumeParameter = "MasterVolume";
@@ -18,13 +18,24 @@ public class AudioSliderValue : MonoBehaviour {
     private bool disableToggleEvent;
    
     private void Awake() {
+        // We are unable to modify values in structs returned from other components because of passing by value
+        // So we need to modify the component itself then reassign it.
+        //var temp = audioMenu.GetComponent<Image>().color;
+        //temp.a = 1.0f;
+        //audioMenu.GetComponent<Image>().color = temp;
+        
+        // Initially we turn of clicking on this GameObject but since we are now in this menu we need it back on.
+        //audioMenu.GetComponent<Image>().raycastTarget = false;
+
         slider.onValueChanged.AddListener(SliderAudioChanged);
         muteToggle.onValueChanged.AddListener(SliderToggleChanged);
     }
         
     // Start is called before the first frame update
     void Start() {
+        Debug.Log("Now start was ran for this script");
         slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
+        Debug.Log("alpha value is now: " + audioMenu.GetComponent<Image>().color.a);
     }
     
     /// <summary>
@@ -43,7 +54,7 @@ public class AudioSliderValue : MonoBehaviour {
     private void SliderToggleChanged(bool mute) {
         if (disableToggleEvent) 
             return;
-        slider.value = mute ? 0.5f : 0.0001f;
+        slider.value = mute ? 1.0f : 0.0001f;
     }
     
     /// <summary>

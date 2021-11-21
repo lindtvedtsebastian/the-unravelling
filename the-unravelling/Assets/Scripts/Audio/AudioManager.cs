@@ -39,6 +39,9 @@ public class AudioManager : MonoBehaviour {
         soundtrackSource.outputAudioMixerGroup = MusicSoundGroup;
         soundtrackSource.clip = menuAudio;
         soundtrackSource.volume = PlayerPrefs.GetFloat("MusicVolume");
+        var test = PlayerPrefs.GetFloat("MasterVolume");
+        Debug.Log("soundtrack volume (music volume) is: " + soundtrackSource.volume);
+        Debug.Log("Master volume is set at: " + test);
         soundtrackSource.loop = true;
         soundtrackSource.Play();
         SceneManager.sceneLoaded += OnSceneLoaded;
