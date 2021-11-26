@@ -33,6 +33,7 @@ public class InputController : MonoBehaviour {
 
         //controls.UI.Cancel.performed += OnCloseInventory;
 
+        playerInput.actions["Player/Move"].performed += OnMove;
         playerInput.actions["Player/Inventory"].performed += OnOpenInventory;
         playerInput.actions["Player/Place"].performed += OnActionPlace;
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;

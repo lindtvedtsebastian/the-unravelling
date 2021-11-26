@@ -8,12 +8,6 @@ using UnityEngine.UI;
 public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
-
-    public PlayerInventory playerInventory;
-    [SerializeField]
-    public GameObject InGameMenu;
-    [SerializeField]
-    public GameObject HUD;
     
     // Components
     private Rigidbody2D body;
@@ -48,15 +42,6 @@ public class PlayerBehaviour : MonoBehaviour {
         // Grab a ref to move action, so we can read it later
         moveAction = actions["Move"];
 
-        // Setup action handlers
-        //actions["Player/Inventory"].performed += OnOpenInventory;
-        /*actions["Player/Interact"].performed += OnActionInteract;*/
-        //actions["Player/Place"].performed += OnActionPlace;
-        //actions["Player/Cancel"].performed += OnActionCancel;
-        //actions["Player/Destroy"].performed += OnActionDestroy;
-        //actions["Player/Destroy"].performed += OnActionDamage;
-        //actions["UI/Cancel"].performed += OnCloseInventory;
-
         // Grab global objects
         mouse = Mouse.current;
         currentCamera = Camera.main;
@@ -67,14 +52,9 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        var move = moveAction.ReadValue<Vector2>();
-
+        var move = GetComponent<PlayerInput>().actions["Move"].ReadValue<Vector2>();
+        
         body.velocity = move * (Time.deltaTime * speed);
-
-        // int x =  Mathf.FloorToInt(body.transform.position.x);
-        // int y = Mathf.CeilToInt(body.transform.position.y -0.5f) - 1;
-
-        // Debug.Log(GameData.Get.world.pathfindingMap[256 - y, x]);
 
         if (move.x != 0) {
 			playerAnimation.SetFloat(VelocityX, move.x);
@@ -95,66 +75,6 @@ public class PlayerBehaviour : MonoBehaviour {
     private void PlayLeftWalkingSound() {
         walkingLSound.Play();
     }
-
-    //public void OnOpenInventory(InputAction.CallbackContext ctx) {
-        //Debug.Log("Activate UI");
-        //OpenInventory();
-    //}
-
-    //public void OpenInventory() {
-        //playerInput.SwitchCurrentActionMap("UI");
-        //playerInventory.ActivateInventory();
-    //}
-
-    //public void SaveGameAndExitButtonClick() {
-        //InGameMenu.SetActive(false);
-        //HUD.SetActive(false);
-        //GameData.Get.SaveWorld();
-        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-    //}
-    
-    //public void ResumeButtonClick() {
-        //InGameMenu.SetActive(false);
-        //playerInput.SwitchCurrentActionMap("Player");
-    //}
-
-    //public void CloseInventory()
-    //{
-        //playerInput.SwitchCurrentActionMap("Player");
-        //playerInventory.DeActivateInventory();
-    //}
-
-    //// Called when the inventory UI closes
-    //public void OnCloseInventory(InputAction.CallbackContext ctx) {
-        ////Debug.Log("Deactivate UI");
-        //CloseInventory();
-        //InGameMenu.SetActive(false);
-    //}
-
-    // Called when place action is triggered
-    //public void OnActionPlace(InputAction.CallbackContext ctx) {
-        //// Destroy the preview object when real object is placed
-        //playerInventory.PlaceObject();
-    //}
-
-    //// Called when cancel action is triggered
-    //public void OnActionCancel(InputAction.CallbackContext ctx) {
-        //// Destroy the preview if it exists
-        //if (playerInventory.previewCraft.activeSelf) {
-            //playerInput.SwitchCurrentActionMap("Player");
-            //playerInventory.CancelInventoryAction();
-        //} else {
-            //InGameMenu.SetActive(true);
-        //}
-    //}
-
-	//private void OnActionDamage(InputAction.CallbackContext ctx) {
-		//RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition2D(),Vector2.zero);
-		//foreach (RaycastHit2D hit in hits)
-		//if (hit.collider != null) {
-            //hit.collider.GetComponent<IClickable>()?.OnDamage(50);
-        //}
-	//}
 	
     /// <summary>
     /// Function to get mouse position
