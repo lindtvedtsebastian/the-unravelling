@@ -31,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        var move = GetComponent<PlayerInput>().actions["Player/Move"].ReadValue<Vector2>();
+        Vector2 move = GetComponent<PlayerInput>().actions["Player/Move"].ReadValue<Vector2>();
         
         body.velocity = move * (Time.deltaTime * speed);
 

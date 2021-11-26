@@ -76,7 +76,7 @@ public class InputController : MonoBehaviour {
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
         //Debug.Log("Current actionmap : " + playerInput.currentActionMap);
-        playerInventory.DeActivateInventory();
+        playerInventory.DeactivateInventory();
     }
 
     private void OnCloseInventory(InputAction.CallbackContext ctx) {

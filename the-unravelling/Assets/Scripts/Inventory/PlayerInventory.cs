@@ -107,7 +107,7 @@ public class PlayerInventory : MonoBehaviour {
     /// </summary>
     public void MousePosPlacement() {
         if (previewCraft.activeSelf) {
-            previewCraft.transform.position = GetMousePosition();
+            previewCraft.transform.position = GetMousePosition3D();
             previewCraft.transform.position = new Vector3(
                 Mathf.Floor(previewCraft.transform.position.x) + 0.5f,
                 Mathf.Floor(previewCraft.transform.position.y) + 0.5f,
@@ -118,7 +118,7 @@ public class PlayerInventory : MonoBehaviour {
     /// <summary>
     /// Function to get mouse position
     /// </summary>
-    private Vector3 GetMousePosition() {
+    private Vector3 GetMousePosition3D() {
         // Grab the position of the mouse in screen space
         Vector3 mousePos = mouse.position.ReadValue();
         mousePos.z = 1.0f;
@@ -153,7 +153,7 @@ public class PlayerInventory : MonoBehaviour {
     /// <summary>
     /// Function to de-activate the inventory
     /// </summary>
-    public void DeActivateInventory() {
+    public void DeactivateInventory() {
         inventoryCanvas.SetActive(false);
     }
 
