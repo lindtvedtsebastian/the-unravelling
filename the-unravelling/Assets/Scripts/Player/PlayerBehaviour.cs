@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
+
+    // Damage the player inflicts on an entity
+    public int entityDamage = 50;
     
     // Components
     private Rigidbody2D body;

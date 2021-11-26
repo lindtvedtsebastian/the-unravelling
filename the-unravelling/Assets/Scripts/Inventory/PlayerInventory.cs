@@ -4,7 +4,6 @@ using Unity.Assertions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public delegate void OnClickInventory(in Craft craft);
 
 /// <summary>
 /// A class representing the player inventory
@@ -24,13 +23,8 @@ public class PlayerInventory : MonoBehaviour {
 
     private ItemSlot[] itemSlots;
     private CraftingSlot[] craftingSlots;
-    
-    private Mouse mouse;
-    private Camera currentCamera;
 
     public GameObject previewCraft;
-
-    private OnClickInventory callback;
 
     private Item previewItem;
     private TMPro.TextMeshProUGUI previewAmount;
@@ -38,12 +32,6 @@ public class PlayerInventory : MonoBehaviour {
     void Start() {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
 		craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
-
-        mouse = Mouse.current;
-        currentCamera = Camera.main;
-
-        Assert.IsNotNull(mouse, "No mouse found");
-        Assert.IsNotNull(currentCamera, "No main camera set");
 
         previewCraft = Instantiate(previewCraft);
 
@@ -99,7 +87,6 @@ public class PlayerInventory : MonoBehaviour {
         if(previewItem.amount < 1) {
             previewCraft.SetActive(false);
         }
-        //Debug.Log("Placed object amount is : " + passItem.amount);
     }
 
     /// <summary>
@@ -107,24 +94,12 @@ public class PlayerInventory : MonoBehaviour {
     /// </summary>
     public void MousePosPlacement() {
         if (previewCraft.activeSelf) {
-            previewCraft.transform.position = GetMousePosition3D();
+            previewCraft.transform.position = player.GetComponent<InputController>().GetMousePosition();
             previewCraft.transform.position = new Vector3(
                 Mathf.Floor(previewCraft.transform.position.x) + 0.5f,
                 Mathf.Floor(previewCraft.transform.position.y) + 0.5f,
                 previewCraft.transform.position.z);
         }
-    }
-    
-    /// <summary>
-    /// Function to get mouse position
-    /// </summary>
-    private Vector3 GetMousePosition3D() {
-        // Grab the position of the mouse in screen space
-        Vector3 mousePos = mouse.position.ReadValue();
-        mousePos.z = 1.0f;
-
-        // Convert to world space coordinates
-        return currentCamera.ScreenToWorldPoint(mousePos);
     }
     
     /// <summary>
@@ -134,8 +109,6 @@ public class PlayerInventory : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
-        //Debug.Log("From Player Inventory");
-        //InventoryContent();
         inventoryCanvas.SetActive(true);
     }
 
