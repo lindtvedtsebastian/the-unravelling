@@ -13,6 +13,10 @@ public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
     public Animator anim;
     public GameOverScreen GameOverScreen;
     public WinningScreen WinningScreen;
+    
+    //Cashed property index
+    private static readonly int IsGameFinished = Animator.StringToHash("isGameFinished");
+
     void Awake() {
         // Set start-health to 100
         maxHealth = 100;
@@ -33,7 +37,7 @@ public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
     /// Spawns portal
     /// </summary>
     public void onLastDay() {
-        anim.SetBool("isGameFinished", isLastDay);
+        anim.SetBool(IsGameFinished, isLastDay);
     }
 
     /// <summary>
@@ -46,8 +50,6 @@ public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
             WinningScreen.Setup();
         }
     }
-
-    
     
     
     /// <summary>
