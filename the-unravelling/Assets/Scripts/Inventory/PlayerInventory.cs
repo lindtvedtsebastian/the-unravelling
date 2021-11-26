@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Unity.Assertions;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
 
 /// <summary>
@@ -42,13 +38,13 @@ public class PlayerInventory : MonoBehaviour {
     }
     
     private void Update() {
-        MousePosPlacement();
+        MousePlacementPosition();
     }
     
     /// <summary>
     /// Function to create a preview from a craft object
     /// </summary>
-    /// <param name="craft">A craft object to create a preview from</param>
+    /// <param name="item">A item object in the Item array to create preview from</param>
     public void CreatePreview(in Item item) {
         previewCraft.SetActive(true);
         
@@ -92,7 +88,7 @@ public class PlayerInventory : MonoBehaviour {
     /// <summary>
     /// Function to grab the mouse position for placing a craft object
     /// </summary>
-    public void MousePosPlacement() {
+    public void MousePlacementPosition() {
         if (previewCraft.activeSelf) {
             previewCraft.transform.position = player.GetComponent<InputController>().GetMousePosition();
             previewCraft.transform.position = new Vector3(

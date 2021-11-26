@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -54,30 +52,52 @@ public class InputController : MonoBehaviour {
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
 
+    /// <summary>
+    /// Function that can be called outside this class to activate inventory
+    /// </summary>
     public void publicOpenInventory() {
         playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
     }
     
+    /// <summary>
+    /// Function to open the inventory subscribed to input action
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
     private void OnOpenInventory(InputAction.CallbackContext ctx) {
         publicOpenInventory();        
     }
 
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeactivateInventory();
     }
 
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
     private void OnCloseInventory(InputAction.CallbackContext ctx) {
         publicCloseInventory();
         inGameMenu.SetActive(false);
     }
 
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
         Debug.Log("This will place an object");
         playerInventory.PlaceObject();
     }
 
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionCancel(InputAction.CallbackContext ctx) {
         Debug.Log("This will cancel an action");
         if (playerInventory.previewCraft.activeSelf) {
@@ -88,6 +108,10 @@ public class InputController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionDamage(InputAction.CallbackContext ctx) {
 		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
 		foreach (RaycastHit2D hit in hits)
@@ -96,6 +120,9 @@ public class InputController : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Function for button to save and exit the game
+    /// </summary>
     public void SaveGameAndExitButtonClick() {
         inGameMenu.SetActive(false);
         HUD.SetActive(false);
@@ -103,6 +130,9 @@ public class InputController : MonoBehaviour {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     
+    /// <summary>
+    /// Function for button to resume the game
+    /// </summary>   
     public void ResumeButtonClick() {
         inGameMenu.SetActive(false);
         playerInput.SwitchCurrentActionMap("Player");
@@ -119,6 +149,4 @@ public class InputController : MonoBehaviour {
         // Convert to world space coordinates
         return currentCamera.ScreenToWorldPoint(mousePos);
     }
- 
-
 }

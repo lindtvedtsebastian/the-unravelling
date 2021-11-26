@@ -1,11 +1,7 @@
-﻿using System;
-using Unity.Assertions;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public delegate void OnClickCraft(in Craft craftObject);
 
 /// <summary>
 /// A class representing the crafting object slot in the inventory
@@ -19,22 +15,14 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public Text craftName;
     public Transform craftDisplay;
     public GameObject craftData;
-    private OnClickCraft callback;
-
     public PlayerInventory playerInventory;
-    
-    private Mouse mouse;
-    private Camera currentCamera;
-
     private Sprite preview;
-
-    public GameObject previewCraft;
-
     private bool hasRecipeDataBeenGenerated = false;
 
     /// <summary>
     /// Function to add a craft object to the inventory
     /// </summary>
+    /// <param name="newCraft">Craft item passed to be added</param>
     public void AddCraftingItem(Craft newCraft) {
         craft = newCraft;
         
@@ -51,15 +39,9 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             craftingNum.enabled = true;
             craftingNum.text = craft.craftingRecipe.resultingAmount.ToString();
         }
-        
-        mouse = Mouse.current;
-        currentCamera = Camera.main;
 
         preview = craft.craftingRecipe.craftPreview;
         
-        Assert.IsNotNull(mouse, "No mouse found");
-        Assert.IsNotNull(currentCamera, "No main camera set"); 
-
         if(!hasRecipeDataBeenGenerated) {
             GenerateRecipeData(craft);
             hasRecipeDataBeenGenerated = true;
