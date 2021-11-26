@@ -51,10 +51,10 @@ public class PlayerBehaviour : MonoBehaviour {
         // Setup action handlers
         //actions["Player/Inventory"].performed += OnOpenInventory;
         /*actions["Player/Interact"].performed += OnActionInteract;*/
-        actions["Player/Place"].performed += OnActionPlace;
-        actions["Player/Cancel"].performed += OnActionCancel;
+        //actions["Player/Place"].performed += OnActionPlace;
+        //actions["Player/Cancel"].performed += OnActionCancel;
         //actions["Player/Destroy"].performed += OnActionDestroy;
-        actions["Player/Destroy"].performed += OnActionDamage;
+        //actions["Player/Destroy"].performed += OnActionDamage;
         //actions["UI/Cancel"].performed += OnCloseInventory;
 
         // Grab global objects
@@ -132,34 +132,34 @@ public class PlayerBehaviour : MonoBehaviour {
     //}
 
     // Called when place action is triggered
-    public void OnActionPlace(InputAction.CallbackContext ctx) {
-        // Destroy the preview object when real object is placed
-        playerInventory.PlaceObject();
-    }
+    //public void OnActionPlace(InputAction.CallbackContext ctx) {
+        //// Destroy the preview object when real object is placed
+        //playerInventory.PlaceObject();
+    //}
 
-    // Called when cancel action is triggered
-    public void OnActionCancel(InputAction.CallbackContext ctx) {
-        // Destroy the preview if it exists
-        if (playerInventory.previewCraft.activeSelf) {
-            playerInput.SwitchCurrentActionMap("Player");
-            playerInventory.CancelInventoryAction();
-        } else {
-            InGameMenu.SetActive(true);
-        }
-    }
+    //// Called when cancel action is triggered
+    //public void OnActionCancel(InputAction.CallbackContext ctx) {
+        //// Destroy the preview if it exists
+        //if (playerInventory.previewCraft.activeSelf) {
+            //playerInput.SwitchCurrentActionMap("Player");
+            //playerInventory.CancelInventoryAction();
+        //} else {
+            //InGameMenu.SetActive(true);
+        //}
+    //}
 
-	private void OnActionDamage(InputAction.CallbackContext ctx) {
-		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition2D(),Vector2.zero);
-		foreach (RaycastHit2D hit in hits)
-		if (hit.collider != null) {
-            hit.collider.GetComponent<IClickable>()?.OnDamage(50);
-        }
-	}
+	//private void OnActionDamage(InputAction.CallbackContext ctx) {
+		//RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition2D(),Vector2.zero);
+		//foreach (RaycastHit2D hit in hits)
+		//if (hit.collider != null) {
+            //hit.collider.GetComponent<IClickable>()?.OnDamage(50);
+        //}
+	//}
 	
     /// <summary>
     /// Function to get mouse position
     /// </summary>
-    private Vector2 GetMousePosition2D() {
+    public Vector2 GetMousePosition2D() {
         // Grab the position of the mouse in screen space
         Vector3 mousePos = mouse.position.ReadValue();
 
