@@ -89,7 +89,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 
             // Refresh the inventory by closing and opening
             playerInventory.player.CloseInventory();
-            playerInventory.player.OpenInventory();
+            playerInventory.player.GetComponent<InputController>().publicOpenInventory();
         }
     }
 

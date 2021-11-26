@@ -536,10 +536,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 720430023}
-    - target: {fileID: 4766609290081581639, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+    - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: playerInventory
       value: 
-      objectReference: {fileID: 5477642595228777773}
+      objectReference: {fileID: 720430023}
     - target: {fileID: 7257778549370968653, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
@@ -644,9 +644,7 @@ PrefabInstance:
       propertyPath: craft.Array.data[7].craftingRecipe
       value: 
       objectReference: {fileID: 11400000, guid: bf4b927b03e36894b927222a359c930d, type: 2}
-    m_RemovedComponents:
-    - {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
-    - {fileID: 4766609290081581639, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
 --- !u!1 &533545716 stripped
 GameObject:
@@ -893,7 +891,6 @@ GameObject:
   m_Component:
   - component: {fileID: 566386168}
   - component: {fileID: 566386167}
-  - component: {fileID: 566386169}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -933,24 +930,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &566386169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566386166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1968a452d28b14e499bdd821d9bfe886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &720430023 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
   m_PrefabInstance: {fileID: 7615318737206787003}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477642595228777773}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 714e5df52ca8418a971d2e9962d70b02, type: 3}
@@ -2197,11 +2182,6 @@ MonoBehaviour:
   worldStateManager: {fileID: 566386167}
   displayCountdown: {fileID: 1107380419}
   displayDayCount: {fileID: 378656575}
---- !u!1 &5477642595228777773 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2714389507116811926, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
-  m_PrefabInstance: {fileID: 7615318737206787003}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7615318737206787003
 PrefabInstance:
   m_ObjectHideFlags: 0

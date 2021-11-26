@@ -49,7 +49,7 @@ public class PlayerBehaviour : MonoBehaviour {
         moveAction = actions["Move"];
 
         // Setup action handlers
-        actions["Player/Inventory"].performed += OnOpenInventory;
+        //actions["Player/Inventory"].performed += OnOpenInventory;
         /*actions["Player/Interact"].performed += OnActionInteract;*/
         actions["Player/Place"].performed += OnActionPlace;
         actions["Player/Cancel"].performed += OnActionCancel;
@@ -96,15 +96,15 @@ public class PlayerBehaviour : MonoBehaviour {
         walkingLSound.Play();
     }
 
-    public void OnOpenInventory(InputAction.CallbackContext ctx) {
+    //public void OnOpenInventory(InputAction.CallbackContext ctx) {
         //Debug.Log("Activate UI");
-        OpenInventory();
-    }
+        //OpenInventory();
+    //}
 
-    public void OpenInventory() {
-        playerInput.SwitchCurrentActionMap("UI");
-        playerInventory.ActivateInventory();
-    }
+    //public void OpenInventory() {
+        //playerInput.SwitchCurrentActionMap("UI");
+        //playerInventory.ActivateInventory();
+    //}
 
     public void SaveGameAndExitButtonClick() {
         InGameMenu.SetActive(false);
