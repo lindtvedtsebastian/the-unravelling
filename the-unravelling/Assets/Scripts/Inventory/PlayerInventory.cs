@@ -72,7 +72,7 @@ public class PlayerInventory : MonoBehaviour {
         previewItem = item;
         previewAmount.text = item.amount.ToString();  
 
-        player.CloseInventory();
+        player.GetComponent<InputController>().publicCloseInventory();
     }
 
     /// <summary>

@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
     Theunravelling controls;
 
     [SerializeField]
     private PlayerInventory playerInventory;
+
+    [SerializeField]
+    private GameObject inGameMenu;
+
+    [SerializeField]
+    private GameObject HUD;
 
     private PlayerInput playerInput;
 
@@ -50,14 +57,33 @@ public class InputController : MonoBehaviour {
     private void OnCloseInventory(InputAction.CallbackContext ctx) {
         Debug.Log("This will close the inventory");
         publicCloseInventory();
+        inGameMenu.SetActive(false);
     }
 
     private void OnActionPlace(InputAction.CallbackContext ctx) {
         Debug.Log("This will place an object");
+        playerInventory.PlaceObject();
     }
 
     private void OnActionCancel(InputAction.CallbackContext ctx) {
         Debug.Log("This will cancel an action");
+        if (playerInventory.previewCraft.activeSelf) {
+            playerInput.SwitchCurrentActionMap("Player");
+            playerInventory.CancelInventoryAction();
+        } else {
+            inGameMenu.SetActive(true);
+        }
     }
 
-   }
+    public void SaveGameAndExitButtonClick() {
+        inGameMenu.SetActive(false);
+        HUD.SetActive(false);
+        GameData.Get.SaveWorld();
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+    
+    public void ResumeButtonClick() {
+        inGameMenu.SetActive(false);
+        playerInput.SwitchCurrentActionMap("Player");
+    }
+}

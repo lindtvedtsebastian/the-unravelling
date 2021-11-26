@@ -55,7 +55,7 @@ public class PlayerBehaviour : MonoBehaviour {
         actions["Player/Cancel"].performed += OnActionCancel;
         //actions["Player/Destroy"].performed += OnActionDestroy;
         actions["Player/Destroy"].performed += OnActionDamage;
-        actions["UI/Cancel"].performed += OnCloseInventory;
+        //actions["UI/Cancel"].performed += OnCloseInventory;
 
         // Grab global objects
         mouse = Mouse.current;
@@ -106,30 +106,30 @@ public class PlayerBehaviour : MonoBehaviour {
         //playerInventory.ActivateInventory();
     //}
 
-    public void SaveGameAndExitButtonClick() {
-        InGameMenu.SetActive(false);
-        HUD.SetActive(false);
-        GameData.Get.SaveWorld();
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-    }
+    //public void SaveGameAndExitButtonClick() {
+        //InGameMenu.SetActive(false);
+        //HUD.SetActive(false);
+        //GameData.Get.SaveWorld();
+        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    //}
     
-    public void ResumeButtonClick() {
-        InGameMenu.SetActive(false);
-        playerInput.SwitchCurrentActionMap("Player");
-    }
+    //public void ResumeButtonClick() {
+        //InGameMenu.SetActive(false);
+        //playerInput.SwitchCurrentActionMap("Player");
+    //}
 
-    public void CloseInventory()
-    {
-        playerInput.SwitchCurrentActionMap("Player");
-        playerInventory.DeActivateInventory();
-    }
+    //public void CloseInventory()
+    //{
+        //playerInput.SwitchCurrentActionMap("Player");
+        //playerInventory.DeActivateInventory();
+    //}
 
-    // Called when the inventory UI closes
-    public void OnCloseInventory(InputAction.CallbackContext ctx) {
-        //Debug.Log("Deactivate UI");
-        CloseInventory();
-        InGameMenu.SetActive(false);
-    }
+    //// Called when the inventory UI closes
+    //public void OnCloseInventory(InputAction.CallbackContext ctx) {
+        ////Debug.Log("Deactivate UI");
+        //CloseInventory();
+        //InGameMenu.SetActive(false);
+    //}
 
     // Called when place action is triggered
     public void OnActionPlace(InputAction.CallbackContext ctx) {

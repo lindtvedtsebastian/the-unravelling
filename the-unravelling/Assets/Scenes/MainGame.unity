@@ -451,8 +451,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 533545722}
-        m_TargetAssemblyTypeName: PlayerBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 533545721}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
         m_MethodName: ResumeButtonClick
         m_Mode: 1
         m_Arguments:
@@ -536,6 +536,14 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 720430023}
+    - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 2128602835}
+    - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: inGameMenu
+      value: 
+      objectReference: {fileID: 1464130525}
     - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: playerInventory
       value: 
@@ -859,6 +867,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 7257778549370968652, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
   m_PrefabInstance: {fileID: 533545715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &533545721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+  m_PrefabInstance: {fileID: 533545715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533545716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1968a452d28b14e499bdd821d9bfe886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &533545722 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6751475238691911543, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
@@ -1592,8 +1611,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 533545722}
-        m_TargetAssemblyTypeName: PlayerBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 533545721}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
         m_MethodName: SaveGameAndExitButtonClick
         m_Mode: 1
         m_Arguments:
