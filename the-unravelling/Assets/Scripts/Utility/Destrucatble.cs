@@ -46,7 +46,7 @@ public class Destrucatble : MonoBehaviour, IClickable{
         }
     }
 
-    private void OnDestroy() {
-        
+    private void Destroy() {
+        gameObject.SetActive(false);
     }
 }
