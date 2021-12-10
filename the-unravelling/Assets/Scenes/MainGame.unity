@@ -614,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.data[0].amount
@@ -652,6 +652,10 @@ PrefabInstance:
       propertyPath: craft.Array.data[7].craftingRecipe
       value: 
       objectReference: {fileID: 11400000, guid: bf4b927b03e36894b927222a359c930d, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[8].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a9064be467602242b0a0639242b9c50, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
 --- !u!1 &533545716 stripped
