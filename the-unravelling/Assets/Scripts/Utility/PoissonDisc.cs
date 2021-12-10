@@ -5,7 +5,10 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public static class PoissonDisc {
-    public static List<Vector2> sample(float radius,int width, int height,int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
+    const float R_MAX = 8;
+    const float R_MIN = 3;
+	
+    public static List<Vector2> sample(int width, int height,int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
         // The current index
         int index = 0;
 
@@ -16,7 +19,9 @@ public static class PoissonDisc {
         List<Vector2> activePoints = new List<Vector2>();
 
         // The cell size guarantees that there is only one point in a given cell.
-        float cellSize = Mathf.Floor(radius / Mathf.Sqrt(dimensions));
+        float cellSize = Mathf.Floor(R_MAX / Mathf.Sqrt(dimensions));
+        float invCellSize = 1 / cellSize;
+        float maxRSquare = R_MAX * R_MAX;
 
         // Determine the amount of cells in the grid in total
         int horizontalCells = Mathf.CeilToInt(width / cellSize) + 1;
@@ -50,16 +55,18 @@ public static class PoissonDisc {
             // The boolean for determining if we found a valid point.
             bool found = false;
             for (int attempts = 0; attempts < rejectionRate; attempts++) {
+                // Fetch this point's radius
+                float currentRadius = biomeToSampleDistance(terrain[Mathf.FloorToInt(point.x)][Mathf.FloorToInt(point.y)]);
                 // Create a new random point
                 float theta = Random.Range(0, 360);
-                float newRadius = Random.Range(radius, radius * 2);
+                float newRadius = Random.Range(currentRadius, currentRadius * 2);
                 float x = point.x + newRadius * Mathf.Cos(Mathf.Deg2Rad * theta);
                 float y = point.y + newRadius * Mathf.Sin(Mathf.Deg2Rad * theta);
                 Vector2 newPoint = new Vector2(x, y);
 
 				// If not valid, continue to next loop iteration
                 if (isValidPoint(grid, points, horizontalCells, verticalCells,
-								 height, width, cellSize, newPoint, radius)) {
+								 height, width, cellSize, newPoint, newRadius)) {
 					
                     insertPoint(grid, newPoint, index++, cellSize);
                     points.Add(newPoint);

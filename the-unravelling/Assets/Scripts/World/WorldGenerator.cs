@@ -11,13 +11,11 @@ public class WorldGenerator : MonoBehaviour {
     private const int MOIST = 5;
 
     public static IWorld generateWorld(int size = 256, int seed = 123) {
-        IWorld world = new IWorld();
+        IWorld world = new IWorld(size);
         Vector2 offset = new Vector2(0, 0);
-        world.size = size;
         float[][] heightMap = Noise.generateNoiseMap(seed:seed++, offset: offset);
         float[][] moistureMap = Noise.generateNoiseMap(seed: seed++, offset: offset);
 
-        List<Vector2> resourceSamples = PoissonDisc.sample(3f, size, size);
 
 
         for (int y = 0; y < size; y++) {
@@ -26,6 +24,8 @@ public class WorldGenerator : MonoBehaviour {
             }
         }
 
+        List<Vector2> resourceSamples = PoissonDisc.sample(size,size,world.terrain);
+		
 		return world;
     }
 
@@ -49,8 +49,12 @@ public class IWorld {
     public int[][] pathfindingMap;
     public string mapName;
 
-    public IWorld() {
+    public IWorld(int size) {
         state = new WorldState();
+        this.size = size;
+        terrain = JaggedArrayUtility.createJagged2dArray<int>(size, size);
+        entities = JaggedArrayUtility.createJagged2dArray<int>(size, size);
+        pathfindingMap = JaggedArrayUtility.createJagged2dArray<int>(size, size);
     }
 }
 

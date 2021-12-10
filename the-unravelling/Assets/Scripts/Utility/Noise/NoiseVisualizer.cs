@@ -24,6 +24,7 @@ public class NoiseVisualizer : MonoBehaviour {
     public void visualizeNoise() {
 		float[][] noise = Noise.generateNoiseMap(offset,mapSize,seed,scale,octaves,persistance,
 													   lacunarity,startFrequency);
+        IWorld world = WorldGenerator.generateWorld(mapSize, seed);
         Texture2D tex = new Texture2D(mapSize, mapSize);
         Color[] colors = new Color[mapSize * mapSize];
         for (int y = 0; y < mapSize; y++) {
@@ -37,6 +38,6 @@ public class NoiseVisualizer : MonoBehaviour {
         texRenderer.sharedMaterial.mainTexture = tex;
         texRenderer.transform.localScale = new Vector3(mapSize, 1, mapSize);
 
-        List<Vector2> samples = PoissonDisc.sample(10f, 256, 256, 30, 2);
+        PoissonDisc.sample(mapSize, mapSize, world.terrain);
     }
 }
