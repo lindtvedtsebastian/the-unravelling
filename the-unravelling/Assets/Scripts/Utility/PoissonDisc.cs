@@ -5,7 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public static class PoissonDisc {
-    const float R_MAX = 8;
+    const float R_MAX = 6;
     const float R_MIN = 3;
 	
     public static List<Vector2> sample(int width, int height,int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
@@ -56,7 +56,7 @@ public static class PoissonDisc {
             bool found = false;
             for (int attempts = 0; attempts < rejectionRate; attempts++) {
                 // Fetch this point's radius
-                float currentRadius = biomeToSampleDistance(terrain[Mathf.FloorToInt(point.x)][Mathf.FloorToInt(point.y)]);
+                float currentRadius = biomeToSampleDistance(terrain[Mathf.FloorToInt(point.y)][Mathf.FloorToInt(point.x)]);
                 // Create a new random point
                 float theta = Random.Range(0, 360);
                 float newRadius = Random.Range(currentRadius, currentRadius * 2);
@@ -138,9 +138,9 @@ public static class PoissonDisc {
 
 	private static float biomeToSampleDistance(int biome) {
 		switch (biome) {
-			case 1: return 8;
+			case 1: return 6;
 			case 2: return 3;
-			default: return 5;
+			default: return 4;
         }
 	}
 }
