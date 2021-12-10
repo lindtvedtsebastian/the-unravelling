@@ -3,40 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour {
-
     [SerializeField]
     private Sprite closedChest;
 
     [SerializeField]
     private Sprite openChest;
 
-    private CircleCollider2D _collider;
+    private BoxCollider2D _collider;
     private SpriteRenderer _sprite;
 
     private float colliderRadius = 2f;
 
     public bool canOpenChest;
 
-    // Start is called before the first frame update
     void Start() {
-        _collider = GetComponent<CircleCollider2D>();      
+        _collider = GetComponent<BoxCollider2D>();      
         _sprite = GetComponent<SpriteRenderer>();  
 
-        _collider.radius = colliderRadius;
+        _collider.offset = new Vector2(0, -1f);
 
         canOpenChest = false;
     }
 
+    /// <summary>
+    /// Function to catch the BoxCollider2D trigger enter 
+    /// </summary>
+    /// <param name="col">The collider</param>
     void OnTriggerEnter2D(Collider2D col) {
         Debug.Log("Close enough to trigger");
         _sprite.sprite = openChest;
         canOpenChest = true;
     }
 
+    /// <summary>
+    /// Function to catch the BoxCollider2D trigger exit
+    /// </summary>
+    /// <param name="col">The collider</param>
     void OnTriggerExit2D(Collider2D col) {
         Debug.Log("Exit chest trigger");
         _sprite.sprite = closedChest;
         canOpenChest = false;
     }
-
 }

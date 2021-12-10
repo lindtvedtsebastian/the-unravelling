@@ -92,9 +92,10 @@ public class InputController : MonoBehaviour {
     /// Function to get mouse position
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
-    private void OnActionInteract(InputAction.CallbackContext obj)
+    private void OnActionInteract(InputAction.CallbackContext ctx)
     {
         Debug.Log("Interact action!");
+        
     }
 
     /// <summary>
@@ -102,7 +103,7 @@ public class InputController : MonoBehaviour {
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
-        Debug.Log("This will place an object");
+        //Debug.Log("This will place an object");
         playerInventory.PlaceObject();
     }
 
