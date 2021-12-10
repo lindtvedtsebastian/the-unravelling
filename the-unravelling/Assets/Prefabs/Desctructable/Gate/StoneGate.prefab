@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1575600817242214319}
   - component: {fileID: 6804440851999186974}
   - component: {fileID: 8772067550474000695}
+  - component: {fileID: 1067467074908621201}
   m_Layer: 0
   m_Name: PlayerCollider
   m_TagString: Untagged
@@ -109,6 +110,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1067467074908621201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640562415468262930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f67f51b222309c45b4c299fbbcb91af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4535293310308421050
 GameObject:
   m_ObjectHideFlags: 0
