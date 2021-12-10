@@ -45,11 +45,6 @@ public class InputController : MonoBehaviour {
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
 
-    private void OnActionInteract(InputAction.CallbackContext obj)
-    {
-        Debug.Log("Interact action!");
-    }
-
     private void OnDisable() {
         playerInput.actions["Player/Inventory"].performed -= OnOpenInventory;
         playerInput.actions["Player/Place"].performed -= OnActionPlace;
@@ -91,6 +86,15 @@ public class InputController : MonoBehaviour {
     private void OnCloseInventory(InputAction.CallbackContext ctx) {
         publicCloseInventory();
         inGameMenu.SetActive(false);
+    }
+
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
+    private void OnActionInteract(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Interact action!");
     }
 
     /// <summary>
