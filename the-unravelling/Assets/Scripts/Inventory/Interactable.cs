@@ -15,13 +15,28 @@ public class Interactable : MonoBehaviour {
 
     private float colliderRadius = 2f;
 
+    public bool canOpenChest;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         _collider = GetComponent<CircleCollider2D>();      
         _sprite = GetComponent<SpriteRenderer>();  
 
         _collider.radius = colliderRadius;
+
+        canOpenChest = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        Debug.Log("Close enough to trigger");
+        _sprite.sprite = openChest;
+        canOpenChest = true;
+    }
+
+    void OnTriggerExit2D(Collider2D col) {
+        Debug.Log("Exit chest trigger");
+        _sprite.sprite = closedChest;
+        canOpenChest = false;
     }
 
 }
