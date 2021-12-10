@@ -33,9 +33,7 @@ public class AudioSliderValue : MonoBehaviour {
         
     // Start is called before the first frame update
     void Start() {
-        Debug.Log("Now start was ran for this script");
         slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
-        Debug.Log("alpha value is now: " + audioMenu.GetComponent<Image>().color.a);
     }
     
     /// <summary>
