@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,7 +27,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
         var data = bar.GetComponent<HealthBar>();
         data.Health += () => HealthFraction;
     }
-
+    
     /// <summary>
     /// Current health. Range: [0, maxHealth].
     /// </summary>
@@ -41,9 +42,9 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// The action that will be triggered when this object is clicked
     /// </summary>
     /// <param name="damage">The amount of damage to inflict on the object</param>
-    public void OnDamage(int damage) {
+    public virtual void OnDamage(int damage) {
         health -= damage;
-
+        Debug.Log(damage);
 		if (health <= 0) {
             Destroy(gameObject);
         }

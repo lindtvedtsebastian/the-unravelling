@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 ///  World core class
 /// </summary>
-public class WorldCore : Destrucatble { //TODO: handle destruction of gameobject.
+public class WorldCore : UnitRegeneration { 
     
     [SerializeField]public bool isLastDay = false;
     
@@ -17,9 +17,10 @@ public class WorldCore : Destrucatble { //TODO: handle destruction of gameobject
     //Cashed property index
     private static readonly int IsGameFinished = Animator.StringToHash("isGameFinished");
 
-    void Awake() {
-        // Set start-health to 100
-        maxHealth = 100;
+    protected override void Awake() {
+        base.Awake();
+        // Set start-health to 1000
+        maxHealth = 1000;
         
         //Get animations
         anim = GetComponent<Animator>();
@@ -55,7 +56,7 @@ public class WorldCore : Destrucatble { //TODO: handle destruction of gameobject
     /// <summary>
     /// When destroyed displays game over screen.
     /// </summary>
-    private void onDestroy() {
+    private void Destroy() {
         GameOverScreen.Setup(0, "The world core was destroyed");
     }
     

@@ -8,10 +8,7 @@ using UnityEngine;
 /// A base class for units.
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
-public class Destrucatble : BaseUnit{
-   
-    //Can regenerate health
-    [SerializeField]private bool isHealthRegenerable;
+public class UnitRegeneration : BaseUnit{
     
     //Is currently regenerating
     private bool isRegenerating;
@@ -25,47 +22,46 @@ public class Destrucatble : BaseUnit{
     protected override void Awake() {
         base.Awake();
         isRegenerating = false;
+        Debug.Log(isRegenerating);
+        
     }
 
-    private void Update() {
-        //If object has less than max health and is supposed to regenerate 
-        if (isHealthRegenerable && health < maxHealth) {
-            StartCoroutine(RegenHealth());
-            ClampHealth();
-        }
-    }
 
     /// <summary>
     ///  Regenerates health 
     /// </summary>
     /// <returns>Delay of regenRate length</returns>
     private IEnumerator RegenHealth() {
+
         // Add 6 second delay before regeneration starts.
         if (!isRegenerating) {
             isRegenerating = true;
             yield return new WaitForSeconds(6);
         }
         
+        //Regenerate
         while (health < maxHealth) {
             health += regenHealth;
             yield return new WaitForSeconds(regenRate);
         }
+        isRegenerating = false;    
+            
     }
+
 
     /// <summary>
-    /// Restricting number between maxHealth and 0 
+    ///  Calls parent OnDamage and starts regeneration if damage was taken
     /// </summary>
-    private void ClampHealth() {
-        if (health >= maxHealth) {
-            health = maxHealth;
-            isRegenerating = false;
-        }
-        else if (health < 0) {
-            health = 0;
+    /// <param name="damage">The amount of damage to inflict on the object</param>
+    public override void OnDamage(int damage) {
+        base.OnDamage(damage);
+        isRegenerating = false;
+        if (health < maxHealth) {
+            Debug.Log("Inside if statement");
+            StartCoroutine(RegenHealth());
         }
     }
 
-    
     /// <summary>
     /// Called when health is 0
     /// </summary>
