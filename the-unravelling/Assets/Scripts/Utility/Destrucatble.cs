@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -7,46 +8,69 @@ using UnityEngine;
 /// A base class for units.
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
-public class Destrucatble : MonoBehaviour, IClickable{
-    
-    [SerializeField] protected int maxHealth;
-
-    // Health bar that appears as the unit takes damage.
-    [SerializeField] private GameObject healthBar;
-     
-    // Current health of the unit.
-    protected int health;
+public class Destrucatble : BaseUnit{
    
-    //Can regenerate health?
-    private bool isHealthRegenerable; 
+    //Can regenerate health
+    [SerializeField]private bool isHealthRegenerable;
     
-    
-    
-    
-    void Awake() {
-        health = maxHealth;
+    //Is currently regenerating
+    private bool isRegenerating;
 
-        // Spawn health bar
-        var bar = Instantiate(healthBar, this.transform);
-        var data = bar.GetComponent<HealthBar>();
-        data.Health += () => HealthFraction;
+    //Number of health-points an objects regenerates each cycle
+    [SerializeField]private int regenHealth;
+
+    //Time between each regen cycle
+    [SerializeField] private int regenRate;
+    
+    protected override void Awake() {
+        base.Awake();
+        isRegenerating = false;
     }
-    
-    
-    /// <summary>
-    /// Current fraction of max health. Range: [0, 1].
-    /// </summary>
-    public float HealthFraction => (float)health / (float)maxHealth;
-    
-    
-    public void OnDamage(int damage) {
-        health -= damage;
-        if (health <= 0) {
-            Destroy();
+
+    private void Update() {
+        //If object has less than max health and is supposed to regenerate 
+        if (isHealthRegenerable && health < maxHealth) {
+            StartCoroutine(RegenHealth());
+            ClampHealth();
         }
     }
 
-    private void Destroy() {
+    /// <summary>
+    ///  Regenerates health 
+    /// </summary>
+    /// <returns>Delay of regenRate length</returns>
+    private IEnumerator RegenHealth() {
+        // Add 6 second delay before regeneration starts.
+        if (!isRegenerating) {
+            isRegenerating = true;
+            yield return new WaitForSeconds(6);
+        }
+        
+        while (health < maxHealth) {
+            health += regenHealth;
+            yield return new WaitForSeconds(regenRate);
+        }
+    }
+
+    /// <summary>
+    /// Restricting number between maxHealth and 0 
+    /// </summary>
+    private void ClampHealth() {
+        if (health >= maxHealth) {
+            health = maxHealth;
+            isRegenerating = false;
+        }
+        else if (health < 0) {
+            health = 0;
+        }
+    }
+
+    
+    /// <summary>
+    /// Called when health is 0
+    /// </summary>
+    protected override void OnDestroy() {
         gameObject.SetActive(false);
     }
+    
 }

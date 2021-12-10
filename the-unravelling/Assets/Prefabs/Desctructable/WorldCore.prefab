@@ -132,9 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b40e00dc0fc9df4a8b4a70426e9cbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  healthBar: {fileID: 0}
+  maxHealth: 1000
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
   drops: []
+  isHealthRegenerable: 1
+  regenHealth: 0
+  regenRate: 0
   isLastDay: 0
   anim: {fileID: 0}
   GameOverScreen: {fileID: 0}
+  WinningScreen: {fileID: 0}

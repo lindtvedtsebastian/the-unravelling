@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 ///  World core class
 /// </summary>
-public class WorldCore : BaseUnit { //TODO: handle destruction of gameobject.
+public class WorldCore : Destrucatble { //TODO: handle destruction of gameobject.
     
     [SerializeField]public bool isLastDay = false;
     

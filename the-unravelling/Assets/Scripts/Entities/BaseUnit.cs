@@ -18,7 +18,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
     // Current health of the unit.
     protected int health;
 
-    void Awake() {
+    protected virtual void Awake() {
         health = maxHealth;
 
         // Spawn health bar
@@ -72,7 +72,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// <summary>
     /// Called when health reaches zero, responsible for destroying the unit.
     /// </summary>
-    private void OnDestroy() {
+    protected virtual void OnDestroy() {
         Drop();
     }
 

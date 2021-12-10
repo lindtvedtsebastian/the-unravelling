@@ -1129,6 +1129,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8554824715191891917, guid: f8252e09f1956ca47b6290783cd3718b, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554824715191891917, guid: f8252e09f1956ca47b6290783cd3718b, type: 3}
       propertyPath: WinningScreen
       value: 
       objectReference: {fileID: 176215647}
