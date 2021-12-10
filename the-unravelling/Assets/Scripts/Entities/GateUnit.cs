@@ -12,8 +12,10 @@ public class GateUnit : MonoBehaviour
         gateSprite = GetComponent<SpriteRenderer>();
         _collider = GetComponent<BoxCollider2D>();
 
+        // Change collider radius
         _collider.size = new Vector2(5f, 5f);
     }
+
     /// <summary>
     /// Function to catch the BoxCollider2D trigger enter 
     /// </summary>
@@ -22,6 +24,7 @@ public class GateUnit : MonoBehaviour
         // Changing the alpha of the sprite when box collider is triggered
         gateSprite.color = new Color(1f, 1f, 1f, .5f);
     }
+
     /// <summary>
     /// Function to catch the BoxCollider2D trigger exit
     /// </summary>
