@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   id: 1
-  itemName: WoodItem
+  itemName: Wood
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: 5b8beb4b3cf336149b2a7cabb6b5ed84, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IronTurret
   m_EditorClassIdentifier: 
   id: 0
-  itemName: 
+  itemName: Iron Turret
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: fdf151bffaeef4b45abcb86f5fa2f108, type: 3}

@@ -16,7 +16,8 @@ MonoBehaviour:
   recipeName: Stone Wall
   craftPreview: {fileID: 21300000, guid: 99a478d6ffc9a804db5eaa861fdb58f5, type: 3}
   manifestation: {fileID: 4812499106719869124, guid: fc802bfc9fd34f44da6a3c80e3e92e81, type: 3}
-  resultingAmount: 1
+  itemRepresentation: {fileID: 11400000, guid: 6a45c68b0dcc90f4eb3822b6904a57b0, type: 2}
+  resultingAmount: -1
   recipeItems:
   - item: {fileID: 11400000, guid: 3332a93a59df4c2408fc09c34ac642d6, type: 2}
     amount: 4

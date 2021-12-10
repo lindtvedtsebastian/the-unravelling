@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Unity.Assertions;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
-public delegate void OnClickInventory(in Craft craft);
 
 /// <summary>
 /// A class representing the player inventory
@@ -14,85 +9,88 @@ public class PlayerInventory : MonoBehaviour {
     private GameObject inventoryCanvas;
 
     [SerializeField]
-    private Inventory playerInventory;
+    public Inventory playerInventory;
     
     [SerializeField] 
-    private PlayerBehaviour player;
+    public PlayerBehaviour player;
 
     public Transform itemPanel;
     public Transform craftingPanel;
 
     private ItemSlot[] itemSlots;
     private CraftingSlot[] craftingSlots;
-    
-    private Mouse mouse;
-    private Camera currentCamera;
-
-    //private Sprite preview;
 
     public GameObject previewCraft;
 
-    private OnClickInventory callback;
-    
-    void Start()
-    {
+    private Item previewItem;
+    private TMPro.TextMeshProUGUI previewAmount;
+
+    void Start() {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
 		craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
 
-        mouse = Mouse.current;
-        currentCamera = Camera.main;
+        previewCraft = Instantiate(previewCraft);
 
-        Assert.IsNotNull(mouse, "No mouse found");
-        Assert.IsNotNull(currentCamera, "No main camera set");
+        previewAmount = previewCraft.transform.GetChild(0).transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
 
-        updateItems();
+        AddItems();
+        AddCrafting();
     }
     
-    private void Update()
-    {
-        MousePosPlacement();
+    private void Update() {
+        MousePlacementPosition();
     }
     
     /// <summary>
     /// Function to create a preview from a craft object
     /// </summary>
-    /// <param name="craft">A craft object to create a preview from</param>
-    public void CreatePreview(in Craft craft)
-    {
-        previewCraft = Instantiate(previewCraft);
+    /// <param name="item">A item object in the Item array to create preview from</param>
+    public void CreatePreview(in Item item) {
         previewCraft.SetActive(true);
         
         var sprite = previewCraft.GetComponent<SpriteRenderer>();
-        sprite.sprite = craft.craftingRecipe.craftPreview;
+        sprite.sprite = item.item.preview;
 
-        previewCraft.GetComponent<PreviewData>().toBePlaced = craft;
-        
-        player.CloseInventory();
+        previewCraft.GetComponent<PreviewData>().toBePlaced = item;
+
+        previewItem = item;
+        previewAmount.text = item.amount.ToString();  
+
+        player.GetComponent<InputController>().publicCloseInventory();
+    }
+
+    /// <summary>
+    /// Function to cancel all the hovering of crafting objects in inventory
+    /// </summary>
+    public void CancelCraftingHover() {
+        for (int i = 0; i < craftingSlots.Length; i++) {
+            craftingSlots[i].craftInfo.SetActive(false);
+        }
     }
     
     /// <summary>
     /// Function to place a craft object
     /// </summary>
     public void PlaceObject() {
-        Debug.Log("Placing object");
-
         if (!previewCraft.activeSelf) return;
 
-        CraftingRecipe recipe = previewCraft.GetComponent<PreviewData>().toBePlaced.craftingRecipe;
-		
-        Instantiate(recipe.manifestation, previewCraft.transform.position, Quaternion.identity);
-        playerInventory.SubstractRecipeFromInventory(recipe);
-		
-        previewCraft.SetActive(false);
+        ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
+        Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
+
+        previewItem.amount -= 1;
+        previewAmount.text = previewItem.amount.ToString();
+
+        if(previewItem.amount < 1) {
+            previewCraft.SetActive(false);
+        }
     }
 
     /// <summary>
     /// Function to grab the mouse position for placing a craft object
     /// </summary>
-    public void MousePosPlacement()
-    {
+    public void MousePlacementPosition() {
         if (previewCraft.activeSelf) {
-            previewCraft.transform.position = GetMousePosition();
+            previewCraft.transform.position = player.GetComponent<InputController>().GetMousePosition();
             previewCraft.transform.position = new Vector3(
                 Mathf.Floor(previewCraft.transform.position.x) + 0.5f,
                 Mathf.Floor(previewCraft.transform.position.y) + 0.5f,
@@ -101,57 +99,48 @@ public class PlayerInventory : MonoBehaviour {
     }
     
     /// <summary>
-    /// Function to get mouse position
-    /// </summary>
-    private Vector3 GetMousePosition() {
-        // Grab the position of the mouse in screen space
-        Vector3 mousePos = mouse.position.ReadValue();
-        mousePos.z = 1.0f;
-
-        // Convert to world space coordinates
-        return currentCamera.ScreenToWorldPoint(mousePos);
-    }
-    
-    /// <summary>
     /// Function to activate the inventory
     /// </summary>
-    public void ActivateInventory()
-    {
-        updateItems();
-        addCrafting();
+    public void ActivateInventory() {
+        AddItems();
+        AddCrafting();
+        CancelCraftingHover();
         inventoryCanvas.SetActive(true);
+    }
+
+    /// <summary>
+    /// Development function to check the inventory content
+    /// </summary>
+    public void InventoryContent() {
+        for (int i = 0; i < playerInventory.items.Count; i++) {
+            if(playerInventory.items[i] == null) return;
+            Debug.Log("Item count : " + i + " is -> " + playerInventory.items[i].item.itemName + 
+                                            " count -> " + playerInventory.items[i].amount);
+        }
     }
 
     /// <summary>
     /// Function to de-activate the inventory
     /// </summary>
-    public void DeActivateInventory()
-    {
+    public void DeactivateInventory() {
         inventoryCanvas.SetActive(false);
     }
 
     /// <summary>
     /// Function to cancel an inventory action
     /// </summary>
-    public void CancelInventoryAction()
-    {
-        foreach (var slot in craftingSlots)
-        {
-            if (slot.previewCraft.activeSelf) {
-                slot.previewCraft.SetActive(false);
-            }
+    public void CancelInventoryAction() {
+        if (previewCraft.activeSelf) {
+            previewCraft.SetActive(false);
         }
     }
 
     /// <summary>
     /// Function to add the crafting items to the inventory
     /// </summary>
-    private void addCrafting()
-    {
-        for (int i = 0; i < craftingSlots.Length; i++)
-        {
-            if (i < playerInventory.craft.Count)
-            {
+    private void AddCrafting() {
+        for (int i = 0; i < craftingSlots.Length; i++) {
+            if (i < playerInventory.craft.Count) {
                 playerInventory.craft[i].craftingRecipe.resultingAmount = 
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory.craft[i].craftingRecipe);
                 
@@ -163,7 +152,7 @@ public class PlayerInventory : MonoBehaviour {
     /// <summary>
     /// Function to update the items in the inventory
     /// </summary>
-    private void updateItems() {
+    public void AddItems() {
         playerInventory.removeEmpty();
 
         for (int i = 0; i < itemSlots.Length; i++) {

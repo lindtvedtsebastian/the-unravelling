@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StoneWall
   m_EditorClassIdentifier: 
   id: 0
-  itemName: 
+  itemName: Stone Wall
   itemAmount: 1
   type: 0
   preview: {fileID: 21300000, guid: 99a478d6ffc9a804db5eaa861fdb58f5, type: 3}
-  manifestation: {fileID: 0}
+  manifestation: {fileID: 4812499106719869124, guid: fc802bfc9fd34f44da6a3c80e3e92e81, type: 3}
