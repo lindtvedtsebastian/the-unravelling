@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
@@ -15,6 +16,9 @@ public class InputController : MonoBehaviour {
 
     [SerializeField]
     private GameObject HUD;
+
+    [SerializeField]
+    private GameObject _inputsystem;
 
     // Global objects
     private Mouse mouse;
@@ -33,6 +37,8 @@ public class InputController : MonoBehaviour {
 
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");  
+
+        //_inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.Player.Point);
     }
 
     private void OnEnable() {
@@ -43,6 +49,8 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Interact"].performed += OnActionInteract;
 
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
+
+        _inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.Player.Point);
     }
 
     private void OnDisable() {
@@ -60,6 +68,7 @@ public class InputController : MonoBehaviour {
     /// </summary>
     public void publicOpenInventory() {
         playerInput.SwitchCurrentActionMap("UI");
+        //_inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.UI.Point);
         playerInventory.ActivateInventory();
     }
     
@@ -76,6 +85,7 @@ public class InputController : MonoBehaviour {
     /// </summary>
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
+        //_inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.Player.Point);
         playerInventory.DeactivateInventory();
     }
 
