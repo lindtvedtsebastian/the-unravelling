@@ -632,7 +632,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6a53e0de-21b0-4ebe-a0a4-5ffda981ff94"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

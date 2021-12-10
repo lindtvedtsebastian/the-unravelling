@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -39,6 +40,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Place"].performed += OnActionPlace;
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;
         playerInput.actions["Player/Destroy"].performed += OnActionDamage;
+        playerInput.actions["Player/Interact"].performed += OnActionInteract;
 
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
@@ -48,6 +50,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Place"].performed -= OnActionPlace;
         playerInput.actions["Player/Cancel"].performed -= OnActionCancel;
         playerInput.actions["Player/Destroy"].performed -= OnActionDamage;
+        playerInput.actions["Player/Interact"].performed -= OnActionInteract;
 
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
@@ -83,6 +86,15 @@ public class InputController : MonoBehaviour {
     private void OnCloseInventory(InputAction.CallbackContext ctx) {
         publicCloseInventory();
         inGameMenu.SetActive(false);
+    }
+
+    /// <summary>
+    /// Function to get mouse position
+    /// </summary>
+    /// <param name="ctx">Input action callback for registering action</param>
+    private void OnActionInteract(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Interact action!");
     }
 
     /// <summary>
