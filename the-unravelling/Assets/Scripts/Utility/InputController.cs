@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -39,8 +40,14 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Place"].performed += OnActionPlace;
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;
         playerInput.actions["Player/Destroy"].performed += OnActionDamage;
+        playerInput.actions["Player/Interact"].performed += OnActionInteract;
 
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
+    }
+
+    private void OnActionInteract(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Interact action!");
     }
 
     private void OnDisable() {
@@ -48,6 +55,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Place"].performed -= OnActionPlace;
         playerInput.actions["Player/Cancel"].performed -= OnActionCancel;
         playerInput.actions["Player/Destroy"].performed -= OnActionDamage;
+        playerInput.actions["Player/Interact"].performed -= OnActionInteract;
 
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
