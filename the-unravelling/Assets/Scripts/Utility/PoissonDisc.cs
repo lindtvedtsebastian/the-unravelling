@@ -5,7 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public static class PoissonDisc {
-    public static List<Vector2> sample(float radius,int width, int height, int rejectionRate = 30, int dimensions = 2) {
+    public static List<Vector2> sample(float radius,int width, int height,int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
         // The current index
         int index = 0;
 
@@ -128,4 +128,12 @@ public static class PoissonDisc {
         int yIndex = Mathf.FloorToInt(point.y / cellSize);
         grid[yIndex][xIndex] = index;
     }
+
+	private static float biomeToSampleDistance(int biome) {
+		switch (biome) {
+			case 1: return 8;
+			case 2: return 3;
+			default: return 5;
+        }
+	}
 }
