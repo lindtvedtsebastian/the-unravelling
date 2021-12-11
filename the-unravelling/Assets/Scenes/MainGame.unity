@@ -1094,6 +1094,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818335667}
   m_CullTransparentMesh: 1
+--- !u!1001 &1017265336
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: _inventory
+      value: 
+      objectReference: {fileID: 533545723}
+    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: _chestPanel
+      value: 
+      objectReference: {fileID: 1017265337}
+    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: _playerPanel
+      value: 
+      objectReference: {fileID: 1017265338}
+    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: chestInventoryCanvas
+      value: 
+      objectReference: {fileID: 1017265339}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649668, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784278638365649723, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+      propertyPath: m_Name
+      value: ChestInventory
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+--- !u!224 &1017265337 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5099571308058828691, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+  m_PrefabInstance: {fileID: 1017265336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1017265338 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6784278639105866347, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+  m_PrefabInstance: {fileID: 1017265336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017265339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6784278639141285772, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+  m_PrefabInstance: {fileID: 1017265336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028428428
 GameObject:
   m_ObjectHideFlags: 0
