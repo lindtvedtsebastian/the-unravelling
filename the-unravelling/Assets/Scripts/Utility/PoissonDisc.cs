@@ -81,18 +81,6 @@ public static class PoissonDisc {
                 activePoints.RemoveAt(randomIndex);
         }
 
-        StringBuilder sb = new StringBuilder();
-        //Print the grid for debuggin purposes
-        for (int y = 0; y < grid.Length; y++)
-        {
-            for (int x = 0; x < grid[y].Length; x++)
-            {
-                sb.Append(grid[y][x]);
-                sb.Append(' ');
-            }
-            sb.AppendLine();
-        }
-        Debug.Log(sb.ToString());
         return points;
     }
 
