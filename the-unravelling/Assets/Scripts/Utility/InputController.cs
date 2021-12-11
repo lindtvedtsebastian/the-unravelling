@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
@@ -95,8 +94,12 @@ public class InputController : MonoBehaviour {
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionInteract(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Interact action!");
-        
+        //Debug.Log("Interact action!");
+        RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
+		foreach (RaycastHit2D hit in hits)
+		if (hit.collider != null) {
+            hit.collider.GetComponent<Interactable>()?.OpenChestInventory();
+        }
     }
 
     /// <summary>
