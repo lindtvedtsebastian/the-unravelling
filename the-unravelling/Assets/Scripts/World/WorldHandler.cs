@@ -1,10 +1,11 @@
 
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class WorldHandler {
-    public static void saveWorld(IWorld world) {
+    public static void saveWorld(World world) {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.worldName + ".world");
         bf.Serialize(saveFile, world);
@@ -14,13 +15,13 @@ public static class WorldHandler {
         ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + world.worldName + ".png");
     }
 
-    public static IWorld loadWorld(string filename) {
-        IWorld world = null;
+    public static World loadWorld(string filename) {
+        World world = null;
         if (!File.Exists(Application.persistentDataPath + "/" + filename)) return world;
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
-        world = (IWorld) bf.Deserialize(loadFile);
+        world = (World) bf.Deserialize(loadFile);
         loadFile.Close();
         return world;
     }
@@ -39,5 +40,19 @@ public static class WorldHandler {
         else {
             Debug.LogError("Could not locate file" + Application.persistentDataPath + "/" + filename);
         }
+    }
+
+    public static List<World> GetAllWorlds() {
+        List<World> returnList = new List<World>();
+        string[] files = Directory.GetFiles(Application.persistentDataPath, "*.world");
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream loadFile;
+        foreach (var file in files) {
+            loadFile = File.Open(file, FileMode.Open);
+            World world = (World) bf.Deserialize(loadFile);
+            returnList.Add(world);
+        }
+
+        return returnList;
     }
 }

@@ -7,16 +7,15 @@ public class MainMenuController : MonoBehaviour {
     public InputField newWorldSeed;
     public Dropdown   worldSizeDropdown;
     private int worldSize;
-    public MapPreview mapPreview;
     public WorldPreview worldPreview;
-    private IWorld world;
+    private World world;
 
 
     void Start() {
         randomSeed();
-        MapSizeChanged(mapSize);
-        mapSize.onValueChanged.AddListener(delegate {
-            MapSizeChanged(mapSize);
+        MapSizeChanged(worldSizeDropdown);
+        worldSizeDropdown.onValueChanged.AddListener(delegate {
+            MapSizeChanged(worldSizeDropdown);
         });
     }
     
@@ -30,6 +29,7 @@ public class MainMenuController : MonoBehaviour {
             return;
         }
         WorldHandler.saveWorld(world);
+        GameData.Get.activeWorld = world.worldName;
         SceneManager.LoadScene("MainGame");
     }
 

@@ -10,7 +10,7 @@ public class WorldPreview : MonoBehaviour {
     /// <summary>
     /// Sets the pixels of a 2D texture to be equivalent to a tilemap
     /// </summary>
-    public void drawMap(IWorld world) {
+    public void drawMap(World world) {
         texture = new Texture2D(world.size, world.size);
         for (int y = 0; y < world.size; y++) {
             for (int x = 0; x < world.size; x++) {

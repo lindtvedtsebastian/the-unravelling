@@ -13,9 +13,9 @@ public class WorldGenerator : MonoBehaviour {
     private const int DRY = 0;
     private const int MOIST = 5;
 
-    public static IWorld generateWorld(string worldName, int size = 256, int seed = 123) {
+    public static World generateWorld(string worldName, int size = 256, int seed = 123) {
         worldName = worldName != "" ? worldName : "autosave_"+DateTime.Now.ToString("dd-MM-yyyy_HHmm");
-        IWorld world = new IWorld(worldName,size);
+        World world = new World(worldName,size);
         Vector2 offset = new Vector2(0, 0);
         float[][] heightMap = Noise.generateNoiseMap(seed:seed++, offset: offset);
         float[][] moistureMap = Noise.generateNoiseMap(seed: seed++, offset: offset);
@@ -74,7 +74,7 @@ public class WorldGenerator : MonoBehaviour {
 }
 
 [Serializable]
-public class IWorld {
+public class World {
     public WorldState state;
     public int size;
     public int[][] terrain;
@@ -83,7 +83,7 @@ public class IWorld {
     public int[][] baseResourceLocations;
     public string worldName;
 
-    public IWorld(string name,int size) {
+    public World(string name,int size) {
         worldName = name;
         state = new WorldState();
         this.size = size;

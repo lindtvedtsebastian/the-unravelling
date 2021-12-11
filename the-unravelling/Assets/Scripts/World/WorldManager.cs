@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class WorldManager: MonoBehaviour {
-	private IWorld world;
+	private World world;
 
     public GameObject player;
 
@@ -21,7 +21,7 @@ public class WorldManager: MonoBehaviour {
 		}
 		else {
 			// Should never happen, but if it does, why not generate a new world as backup?
-			world = new IWorld("default",UnityEngine.Random.Range(0,100_000));
+			world = new World("default",UnityEngine.Random.Range(0,999_999_999));
 		}
 		renderWorld();
 	}
@@ -53,14 +53,14 @@ public class WorldManager: MonoBehaviour {
             }
         }
 
-		foreach (IEntity ientity in GameData.Get.world.iEntities) {
+		/*foreach (IEntity ientity in GameData.Get.world.iEntities) {
             int id = ientity.entityID;
             GameObject entity = GameData.Get.worldEntities[ientity.entityID].manifestation;
             Vector3 pos = new Vector3(ientity.worldPosX + .5f, ientity.worldPosY + .5f, 0);
             Instantiate(entity, pos, Quaternion.identity, IEntityContainer.transform);
-        }
+        }*/
 
-        GameData.Get.SaveWorld();
+		WorldHandler.saveWorld(world);
     }
 
 
@@ -72,11 +72,11 @@ public class WorldManager: MonoBehaviour {
     ///                              0 = Black, 4 = Grey, 8 = Blue, 12 = Purple</param>
     private void createFog(int fogThickness = 4,int fogColorOffset = 0) {
         for (int i = 0; i < 4; i++) { // The amount of fog "layers"
-            for (int j = i; j < GameData.Get.world.worldSize - i; j++) { // Drawing each fog layer
+            for (int j = i; j < world.size - i; j++) { // Drawing each fog layer
                 fog.SetTile(new Vector3Int(j,1+i,0), GameData.Get.FOG[i+fogColorOffset]);
                 fog.SetTile(new Vector3Int(i,j+1,0), GameData.Get.FOG[i+fogColorOffset]);
-                fog.SetTile(new Vector3Int(j,GameData.Get.world.worldSize-i,0), GameData.Get.FOG[i+fogColorOffset]);
-                fog.SetTile(new Vector3Int(GameData.Get.world.worldSize-(i+1),j+1,0), GameData.Get.FOG[i+fogColorOffset]);
+                fog.SetTile(new Vector3Int(j,world.size-i,0), GameData.Get.FOG[i+fogColorOffset]);
+                fog.SetTile(new Vector3Int(world.size-(i+1),j+1,0), GameData.Get.FOG[i+fogColorOffset]);
             }
         }
     }

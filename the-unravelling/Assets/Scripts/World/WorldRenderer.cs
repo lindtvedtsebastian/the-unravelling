@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/*
 public class WorldRenderer : MonoBehaviour {
     public GameObject player;
     public GameObject IEntityContainer;
@@ -45,8 +46,8 @@ public class WorldRenderer : MonoBehaviour {
             Vector3 pos = new Vector3(ientity.worldPosX + .5f, ientity.worldPosY + .5f, 0);
             Instantiate(entity, pos, Quaternion.identity, IEntityContainer.transform);
         }
-		
-        GameData.Get.SaveWorld();
+
+        WorldHandler.saveWorld();
     }
 
     /// <summary>
@@ -66,3 +67,4 @@ public class WorldRenderer : MonoBehaviour {
         }
     }
 }
+*/
