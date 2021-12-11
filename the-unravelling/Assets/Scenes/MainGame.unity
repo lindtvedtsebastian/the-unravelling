@@ -573,6 +573,18 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7257778549970449001, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257778549970449001, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257778549970449001, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7257778549970449002, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: inventoryUI
       value: 
