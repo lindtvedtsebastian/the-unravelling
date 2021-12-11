@@ -16,11 +16,23 @@ public class ChestInventory : MonoBehaviour {
     public Transform _chestPanel;
 
     private ItemSlot[] itemSlots;
-    private CraftingSlot[] craftingSlots;
+    private ChestSlot[] chestSlots;
 
     public ChestInventory() {
         chestItems = new List<Item>();
+        playerItems = new List<Item>();
+    }
+
+    void Awake() {
         playerItems = _inventory.items;
+    }
+
+    public void ActivateChestInventory() {
+        chestInventoryCanvas.SetActive(true);
+    }
+
+    public void DeactivateChestInventory() {
+        chestInventoryCanvas.SetActive(false);
     }
 
     // Start is called before the first frame update
