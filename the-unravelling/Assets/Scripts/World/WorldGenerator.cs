@@ -14,6 +14,7 @@ public class WorldGenerator : MonoBehaviour {
     private const int MOIST = 5;
 
     public static IWorld generateWorld(string worldName, int size = 256, int seed = 123) {
+        worldName = worldName != "" ? worldName : "autosave_"+DateTime.Now.ToString("dd-MM-yyyy_HHmm");
         IWorld world = new IWorld(worldName,size);
         Vector2 offset = new Vector2(0, 0);
         float[][] heightMap = Noise.generateNoiseMap(seed:seed++, offset: offset);
@@ -39,7 +40,6 @@ public class WorldGenerator : MonoBehaviour {
             world.entities[y][x] = resourceID;
             world.pathfindingMap[y][x] = 9999;
         }
-
 		return world;
     }
 
