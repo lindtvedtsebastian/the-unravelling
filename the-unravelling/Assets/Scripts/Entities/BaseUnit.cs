@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -58,14 +59,14 @@ public class BaseUnit : MonoBehaviour, IClickable {
             Vector3 pos = gameObject.transform.position;
 
             for (int i = 0; i < drop.amount; i++) {
-				Vector3 dropPos = new Vector3(Random.Range(pos.x - 1, pos.x + 1),
-											  Random.Range(pos.y - 1, pos.y + 1),
-											  pos.z);
-				Instantiate(drop.item.manifestation,
-							dropPos,
-							Quaternion.identity,
-							dropContainer.transform);
-			}
+                Vector3 dropPos = new Vector3(Random.Range(pos.x - 1, pos.x + 1),
+                    Random.Range(pos.y - 1, pos.y + 1),
+                    pos.z);
+                Instantiate(drop.item.manifestation,
+                    dropPos,
+                    Quaternion.identity,
+                    dropContainer.transform);
+            }
         }
     }
 

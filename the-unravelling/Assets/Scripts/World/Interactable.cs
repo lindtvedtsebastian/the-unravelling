@@ -23,8 +23,7 @@ public class Interactable : MonoBehaviour {
     /// Function to handle the on trigger event
     /// </summary>
     /// <param name="other">The object that collides with this gameobject</param>
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    private void OnTriggerEnter2D(Collider2D other) {
         playerInventory.Add(item);
         Destroy(gameObject);
     }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Winning screen class
 /// </summary>
-public class WinningScreen : MonoBehaviour {
+public partial class WinningScreen : MonoBehaviour {
     
      
     public void Setup() {
@@ -19,13 +19,17 @@ public class WinningScreen : MonoBehaviour {
     public void ContinueButton() {
         gameObject.SetActive(false);
     }
-
     
     
+    /// <summary>
+    /// Saves game state and loads main menu scene
+    /// </summary>
     public void MainMenuButton() {
         GameData.Get.SaveWorld();
         gameObject.SetActive(false);
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainMenu");
     }
+    
+    
     
 }

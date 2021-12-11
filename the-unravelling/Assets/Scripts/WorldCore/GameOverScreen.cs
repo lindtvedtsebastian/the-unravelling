@@ -27,7 +27,7 @@ public class GameOverScreen : MonoBehaviour {
     /// Loads main menu scene
     /// </summary>
     public void MainMenuButton() {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     
 }
