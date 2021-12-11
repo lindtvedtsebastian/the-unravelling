@@ -28,6 +28,6 @@ public class Interactable : MonoBehaviour {
     }
 
     public void OpenChestInventory() {
-        
+        Debug.Log("Opening chest inventory");
     }
 }

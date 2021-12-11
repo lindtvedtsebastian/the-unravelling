@@ -5,10 +5,15 @@ using UnityEngine;
 public class ChestInventory : MonoBehaviour
 {
     [SerializeField]
-    private Inventory playerInventory;
+    private Inventory _inventory;
 
     public List<Item> chestItems;
     private List<Item> playerItems;
+
+    public ChestInventory() {
+        chestItems = new List<Item>();
+        playerItems = _inventory.items;
+    }
 
     // Start is called before the first frame update
     void Start()
