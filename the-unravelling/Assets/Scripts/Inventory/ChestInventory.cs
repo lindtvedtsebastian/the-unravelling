@@ -23,11 +23,8 @@ public class ChestInventory : MonoBehaviour {
         playerItems = new List<Item>();
     }
 
-    void Awake() {
-        playerItems = _inventory.items;
-    }
-
     public void ActivateChestInventory() {
+        playerItems = _inventory.items;
         chestInventoryCanvas.SetActive(true);
     }
 

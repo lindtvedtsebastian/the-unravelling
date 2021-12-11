@@ -546,6 +546,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2128602835}
     - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: _chest
+      value: 
+      objectReference: {fileID: 3553024991607259953, guid: 5167f45c97ddabb448a5835f9bf9b4da, type: 3}
+    - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: inGameMenu
       value: 
       objectReference: {fileID: 1464130525}
@@ -639,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: craft.Array.data[0].amount
@@ -681,6 +685,10 @@ PrefabInstance:
       propertyPath: craft.Array.data[8].craftingRecipe
       value: 
       objectReference: {fileID: 11400000, guid: 7a9064be467602242b0a0639242b9c50, type: 2}
+    - target: {fileID: 7447295850811837085, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
+      propertyPath: craft.Array.data[9].craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: f05668815ae125643a8e90dfc3b7ccca, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
 --- !u!1 &533545716 stripped

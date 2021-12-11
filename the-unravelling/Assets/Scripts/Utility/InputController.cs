@@ -16,6 +16,9 @@ public class InputController : MonoBehaviour {
     [SerializeField]
     private GameObject HUD;
 
+    [SerializeField]
+    private GameObject _chest;
+
     // Global objects
     private Mouse mouse;
     private Camera currentCamera;
@@ -77,6 +80,7 @@ public class InputController : MonoBehaviour {
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeactivateInventory();
+        //_chest.GetComponent<Interactable>().CloseChestInventory();
     }
 
     /// <summary>
