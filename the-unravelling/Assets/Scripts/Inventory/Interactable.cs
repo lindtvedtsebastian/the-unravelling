@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Interactable : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
+public class Interactable : MonoBehaviour {
     [SerializeField]
     private Sprite closedChest;
 
@@ -46,7 +46,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         canOpenChest = false;
     } */
 
-    public void OnPointerEnter(PointerEventData eventData)
+   /*  public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("Hovering over : " + gameObject.name);
         _sprite.sprite = openChest;
@@ -63,5 +63,5 @@ public class Interactable : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Clicked on : " + gameObject.name);
-    }
+    } */
 }
