@@ -3363,19 +3363,19 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -367.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+    - target: {fileID: 0}
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+    - target: {fileID: 0}
       propertyPath: _chestPanel
       value: 
       objectReference: {fileID: 1017265337}
-    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+    - target: {fileID: 0}
       propertyPath: _playerPanel
       value: 
       objectReference: {fileID: 1017265338}
-    - target: {fileID: 4773948252341621634, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
+    - target: {fileID: 0}
       propertyPath: chestInventoryCanvas
       value: 
       objectReference: {fileID: 1017265339}
@@ -4361,7 +4361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6784278638365649723, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
       propertyPath: m_Name
-      value: ChestInventory
+      value: StorageInventory
       objectReference: {fileID: 0}
     - target: {fileID: 6784278639141285772, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
       propertyPath: m_IsActive

@@ -4,7 +4,7 @@
 /// <summary>
 /// A class representing the player inventory
 /// </summary>
-public class PlayerInventory : MonoBehaviour {
+public class PlayerInventoryDisplay : MonoBehaviour {
     [SerializeField]
     private GameObject inventoryCanvas;
 

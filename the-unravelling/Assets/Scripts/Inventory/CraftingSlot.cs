@@ -15,7 +15,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public Text craftName;
     public Transform craftDisplay;
     public GameObject craftData;
-    public PlayerInventory playerInventory;
+    public PlayerInventoryDisplay playerInventory;
     private Sprite preview;
     private bool hasRecipeDataBeenGenerated = false;
 

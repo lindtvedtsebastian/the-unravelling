@@ -11,7 +11,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler {
 	public Image itemImg;
 	public Text itemNum;
 
-	public PlayerInventory playerInventory;
+	public PlayerInventoryDisplay playerInventory;
 	
 	/// <summary>
 	/// Function to add item to the item slots in the inventory

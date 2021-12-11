@@ -5,6 +5,8 @@ using UnityEngine;
 public class InventoryWithChest : Inventory {
     public List<Item> chestItems;
 
+    public InventoryWithChest _chestInventory;
+
     public InventoryWithChest() {
         chestItems = new List<Item>();
     }

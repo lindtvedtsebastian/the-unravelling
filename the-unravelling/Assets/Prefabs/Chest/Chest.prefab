@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8178219589694217234}
   - component: {fileID: 5910865800762810323}
+  - component: {fileID: 1910438040252068137}
   - component: {fileID: 7670420844325743106}
-  - component: {fileID: 8054737154696195667}
   - component: {fileID: 7598373586242291439}
   - component: {fileID: -4217615611897184106}
   - component: {fileID: -2127116636869649187}
@@ -92,6 +92,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1910438040252068137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553024991607259953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b215e980ebde24439bee91b69421a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  chestItems: []
 --- !u!114 &7670420844325743106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,24 +121,6 @@ MonoBehaviour:
   closedChest: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
   openChest: {fileID: 21300000, guid: 821d21f796779a54389a3162730cf0b4, type: 3}
   _chestInventory: {fileID: 0}
---- !u!114 &8054737154696195667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3553024991607259953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5177256af04c7dc4f9c08f3df72bfaaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chestInventory: {fileID: 6784278638365649723, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
-  chestInventoryCanvas: {fileID: 0}
-  _inventory: {fileID: 0}
-  chestItems: []
-  _playerPanel: {fileID: 0}
-  _chestPanel: {fileID: 0}
 --- !u!61 &7598373586242291439
 BoxCollider2D:
   m_ObjectHideFlags: 0

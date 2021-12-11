@@ -8,7 +8,9 @@ public class InputController : MonoBehaviour {
     Theunravelling controls;
 
     [SerializeField]
-    private PlayerInventory playerInventory;
+    private PlayerInventoryDisplay playerInventory;
+
+    private StorageInventoryDisplay storageInventoryDisplay;
 
     [SerializeField]
     private GameObject inGameMenu;
@@ -17,7 +19,7 @@ public class InputController : MonoBehaviour {
     private GameObject HUD;
 
     [SerializeField]
-    private Interactable _chest;
+    private Interactable _storage;
 
     // Global objects
     private Mouse mouse;
@@ -80,7 +82,7 @@ public class InputController : MonoBehaviour {
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeactivateInventory();
-        _chest?.CloseChestInventory();
+        storageInventoryDisplay.DeactivateChestInventory();
     }
 
     /// <summary>
@@ -103,8 +105,8 @@ public class InputController : MonoBehaviour {
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             playerInput.SwitchCurrentActionMap("UI");
-            _chest = hit.collider.GetComponent<Interactable>();
-            _chest?.OpenChestInventory();
+            InventoryWithChest _chest = hit.collider.GetComponent<InventoryWithChest>()._chestInventory;
+            storageInventoryDisplay.ActivateChestInventory(_chest);
         }
     }
 

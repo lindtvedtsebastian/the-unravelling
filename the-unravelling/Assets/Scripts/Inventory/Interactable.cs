@@ -8,15 +8,10 @@ public class Interactable : MonoBehaviour {
 
     [SerializeField]
     private Sprite openChest;
-
-    [SerializeField]
-    private ChestInventory _chestInventory;
-
     private SpriteRenderer _sprite;
 
     void Start() {      
         _sprite = GetComponent<SpriteRenderer>();  
-        _chestInventory = GetComponent<ChestInventory>();
     }
 
     public void OnHoverEnter() {
@@ -27,15 +22,5 @@ public class Interactable : MonoBehaviour {
     public void OnHoverLeave() {
         Debug.Log("Exit hovering : " + gameObject.name);
         _sprite.sprite = closedChest;
-    }
-
-    public void OpenChestInventory() {
-        Debug.Log("Opening chest inventory");
-        _chestInventory.ActivateChestInventory();
-    }
-
-    public void CloseChestInventory() {
-        Debug.Log("Closing chest inventory");
-        _chestInventory.DeactivateChestInventory();
     }
 }
