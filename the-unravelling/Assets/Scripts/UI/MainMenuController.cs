@@ -24,10 +24,11 @@ public class MainMenuController : MonoBehaviour {
         Debug.Log("Closed The Unraveling game");
     }
     public void startGame() {
-        if (GameData.Get.world.map == null) {
+        if (world == null) {
             Debug.LogError("Invalid game data, did you press generate?"); // Change to ingame message instead
             return;
         }
+
         SceneManager.LoadScene("MainGame");
     }
 

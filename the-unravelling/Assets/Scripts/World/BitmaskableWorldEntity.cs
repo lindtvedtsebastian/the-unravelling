@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Tilemaps;
 
 [Serializable]
@@ -61,22 +62,22 @@ public class BitmaskableWorldEntity : WorldEntity {
     public int calculateCardinals(int y, int x) {
         int bitmask = 0;
         if (checkNorth && BitmaskPredicate(y - 1, x, this.id)) {
-            bitmask += GameData.N;
+            bitmask += Constants.N;
             northExists = true;
         }
 
         if (checkWest && BitmaskPredicate(y, x - 1, this.id)) {
-            bitmask += GameData.W;
+            bitmask += Constants.W;
             westExists = true;
         }
 
         if (checkEast && BitmaskPredicate(y, x + 1, this.id)) {
-            bitmask += GameData.E;
+            bitmask += Constants.E;
             eastExists = true;
         }
 
         if (checkSouth && BitmaskPredicate(y + 1, x, this.id)) {
-            bitmask += GameData.S;
+            bitmask += Constants.S;
             southExists = true;
         }
 
@@ -94,22 +95,22 @@ public class BitmaskableWorldEntity : WorldEntity {
 
         if ((checkNorth && checkWest && BitmaskPredicate(y - 1, x - 1, this.id))
             && northExists && westExists) {
-            bitmask += GameData.NW;
+            bitmask += Constants.NW;
         }
 
         if ((checkNorth && checkEast && BitmaskPredicate(y - 1, x + 1, this.id))
             && northExists && eastExists) {
-            bitmask += GameData.NE;
+            bitmask += Constants.NE;
         }
 
         if ((checkSouth && checkWest && BitmaskPredicate(y + 1, x - 1, this.id))
             && southExists && westExists) {
-            bitmask += GameData.SW;
+            bitmask += Constants.SW;
         }
 
         if ((checkSouth && checkEast && BitmaskPredicate(y + 1, x + 1, this.id))
             && southExists && eastExists) {
-            bitmask += GameData.SE;
+            bitmask += Constants.SE;
         }
 
         return bitmask;

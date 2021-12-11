@@ -45,28 +45,28 @@ public class WorldGenerator : MonoBehaviour {
         int biome = height < 0.4f ? LOWLAND : HIGHLAND;
         biome += moisture < 0.5f ? DRY : MOIST;
 
-		if (biome < 10) return GameIDs.STONE;
-		else if (biome == 10) return GameIDs.DIRT;
-		else return GameIDs.GRASS;
+		if (biome < 10) return Constants.STONE;
+		else if (biome == 10) return Constants.DIRT;
+		else return Constants.GRASS;
     }
 
     private static int assignResourceID(int biome) {
         switch (biome) {
-            case GameIDs.STONE: return determineOreType();
-            case GameIDs.DIRT: return GameIDs.DRY_TREE;
-            case GameIDs.GRASS: return GameIDs.TREE;
-            default: return GameIDs.STONE_ORE;
+            case Constants.STONE: return determineOreType();
+            case Constants.DIRT: return Constants.DRY_TREE;
+            case Constants.GRASS: return Constants.TREE;
+            default: return Constants.STONE_ORE;
         }
     }
 
     public static int determineOreType() {
         int ore = UnityEngine.Random.Range(0, 30);
         if (ore <= 15)
-            return GameIDs.STONE_ORE;
+            return Constants.STONE_ORE;
         else if (ore <= 25)
-            return GameIDs.COPPER_ORE;
+            return Constants.COPPER_ORE;
         else
-            return GameIDs.IRON_ORE;
+            return Constants.IRON_ORE;
         }
 }
 

@@ -30,7 +30,7 @@ public class WorldRenderer : MonoBehaviour {
             for (int x = 0; x < GameData.Get.world.worldSize; x++) {
                 int tileID = GameData.Get.world.map[y, x];
                 WorldEntity tileData = (WorldEntity) GameData.Get.worldEntities[tileID];
-                WorldEntity stone = (WorldEntity) GameData.Get.worldEntities[GameIDs.STONE];
+                WorldEntity stone = (WorldEntity) GameData.Get.worldEntities[Constants.STONE];
                 tile = tileData.SetSprite(y, x);
 
                 gameWorld.SetTile(new Vector3Int(x, GameData.Get.world.worldSize - y, 0), tile);
