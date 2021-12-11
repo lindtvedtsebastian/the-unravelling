@@ -7,10 +7,8 @@ using UnityEngine.UI;
 /// </summary>
 public class ItemSlot : MonoBehaviour, IPointerClickHandler {
 	Item item;
-
 	public Image itemImg;
 	public Text itemNum;
-
 	public PlayerInventoryDisplay playerInventory;
 	
 	/// <summary>
@@ -39,7 +37,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
 		if(item != null) {
-			//Debug.Log("Clicked on item : " + item.item.itemName + " with amount : " + item.amount);
 			playerInventory.CreatePreview(item);
 		} 	
     }

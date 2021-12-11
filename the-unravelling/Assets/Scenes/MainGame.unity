@@ -4361,7 +4361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6784278638365649723, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
       propertyPath: m_Name
-      value: StorageInventory
+      value: StorageInventoryDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 6784278639141285772, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
       propertyPath: m_IsActive
