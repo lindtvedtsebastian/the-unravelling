@@ -8,7 +8,6 @@ using UnityEngine;
 [Serializable]
 public class Inventory : MonoBehaviour {
     public List<Item> items;
-    public List<Craft> craft;
 
     /// <summary>
     /// Constructs a new Inventory 
@@ -16,18 +15,19 @@ public class Inventory : MonoBehaviour {
     /// <returns>The new inventory object</returns>
     public Inventory() {
         items = new List<Item>();
-        craft = new List<Craft>();
+        
     }
 
     /// <summary>
     /// Adds or updates a item in the inventory list 
     /// </summary>
     /// <param name="newItem">The item to be added</param>
-    public void Add(Item newItem) {
+    public void Add(Item newItem, List<Item> list = null) {
+        if(list == null) list = items;
 		if (!checkIfItemExists(newItem.item)) {
-            items.Add(newItem);
+            list.Add(newItem);
         } else {
-            items[findItemDataIndex(newItem.item)].amount += newItem.amount;
+            list[findItemDataIndex(newItem.item)].amount += newItem.amount;
         }
 	}
 
@@ -37,12 +37,19 @@ public class Inventory : MonoBehaviour {
         });
     }
 
+    public void remove(Item item, List<Item> list = null) {
+        if(list == null) list = items;
+        if(list[findItemDataIndex(item.item)].amount >= item.amount) {
+            list[findItemDataIndex(item.item)].amount -= item.amount;
+        }
+    }
+
     /// <summary>
     /// Checks if a given itemData exists in the inventory list
     /// </summary>
     /// <param name="itemData">The itemdata to check against the inv list</param>
     /// <returns>Whether or not the item exists</returns>
-    private bool checkIfItemExists(ItemData itemData) {
+    protected bool checkIfItemExists(ItemData itemData) {
 		foreach (Item item in items) {
 			if (item.item == itemData) {
                 return true;
@@ -56,7 +63,7 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="itemData">The itemData to find the index of</param>
     /// <returns>The index if found, -1 otherwise</returns>
-    private int findItemDataIndex(ItemData itemData) {
+    protected int findItemDataIndex(ItemData itemData) {
         for (int i = 0; i < items.Count; i++) {
 			if (items[i].item == itemData) {
                 return i; 
@@ -64,39 +71,6 @@ public class Inventory : MonoBehaviour {
 		}
         return -1;
     }
-
-
-    /// <summary>
-    /// Determines if a recipe can be crafted with the contents of the inventory.
-    /// If the recipe can be crafted, the amount will be returned, if not -1 will be returned
-    /// </summary>
-    /// <param name="recipe">The recipe to be checked against the inventory</param>
-    /// <returns>How many times a recipe can be crafted, or -1 if not</returns>
-    public int CalculateRecipeCraftingAmount(CraftingRecipe recipe) {
-        int currentLowestCraftingAmount = int.MaxValue;
-        foreach (RecipeData data in recipe.recipeItems) {
-            int itemIndex = findItemDataIndex(data.item);
-			
-			// If item does not exist in inventory, return
-			if (itemIndex < 0) return -1; 
-			
-            float invAmount = (float) items[itemIndex].amount;
-            int currentCraftingAmount = (int) Math.Floor(invAmount / data.amount);
-
-			if (currentCraftingAmount < currentLowestCraftingAmount) {
-                currentLowestCraftingAmount = currentCraftingAmount;
-            }
-        }
-		if (currentLowestCraftingAmount != int.MaxValue) {
-            return currentLowestCraftingAmount;
-        } else return -1;
-    }
-
-	public void SubstractRecipeFromInventory(CraftingRecipe recipe) {
-		foreach (RecipeData data in recipe.recipeItems) {
-            items[findItemDataIndex(data.item)].amount -= data.amount;
-        }
-	}
 }
 
 /// <summary>
@@ -108,11 +82,4 @@ public class Item {
     public int amount;
 }
 
-/// <summary>
-/// Craft object in the context of an inventory 
-/// </summary>
-[Serializable]
-public class Craft {
-    public CraftingRecipe craftingRecipe;
-    public int amount;
-}
+

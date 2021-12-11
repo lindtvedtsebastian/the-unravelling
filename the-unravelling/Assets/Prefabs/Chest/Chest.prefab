@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5177256af04c7dc4f9c08f3df72bfaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chestInventory: {fileID: 6784278638365649723, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
   chestInventoryCanvas: {fileID: 0}
   _inventory: {fileID: 0}
   chestItems: []

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChestInventory : MonoBehaviour {
+
+    [SerializeField]
+    private GameObject _chestInventory;
+
     [SerializeField]
     private GameObject chestInventoryCanvas;
 
@@ -23,6 +27,11 @@ public class ChestInventory : MonoBehaviour {
         playerItems = new List<Item>();
     }
 
+    void Awake() {
+        itemSlots = _playerPanel.GetComponentsInChildren<ItemSlot>();
+		chestSlots = _chestPanel.GetComponentsInChildren<ChestSlot>();
+    }
+
     public void ActivateChestInventory() {
         playerItems = _inventory.items;
         chestInventoryCanvas.SetActive(true);
@@ -30,17 +39,5 @@ public class ChestInventory : MonoBehaviour {
 
     public void DeactivateChestInventory() {
         chestInventoryCanvas.SetActive(false);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

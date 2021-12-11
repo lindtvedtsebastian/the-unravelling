@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour {
     private GameObject inventoryCanvas;
 
     [SerializeField]
-    public Inventory playerInventory;
+    public InventoryWithCrafting playerInventory;
     
     [SerializeField] 
     public PlayerBehaviour player;

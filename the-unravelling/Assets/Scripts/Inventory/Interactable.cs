@@ -14,8 +14,6 @@ public class Interactable : MonoBehaviour {
 
     private SpriteRenderer _sprite;
 
-    private float colliderRadius = 2f;
-
     void Start() {      
         _sprite = GetComponent<SpriteRenderer>();  
         _chestInventory = GetComponent<ChestInventory>();
@@ -37,6 +35,7 @@ public class Interactable : MonoBehaviour {
     }
 
     public void CloseChestInventory() {
+        Debug.Log("Closing chest inventory");
         _chestInventory.DeactivateChestInventory();
     }
 }

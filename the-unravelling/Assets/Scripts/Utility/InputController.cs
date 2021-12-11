@@ -17,7 +17,7 @@ public class InputController : MonoBehaviour {
     private GameObject HUD;
 
     [SerializeField]
-    private GameObject _chest;
+    private Interactable _chest;
 
     // Global objects
     private Mouse mouse;
@@ -80,7 +80,7 @@ public class InputController : MonoBehaviour {
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeactivateInventory();
-        //_chest.GetComponent<Interactable>().CloseChestInventory();
+        _chest?.CloseChestInventory();
     }
 
     /// <summary>
@@ -103,7 +103,8 @@ public class InputController : MonoBehaviour {
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             playerInput.SwitchCurrentActionMap("UI");
-            hit.collider.GetComponent<Interactable>()?.OpenChestInventory();
+            _chest = hit.collider.GetComponent<Interactable>();
+            _chest?.OpenChestInventory();
         }
     }
 
