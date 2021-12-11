@@ -31,13 +31,13 @@ public class WorldCore : UnitRegeneration {
     /// Run every frame
     /// </summary>
     private void Update() {
-        onLastDay();
+        OnLastDay();
     }
 
     /// <summary>
     /// Spawns portal
     /// </summary>
-    public void onLastDay() {
+    private void OnLastDay() {
         anim.SetBool(IsGameFinished, isLastDay);
     }
 
@@ -56,8 +56,9 @@ public class WorldCore : UnitRegeneration {
     /// <summary>
     /// When destroyed displays game over screen.
     /// </summary>
-    private void Destroy() {
-        GameOverScreen.Setup(0, "The world core was destroyed");
+    protected override void OnDestroy() {
+        base.OnDestroy();
+        GameOverScreen.Setup("The world-core was destroyed");
     }
     
 }

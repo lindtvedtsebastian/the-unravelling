@@ -16,17 +16,14 @@ public class UnitRegeneration : BaseUnit{
     //Number of health-points an objects regenerates each cycle
     [SerializeField]private int regenHealth;
 
-    //Time between each regen cycle
+    //Time between each regeneration cycle
     [SerializeField] private int regenRate;
     
     protected override void Awake() {
         base.Awake();
         isRegenerating = false;
-        Debug.Log(isRegenerating);
-        
     }
-
-
+    
     /// <summary>
     ///  Regenerates health 
     /// </summary>
@@ -57,13 +54,12 @@ public class UnitRegeneration : BaseUnit{
         base.OnDamage(damage);
         isRegenerating = false;
         if (health < maxHealth) {
-            Debug.Log("Inside if statement");
             StartCoroutine(RegenHealth());
         }
     }
 
     /// <summary>
-    /// Called when health is 0
+    /// Called when health is zero
     /// </summary>
     protected override void OnDestroy() {
         gameObject.SetActive(false);

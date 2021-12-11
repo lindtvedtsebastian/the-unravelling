@@ -44,7 +44,6 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// <param name="damage">The amount of damage to inflict on the object</param>
     public virtual void OnDamage(int damage) {
         health -= damage;
-        Debug.Log(damage);
 		if (health <= 0) {
             Destroy(gameObject);
         }

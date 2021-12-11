@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 /// <summary>
 /// Game over screen class
@@ -11,13 +13,21 @@ public class GameOverScreen : MonoBehaviour {
     public Text daysText;
         
     /// <summary>
-    /// Activates game over screen
+    /// Sets game over screen active.
     /// </summary>
-    /// <param name="daysSurvived">number of days survived</param>
-    /// <param name="text">reason for loosing</param>
-    public void Setup(int daysSurvived, string text) {
+    /// <param name="text">Reason for loosing</param>
+    /// <param name="daysSurvived">Number of days survived</param>
+    public void Setup(string text = null, int daysSurvived = 0) {
         gameObject.SetActive(true);
-        string looseText = text ?? "DAYS SURVIVED " + daysSurvived.ToString();
+        string looseText = text ?? "DAYS SURVIVED: " + daysSurvived.ToString();
         daysText.text = looseText;
     }
+
+    /// <summary>
+    /// Loads main menu scene
+    /// </summary>
+    public void MainMenuButton() {
+        SceneManager.LoadScene("MainMenu");
+    }
+    
 }
