@@ -96,26 +96,4 @@ public class IWorld {
 
 }
 
-public class WorldHandler {
-    public void saveWorld(IWorld world) {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.worldName + ".world");
-        bf.Serialize(saveFile,world);
-        saveFile.Close();
-
-        // Take a screenshot of the players view
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + world.worldName + ".png");
-    }
-
-    private IWorld loadWorld(string filename) {
-        IWorld world = null;
-        if (!File.Exists(Application.persistentDataPath + "/" + filename)) return world;
-
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
-        world = (IWorld) bf.Deserialize(loadFile);
-        loadFile.Close();
-        return world;
-    }
-}
 

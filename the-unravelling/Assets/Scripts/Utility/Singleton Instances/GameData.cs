@@ -7,44 +7,11 @@ using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "Game Data", menuName = "Game Data")]
 public class GameData : ScriptableObjectSingleton<GameData> {
-    public World world;
+    public string activeWorld;
 
     public ItemData[] worldEntities;
     public TileBase[] FOG;
 
-    /// <summary>
-    /// Constructor for the GameData class 
-    /// </summary>
-    GameData() {
-        world = new World();
-    }
-
-    /// <summary>
-    /// Takes a screenshot of the current player view, then saves the world
-    /// </summary>
-    public void SaveWorld() {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.mapName + ".world"); 
-        bf.Serialize(saveFile,world);
-        saveFile.Close();
-
-        // Take a screenshot of the players view
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + world.mapName + ".png");
-    }
-
-    /// <summary>
-    /// Loads the world file at the filename location in the persistent data path
-    /// </summary>
-    /// <param name="filename"></param>
-    public void LoadWorld(string filename = "game-world") {
-        if (File.Exists(Application.persistentDataPath + "/" + filename)) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
-            world = (World) bf.Deserialize(loadFile);
-            loadFile.Close();
-        }
-        else world = new World();
-    }
     public List<World> GetAllWorlds() {
         List<World> returnList = new List<World>();
         string[] files = Directory.GetFiles(Application.persistentDataPath, "*.world");
@@ -58,20 +25,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
         return returnList;
     }
     
-    /// <summary>
-    /// Deletes a single file located at application persistent storage path.
-    /// </summary>
-    /// <param name="filename">Name of the file we are attempting to delete</param>
-    public void DeleteWorld(string filename = "game-world") {
-        if (File.Exists(Application.persistentDataPath + "/" + filename)) {
-            File.Delete(Application.persistentDataPath + "/" + filename);
-            
-            var pngDelete = filename.Replace(".world", ".png");
-            File.Delete(Application.persistentDataPath + "/" + pngDelete);
-        } else {
-            Debug.LogError("Could not locate file" + Application.persistentDataPath + "/" + filename);
-        }
-    }
+
 }
 
 [Serializable]
