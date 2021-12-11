@@ -17,9 +17,6 @@ public class InputController : MonoBehaviour {
     [SerializeField]
     private GameObject HUD;
 
-    [SerializeField]
-    private GameObject _inputsystem;
-
     // Global objects
     private Mouse mouse;
     private Camera currentCamera;
@@ -37,8 +34,6 @@ public class InputController : MonoBehaviour {
 
         Assert.IsNotNull(mouse, "No mouse found");
         Assert.IsNotNull(currentCamera, "No main camera set");  
-
-        //_inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.Player.Point);
     }
 
     private void OnEnable() {
@@ -49,8 +44,6 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Interact"].performed += OnActionInteract;
 
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
-
-        _inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.Player.Point);
     }
 
     private void OnDisable() {
@@ -68,7 +61,6 @@ public class InputController : MonoBehaviour {
     /// </summary>
     public void publicOpenInventory() {
         playerInput.SwitchCurrentActionMap("UI");
-        //_inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.UI.Point);
         playerInventory.ActivateInventory();
     }
     
@@ -85,7 +77,6 @@ public class InputController : MonoBehaviour {
     /// </summary>
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
-        //_inputsystem.GetComponent<InputSystemUIInputModule>().point = InputActionReference.Create(controls.Player.Point);
         playerInventory.DeactivateInventory();
     }
 
@@ -113,7 +104,6 @@ public class InputController : MonoBehaviour {
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
-        //Debug.Log("This will place an object");
         playerInventory.PlaceObject();
     }
 
@@ -122,7 +112,6 @@ public class InputController : MonoBehaviour {
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionCancel(InputAction.CallbackContext ctx) {
-        Debug.Log("This will cancel an action");
         if (playerInventory.previewCraft.activeSelf) {
             playerInput.SwitchCurrentActionMap("Player");
             playerInventory.CancelInventoryAction();

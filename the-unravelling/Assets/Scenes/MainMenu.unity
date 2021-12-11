@@ -6140,7 +6140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 223.80005}
+  m_AnchoredPosition: {x: -540, y: 223.7998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586718339
@@ -7886,7 +7886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 223.80005}
+  m_AnchoredPosition: {x: -375, y: 223.7998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815300414
@@ -13106,7 +13106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 184.19995}
+  m_AnchoredPosition: {x: -375, y: 184.2002}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395771780
@@ -13937,7 +13937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275, y: 182.30005}
+  m_AnchoredPosition: {x: -275, y: 182.2998}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481044622
@@ -16637,7 +16637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 183.30005}
+  m_AnchoredPosition: {x: -540, y: 183.2998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688770280
@@ -20847,7 +20847,7 @@ PrefabInstance:
     - target: {fileID: 8872011304524616787, guid: 9683fdf51bc645e4f8d62cfbad65354e, type: 3}
       propertyPath: m_PointAction
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1054132383583890850, guid: 5af11cf30af0e3145bede082e2cfefc5, type: 3}
     - target: {fileID: 8872011304524616787, guid: 9683fdf51bc645e4f8d62cfbad65354e, type: 3}
       propertyPath: m_CancelAction
       value: 

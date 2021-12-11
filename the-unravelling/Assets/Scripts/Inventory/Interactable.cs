@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Assertions;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour {
     [SerializeField]
@@ -16,6 +15,10 @@ public class Interactable : MonoBehaviour {
     private float colliderRadius = 2f;
 
     public bool canOpenChest;
+    
+    // Global objects
+    private Mouse mouse;
+    private Camera currentCamera;
 
     void Start() {
         //_collider = GetComponent<BoxCollider2D>();      
@@ -24,44 +27,24 @@ public class Interactable : MonoBehaviour {
         //_collider.offset = new Vector2(0, -1f);
 
         canOpenChest = false;
+
+        // Grab global objects
+        mouse = Mouse.current;
+        currentCamera = Camera.main;
+
+        Assert.IsNotNull(mouse, "No mouse found");
+        Assert.IsNotNull(currentCamera, "No main camera set");  
     }
 
-/*     /// <summary>
-    /// Function to catch the BoxCollider2D trigger enter 
-    /// </summary>
-    /// <param name="col">The collider</param>
-    void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("Close enough to trigger");
+    public void OnHoverEnter() {
+        Debug.Log("Hovering this object : " + gameObject.name);
         _sprite.sprite = openChest;
         canOpenChest = true;
     }
 
-    /// <summary>
-    /// Function to catch the BoxCollider2D trigger exit
-    /// </summary>
-    /// <param name="col">The collider</param>
-    void OnTriggerExit2D(Collider2D col) {
-        Debug.Log("Exit chest trigger");
-        _sprite.sprite = closedChest;
-        canOpenChest = false;
-    } */
-
-   /*  public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("Hovering over : " + gameObject.name);
-        _sprite.sprite = openChest;
-        canOpenChest = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("Stop hovering over : " + gameObject.name);
+    public void OnHoverLeave() {
+        Debug.Log("Exit hovering : " + gameObject.name);
         _sprite.sprite = closedChest;
         canOpenChest = false;
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("Clicked on : " + gameObject.name);
-    } */
 }
