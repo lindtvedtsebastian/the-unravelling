@@ -9,8 +9,6 @@ using UnityEngine.Tilemaps;
 public class GameData : ScriptableObjectSingleton<GameData> {
     public World world;
 
-
-
     public ItemData[] worldEntities;
     public TileBase[] FOG;
 
