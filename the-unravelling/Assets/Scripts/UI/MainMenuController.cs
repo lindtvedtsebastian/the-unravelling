@@ -7,6 +7,8 @@ public class MainMenuController : MonoBehaviour {
     public InputField newWorldSeed;
     public Dropdown   mapSize;
     public MapPreview mapPreview;
+    public WorldPreview worldPreview;
+    private IWorld world;
 
 
     void Start() {
@@ -31,8 +33,10 @@ public class MainMenuController : MonoBehaviour {
 
     public void generateMap() {
         int seed = int.Parse(newWorldSeed.text); // Know that content type is int 
-        MapGenerator.GenerateTilemap(newWorldName.text,GameData.Get.world.worldSize,seed,50f,6,0.5f,2f,new Vector2(0,0));
-        mapPreview.drawMap();
+        //MapGenerator.GenerateTilemap(newWorldName.text,GameData.Get.world.worldSize,seed,50f,6,0.5f,2f,new Vector2(0,0));
+        world = WorldGenerator.generateWorld(newWorldName.text, 256, seed);
+        worldPreview.drawMap(world);
+        //mapPreview.drawMap();
     }
 
     public void MapSizeChanged(Dropdown change) {

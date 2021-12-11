@@ -24,7 +24,7 @@ public class NoiseVisualizer : MonoBehaviour {
     public void visualizeNoise() {
 		float[][] noise = Noise.generateNoiseMap(offset,mapSize,seed,scale,octaves,persistance,
 													   lacunarity,startFrequency);
-        IWorld world = WorldGenerator.generateWorld(mapSize, seed);
+        IWorld world = WorldGenerator.generateWorld("testWorld",mapSize, seed);
         Texture2D tex = new Texture2D(mapSize, mapSize);
         Color[] colors = new Color[mapSize * mapSize];
         for (int y = 0; y < mapSize; y++) {

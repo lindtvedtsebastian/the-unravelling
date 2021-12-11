@@ -18,7 +18,7 @@ public static class Noise {
     /// <param name="offset">An offset of the noise in (x,y)</param>
     /// <returns>A 2D array of size [mapsize,mapsize] with noise values</returns>
     public static float[][] generateNoiseMap(Vector2 offset,int mapSize = 256, int seed = 10,
-											float scale = 1,int octaves = 3,float persistance = 0.5f,
+											float scale = 50,int octaves = 3,float persistance = 0.5f,
 											float lacunarity = 2f, float startFrequency = 1) {
 
         float[][] noiseMap = JaggedArrayUtility.createJagged2dArray<float>(mapSize,mapSize);

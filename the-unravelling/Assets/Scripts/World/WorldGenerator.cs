@@ -10,8 +10,8 @@ public class WorldGenerator : MonoBehaviour {
     private const int DRY = 0;
     private const int MOIST = 5;
 
-    public static IWorld generateWorld(int size = 256, int seed = 123) {
-        IWorld world = new IWorld(size);
+    public static IWorld generateWorld(string worldName, int size = 256, int seed = 123) {
+        IWorld world = new IWorld(worldName,size);
         Vector2 offset = new Vector2(0, 0);
         float[][] heightMap = Noise.generateNoiseMap(seed:seed++, offset: offset);
         float[][] moistureMap = Noise.generateNoiseMap(seed: seed++, offset: offset);
@@ -78,9 +78,10 @@ public class IWorld {
     public int[][] entities;
     public int[][] pathfindingMap;
     public int[][] baseResourceLocations;
-    public string mapName;
+    public string worldName;
 
-    public IWorld(int size) {
+    public IWorld(string name,int size) {
+        worldName = name;
         state = new WorldState();
         this.size = size;
         terrain = JaggedArrayUtility.createJagged2dArray<int>(size, size);

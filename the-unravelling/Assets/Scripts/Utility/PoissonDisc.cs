@@ -8,7 +8,7 @@ public static class PoissonDisc {
     const float R_MAX = 6;
     const float R_MIN = 3;
 	
-    public static List<Vector2> sample(int width, int height,int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
+    public static List<Vector2> sample(int width, int height, int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
         // The current index
         int index = 0;
 
