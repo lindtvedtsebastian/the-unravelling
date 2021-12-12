@@ -8,11 +8,13 @@ using UnityEngine;
 /// </summary>
 public class WorldCore : UnitRegeneration { 
     
-    [SerializeField]public bool isLastDay = false;
+    private bool isLastDay;
+    [SerializeField]public int daysForWin;
     
     public Animator anim;
     public GameOverScreen GameOverScreen;
     public WinningScreen WinningScreen;
+    private WorldStateManager WorldStateManager;
     
     //Cashed property index
     private static readonly int IsGameFinished = Animator.StringToHash("isGameFinished");
@@ -21,9 +23,15 @@ public class WorldCore : UnitRegeneration {
         base.Awake();
         // Set start-health to 1000
         maxHealth = 1000;
-        
+
+        isLastDay = false;
+
         //Get animations
         anim = GetComponent<Animator>();
+        
+        //Get day number
+        WorldStateManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<WorldStateManager>();
+
     }
 
 
@@ -31,7 +39,10 @@ public class WorldCore : UnitRegeneration {
     /// Run every frame
     /// </summary>
     private void Update() {
-        OnLastDay();
+        if (WorldStateManager.getCurrentIngameDay()-1 >= daysForWin) {
+            isLastDay = true;
+            OnLastDay();
+        }
     }
 
     /// <summary>
