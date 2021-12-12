@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class WorldEntityHover : MonoBehaviour {
     [SerializeField]
@@ -10,6 +11,7 @@ public class WorldEntityHover : MonoBehaviour {
 
     [SerializeField]
     private GameObject _hoverObject;
+    private Canvas canvas;
     private SpriteRenderer _sprite;
 
     private EventTrigger _eventTrigger;
@@ -27,6 +29,9 @@ public class WorldEntityHover : MonoBehaviour {
         exit.eventID = EventTriggerType.PointerExit;
         exit.callback.AddListener((data) => {OnPointerExitDelegate((PointerEventData) data); });
         _eventTrigger.triggers.Add(exit);
+
+        canvas = _hoverObject.transform.GetChild(0).GetComponent<Canvas>();
+        canvas.worldCamera = Camera.current;
     }
 
     /// <summary>
@@ -37,6 +42,7 @@ public class WorldEntityHover : MonoBehaviour {
         Debug.Log("Hovering");
         if(_sprite == null) return;
         _sprite.sprite = _hovering;
+        canvas.enabled = true;
     }
 
     /// <summary>
@@ -47,5 +53,6 @@ public class WorldEntityHover : MonoBehaviour {
         Debug.Log("Exit");
         if(_sprite == null) return;
         _sprite.sprite = _normal;
+        canvas.enabled = false;
     }
 }
