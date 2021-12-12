@@ -5,8 +5,18 @@ using UnityEngine.EventSystems;
 
 public class StorageItemSlot : Slot, IPointerClickHandler
 {
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("Clicked on storage item");
+	protected InventoryWithStorage _storage;
+
+    [SerializeField]
+    private StorageInventoryDisplay _storageDisplay;
+
+    public void AddItemStorage(Item item, InventoryWithStorage storage) {
+        _storage = storage;
+        base.AddItem(item);
+
+    }
+    public void OnPointerClick(PointerEventData eventData) {
+        _storage.TransferFromStorage(item);
+        _storageDisplay.RefreshStorageInventory(_storage);
     }
 }

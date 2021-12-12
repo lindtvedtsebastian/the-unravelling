@@ -30,11 +30,21 @@ public class StorageInventoryDisplay : MonoBehaviour {
 
     private void AddItems(InventoryWithStorage storage) {
         storage.player.removeEmpty();
+        
 
         for(int i = 0; i < itemSlots.Length; i++) {
             itemSlots[i].ClearData();
             if(i < storage.player.items.Count) {
                 itemSlots[i].AddItemStorage(storage.player.items[i], storage);
+            }
+        }
+
+        storage.storage.removeEmpty();
+
+        for(int i = 0; i < storageSlots.Length; i++) {
+            storageSlots[i].ClearData();
+            if(i < storage.storage.items.Count) {
+                storageSlots[i].AddItemStorage(storage.storage.items[i], storage);
             }
         }
     }

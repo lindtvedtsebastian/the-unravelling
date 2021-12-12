@@ -21,7 +21,6 @@ public class Inventory : MonoBehaviour {
         if (!checkIfItemExists(newItem.item)) {
             items.Add(new Item(newItem.item, 1));
         } else {
-            Debug.Log("ELSE");
             items[findItemDataIndex(newItem.item)].amount += 1;
         }
 	}
@@ -35,7 +34,6 @@ public class Inventory : MonoBehaviour {
     public bool remove(int decreaseAmount, Item item) {
         if(items[findItemDataIndex(item.item)].amount >= 1) {
             items[findItemDataIndex(item.item)].amount -= 1;
-            Debug.Log("TRUE");
             return true;
             
         } else return false;

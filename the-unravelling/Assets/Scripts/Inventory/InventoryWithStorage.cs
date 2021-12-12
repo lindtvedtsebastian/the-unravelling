@@ -13,9 +13,8 @@ public class InventoryWithStorage : MonoBehaviour {
         storage = gameObject.AddComponent<Inventory>() as Inventory;
     }
 
-    public void TranserFromStorage(Item item) {
-        if(storage.remove(1, item))
-            player.Add(item);
+    public void TransferFromStorage(Item item) {
+        if(storage.remove(1, item)) player.Add(item);
     }
 
     public void TransferToStorage(Item item) {

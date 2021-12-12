@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImg: {fileID: 6093677700605203010}
   itemNum: {fileID: 2244571565260342679}
+  _storageDisplay: {fileID: 7789704635328528928, guid: e8e02f6eda4229848bd3331bdbe96808, type: 3}
 --- !u!1 &6093677700605203008
 GameObject:
   m_ObjectHideFlags: 0
