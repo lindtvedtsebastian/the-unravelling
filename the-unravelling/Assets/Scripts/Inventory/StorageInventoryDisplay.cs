@@ -6,17 +6,16 @@ public class StorageInventoryDisplay : MonoBehaviour {
     public GameObject chestInventoryCanvas;
     public Transform _playerPanel;
     public Transform _chestPanel;
-    private ItemSlot[] itemSlots;
-    private StoragePlayerItemSlot[] storageSlots;
+    private StoragePlayerItemSlot[] itemSlots;
+    private StorageItemSlot[] storageSlots;
 
     void Awake() {
-        itemSlots = _playerPanel.GetComponentsInChildren<ItemSlot>();
-		storageSlots = _chestPanel.GetComponentsInChildren<StoragePlayerItemSlot>();
+        itemSlots = _playerPanel.GetComponentsInChildren<StoragePlayerItemSlot>();
+		storageSlots = _chestPanel.GetComponentsInChildren<StorageItemSlot>();
     }
 
     public void ActivateStorageInventory(InventoryWithStorage storage) {
         AddItems(storage);
-        //InventoryContent(storage);
         chestInventoryCanvas.SetActive(true);
     }
 

@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour {	
     
-    Item item;
-	public Image itemImg;
-	public Text itemNum;
+    protected Item item;
+
+    [SerializeField]
+	protected Image itemImg;
+
+    [SerializeField]
+	protected Text itemNum;
 
 	/// <summary>
 	/// Function to add item to the item slots in the inventory
