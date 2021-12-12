@@ -27,7 +27,12 @@ public class DialogueTrigger : MonoBehaviour{
     private void Update() {
         
          if(inRange){
-            Debug.Log(json.text);
+             //notify.SetActive(true);
+             Debug.Log(json.text);
+         }
+         else
+         {
+             //notify.SetActive(false);
          }
          
          
