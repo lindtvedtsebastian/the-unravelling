@@ -48,8 +48,8 @@ public class BitmaskableWorldEntity : WorldEntity {
     private void identifyDirections(int y, int x) {
         checkNorth = y - 1 >= 0;
         checkWest = x - 1 >= 0;
-        checkEast = x + 1 < GameData.Get.world.worldSize;
-        checkSouth = y + 1 < GameData.Get.world.worldSize;
+        checkEast = x + 1 < _world.size;
+        checkSouth = y + 1 < _world.size;
     }
 
 
@@ -124,7 +124,7 @@ public class BitmaskableWorldEntity : WorldEntity {
     /// <param name="id">The entity ID to be checked against the position in the world</param>
     /// <returns>Wheter or not the tile at pos [x,y] is of the provided entity ID</returns>
     public bool IsWorldPosTile(int y, int x, int id) {
-        return GameData.Get.world.map[y, x] == id;
+        return _world.terrain[y][x] == id;
     }
 
     /// <summary>

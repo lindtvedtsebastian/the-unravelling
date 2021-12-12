@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class WorldManager: MonoBehaviour {
-	private World world;
+	public World world;
 
     public GameObject player;
 
