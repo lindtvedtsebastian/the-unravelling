@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class InventoryWithStorage : Inventory {
     public List<Item> chestItems;
-
-    public InventoryWithStorage _storageInventory;
-
+    
     public InventoryWithStorage() {
         chestItems = new List<Item>();
     }

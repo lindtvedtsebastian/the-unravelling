@@ -15,24 +15,11 @@ public class StorageInventoryDisplay : MonoBehaviour {
     }
 
     public void ActivateStorageInventory(InventoryWithStorage storage) {
-        Debug.Log("Activate Storage Inventory");
         AddItems(storage);
         chestInventoryCanvas.SetActive(true);
     }
 
-    /// <summary>
-    /// Development function to check the inventory content
-    /// </summary>
-    public void InventoryContent(InventoryWithStorage storage) {
-        for (int i = 0; i < storage.items.Count; i++) {
-            if(storage.items[i] == null) return;
-            Debug.Log("Item count : " + i + " is -> " + storage.items[i].item.itemName + 
-                                            " count -> " + storage.items[i].amount);
-        }
-    }
-
     public void DeactivateStorageInventory() {
-        Debug.Log("Deactivate Storage Inventory");
         chestInventoryCanvas.SetActive(false);
     }
 
@@ -44,6 +31,18 @@ public class StorageInventoryDisplay : MonoBehaviour {
             if(i < storage.items.Count) {
                 itemSlots[i].AddItem(storage.items[i]);
             }
+        }
+    }
+
+    /// <summary>
+    /// Development function to check the inventory content
+    /// </summary>
+    /// <param name="storage">The storage to check content</param>
+    public void InventoryContent(InventoryWithStorage storage) {
+        for (int i = 0; i < storage.items.Count; i++) {
+            if(storage.items[i] == null) return;
+            Debug.Log("Item count : " + i + " is -> " + storage.items[i].item.itemName + 
+                                            " count -> " + storage.items[i].amount);
         }
     }
 }
