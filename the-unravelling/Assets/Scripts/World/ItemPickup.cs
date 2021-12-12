@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// A class representing the interaction of an item
 /// </summary>
-public class Interactable : MonoBehaviour {
+public class ItemPickup : MonoBehaviour {
     
     [SerializeField]
     private Item item;

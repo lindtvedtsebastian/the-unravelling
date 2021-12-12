@@ -8,7 +8,10 @@ public class InputController : MonoBehaviour {
     Theunravelling controls;
 
     [SerializeField]
-    private PlayerInventory playerInventory;
+    private PlayerInventoryDisplay playerInventory;
+
+    [SerializeField]
+    private StorageInventoryDisplay storageInventoryDisplay;
 
     [SerializeField]
     private GameObject inGameMenu;
@@ -62,8 +65,10 @@ public class InputController : MonoBehaviour {
     /// Function that can be called outside this class to activate inventory
     /// </summary>
     public void publicOpenInventory() {
-        playerInput.SwitchCurrentActionMap("UI");
         playerInventory.ActivateInventory();
+        playerInput.actions.Disable();
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInput.actions.Enable();
     }
     
     /// <summary>
@@ -78,8 +83,11 @@ public class InputController : MonoBehaviour {
     /// Function to get mouse position
     /// </summary>
     public void publicCloseInventory() {
-        playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeactivateInventory();
+        storageInventoryDisplay.DeactivateStorageInventory();
+        playerInput.actions.Disable();
+        playerInput.SwitchCurrentActionMap("Player");
+        playerInput.actions.Enable();
     }
 
     /// <summary>
@@ -95,9 +103,16 @@ public class InputController : MonoBehaviour {
     /// Function to get mouse position
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
-    private void OnActionInteract(InputAction.CallbackContext obj)
-    {
-        Debug.Log("Interact action!");
+    private void OnActionInteract(InputAction.CallbackContext ctx) {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
+		foreach (RaycastHit2D hit in hits)
+		if (hit.collider != null && hit.collider.name == "Chest(Clone)") {
+            playerInput.actions.Disable();
+            playerInput.SwitchCurrentActionMap("UI");
+            playerInput.actions.Enable();
+            InventoryWithStorage storage = hit.collider.GetComponent<InventoryWithStorage>();
+            storageInventoryDisplay.ActivateStorageInventory(storage);
+        }
     }
 
     /// <summary>
@@ -105,7 +120,6 @@ public class InputController : MonoBehaviour {
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
-        Debug.Log("This will place an object");
         playerInventory.PlaceObject();
     }
 
@@ -114,7 +128,6 @@ public class InputController : MonoBehaviour {
     /// </summary>
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionCancel(InputAction.CallbackContext ctx) {
-        Debug.Log("This will cancel an action");
         if (playerInventory.previewCraft.activeSelf) {
             playerInput.SwitchCurrentActionMap("Player");
             playerInventory.CancelInventoryAction();
