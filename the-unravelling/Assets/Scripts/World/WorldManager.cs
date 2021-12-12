@@ -1,9 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -83,5 +77,23 @@ public class WorldManager: MonoBehaviour {
                 fog.SetTile(new Vector3Int(world.size-(i+1),j+1,0), GameData.Get.FOG[i+fogColorOffset]);
             }
         }
+    }
+
+
+    public void regenerateResources() {
+	    for (int y = 0; y < world.size; y++) {
+		    for (int x = 0; x < world.size; x++) {
+			    int newResourceID = world.baseResourceLocations[y][x];
+			    if (world.entities[y][x] == 0 &&  newResourceID != 0) {
+				    int regen = UnityEngine.Random.Range(0, 2);
+				    if (regen <= 1) {
+					    world.entities[y][x] = newResourceID;
+					    GameObject entity = GameData.Get.worldEntities[newResourceID].manifestation;
+                        Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
+                        Instantiate(entity, entityPos, Quaternion.identity, entityContainer);
+				    }
+			    }
+		    }
+	    }
     }
 }
