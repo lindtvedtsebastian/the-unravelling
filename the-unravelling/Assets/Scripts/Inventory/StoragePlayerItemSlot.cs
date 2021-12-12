@@ -13,6 +13,7 @@ public class StoragePlayerItemSlot : Slot, IPointerClickHandler {
         base.AddItem(item);
     }
     public void OnPointerClick(PointerEventData eventData) {
+        if(item == null) return;
         _storage.TransferToStorage(item);
         _storageDisplay.RefreshStorageInventory(_storage);
     }

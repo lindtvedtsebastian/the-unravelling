@@ -100,11 +100,9 @@ public class InputController : MonoBehaviour {
     {
         RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
 		foreach (RaycastHit2D hit in hits)
-		if (hit.collider != null) {
+		if (hit.collider != null && hit.collider.name == "Chest(Clone)") {
             playerInput.SwitchCurrentActionMap("UI");
             InventoryWithStorage storage = hit.collider.GetComponent<InventoryWithStorage>();
-            Debug.Log("Storage list : " + storage.storage.items.Count);
-            Debug.Log("Player list : " + storage.player.items.Count);
             storageInventoryDisplay.ActivateStorageInventory(storage);
         }
     }

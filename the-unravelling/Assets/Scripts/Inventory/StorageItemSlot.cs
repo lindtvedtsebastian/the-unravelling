@@ -16,6 +16,7 @@ public class StorageItemSlot : Slot, IPointerClickHandler
 
     }
     public void OnPointerClick(PointerEventData eventData) {
+        if(item == null) return;
         _storage.TransferFromStorage(item);
         _storageDisplay.RefreshStorageInventory(_storage);
     }
