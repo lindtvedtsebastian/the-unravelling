@@ -9,13 +9,13 @@ public class InventoryWithStorage : Inventory {
         chestItems = new List<Item>();
     }
 
-    public void TranserFromStorage(Item item) {
-        base.remove(item, chestItems);
+    public void TranserFromStorage(int transferAmount, Item item) {
+        base.remove(1, item, chestItems);
         base.Add(item);
     }
 
-    public void TransferToStorage(Item item) {
-        base.remove(item);
+    public void TransferToStorage(int transferAmount, Item item) {
+        base.remove(transferAmount, item);
         base.Add(item, chestItems);
     }
 }

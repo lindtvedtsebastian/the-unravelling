@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
@@ -7,13 +5,19 @@ public class StoragePlayerItemSlot : Slot, IPointerClickHandler {
 
 	protected InventoryWithStorage _storage;
 
-    public void OnPointerClick(PointerEventData eventData) {
-        
-        _storage.TransferToStorage(item);
+    [SerializeField]
+    private StorageInventoryDisplay _storageDisplay;
+
+    public void AddItemStorage(Item item, InventoryWithStorage storage) {
+        _storage = storage;
+        base.AddItem(item);
+
     }
+    public void OnPointerClick(PointerEventData eventData) {
+        _storage.TransferToStorage(1, item);
 
-    public void AddItemWithStorageReference(Item item) {
+        _storageDisplay.RefreshStorageInventory(_storage);
 
-        _storage.TransferToStorage(item);
+        Debug.Log("Storage chest items list count : " + _storage.chestItems.Count);
     }
 }

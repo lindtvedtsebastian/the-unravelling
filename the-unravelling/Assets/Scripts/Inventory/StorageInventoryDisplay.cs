@@ -23,13 +23,18 @@ public class StorageInventoryDisplay : MonoBehaviour {
         chestInventoryCanvas.SetActive(false);
     }
 
+    public void RefreshStorageInventory(InventoryWithStorage storage) {
+        DeactivateStorageInventory();
+        ActivateStorageInventory(storage);
+    }
+
     private void AddItems(InventoryWithStorage storage) {
         storage.removeEmpty();
 
         for(int i = 0; i < itemSlots.Length; i++) {
             itemSlots[i].ClearData();
             if(i < storage.items.Count) {
-                itemSlots[i].AddItem(storage.items[i]);
+                itemSlots[i].AddItemStorage(storage.items[i], storage);
             }
         }
     }
