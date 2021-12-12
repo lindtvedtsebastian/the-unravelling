@@ -16,6 +16,7 @@ public class StorageInventoryDisplay : MonoBehaviour {
 
     public void ActivateStorageInventory(InventoryWithStorage storage) {
         AddItems(storage);
+        //InventoryContent(storage);
         chestInventoryCanvas.SetActive(true);
     }
 

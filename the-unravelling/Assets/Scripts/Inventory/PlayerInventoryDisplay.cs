@@ -155,8 +155,6 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void AddItems() {
         playerInventory.removeEmpty();
 
-        Debug.Log("items from playerinventory : " + playerInventory.items.Count);
-
         for (int i = 0; i < itemSlots.Length; i++) {
             itemSlots[i].ClearData();
             if (i < playerInventory.items.Count) {
