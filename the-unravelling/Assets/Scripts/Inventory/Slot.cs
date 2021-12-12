@@ -1,16 +1,14 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Class representing a item slot in the inventory
-/// </summary>
-public class ItemSlot : MonoBehaviour, IPointerClickHandler {
-	Item item;
+public class Slot : MonoBehaviour {	
+    
+    Item item;
 	public Image itemImg;
 	public Text itemNum;
-	public PlayerInventoryDisplay playerInventory;
-	
+
 	/// <summary>
 	/// Function to add item to the item slots in the inventory
 	/// </summary>
@@ -33,11 +31,5 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler {
 
         itemImg.sprite = null;
         itemNum.text = null;
-    }
-
-    public void OnPointerClick(PointerEventData eventData) {
-		if(item != null) {
-			playerInventory?.CreatePreview(item);
-		} 	
     }
 }
