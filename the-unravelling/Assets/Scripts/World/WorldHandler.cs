@@ -18,7 +18,6 @@ public static class WorldHandler {
     public static World loadWorld(string filename) {
         World world = null;
         var filepath = Application.persistentDataPath + "/" + filename + ".world";
-        Debug.Log(filepath);
         if (!File.Exists(filepath)) return world;
 
         BinaryFormatter bf = new BinaryFormatter();
