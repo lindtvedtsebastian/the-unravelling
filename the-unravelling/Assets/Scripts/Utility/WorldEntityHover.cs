@@ -27,7 +27,11 @@ public class WorldEntityHover : MonoBehaviour {
         exit.callback.AddListener((data) => {OnPointerExitDelegate((PointerEventData) data); });
         _eventTrigger.triggers.Add(exit);
     }
-
+    
+    /// <summary>
+	/// Function to use the callback created for OnPointerEnter
+	/// </summary>
+    /// <param name="data">The Pointer event data</param>
     public void OnPointerEnterDelegate(PointerEventData data) {
         Debug.Log("Hovering");
         if(_sprite == null) return;
@@ -35,6 +39,10 @@ public class WorldEntityHover : MonoBehaviour {
         _sprite.sprite = _hovering;
     }
 
+    /// <summary>
+	/// Function to use the callback created for OnPointerExit
+	/// </summary>
+    /// <param name="data">The Pointer event data</param>
     public void OnPointerExitDelegate(PointerEventData data) {
         Debug.Log("Exit");
         if(_sprite == null) return;
