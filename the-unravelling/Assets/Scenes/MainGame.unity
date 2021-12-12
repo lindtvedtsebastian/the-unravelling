@@ -1400,6 +1400,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107380417}
   m_CullTransparentMesh: 1
+--- !u!1 &1382589605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1382589607}
+  - component: {fileID: 1382589606}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: WorldManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1382589606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382589605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17740b372c3721429478ec6e2b2d59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world:
+    state:
+      globalGameTime: 0
+      Tick: 1
+      currentGameDay: 0
+      stateOfDay: 0
+    size: 0
+    worldName: 
+  player: {fileID: 533545716}
+  gameWorld: {fileID: 1941870065}
+  background: {fileID: 1028428429}
+  fog: {fileID: 381299744}
+  entityContainer: {fileID: 1382589607}
+--- !u!4 &1382589607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382589605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1464130525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,7 +1865,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1935653698}
   - component: {fileID: 1935653697}
-  - component: {fileID: 1935653696}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1817,23 +1872,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1935653696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935653695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b725ef59eb34a4d8cf4855699e37b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 533545716}
-  IEntityContainer: {fileID: 1515293733}
-  gameWorld: {fileID: 1941870065}
-  background: {fileID: 1028428429}
-  fog: {fileID: 381299744}
 --- !u!156049354 &1935653697
 Grid:
   m_ObjectHideFlags: 0

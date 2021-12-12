@@ -44,7 +44,7 @@ public class EnemyWalk : State
 
         if (stuckTimer <= 0) {
 			if (isStuck()) {
-                Vector3 middleOfMap = new Vector3(GameData.Get.world.worldSize / 2, GameData.Get.world.worldSize / 2, 0);
+                Vector3 middleOfMap = new Vector3(_world.size / 2, _world.size / 2, 0);
                 Vector3 dirTowardsPlayer = (gameObject.transform.position - middleOfMap).normalized;
 				gameObject.transform.position = gameObject.transform.position - dirTowardsPlayer;
                 CalculatePath();

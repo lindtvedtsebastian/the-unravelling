@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// Type of item represented by ItemData object.
@@ -31,4 +32,11 @@ public class ItemData : ScriptableObject {
 
     // The prefab representing the real physical manifestation of the item.
     public GameObject manifestation;
+
+	// The world object
+	private World _world = null;
+
+	protected World getWorld() {
+		return GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
+	}
 }

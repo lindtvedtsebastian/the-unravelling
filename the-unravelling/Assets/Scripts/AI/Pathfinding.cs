@@ -24,17 +24,20 @@ public struct PathPart {
 /// A class for calculating pathfinding in the Unravelling world grid 
 /// </summary>
 public class Pathfinding {
+	private World _world;
+
 	private const int STRAIGHT_COST = 10;
 	private const int DIAGONAL_COST = 14;
 
 	public Pathfinding(int2 startPos, int2 endPos, NativeList<PathPart> resultPath) {
+		_world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         float startTime = Time.realtimeSinceStartup;
 		
         PathfindingJob pathfinding = new PathfindingJob {
                 startPos = startPos,
                 endPos = endPos,
                 nodeArray = BuildPathfindingGrid(endPos),
-                gridSize = GameData.Get.world.worldSize,
+                gridSize = _world.size,
 				resultPath = resultPath
             };
 		
@@ -51,7 +54,7 @@ public class Pathfinding {
     /// <param name="endPos">The end position in the grid, used for calculating heuristics</param>
     /// <returns>A grid ready to be used for pathfinding</returns>
     private NativeArray<Node> BuildPathfindingGrid(int2 endPos) {
-		int2 gridSize = new int2(GameData.Get.world.worldSize, GameData.Get.world.worldSize);
+		int2 gridSize = new int2(_world.size, _world.size);
 		NativeArray<Node> nodeArray = new NativeArray<Node>(gridSize.x * gridSize.y, Allocator.Persistent);
 
 		for (int x = 0; x < gridSize.x; x++) {
@@ -66,7 +69,7 @@ public class Pathfinding {
 				node.previousIndex = -1;
 
                 // node.additionalCost = 0;
-				node.additionalCost = GameData.Get.world.pathfindingMap[y, x];
+				node.additionalCost = _world.pathfindingMap[y][x];
 
                 node.gCost = int.MaxValue;
 				node.hCost = CalculateHeuristics(new int2(x, y), endPos);

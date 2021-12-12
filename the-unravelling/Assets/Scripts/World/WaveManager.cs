@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
+	private World _world;
+
 	[SerializeField] private Wave[] waves;
     [SerializeField] private bool[] completedWaves;
     [SerializeField] private GameObject enemyContainer;
@@ -12,8 +14,6 @@ public class WaveManager : MonoBehaviour {
 
     private bool newWave;
 
-    private int mapSize;
-	
     private int waveIndex;
     private int waveEnemyIndex;
 	[SerializeField]
@@ -21,7 +21,7 @@ public class WaveManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        mapSize = GameData.Get.world.worldSize;
+	    _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         spawnedEnemies = new List<GameObject>();
         completedWaves = new bool[waves.Length];
 
@@ -31,7 +31,7 @@ public class WaveManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (GameData.Get.world.state.stateOfDay == CycleState.NIGHT && !completedWaves[waveIndex]) {
+        if (_world.state.stateOfDay == CycleState.NIGHT && !completedWaves[waveIndex]) {
             DoWaveAction();
             StartCoroutine(spawnDelay());
         } else
@@ -62,8 +62,8 @@ public class WaveManager : MonoBehaviour {
     }
 
 	void UpdateWaveManagerValues() {
-		if (waveIndex != GameData.Get.world.state.currentGameDay) {
-            waveIndex = GameData.Get.world.state.currentGameDay;
+		if (waveIndex != _world.state.currentGameDay) {
+            waveIndex = _world.state.currentGameDay;
             waveEnemyIndex = 0;
             currentWave = waves[waveIndex];
             remainingWaveEnemyCount = currentWave.waveEnemies[waveEnemyIndex].count;
@@ -73,10 +73,10 @@ public class WaveManager : MonoBehaviour {
 
 	Vector3 spawnPosition() {
 		switch (currentWave.waveDirection) {
-			case AttackDirection.NORTH: return new Vector3(Random.Range(0,mapSize-1),mapSize-1,0);
-			case AttackDirection.SOUTH: return new Vector3(Random.Range(0,mapSize-1),0,0);
-			case AttackDirection.WEST:  return new Vector3(0,Random.Range(0,mapSize-1),0);
-			default:                    return new Vector3(mapSize-1,Random.Range(0,mapSize-1),0);
+			case AttackDirection.NORTH: return new Vector3(Random.Range(0,_world.size-1),_world.size-1,0);
+			case AttackDirection.SOUTH: return new Vector3(Random.Range(0,_world.size-1),0,0);
+			case AttackDirection.WEST:  return new Vector3(0,Random.Range(0,_world.size-1),0);
+			default:                    return new Vector3(_world.size-1,Random.Range(0,_world.size-1),0);
         }
 	}
 

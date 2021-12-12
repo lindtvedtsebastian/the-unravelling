@@ -22,7 +22,10 @@ public class InputController : MonoBehaviour {
 
     private PlayerInput playerInput;
 
+    private World _world;
+
     private void Awake() {
+        _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         controls = new Theunravelling();
 
         playerInput = GetComponent<PlayerInput>();
@@ -138,7 +141,7 @@ public class InputController : MonoBehaviour {
     public void SaveGameAndExitButtonClick() {
         inGameMenu.SetActive(false);
         HUD.SetActive(false);
-        GameData.Get.SaveWorld();
+        WorldHandler.saveWorld(_world);
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     
