@@ -18,7 +18,10 @@ public class BaseUnit : MonoBehaviour, IClickable {
     // Current health of the unit.
     protected int health;
 
+    private World _world;
+
     void Awake() {
+	    _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         health = maxHealth;
 
         // Spawn health bar
@@ -45,8 +48,12 @@ public class BaseUnit : MonoBehaviour, IClickable {
         health -= damage;
 
 		if (health <= 0) {
+			Drop();
             Destroy(gameObject);
-        }
+            int y = _world.size - Mathf.FloorToInt(gameObject.transform.position.y);
+            int x = Mathf.FloorToInt(gameObject.transform.position.x);
+            _world.entities[y][x] = 0;
+		}
     }
 
     /// <summary>
@@ -67,13 +74,6 @@ public class BaseUnit : MonoBehaviour, IClickable {
 							dropContainer.transform);
 			}
         }
-    }
-
-    /// <summary>
-    /// Called when health reaches zero, responsible for destroying the unit.
-    /// </summary>
-    private void OnDestroy() {
-        Drop();
     }
 
 }

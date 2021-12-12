@@ -25,7 +25,9 @@ public class PlayerInventory : MonoBehaviour {
     private Item previewItem;
     private TMPro.TextMeshProUGUI previewAmount;
 
+    private World _world;
     void Start() {
+        _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
 		craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
 
@@ -76,6 +78,11 @@ public class PlayerInventory : MonoBehaviour {
 
         ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
+
+        int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
+        int x = Mathf.FloorToInt(previewCraft.transform.position.x);
+
+        _world.entities[y][x] = 999; //TODO: Fix this with real ID's
 
         previewItem.amount -= 1;
         previewAmount.text = previewItem.amount.ToString();
