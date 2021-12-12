@@ -104,9 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b215e980ebde24439bee91b69421a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
-  chestItems: []
-  _storageInventory: {fileID: 1910438040252068137}
+  player: {fileID: 0}
+  storage: {fileID: 0}
 --- !u!114 &7670420844325743106
 MonoBehaviour:
   m_ObjectHideFlags: 0

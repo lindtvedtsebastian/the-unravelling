@@ -29,12 +29,12 @@ public class StorageInventoryDisplay : MonoBehaviour {
     }
 
     private void AddItems(InventoryWithStorage storage) {
-        storage.removeEmpty();
+        storage.player.removeEmpty();
 
         for(int i = 0; i < itemSlots.Length; i++) {
             itemSlots[i].ClearData();
-            if(i < storage.items.Count) {
-                itemSlots[i].AddItemStorage(storage.items[i], storage);
+            if(i < storage.player.items.Count) {
+                itemSlots[i].AddItemStorage(storage.player.items[i], storage);
             }
         }
     }
@@ -44,10 +44,10 @@ public class StorageInventoryDisplay : MonoBehaviour {
     /// </summary>
     /// <param name="storage">The storage to check content</param>
     public void InventoryContent(InventoryWithStorage storage) {
-        for (int i = 0; i < storage.items.Count; i++) {
-            if(storage.items[i] == null) return;
-            Debug.Log("Item count : " + i + " is -> " + storage.items[i].item.itemName + 
-                                            " count -> " + storage.items[i].amount);
+        for (int i = 0; i < storage.player.items.Count; i++) {
+            if(storage.player.items[i] == null) return;
+            Debug.Log("Item count : " + i + " is -> " + storage.player.items[i].item.itemName + 
+                                            " count -> " + storage.player.items[i].amount);
         }
     }
 }

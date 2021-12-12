@@ -14,10 +14,15 @@ public class StoragePlayerItemSlot : Slot, IPointerClickHandler {
 
     }
     public void OnPointerClick(PointerEventData eventData) {
-        _storage.TransferToStorage(1, item);
+        _storage.TransferToStorage(item);
 
         _storageDisplay.RefreshStorageInventory(_storage);
 
-        Debug.Log("Storage chest items list count : " + _storage.chestItems.Count);
+        for(int i = 0; i < _storage.storage.items.Count; i++) {
+            Debug.Log("Content player : " + _storage.player.items[i].amount);
+            Debug.Log("Content storage : " + _storage.storage.items[i].amount);
+        }
+
+        //Debug.Log("Storage chest items list count : " + _storage.storage.items.Count);
     }
 }

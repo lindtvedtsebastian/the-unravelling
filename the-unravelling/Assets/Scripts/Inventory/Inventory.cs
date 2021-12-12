@@ -9,26 +9,20 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
     public List<Item> items;
 
-    /// <summary>
-    /// Constructs a new Inventory 
-    /// </summary>
-    /// <returns>The new inventory object</returns>
-    public Inventory() {
+    void Start() {
         items = new List<Item>();
-        
     }
 
     /// <summary>
     /// Adds or updates a item in the inventory list 
     /// </summary>
     /// <param name="newItem">The item to be added</param>
-    public void Add(Item newItem, List<Item> list = null) {
-        if(list == null) list = items;
-
-        if (!checkIfItemExists(newItem.item, list)) {
-            list.Add(newItem);
+    public void Add(Item newItem) {
+        if (!checkIfItemExists(newItem.item)) {
+            items.Add(new Item(newItem.item, 1));
         } else {
-            list[findItemDataIndex(newItem.item, list)].amount += newItem.amount;
+            Debug.Log("ELSE");
+            items[findItemDataIndex(newItem.item)].amount += 1;
         }
 	}
 
@@ -38,11 +32,13 @@ public class Inventory : MonoBehaviour {
         });
     }
 
-    public void remove(int decreaseAmount, Item item, List<Item> list = null) {
-        if(list == null) list = items;
-        if(list[findItemDataIndex(item.item)].amount >= item.amount) {
-            list[findItemDataIndex(item.item)].amount -= decreaseAmount;
-        }
+    public bool remove(int decreaseAmount, Item item) {
+        if(items[findItemDataIndex(item.item)].amount >= 1) {
+            items[findItemDataIndex(item.item)].amount -= 1;
+            Debug.Log("TRUE");
+            return true;
+            
+        } else return false;
     }
 
     /// <summary>
@@ -50,9 +46,8 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="itemData">The itemdata to check against the inv list</param>
     /// <returns>Whether or not the item exists</returns>
-    protected bool checkIfItemExists(ItemData itemData, List<Item> list = null) {
-        if(list == null) list = items;
-		foreach (Item item in list) {
+    protected bool checkIfItemExists(ItemData itemData) {
+		foreach (Item item in items) {
 			if (item.item == itemData) {
                 return true;
             }
@@ -65,10 +60,9 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="itemData">The itemData to find the index of</param>
     /// <returns>The index if found, -1 otherwise</returns>
-    protected int findItemDataIndex(ItemData itemData, List<Item> list = null) {
-        if(list == null) list = items;
-        for (int i = 0; i < list.Count; i++) {
-			if (list[i].item == itemData) {
+    protected int findItemDataIndex(ItemData itemData) {
+        for (int i = 0; i < items.Count; i++) {
+			if (items[i].item == itemData) {
                 return i; 
             }
 		}
@@ -83,6 +77,11 @@ public class Inventory : MonoBehaviour {
 public class Item {
     public ItemData item;
     public int amount;
+
+    public Item(ItemData item, int amount) {
+        this.item = item;
+        this.amount = amount;
+    }
 }
 
 

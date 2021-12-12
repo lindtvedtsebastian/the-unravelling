@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryWithStorage : Inventory {
-    public List<Item> chestItems;
-    
-    public InventoryWithStorage() {
-        chestItems = new List<Item>();
+public class InventoryWithStorage : MonoBehaviour {
+
+    public Inventory player;
+
+    public Inventory storage;
+
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        storage = gameObject.AddComponent<Inventory>() as Inventory;
     }
 
-    public void TranserFromStorage(int transferAmount, Item item) {
-        base.remove(1, item, chestItems);
-        base.Add(item);
+    public void TranserFromStorage(Item item) {
+        if(storage.remove(1, item))
+            player.Add(item);
     }
 
-    public void TransferToStorage(int transferAmount, Item item) {
-        base.remove(transferAmount, item);
-        base.Add(item, chestItems);
+    public void TransferToStorage(Item item) {
+        if(player.remove(1, item)) storage.Add(item);
     }
 }

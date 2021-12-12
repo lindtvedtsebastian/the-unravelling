@@ -58,10 +58,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             craftInfo.SetActive(false);
 
             // Create a new item object
-            Item item = new Item();
-            // Copy the value in from the item representation of the craft object
-            item.item = craft.craftingRecipe.itemRepresentation;
-            item.amount = craft.craftingRecipe.itemRepresentation.itemAmount;
+            Item item = new Item(craft.craftingRecipe.itemRepresentation, craft.craftingRecipe.itemRepresentation.itemAmount);
 
             // Add it to the player inventory
             playerInventory.playerInventory.Add(item);

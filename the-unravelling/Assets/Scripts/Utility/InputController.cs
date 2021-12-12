@@ -102,9 +102,10 @@ public class InputController : MonoBehaviour {
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             playerInput.SwitchCurrentActionMap("UI");
-            InventoryWithStorage _storage = hit.collider.GetComponent<InventoryWithStorage>();
-            _storage.items = playerInventory.playerInventory.items;
-            storageInventoryDisplay.ActivateStorageInventory(_storage);
+            InventoryWithStorage storage = hit.collider.GetComponent<InventoryWithStorage>();
+            Debug.Log("Storage list : " + storage.storage.items.Count);
+            Debug.Log("Player list : " + storage.player.items.Count);
+            storageInventoryDisplay.ActivateStorageInventory(storage);
         }
     }
 
