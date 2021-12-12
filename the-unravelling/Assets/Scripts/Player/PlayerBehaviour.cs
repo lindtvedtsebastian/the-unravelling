@@ -21,6 +21,8 @@ public class PlayerBehaviour : MonoBehaviour {
     private static readonly int VelocityY = Animator.StringToHash("Velocity Y");
     private static readonly int VelocityX = Animator.StringToHash("Velocity X");
 
+    
+    
     // Initialize the components
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
