@@ -51,9 +51,9 @@ public class DialogueManager : MonoBehaviour {
         if (!storyIsActive) {
             return;
         }
-        if (continueButton) { // TODO("If player presses the interact button.")
+        /*if () { // TODO("If player presses the interact button.")
             ContinueStory();
-        }
+        }*/
     }
 
     public void EnterDialogueMode(TextAsset story) {
@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour {
         currentStory.ChooseChoiceIndex(choiceIndex);
     }
 
-    private void ContinueStory() {
+    public void ContinueStory() {
         if (currentStory.canContinue) {
             dialogueText.text = currentStory.Continue();
             DisplayChoices();

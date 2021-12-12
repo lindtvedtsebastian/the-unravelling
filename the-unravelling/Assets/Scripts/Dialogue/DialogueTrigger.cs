@@ -28,6 +28,7 @@ public class DialogueTrigger : MonoBehaviour{
         
          if(inRange && !DialogueManager.instance.storyIsActive){
              notify.SetActive(true);
+             
              if (true) { // TODO("If player presses the interact button.")
                  DialogueManager.instance.EnterDialogueMode(json);
              }
