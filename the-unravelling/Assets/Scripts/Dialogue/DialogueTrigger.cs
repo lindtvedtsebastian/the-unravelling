@@ -26,13 +26,15 @@ public class DialogueTrigger : MonoBehaviour{
 
     private void Update() {
         
-         if(inRange){
-             //notify.SetActive(true);
-             Debug.Log(json.text);
+         if(inRange && !DialogueManager.instance.storyIsActive){
+             notify.SetActive(true);
+             if (true) { // TODO("If player presses the interact button.")
+                 DialogueManager.instance.EnterDialogueMode(json);
+             }
          }
          else
          {
-             //notify.SetActive(false);
+             notify.SetActive(false);
          }
          
          

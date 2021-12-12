@@ -5,6 +5,8 @@ using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerInput))]
 public class DialogueManager : MonoBehaviour {
@@ -16,6 +18,8 @@ public class DialogueManager : MonoBehaviour {
 
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
+
+    [SerializeField] private Button continueButton;
 
     public bool storyIsActive { get; private set; }
 
@@ -47,7 +51,7 @@ public class DialogueManager : MonoBehaviour {
         if (!storyIsActive) {
             return;
         }
-        if () { // TODO("If player presses the interact button.")
+        if (continueButton) { // TODO("If player presses the interact button.")
             ContinueStory();
         }
     }
@@ -78,6 +82,18 @@ public class DialogueManager : MonoBehaviour {
         for (int i = index; i < choices.Length; i++) {
             choices[i].gameObject.SetActive(false);
         }
+
+        StartCoroutine(ChoiceProgression());
+    }
+
+    private IEnumerator ChoiceProgression() {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    }
+
+    public void Choose(int choiceIndex) {
+        currentStory.ChooseChoiceIndex(choiceIndex);
     }
 
     private void ContinueStory() {
@@ -97,4 +113,6 @@ public class DialogueManager : MonoBehaviour {
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
+    
+    
 }
