@@ -66,13 +66,6 @@ public class WorldManager: MonoBehaviour {
             }
         }
 
-		/*foreach (IEntity ientity in GameData.Get.world.iEntities) {
-            int id = ientity.entityID;
-            GameObject entity = GameData.Get.worldEntities[ientity.entityID].manifestation;
-            Vector3 pos = new Vector3(ientity.worldPosX + .5f, ientity.worldPosY + .5f, 0);
-            Instantiate(entity, pos, Quaternion.identity, IEntityContainer.transform);
-        }*/
-
 		WorldHandler.saveWorld(world);
     }
 
