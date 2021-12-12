@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour {
     [SerializeField]
     private PlayerInventoryDisplay playerInventory;
 
+    [SerializeField]
     private StorageInventoryDisplay storageInventoryDisplay;
 
     [SerializeField]
@@ -82,7 +83,7 @@ public class InputController : MonoBehaviour {
     public void publicCloseInventory() {
         playerInput.SwitchCurrentActionMap("Player");
         playerInventory.DeactivateInventory();
-        storageInventoryDisplay.DeactivateChestInventory();
+        storageInventoryDisplay.DeactivateStorageInventory();
     }
 
     /// <summary>
@@ -105,8 +106,9 @@ public class InputController : MonoBehaviour {
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             playerInput.SwitchCurrentActionMap("UI");
-            InventoryWithChest _chest = hit.collider.GetComponent<InventoryWithChest>()._chestInventory;
-            storageInventoryDisplay.ActivateChestInventory(_chest);
+            InventoryWithStorage _storage = hit.collider.GetComponent<InventoryWithStorage>();
+            _storage.items = playerInventory.playerInventory.items;
+            storageInventoryDisplay.ActivateStorageInventory(_storage);
         }
     }
 

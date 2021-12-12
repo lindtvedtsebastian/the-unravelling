@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   chestItems: []
+  _storageInventory: {fileID: 1910438040252068137}
 --- !u!114 &7670420844325743106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closedChest: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
   openChest: {fileID: 21300000, guid: 821d21f796779a54389a3162730cf0b4, type: 3}
-  _chestInventory: {fileID: 0}
 --- !u!61 &7598373586242291439
 BoxCollider2D:
   m_ObjectHideFlags: 0

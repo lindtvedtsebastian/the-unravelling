@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryWithChest : Inventory {
+public class InventoryWithStorage : Inventory {
     public List<Item> chestItems;
 
-    public InventoryWithChest _chestInventory;
+    public InventoryWithStorage _storageInventory;
 
-    public InventoryWithChest() {
+    public InventoryWithStorage() {
         chestItems = new List<Item>();
     }
 
