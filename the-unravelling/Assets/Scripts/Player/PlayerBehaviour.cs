@@ -49,12 +49,4 @@ public class PlayerBehaviour : MonoBehaviour {
 			playerAnimation.SetFloat(VelocityY, 0);	
 		}
 	}
-    
-    private void PlayRightWalkingSound() {
-        walkingRSound.Play();
-    }
-
-    private void PlayLeftWalkingSound() {
-        walkingLSound.Play();
-    }
 }

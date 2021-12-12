@@ -9,7 +9,7 @@ public class WorldStateManager : MonoBehaviour {
     public GameObject NightEffect;
 
     private void Start() {
-        worldState = GameData.Get.world.state;
+        worldState = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world.state;
         InvokeRepeating(nameof(IncrementGameTimeAndDay), 0.0f, 1.0f);
 		NightEffect = GameObject.FindWithTag("NightEffect");
     }

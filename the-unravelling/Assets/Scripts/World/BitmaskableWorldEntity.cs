@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Tilemaps;
 
 [Serializable]
@@ -47,8 +48,8 @@ public class BitmaskableWorldEntity : WorldEntity {
     private void identifyDirections(int y, int x) {
         checkNorth = y - 1 >= 0;
         checkWest = x - 1 >= 0;
-        checkEast = x + 1 < GameData.Get.world.worldSize;
-        checkSouth = y + 1 < GameData.Get.world.worldSize;
+        checkEast = x + 1 < getWorld().size;
+        checkSouth = y + 1 < getWorld().size;
     }
 
 
@@ -61,22 +62,22 @@ public class BitmaskableWorldEntity : WorldEntity {
     public int calculateCardinals(int y, int x) {
         int bitmask = 0;
         if (checkNorth && BitmaskPredicate(y - 1, x, this.id)) {
-            bitmask += GameData.N;
+            bitmask += Constants.N;
             northExists = true;
         }
 
         if (checkWest && BitmaskPredicate(y, x - 1, this.id)) {
-            bitmask += GameData.W;
+            bitmask += Constants.W;
             westExists = true;
         }
 
         if (checkEast && BitmaskPredicate(y, x + 1, this.id)) {
-            bitmask += GameData.E;
+            bitmask += Constants.E;
             eastExists = true;
         }
 
         if (checkSouth && BitmaskPredicate(y + 1, x, this.id)) {
-            bitmask += GameData.S;
+            bitmask += Constants.S;
             southExists = true;
         }
 
@@ -94,22 +95,22 @@ public class BitmaskableWorldEntity : WorldEntity {
 
         if ((checkNorth && checkWest && BitmaskPredicate(y - 1, x - 1, this.id))
             && northExists && westExists) {
-            bitmask += GameData.NW;
+            bitmask += Constants.NW;
         }
 
         if ((checkNorth && checkEast && BitmaskPredicate(y - 1, x + 1, this.id))
             && northExists && eastExists) {
-            bitmask += GameData.NE;
+            bitmask += Constants.NE;
         }
 
         if ((checkSouth && checkWest && BitmaskPredicate(y + 1, x - 1, this.id))
             && southExists && westExists) {
-            bitmask += GameData.SW;
+            bitmask += Constants.SW;
         }
 
         if ((checkSouth && checkEast && BitmaskPredicate(y + 1, x + 1, this.id))
             && southExists && eastExists) {
-            bitmask += GameData.SE;
+            bitmask += Constants.SE;
         }
 
         return bitmask;
@@ -123,7 +124,7 @@ public class BitmaskableWorldEntity : WorldEntity {
     /// <param name="id">The entity ID to be checked against the position in the world</param>
     /// <returns>Wheter or not the tile at pos [x,y] is of the provided entity ID</returns>
     public bool IsWorldPosTile(int y, int x, int id) {
-        return GameData.Get.world.map[y, x] == id;
+        return getWorld().terrain[y][x] == id;
     }
 
     /// <summary>
