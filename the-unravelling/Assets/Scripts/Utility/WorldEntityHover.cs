@@ -1,7 +1,5 @@
-using Unity.Assertions;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class WorldEntityHover : MonoBehaviour {
     [SerializeField]
@@ -9,6 +7,9 @@ public class WorldEntityHover : MonoBehaviour {
 
     [SerializeField]
     private Sprite _hovering;
+
+    [SerializeField]
+    private GameObject _hoverObject;
     private SpriteRenderer _sprite;
 
     private EventTrigger _eventTrigger;
@@ -27,7 +28,7 @@ public class WorldEntityHover : MonoBehaviour {
         exit.callback.AddListener((data) => {OnPointerExitDelegate((PointerEventData) data); });
         _eventTrigger.triggers.Add(exit);
     }
-    
+
     /// <summary>
 	/// Function to use the callback created for OnPointerEnter
 	/// </summary>
@@ -35,7 +36,6 @@ public class WorldEntityHover : MonoBehaviour {
     public void OnPointerEnterDelegate(PointerEventData data) {
         Debug.Log("Hovering");
         if(_sprite == null) return;
-
         _sprite.sprite = _hovering;
     }
 
@@ -46,7 +46,6 @@ public class WorldEntityHover : MonoBehaviour {
     public void OnPointerExitDelegate(PointerEventData data) {
         Debug.Log("Exit");
         if(_sprite == null) return;
-
         _sprite.sprite = _normal;
     }
 }
