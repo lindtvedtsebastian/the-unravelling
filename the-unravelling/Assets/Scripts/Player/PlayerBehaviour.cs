@@ -50,11 +50,7 @@ public class PlayerBehaviour : MonoBehaviour {
 		}
 	}
     
-    private void PlayRightWalkingSound() {
-        walkingRSound.Play();
-    }
-
-    private void PlayLeftWalkingSound() {
-        walkingLSound.Play();
+    private void PlayWalkingSound() {
+        walkingSound.Play();
     }
 }
