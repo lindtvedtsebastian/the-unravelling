@@ -30,6 +30,8 @@ public class WorldEntityHover : MonoBehaviour {
         exit.callback.AddListener((data) => {OnPointerExitDelegate((PointerEventData) data); });
         _eventTrigger.triggers.Add(exit);
 
+        _hoverObject = Instantiate(_hoverObject, this.transform);
+
         canvas = _hoverObject.transform.GetChild(0).GetComponent<Canvas>();
         canvas.worldCamera = Camera.current;
     }
