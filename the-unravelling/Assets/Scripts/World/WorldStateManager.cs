@@ -34,4 +34,8 @@ public class WorldStateManager : MonoBehaviour {
     public bool IsDay() {
         return _world.state.stateOfDay == CycleState.DAY;
     }
+
+    public World getWorld() {
+        return _world;
+    }
 } 

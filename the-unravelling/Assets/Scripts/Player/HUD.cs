@@ -8,6 +8,8 @@ using UnityEngine.UI;
 /// A class representing the heads up display
 /// </summary>
 public class HUD : MonoBehaviour {
+    private WorldState _worldState;
+
     [SerializeField] 
     private WorldStateManager worldStateManager;
 
@@ -21,23 +23,27 @@ public class HUD : MonoBehaviour {
     private int startNight;
     private float cycleTime;
 
+    private void Start() {
+        _worldState = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world.state;
+    }
+
     private void Update()
     {
         // Get the cycle duration and start night variables from the world state
         // class. Might need to look into a better way of doing this
-        dayCycle = worldStateManager.worldState.getCycleDuration();
-        startNight = worldStateManager.worldState.getStartNight();
+        dayCycle = _worldState.getCycleDuration();
+        startNight = _worldState.getStartNight();
 
-        cycleTime = worldStateManager.worldState.globalGameTime;
+        cycleTime = _worldState.globalGameTime;
         
         // Set the text and color based on the world state manager IsNight function
         displayCountdown.text = worldStateManager.IsNight()
-            ? "Time until day : " + (dayCycle - (int) worldStateManager.worldState.globalGameTime)
-            : "Time until night : " + (startNight - (int) worldStateManager.worldState.globalGameTime);
+            ? "Time until day : " + (dayCycle - (int) _worldState.globalGameTime)
+            : "Time until night : " + (startNight - (int) _worldState.globalGameTime);
 
         displayCountdown.color = worldStateManager.IsNight() ? Color.white : Color.black;
 
-        displayDayCount.text = "Day cycle : " + (worldStateManager.worldState.currentGameDay + 1);
+        displayDayCount.text = "Day cycle : " + (_worldState.currentGameDay + 1);
         displayDayCount.color = worldStateManager.IsNight() ? Color.white : Color.black;
     }
 }
