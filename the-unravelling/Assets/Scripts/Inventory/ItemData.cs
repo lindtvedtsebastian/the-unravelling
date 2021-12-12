@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// Type of item represented by ItemData object.
@@ -33,12 +34,9 @@ public class ItemData : ScriptableObject {
     public GameObject manifestation;
 
 	// The world object
-	private World _world;
+	private World _world = null;
 
 	protected World getWorld() {
-		if (_world.size == 0) {
-			_world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
-		}
-		return _world;
+		return GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
 	}
 }

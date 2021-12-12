@@ -1437,6 +1437,7 @@ MonoBehaviour:
   gameWorld: {fileID: 1941870065}
   background: {fileID: 1028428429}
   fog: {fileID: 381299744}
+  entityContainer: {fileID: 1382589607}
 --- !u!4 &1382589607
 Transform:
   m_ObjectHideFlags: 0

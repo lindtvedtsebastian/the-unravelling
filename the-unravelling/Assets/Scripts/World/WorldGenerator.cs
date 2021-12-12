@@ -1,11 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class WorldGenerator : MonoBehaviour {
     private const int LOWLAND = 0;

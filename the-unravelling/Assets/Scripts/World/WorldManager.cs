@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -14,6 +15,8 @@ public class WorldManager: MonoBehaviour {
     public Tilemap gameWorld;
     public Tilemap background;
     public Tilemap fog;
+
+    public Transform entityContainer;
 
 	private void Start() {
 		if (GameData.Get.activeWorld != "") {
@@ -42,16 +45,24 @@ public class WorldManager: MonoBehaviour {
 
         createFog();
 
+        WorldEntity stone = (WorldEntity) GameData.Get.worldEntities[Constants.STONE];
+
         for (int y = 0; y < world.size; y++) {
             for (int x = 0; x < world.size; x++) {
                 int tileID = world.terrain[y][x];
                 WorldEntity tileData = (WorldEntity) GameData.Get.worldEntities[tileID];
-                WorldEntity stone = (WorldEntity) GameData.Get.worldEntities[Constants.STONE];
                 tile = tileData.SetSprite(y, x);
 
                 gameWorld.SetTile(new Vector3Int(x, world.size - y, 0), tile);
                 background.SetTile(new Vector3Int(x, world.size - y, 0),
                                    stone.SetSprite(y,x));
+
+                int entityID = world.entities[y][x];
+                if (entityID != 0) {
+	                GameObject entity = GameData.Get.worldEntities[entityID].manifestation;
+	                Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
+	                Instantiate(entity, entityPos, Quaternion.identity, entityContainer);
+                }
             }
         }
 
