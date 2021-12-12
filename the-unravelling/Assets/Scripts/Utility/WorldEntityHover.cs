@@ -34,6 +34,8 @@ public class WorldEntityHover : MonoBehaviour {
 
         canvas = _hoverObject.transform.GetChild(0).GetComponent<Canvas>();
         canvas.worldCamera = Camera.current;
+
+        canvas.enabled = false;
     }
 
     /// <summary>
