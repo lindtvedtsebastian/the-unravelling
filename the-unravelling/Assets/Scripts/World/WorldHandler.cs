@@ -17,10 +17,12 @@ public static class WorldHandler {
 
     public static World loadWorld(string filename) {
         World world = null;
-        if (!File.Exists(Application.persistentDataPath + "/" + filename)) return world;
+        var filepath = Application.persistentDataPath + "/" + filename + ".world";
+        Debug.Log(filepath);
+        if (!File.Exists(filepath)) return world;
 
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream loadFile = File.Open(Application.persistentDataPath + "/" + filename, FileMode.Open);
+        FileStream loadFile = File.Open(filepath, FileMode.Open);
         world = (World) bf.Deserialize(loadFile);
         loadFile.Close();
         return world;

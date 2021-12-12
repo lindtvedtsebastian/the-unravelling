@@ -32,10 +32,13 @@ public class ItemData : ScriptableObject {
     // The prefab representing the real physical manifestation of the item.
     public GameObject manifestation;
 
-    // The world object
-    protected World _world;
+	// The world object
+	private World _world;
 
-    public ItemData() {
-        _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
-    }
+	protected World getWorld() {
+		if (_world.size == 0) {
+			_world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
+		}
+		return _world;
+	}
 }

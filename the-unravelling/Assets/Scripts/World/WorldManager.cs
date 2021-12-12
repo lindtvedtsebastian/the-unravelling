@@ -17,10 +17,12 @@ public class WorldManager: MonoBehaviour {
 
 	private void Start() {
 		if (GameData.Get.activeWorld != "") {
+			Debug.Log("Loaded world " + GameData.Get.activeWorld);
 			world = WorldHandler.loadWorld(GameData.Get.activeWorld);
 		}
 		else {
 			// Should never happen, but if it does, why not generate a new world as backup?
+			Debug.Log("Generated new world");
 			world = new World("default",UnityEngine.Random.Range(0,999_999_999));
 		}
 		renderWorld();

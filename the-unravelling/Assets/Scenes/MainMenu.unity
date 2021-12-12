@@ -7567,8 +7567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newWorldName: {fileID: 964775082}
   newWorldSeed: {fileID: 1395771782}
-  mapSize: {fileID: 815300414}
-  mapPreview: {fileID: 1063821959}
+  worldSizeDropdown: {fileID: 815300414}
   worldPreview: {fileID: 1063821962}
 --- !u!1 &775556780
 GameObject:
@@ -10018,7 +10017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbde1bd2a4a87b4ba3615e6d5cc802a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapPreview: {fileID: 1063821960}
 --- !u!114 &1063821960
 MonoBehaviour:
   m_ObjectHideFlags: 0
