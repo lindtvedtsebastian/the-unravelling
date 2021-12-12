@@ -15,12 +15,12 @@ public class Interactable : MonoBehaviour {
     }
 
     public void OnHoverEnter() {
-        //Debug.Log("Hovering this object : " + gameObject.name);
+        if(_sprite == null) return;
         _sprite.sprite = openChest;
     }
 
     public void OnHoverLeave() {
-        //Debug.Log("Exit hovering : " + gameObject.name);
+        if(_sprite == null) return;
         _sprite.sprite = closedChest;
     }
 }
