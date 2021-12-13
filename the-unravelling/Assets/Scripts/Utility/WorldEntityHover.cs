@@ -43,7 +43,6 @@ public class WorldEntityHover : MonoBehaviour {
 	/// </summary>
     /// <param name="data">The Pointer event data</param>
     public void OnPointerEnterDelegate(PointerEventData data) {
-        Debug.Log("Hovering");
         if(_sprite == null) return;
         _sprite.sprite = _hovering;
         canvas.enabled = true;
@@ -54,7 +53,6 @@ public class WorldEntityHover : MonoBehaviour {
 	/// </summary>
     /// <param name="data">The Pointer event data</param>
     public void OnPointerExitDelegate(PointerEventData data) {
-        Debug.Log("Exit");
         if(_sprite == null) return;
         _sprite.sprite = _normal;
         canvas.enabled = false;
