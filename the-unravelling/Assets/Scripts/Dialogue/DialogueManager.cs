@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour {
         if (!storyIsActive) {
             return;
         }
-        /*if () { // TODO("If player presses the interact button.")
+        /*if () { // TODO (If player presses the interact button)
             ContinueStory();
         }*/
     }

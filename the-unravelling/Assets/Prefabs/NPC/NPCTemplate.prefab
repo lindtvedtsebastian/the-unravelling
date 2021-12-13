@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed382f59f9b91a42be969ab792a29a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  json: {fileID: 4900000, guid: b6c45925917f1b94ca9e4dd34527f65f, type: 3}
-  notify: {fileID: 3507182815943994615}
+  visualCue: {fileID: 3507182815943994615}
+  textAssets: []
 --- !u!1 &3507182815943994615
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4610351986335427609}
   - component: {fileID: 2546552270554758853}
   m_Layer: 0
-  m_Name: Notify
+  m_Name: VisualCue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5151179107798986843, guid: f419a043bee4134409b143bc75376e57, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -235,6 +235,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ink.Parsed;
 using UnityEngine;
 
 
@@ -8,37 +9,36 @@ using UnityEngine;
 /// Dialog trigger class for NPCs
 /// </summary>
 public class DialogueTrigger : MonoBehaviour{
-   
-    //Player in range of NPC 
-    private bool inRange;
-
-    [SerializeField] private TextAsset json;
-
-
-    [SerializeField] private GameObject notify;
     
+    [Header("Trigger UI")]
+    [SerializeField] private GameObject visualCue;
     
-    
+    [Header("Text Assets")]
+    [SerializeField] private TextAsset[] textAssets;
+
+    private bool _inRange;
+
     private void Awake(){
-        inRange = false;
-        notify.SetActive(false);
+        _inRange = false;
+        visualCue.SetActive(false);
     }
 
     private void Update() {
         
-         if(inRange && !DialogueManager.instance.storyIsActive){
-             notify.SetActive(true);
+        if (_inRange && !DialogueManager.instance.storyIsActive) {
+             visualCue.SetActive(true);
              
-             if (true) { // TODO("If player presses the interact button.")
-                 DialogueManager.instance.EnterDialogueMode(json);
+             if (true) { // TODO (If player presses the interact button)
+                 DialogueManager.instance.EnterDialogueMode(textAssets[0]); // TODO (StoryProgression)
              }
-         }
-         else
-         {
-             notify.SetActive(false);
-         }
-         
-         
+        }
+        else {
+          visualCue.SetActive(false);  
+        } 
+    }
+
+    private TextAsset StoryProgression() {
+        throw new System.NotImplementedException();
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public class DialogueTrigger : MonoBehaviour{
     /// <param name="other">other gameobject's colliders</param>
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) 
-            inRange = true;
+            _inRange = true;
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public class DialogueTrigger : MonoBehaviour{
     /// <param name="other">other gameobject's colliders</param>
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) 
-            inRange = false;
+            _inRange = false;
     }
     
     
