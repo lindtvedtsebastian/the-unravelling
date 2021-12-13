@@ -41,6 +41,18 @@ public class WorldState {
 		return startNight;
 	}
 
+    public int getCurrentIngameDay() {
+        return currentGameDay;
+    }
+
+    public bool IsNight() {
+        return stateOfDay == CycleState.NIGHT;
+    }
+
+    public bool IsDay() {
+        return stateOfDay == CycleState.DAY;
+    }
+
 	/// <summary>
     ///  This function keeps track of the game days and whether it is currently night or day.
     ///  It is ran in the Start method every second. 

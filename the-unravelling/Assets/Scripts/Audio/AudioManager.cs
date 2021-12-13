@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour {
 
     private CycleState previousState;
 
-    private WorldStateManager stateManager;
+    private WorldState _worldState;
     
     private void Awake() {
         if (_instance != null && _instance != this) 
@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour {
     /// <param name="mode">The blend mode of the new scene</param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name == "MainGame") {
-            stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
+            _worldState = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world.state;
             StartCoroutine(PlaySoundtrack());
         }
     }
@@ -67,10 +67,10 @@ public class AudioManager : MonoBehaviour {
     IEnumerator PlaySoundtrack() {
         soundtrackSource.loop = false; // since we now play the soundtrack track by track, we don't want looping.
         while (true) {
-			if (previousState != stateManager.getWorld().state.stateOfDay)
+			if (previousState != _worldState.stateOfDay)
                 soundtrackSource.Stop();
 			
-            if (stateManager.IsDay() && !soundtrackSource.isPlaying) {
+            if (_worldState.IsDay() && !soundtrackSource.isPlaying) {
                 currentDaySongIndex++;
                 if (currentDaySongIndex > sizeOfDaySoundtrack) {
                     currentDaySongIndex = 1;
@@ -78,7 +78,7 @@ public class AudioManager : MonoBehaviour {
                 soundtrackSource.clip = dayMusic[currentDaySongIndex - 1];
                 previousState = CycleState.DAY;
                 soundtrackSource.Play();
-            } else if (stateManager.IsNight() && !soundtrackSource.isPlaying) {
+            } else if (_worldState.IsNight() && !soundtrackSource.isPlaying) {
                 currentNightSongIndex++;
                 if (currentNightSongIndex > sizeOfNightSoundtrack) {
                     currentNightSongIndex = 1;

@@ -10,10 +10,7 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour {
     private WorldState _worldState;
 
-    [SerializeField] 
-    private WorldStateManager worldStateManager;
-
-    [SerializeField] 
+    [SerializeField]
     private Text displayCountdown;
 
     [SerializeField] 
@@ -37,13 +34,13 @@ public class HUD : MonoBehaviour {
         cycleTime = _worldState.globalGameTime;
         
         // Set the text and color based on the world state manager IsNight function
-        displayCountdown.text = worldStateManager.IsNight()
+        displayCountdown.text = _worldState.IsNight()
             ? "Time until day : " + (dayCycle - (int) _worldState.globalGameTime)
             : "Time until night : " + (startNight - (int) _worldState.globalGameTime);
 
-        displayCountdown.color = worldStateManager.IsNight() ? Color.white : Color.black;
+        displayCountdown.color = _worldState.IsNight() ? Color.white : Color.black;
 
         displayDayCount.text = "Day cycle : " + (_worldState.currentGameDay + 1);
-        displayDayCount.color = worldStateManager.IsNight() ? Color.white : Color.black;
+        displayDayCount.color = _worldState.IsNight() ? Color.white : Color.black;
     }
 }
