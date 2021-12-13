@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class BaseUnit : MonoBehaviour, IClickable {
-    // Maximum health of the unit. Configured in subclass or prefab.
+	// Maximum health of the unit. Configured in subclass or prefab.
     [SerializeField] protected int maxHealth;
 
     // Health bar that appears as the unit takes damage.
@@ -22,6 +22,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
 
     private World _world;
 
+    private bool recentlyDamaged = false;
 
     void Awake() {
 	    _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
@@ -34,9 +35,9 @@ public class BaseUnit : MonoBehaviour, IClickable {
     }
 
     private void Update() {
-	    if (health != maxHealth) {
-		    StartCoroutine(timeout());
-		    health = maxHealth;
+	    if (recentlyDamaged) {
+		    recentlyDamaged = false;
+		    StartCoroutine(regenerateAfterDuration());
 	    }
     }
 
@@ -56,6 +57,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// <param name="damage">The amount of damage to inflict on the object</param>
     public void OnDamage(int damage) {
         health -= damage;
+        recentlyDamaged = true;
 
 		if (health <= 0) {
 			Drop();
@@ -66,8 +68,9 @@ public class BaseUnit : MonoBehaviour, IClickable {
 		}
     }
 
-    IEnumerator timeout(float time = 5f) {
+    IEnumerator regenerateAfterDuration(float time = 5f) {
 	    yield return new WaitForSeconds(time);
+		health = maxHealth;
     }
 
     /// <summary>
