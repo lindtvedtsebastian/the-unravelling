@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 11
   entityName: Copper wall
   manifestation: {fileID: 2418854327453526005, guid: 355ef969d21af3b4fa206a1b911bea2d, type: 3}
-  preview: {fileID: 21300000, guid: 69437918311adf54aaa10c22bf8a1913, type: 3}
+  preview: {fileID: 21300000, guid: 9398118af11d82a4b82110946a8404d1, type: 3}
   drops:
   - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
     amount: 2

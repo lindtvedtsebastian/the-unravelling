@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 11_copperwall
   m_EditorClassIdentifier: 
   resultingEntityID: 11
-  resultPreview: {fileID: 21300000, guid: 69437918311adf54aaa10c22bf8a1913, type: 3}
+  resultPreview: {fileID: 21300000, guid: 9398118af11d82a4b82110946a8404d1, type: 3}
   resultingAmount: 1
   recipeEntities:
   - entity: {fileID: 11400000, guid: 53541826b929b444099813d3032d2310, type: 2}

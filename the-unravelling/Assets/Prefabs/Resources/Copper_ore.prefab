@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6674034403466771305}
   - component: {fileID: 5788246981483836066}
   - component: {fileID: 6874333199753791021}
+  - component: {fileID: -1921663937953130955}
   m_Layer: 0
   m_Name: Copper_ore
   m_TagString: Untagged
@@ -125,3 +126,18 @@ MonoBehaviour:
   maxHealth: 750
   healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
   _self: {fileID: 11400000, guid: 27e263e60cdc0ca4789ddeb965aba8cf, type: 2}
+--- !u!114 &-1921663937953130955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964498978364332506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b98820f1d64e054fbcc04703369ea6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _normal: {fileID: 21300000, guid: ee488f7a2be0be244926ec30e385f7cd, type: 3}
+  _hovering: {fileID: 21300000, guid: ee488f7a2be0be244926ec30e385f7cd, type: 3}
+  _hoverObject: {fileID: 3931616594599278338, guid: 1ff2fa1cc68b91e4dbe3d2df57b5b69c, type: 3}

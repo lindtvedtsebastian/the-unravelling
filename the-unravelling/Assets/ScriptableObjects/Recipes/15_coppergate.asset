@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 15_coppergate
   m_EditorClassIdentifier: 
   resultingEntityID: 15
-  resultPreview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
+  resultPreview: {fileID: 21300000, guid: 5cc2a17c93f99a24db1763c6c407e6ef, type: 3}
   resultingAmount: 1
   recipeEntities:
   - entity: {fileID: 11400000, guid: 53541826b929b444099813d3032d2310, type: 2}
