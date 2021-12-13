@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+///<summary>
+/// Base class for inventory slots
+///</summary>
 public class Slot : MonoBehaviour {	
     
     protected Item item;
