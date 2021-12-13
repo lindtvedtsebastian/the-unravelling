@@ -10,6 +10,7 @@ public class GameData : ScriptableObjectSingleton<GameData> {
     public string activeWorld;
 
     public Entity[] worldEntities;
+    public Recipe[] recipes;
     public TileBase[] FOG;
 }
 

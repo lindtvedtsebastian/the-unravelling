@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// A class representing the crafting object slot in the inventory
 /// </summary>
 public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
-    Craft craft;
+    private Recipe _recipe;
     public Image craftingImg;
     public Image deactivateImg;
     public Text craftingNum;
@@ -23,27 +23,27 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// Function to add a craft object to the inventory
     /// </summary>
     /// <param name="newCraft">Craft item passed to be added</param>
-    public void AddCraftingItem(Craft newCraft) {
-        craft = newCraft;
-        
-        if (craft.craftingRecipe.resultingAmount < 1) {
-            deactivateImg.sprite = craft.craftingRecipe.craftPreview;
+    public void AddCraftingItem(Recipe recipe) {
+        _recipe = recipe;
+
+        if (_recipe.resultingAmount < 1) {
+            deactivateImg.sprite = _recipe.resultPreview;
             deactivateImg.enabled = true;
             craftingImg.enabled = false;
             craftingNum.enabled = false;
         }
         else {
-            craftingImg.sprite = craft.craftingRecipe.craftPreview;
+            craftingImg.sprite = _recipe.resultPreview;
             deactivateImg.enabled = false;
             craftingImg.enabled = true;
             craftingNum.enabled = true;
-            craftingNum.text = craft.craftingRecipe.resultingAmount.ToString();
+            craftingNum.text = _recipe.resultingAmount.ToString();
         }
 
-        preview = craft.craftingRecipe.craftPreview;
+        preview = _recipe.resultPreview;
         
         if(!hasRecipeDataBeenGenerated) {
-            GenerateRecipeData(craft);
+            GenerateRecipeData();
             hasRecipeDataBeenGenerated = true;
         }
     }
@@ -53,18 +53,20 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerClick(PointerEventData eventData) {
-        if(craft != null && craft.craftingRecipe.resultingAmount > 0) {
+        if(_recipe != null && _recipe.resultingAmount > 0) {
             //playerInventory.CreatePreview(craft);
             craftInfo.SetActive(false);
 
+            var entity = (ComponentEntity) GameData.Get.worldEntities[_recipe.resultingEntityID];
+
             // Create a new item object
-            Item item = new Item(craft.craftingRecipe.itemRepresentation, craft.craftingRecipe.itemRepresentation.itemAmount);
+            Item item = new Item(entity,_recipe.resultingAmount);
 
             // Add it to the player inventory
             playerInventory.playerInventory.Add(item);
 
             // Subtract the item cost of the crafting the object
-            playerInventory.playerInventory.SubstractRecipeFromInventory(craft.craftingRecipe);
+            playerInventory.playerInventory.SubstractRecipeFromInventory(_recipe);
 
             // Refresh the inventory by closing and opening
             playerInventory.player.GetComponent<InputController>().publicCloseInventory();
@@ -77,9 +79,9 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerEnter(PointerEventData eventData) {
-        if(craft == null) return;
+        if(_recipe == null) return;
 
-        craftName.text = craft.craftingRecipe.recipeName;
+        craftName.text = _recipe.name;
         craftInfo.SetActive(true);
     }
 
@@ -88,7 +90,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerExit(PointerEventData eventData) {
-        if(craft != null) {
+        if(_recipe != null) {
             craftInfo.SetActive(false);
         }
     }
@@ -99,14 +101,14 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// for crafting.
     /// </summary>
     /// <param name="Craft">the craft object to be checked</param>
-    public void GenerateRecipeData(Craft craft) {
-        for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++) {
+    public void GenerateRecipeData() {
+        for (int i = 0; i < _recipe.recipeEntities.Length; i++) {
             GameObject hoverData = Instantiate(craftData, craftDisplay.transform, true);
 
-            hoverData.transform.GetChild(0).GetComponent<Image>().sprite = craft.craftingRecipe.recipeItems[i].item.preview;
-            hoverData.transform.GetChild(1).GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].amount.ToString();
+            hoverData.transform.GetChild(0).GetComponent<Image>().sprite = _recipe.recipeEntities[i].entity.preview;
+            hoverData.transform.GetChild(1).GetComponent<Text>().text = _recipe.recipeEntities[i].amount.ToString();
             hoverData.transform.GetChild(2).GetComponent<Text>().text = "X";
-            hoverData.transform.GetChild(3).GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].item.itemName;
+            hoverData.transform.GetChild(3).GetComponent<Text>().text = _recipe.recipeEntities[i].entity.name;
 
             hoverData.transform.localScale = new Vector3(1f, 1f, 1f);
         }
