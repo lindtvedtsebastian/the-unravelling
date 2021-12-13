@@ -10,7 +10,7 @@ public class ItemSlot : Slot, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
 		if(item != null) {
-			playerInventory?.CreatePreview(item);
+			playerInventory.CreatePreview(item);
 		} 	
     }
 }

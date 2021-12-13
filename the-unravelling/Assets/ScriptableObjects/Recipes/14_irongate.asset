@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 14_irongate
   m_EditorClassIdentifier: 
   resultingEntityID: 14
-  resultPreview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
+  resultPreview: {fileID: 21300000, guid: 69932b630f468834dba9f0bfa6d16407, type: 3}
   resultingAmount: 1
   recipeEntities:
   - entity: {fileID: 11400000, guid: 8413c0cbef4e3ac44aaff0e59808de1c, type: 2}
