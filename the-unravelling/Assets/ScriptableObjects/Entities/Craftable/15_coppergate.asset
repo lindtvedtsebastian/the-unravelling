@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 15
   entityName: Copper gate
   manifestation: {fileID: 1660435187187356277, guid: ffe09f15ab704e446a6a745434daec61, type: 3}
-  preview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
+  preview: {fileID: 21300000, guid: 5cc2a17c93f99a24db1763c6c407e6ef, type: 3}
   drops:
   - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
     amount: 2
