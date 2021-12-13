@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 07_copperore
   m_EditorClassIdentifier: 
   id: 7
-  entityName: 
-  mapColor: {r: 1, g: 0.71796274, b: 0.5518868, a: 1}
+  entityName: copper_ore
+  preview: {fileID: 21300000, guid: ee488f7a2be0be244926ec30e385f7cd, type: 3}
   manifestation: {fileID: 2964498978364332506, guid: 27f141f7746b7fc4f8bcbf6454998435, type: 3}
   drops:
   - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}

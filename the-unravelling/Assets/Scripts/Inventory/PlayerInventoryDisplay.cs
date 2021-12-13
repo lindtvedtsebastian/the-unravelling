@@ -76,7 +76,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void PlaceObject() {
         if (!previewCraft.activeSelf) return;
 
-        var item = (CraftableEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
+        var item = (ComponentEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
@@ -136,7 +136,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// </summary>
     private void AddCrafting() {
         for (int i = 0; i < craftingSlots.Length; i++) {
-            if (i < GameData.Get.recipes.Length) {
+            if (i < playerInventory._craftCounts.Count) {
                 playerInventory._craftCounts[i].amount =
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory._craftCounts[i].recipe);
                 

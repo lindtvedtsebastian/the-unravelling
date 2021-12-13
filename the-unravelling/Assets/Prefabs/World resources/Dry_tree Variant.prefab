@@ -16,6 +16,10 @@ PrefabInstance:
       value: 2.78125
       objectReference: {fileID: 0}
     - target: {fileID: 6022164582710407520, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
+      propertyPath: _self
+      value: 
+      objectReference: {fileID: 11400000, guid: a8c97aab6ed90a547b9795ac0343f032, type: 2}
+    - target: {fileID: 6022164582710407520, guid: e1a57bf190c031841a0176bd5707cbdf, type: 3}
       propertyPath: drops.Array.data[0].amount
       value: 2
       objectReference: {fileID: 0}

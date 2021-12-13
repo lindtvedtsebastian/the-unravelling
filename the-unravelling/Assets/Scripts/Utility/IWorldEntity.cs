@@ -4,7 +4,6 @@ using UnityEngine;
 [Serializable]
 [CreateAssetMenu(fileName = "IWorldEntity", menuName = "Entity/IWorldEntity")]
 public class IWorldEntity : ComponentEntity {
-	public GameObject manifestation;
 	public Drop[] drops;
 }
 

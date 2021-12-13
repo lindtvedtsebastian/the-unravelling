@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   entityName: iron_ore
-  mapColor: {r: 0.796484, g: 0.8452581, b: 0.90099996, a: 1}
+  preview: {fileID: 21300000, guid: 40873c353a4ce6f459c5ce57e73fec13, type: 3}
   manifestation: {fileID: 2803464823508633981, guid: 7d37b0ee7ae37d741a7ea8484b31a07e, type: 3}
   drops:
   - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}

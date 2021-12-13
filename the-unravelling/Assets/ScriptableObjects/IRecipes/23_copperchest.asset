@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf58c5ff61ad4f1bacbcd1864b25ca4b, type: 3}
   m_Name: 23_copperchest
   m_EditorClassIdentifier: 
+  resultingEntityID: 23
+  resultPreview: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
   resultingAmount: 1
   recipeEntities:
   - entity: {fileID: 11400000, guid: 53541826b929b444099813d3032d2310, type: 2}

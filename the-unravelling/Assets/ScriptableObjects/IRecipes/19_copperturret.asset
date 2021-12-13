@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf58c5ff61ad4f1bacbcd1864b25ca4b, type: 3}
   m_Name: 19_copperturret
   m_EditorClassIdentifier: 
+  resultingEntityID: 19
+  resultPreview: {fileID: 21300000, guid: dd04f7db9c6ba244ab1c3cf9e7499652, type: 3}
   resultingAmount: 1
   recipeEntities:
   - entity: {fileID: 11400000, guid: 53541826b929b444099813d3032d2310, type: 2}

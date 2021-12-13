@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   entityName: dry_tree
-  mapColor: {r: 0.54901963, g: 0.33333334, b: 0.22352941, a: 1}
+  preview: {fileID: 7977875924627889591, guid: f408d183ad958624ab9af6df6faf94ee, type: 3}
   manifestation: {fileID: 2234612641207259711, guid: 6aaf8579fce17e14aa64597486feed89, type: 3}
   drops:
   - dropObject: {fileID: 7130932075069219489, guid: c0382142a76446d47ae9788333644b36, type: 3}

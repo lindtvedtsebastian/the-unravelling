@@ -26,7 +26,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public void AddCraftingItem(RecipeCraftCount recipeCraftCount) {
         _recipeCraftCount = recipeCraftCount;
 
-        if (_recipeCraftCount.recipe.resultingAmount < 1) {
+        if (_recipeCraftCount.amount < 1) {
             deactivateImg.sprite = recipeCraftCount.recipe.resultPreview;
             deactivateImg.enabled = true;
             craftingImg.enabled = false;
@@ -37,7 +37,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             deactivateImg.enabled = false;
             craftingImg.enabled = true;
             craftingNum.enabled = true;
-            craftingNum.text = recipeCraftCount.recipe.resultingAmount.ToString();
+            craftingNum.text = recipeCraftCount.amount.ToString();
         }
 
         preview = recipeCraftCount.recipe.resultPreview;

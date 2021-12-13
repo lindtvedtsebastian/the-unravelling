@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   entityName: stone_ore
-  mapColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+  preview: {fileID: 21300000, guid: 02706b6f045d946468ad9499c7655991, type: 3}
   manifestation: {fileID: 4379585979344968193, guid: c1e89e66ab50c0142b3590ca481b40de, type: 3}
   drops:
   - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}
