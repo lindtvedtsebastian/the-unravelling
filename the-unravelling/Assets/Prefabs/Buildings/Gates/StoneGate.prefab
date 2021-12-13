@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6804440851999186974}
   - component: {fileID: 8772067550474000695}
   - component: {fileID: 1067467074908621201}
+  - component: {fileID: 7397401876936181258}
+  - component: {fileID: 6632653839730962308}
   m_Layer: 0
   m_Name: PlayerCollider
   m_TagString: Untagged
@@ -122,6 +124,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f67f51b222309c45b4c299fbbcb91af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7397401876936181258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640562415468262930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b22f2dff2987d743bf8ff595556bc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
+  _self: {fileID: 11400000, guid: 87a99301051f20643bd3ae0a17bd5c07, type: 2}
+--- !u!114 &6632653839730962308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640562415468262930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b98820f1d64e054fbcc04703369ea6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _normal: {fileID: 21300000, guid: 72386218c3335f841864b6fb8caefa36, type: 3}
+  _hovering: {fileID: 21300000, guid: 72386218c3335f841864b6fb8caefa36, type: 3}
+  _hoverObject: {fileID: 3931616594599278338, guid: 1ff2fa1cc68b91e4dbe3d2df57b5b69c, type: 3}
 --- !u!1 &4535293310308421050
 GameObject:
   m_ObjectHideFlags: 0
