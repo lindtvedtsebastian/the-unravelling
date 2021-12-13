@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c463b63c774d7e97f06c13d126409f, type: 3}
+  m_Name: 07_copperore
+  m_EditorClassIdentifier: 
+  id: 7
+  entityName: 
+  mapColor: {r: 1, g: 0.71796274, b: 0.5518868, a: 1}
+  manifestation: {fileID: 2964498978364332506, guid: 27f141f7746b7fc4f8bcbf6454998435, type: 3}
+  drops:
+  - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}
+    amount: 2
+  - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
+    amount: 2

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: 
+  itemAmount: 1
   type: 1
   preview: {fileID: 0}
   manifestation: {fileID: 0}
