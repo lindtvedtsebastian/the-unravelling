@@ -44,6 +44,13 @@ public class WorldEntityHover : MonoBehaviour {
     /// <param name="data">The Pointer event data</param>
     public void OnPointerEnterDelegate(PointerEventData data) {
         if(_sprite == null) return;
+
+        if(gameObject.GetComponent<BaseUnit>().getObject().id == Constants.TREE ||
+           gameObject.GetComponent<BaseUnit>().getObject().id == Constants.DRY_TREE) {
+            canvas.transform.position = new Vector3(this.transform.position.x, 
+                                                    this.transform.position.y - 1f, 
+                                                    this.transform.position.z);
+        }
         _sprite.sprite = _hovering;
         canvas.enabled = true;
     }

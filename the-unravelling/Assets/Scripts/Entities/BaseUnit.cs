@@ -90,4 +90,8 @@ public class BaseUnit : MonoBehaviour, IClickable {
         }
     }
 
+    public WorldEntity getObject() {
+        return _self;
+    }
+
 }

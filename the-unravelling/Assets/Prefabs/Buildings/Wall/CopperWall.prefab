@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5280881967235860202}
   - component: {fileID: 6863428280453412407}
   - component: {fileID: 886104929547759258}
+  - component: {fileID: 1852364080751193185}
   m_Layer: 0
   m_Name: CopperWall
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 69437918311adf54aaa10c22bf8a1913, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9398118af11d82a4b82110946a8404d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -124,6 +125,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 300
   healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
-  drops:
-  - item: {fileID: 11400000, guid: 1be0741b59da1a64fb3f72f0c067d2f7, type: 2}
-    amount: 3
+  _self: {fileID: 11400000, guid: f9c624d6c4ba5194f8da3af07f875176, type: 2}
+--- !u!114 &1852364080751193185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418854327453526005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b98820f1d64e054fbcc04703369ea6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _normal: {fileID: 21300000, guid: 9398118af11d82a4b82110946a8404d1, type: 3}
+  _hovering: {fileID: 21300000, guid: 9398118af11d82a4b82110946a8404d1, type: 3}
+  _hoverObject: {fileID: 3931616594599278338, guid: 1ff2fa1cc68b91e4dbe3d2df57b5b69c, type: 3}

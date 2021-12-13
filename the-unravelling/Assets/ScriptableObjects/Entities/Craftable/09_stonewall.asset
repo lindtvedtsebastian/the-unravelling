@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 9
   entityName: Stone wall
   manifestation: {fileID: 4812499106719869124, guid: fc802bfc9fd34f44da6a3c80e3e92e81, type: 3}
-  preview: {fileID: 21300000, guid: 99a478d6ffc9a804db5eaa861fdb58f5, type: 3}
+  preview: {fileID: 21300000, guid: 430b56b42765baf4c9e96cd0ec5f50f6, type: 3}
   drops:
   - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}
     amount: 2

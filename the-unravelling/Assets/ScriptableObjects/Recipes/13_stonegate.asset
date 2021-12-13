@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 13_stonegate
   m_EditorClassIdentifier: 
   resultingEntityID: 13
-  resultPreview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
+  resultPreview: {fileID: 21300000, guid: 72386218c3335f841864b6fb8caefa36, type: 3}
   resultingAmount: 1
   recipeEntities:
   - entity: {fileID: 11400000, guid: 8abc33e1a792da84298f2e1813e8eb02, type: 2}
