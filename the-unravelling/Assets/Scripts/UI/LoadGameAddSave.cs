@@ -60,7 +60,7 @@ public class LoadGameAddSave : MonoBehaviour  {
     /// </summary>
     public void SelectSave(string fileName) {
         loadGameButton.SetActive(true);
-        selectedWorld = fileName.Replace(".png", ".world");
+        selectedWorld = fileName.Replace(".png", "");
         var selectedWorldNoSuffix = fileName.Replace(".png", "");
         byte[] image = File.ReadAllBytes(Application.persistentDataPath + "/" + fileName);
         Texture2D tex = new Texture2D(1, 1); // Size does not matter, will be overwritten
