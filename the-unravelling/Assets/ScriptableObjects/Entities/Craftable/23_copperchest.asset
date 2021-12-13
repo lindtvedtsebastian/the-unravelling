@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3a45f008754b94b57ffa3e7066d8b5, type: 3}
+  m_Name: 23_copperchest
+  m_EditorClassIdentifier: 
+  id: 23
+  entityName: copper_chest
+  manifestation: {fileID: 3553024991607259953, guid: 5167f45c97ddabb448a5835f9bf9b4da, type: 3}
+  drops:
+  - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
+    amount: 2
+  preview: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
+  recipe: {fileID: 11400000, guid: d0f3bfc1355551a429b72fa73918cece, type: 2}
