@@ -18,6 +18,7 @@ public class WorldState {
     public int currentGameDay;
 
     public CycleState stateOfDay;
+    public bool regenerateResource = false;
 
     private const int cycleDuration = 240;
     private const int startNight = 120;
@@ -51,6 +52,7 @@ public class WorldState {
         if (globalGameTime > cycleDuration) {
 	        currentGameDay++;
             globalGameTime = 0;
+            regenerateResource = true;
         }
 	}
 }

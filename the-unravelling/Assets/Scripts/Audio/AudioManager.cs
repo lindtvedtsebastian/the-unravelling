@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour {
     IEnumerator PlaySoundtrack() {
         soundtrackSource.loop = false; // since we now play the soundtrack track by track, we don't want looping.
         while (true) {
-			if (previousState != stateManager.worldState.stateOfDay)
+			if (previousState != stateManager.getWorld().state.stateOfDay)
                 soundtrackSource.Stop();
 			
             if (stateManager.IsDay() && !soundtrackSource.isPlaying) {

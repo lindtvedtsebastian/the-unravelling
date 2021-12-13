@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,8 +18,6 @@ public static class PoissonDisc {
 
         // The cell size guarantees that there is only one point in a given cell.
         float cellSize = Mathf.Floor(R_MAX / Mathf.Sqrt(dimensions));
-        float invCellSize = 1 / cellSize;
-        float maxRSquare = R_MAX * R_MAX;
 
         // Determine the amount of cells in the grid in total
         int horizontalCells = Mathf.CeilToInt(width / cellSize) + 1;
