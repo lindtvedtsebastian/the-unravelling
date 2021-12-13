@@ -65,6 +65,14 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""9a4a3a63-6148-4e2c-abda-e4fa492d8221"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -263,6 +271,39 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Destroy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3a29630-7fd4-40f8-93ea-476da80959a8"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2fd21d1d-3cc7-4c62-972d-e827575690e1"",
+                    ""path"": ""<Pen>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a02dcd0d-c9e3-4054-9bbf-c4f1846b3552"",
+                    ""path"": ""<Touchscreen>/touch*/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -846,6 +887,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         m_Player_Place = m_Player.FindAction("Place", throwIfNotFound: true);
         m_Player_Destroy = m_Player.FindAction("Destroy", throwIfNotFound: true);
+        m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -913,6 +955,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Cancel;
     private readonly InputAction m_Player_Place;
     private readonly InputAction m_Player_Destroy;
+    private readonly InputAction m_Player_Point;
     public struct PlayerActions
     {
         private @Theunravelling m_Wrapper;
@@ -923,6 +966,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
         public InputAction @Place => m_Wrapper.m_Player_Place;
         public InputAction @Destroy => m_Wrapper.m_Player_Destroy;
+        public InputAction @Point => m_Wrapper.m_Player_Point;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -950,6 +994,9 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                 @Destroy.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDestroy;
                 @Destroy.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDestroy;
                 @Destroy.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDestroy;
+                @Point.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -972,6 +1019,9 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                 @Destroy.started += instance.OnDestroy;
                 @Destroy.performed += instance.OnDestroy;
                 @Destroy.canceled += instance.OnDestroy;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
             }
         }
     }
@@ -1134,6 +1184,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnPlace(InputAction.CallbackContext context);
         void OnDestroy(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

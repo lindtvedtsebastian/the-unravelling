@@ -4,12 +4,12 @@
 /// <summary>
 /// A class representing the player inventory
 /// </summary>
-public class PlayerInventory : MonoBehaviour {
+public class PlayerInventoryDisplay : MonoBehaviour {
     [SerializeField]
     private GameObject inventoryCanvas;
 
     [SerializeField]
-    public Inventory playerInventory;
+    public InventoryWithCrafting playerInventory;
     
     [SerializeField] 
     public PlayerBehaviour player;
