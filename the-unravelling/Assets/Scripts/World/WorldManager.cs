@@ -51,7 +51,7 @@ public class WorldManager: MonoBehaviour {
 
                 int entityID = world.entities[y][x];
                 if (entityID != 0) {
-	                IWorldEntity worldEntity = (IWorldEntity) GameData.Get.worldEntities[entityID];
+	                WorldEntity worldEntity = (WorldEntity) GameData.Get.worldEntities[entityID];
 	                GameObject entity = worldEntity.manifestation;
 	                Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
 	                Instantiate(entity, entityPos, Quaternion.identity, entityContainer);
@@ -89,7 +89,7 @@ public class WorldManager: MonoBehaviour {
 				    int regen = UnityEngine.Random.Range(0, 2);
 				    if (regen <= 1) {
 					    world.entities[y][x] = newResourceID;
-					    IWorldEntity worldEntity = (IWorldEntity) GameData.Get.worldEntities[newResourceID];
+					    WorldEntity worldEntity = (WorldEntity) GameData.Get.worldEntities[newResourceID];
 					    GameObject entity = worldEntity.manifestation;
                         Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
                         Instantiate(entity, entityPos, Quaternion.identity, entityContainer);

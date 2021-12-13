@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "IWorldEntity", menuName = "Entity/IWorldEntity")]
-public class IWorldEntity : ComponentEntity {
+[CreateAssetMenu(fileName = "WorldEntity", menuName = "Entity/WorldEntity")]
+public class WorldEntity : ComponentEntity {
 	public Drop[] drops;
 }
 

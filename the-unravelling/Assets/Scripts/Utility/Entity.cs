@@ -9,6 +9,4 @@ public class Entity : ScriptableObject {
 
 	// Name of the item.
 	public string entityName;
-
-
 }

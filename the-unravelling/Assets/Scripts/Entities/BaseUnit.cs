@@ -14,7 +14,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
     [SerializeField] private GameObject healthBar;
 
     [SerializeField]
-    private IWorldEntity _self;
+    private WorldEntity _self;
 
     // Current health of the unit.
     protected int health;
