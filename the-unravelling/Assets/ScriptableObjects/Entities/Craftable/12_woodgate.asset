@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 12_woodgate
   m_EditorClassIdentifier: 
   id: 12
-  entityName: wood_gate
+  entityName: Wood gate
   manifestation: {fileID: 5765668041004674072, guid: 7d35475c38f775f4680a33d5e829ec1b, type: 3}
+  preview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
   drops:
   - dropObject: {fileID: 7130932075069219489, guid: c0382142a76446d47ae9788333644b36, type: 3}
     amount: 2
-  preview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
   recipe: {fileID: 11400000, guid: b9eb647a27157014faf43cbedb66555c, type: 2}

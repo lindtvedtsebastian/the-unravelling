@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 24_wood
   m_EditorClassIdentifier: 
   id: 24
-  entityName: wood_component
+  entityName: Wood
+  manifestation: {fileID: 7130932075069219489, guid: c0382142a76446d47ae9788333644b36, type: 3}
   preview: {fileID: 21300000, guid: d822fe997c07cda438a7bac276ebc727, type: 3}

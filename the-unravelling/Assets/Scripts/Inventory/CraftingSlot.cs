@@ -81,7 +81,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public void OnPointerEnter(PointerEventData eventData) {
         if(_recipeCraftCount == null) return;
 
-        craftName.text = _recipeCraftCount.recipe.name;
+        craftName.text = GameData.Get.worldEntities[_recipeCraftCount.recipe.resultingEntityID].entityName;
         craftInfo.SetActive(true);
     }
 
@@ -108,7 +108,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             hoverData.transform.GetChild(0).GetComponent<Image>().sprite = _recipeCraftCount.recipe.recipeEntities[i].entity.preview;
             hoverData.transform.GetChild(1).GetComponent<Text>().text = _recipeCraftCount.recipe.recipeEntities[i].amount.ToString();
             hoverData.transform.GetChild(2).GetComponent<Text>().text = "X";
-            hoverData.transform.GetChild(3).GetComponent<Text>().text = _recipeCraftCount.recipe.recipeEntities[i].entity.name;
+            hoverData.transform.GetChild(3).GetComponent<Text>().text = _recipeCraftCount.recipe.recipeEntities[i].entity.entityName;
 
             hoverData.transform.localScale = new Vector3(1f, 1f, 1f);
         }

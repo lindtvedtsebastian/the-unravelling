@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 09_stonewall
   m_EditorClassIdentifier: 
   id: 9
-  entityName: stone_wall
-  mapColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 1}
+  entityName: Stone wall
   manifestation: {fileID: 4812499106719869124, guid: fc802bfc9fd34f44da6a3c80e3e92e81, type: 3}
+  preview: {fileID: 21300000, guid: 99a478d6ffc9a804db5eaa861fdb58f5, type: 3}
   drops:
   - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}
     amount: 2
-  preview: {fileID: 21300000, guid: 99a478d6ffc9a804db5eaa861fdb58f5, type: 3}
   recipe: {fileID: 11400000, guid: 1ac6569b13bcffe4e8707215e6ddc13e, type: 2}

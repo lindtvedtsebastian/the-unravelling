@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 27_copper
   m_EditorClassIdentifier: 
   id: 27
-  entityName: copper_component
+  entityName: Copper
+  manifestation: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
   preview: {fileID: 21300000, guid: 6169a54d173ae3044a90982875f856f4, type: 3}

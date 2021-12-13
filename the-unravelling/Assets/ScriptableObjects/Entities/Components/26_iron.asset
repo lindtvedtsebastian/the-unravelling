@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 26_iron
   m_EditorClassIdentifier: 
   id: 26
-  entityName: iron_component
+  entityName: Iron
+  manifestation: {fileID: 2389733086512934763, guid: 21f4a79b1e9ca9345bfc4f79dbe6de9a, type: 3}
   preview: {fileID: 21300000, guid: d6d2b4a7f559f9c409e735254c575d1f, type: 3}

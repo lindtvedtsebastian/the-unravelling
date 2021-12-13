@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 25_stone
   m_EditorClassIdentifier: 
   id: 25
-  entityName: stone_component
+  entityName: Stone
+  manifestation: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}
   preview: {fileID: 21300000, guid: c4e19e345217a6843b965203b8a7da50, type: 3}

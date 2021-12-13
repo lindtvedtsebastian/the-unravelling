@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 15_coppergate
   m_EditorClassIdentifier: 
   id: 15
-  entityName: copper_gate
+  entityName: Copper gate
   manifestation: {fileID: 5765668041004674072, guid: 7d35475c38f775f4680a33d5e829ec1b, type: 3}
+  preview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
   drops:
   - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
     amount: 2
-  preview: {fileID: 21300000, guid: fe23550b087ef3748b5f3a5f4640e912, type: 3}
   recipe: {fileID: 11400000, guid: e45e6d3ed36a6704b9b11d687be427ae, type: 2}
