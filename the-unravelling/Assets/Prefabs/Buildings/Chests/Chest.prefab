@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1910438040252068137}
   - component: {fileID: 7670420844325743106}
   - component: {fileID: 7598373586242291439}
-  - component: {fileID: -2127116636869649187}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -117,8 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b98820f1d64e054fbcc04703369ea6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closedChest: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
-  openChest: {fileID: 21300000, guid: 821d21f796779a54389a3162730cf0b4, type: 3}
+  _normal: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
+  _hovering: {fileID: 21300000, guid: 821d21f796779a54389a3162730cf0b4, type: 3}
+  _hoverObject: {fileID: 3931616594599278338, guid: 1ff2fa1cc68b91e4dbe3d2df57b5b69c, type: 3}
+  canvas: {fileID: 0}
 --- !u!61 &7598373586242291439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,48 +146,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-2127116636869649187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3553024991607259953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7670420844325743106}
-          m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
-          m_MethodName: OnHoverEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7670420844325743106}
-          m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
-          m_MethodName: OnHoverLeave
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
