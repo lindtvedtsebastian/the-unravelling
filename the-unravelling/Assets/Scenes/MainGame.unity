@@ -782,11 +782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c07aa0ff6657c4fa036d489db26baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldState:
-    globalGameTime: 0
-    Tick: 1
-    currentGameDay: 0
-    stateOfDay: 0
   NightEffect: {fileID: 0}
 --- !u!4 &566386168
 Transform:
@@ -837,7 +832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784672979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 129.5038, y: 132.6782, z: -18.662329}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5705,6 +5700,7 @@ MonoBehaviour:
       Tick: 1
       currentGameDay: 0
       stateOfDay: 0
+      regenerateResource: 0
     size: 0
     worldName: 
   player: {fileID: 533545716}

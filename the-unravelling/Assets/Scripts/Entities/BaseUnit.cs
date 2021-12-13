@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,8 +13,8 @@ public class BaseUnit : MonoBehaviour, IClickable {
     // Health bar that appears as the unit takes damage.
     [SerializeField] private GameObject healthBar;
 
-    // Item that the unit drops when destroyed.
-    [SerializeField] private Item[] drops;
+    [SerializeField]
+    private WorldEntity _self;
 
     // Current health of the unit.
     protected int health;
@@ -61,14 +62,14 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// </summary>
     private void Drop() {
         GameObject dropContainer = GameObject.FindWithTag("DropContainer");
-        foreach (Item drop in drops) {
+        foreach (var drop in _self.drops) {
             Vector3 pos = gameObject.transform.position;
 
             for (int i = 0; i < drop.amount; i++) {
 				Vector3 dropPos = new Vector3(Random.Range(pos.x - 1, pos.x + 1),
 											  Random.Range(pos.y - 1, pos.y + 1),
 											  pos.z);
-				Instantiate(drop.item.manifestation,
+				Instantiate(drop.dropObject,
 							dropPos,
 							Quaternion.identity,
 							dropContainer.transform);

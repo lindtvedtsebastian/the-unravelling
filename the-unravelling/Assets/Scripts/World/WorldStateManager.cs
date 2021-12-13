@@ -16,24 +16,14 @@ public class WorldStateManager : MonoBehaviour {
     /// </summary>
     public void IncrementGameTimeAndDay() {
         _worldManager.world.state.TickTime();
-        NightEffect.SetActive(IsNight());
+        NightEffect.SetActive(_worldManager.world.state.IsNight());
         if (_worldManager.world.state.regenerateResource) {
             _worldManager.regenerateResources();
             _worldManager.world.state.regenerateResource = false;
         }
     }
     
-    public int getCurrentIngameDay() {
-        return _worldManager.world.state.currentGameDay;
-    }
-	
-    public bool IsNight() {
-        return _worldManager.world.state.stateOfDay == CycleState.NIGHT;
-    }
 
-    public bool IsDay() {
-        return _worldManager.world.state.stateOfDay == CycleState.DAY;
-    }
 
     public World getWorld() {
         return _worldManager.world;

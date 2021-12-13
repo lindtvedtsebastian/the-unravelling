@@ -44,9 +44,9 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="itemData">The itemdata to check against the inv list</param>
     /// <returns>Whether or not the item exists</returns>
-    protected bool checkIfItemExists(ItemData itemData) {
+    protected bool checkIfItemExists(Entity entity) {
 		foreach (Item item in items) {
-			if (item.item == itemData) {
+			if (item.item == entity) {
                 return true;
             }
 		}
@@ -58,9 +58,9 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="itemData">The itemData to find the index of</param>
     /// <returns>The index if found, -1 otherwise</returns>
-    protected int findItemDataIndex(ItemData itemData) {
+    protected int findItemDataIndex(Entity entity) {
         for (int i = 0; i < items.Count; i++) {
-			if (items[i].item == itemData) {
+			if (items[i].item == entity) {
                 return i; 
             }
 		}
@@ -73,10 +73,10 @@ public class Inventory : MonoBehaviour {
 /// </summary>
 [Serializable]
 public class Item {
-    public ItemData item;
+    public ComponentEntity item;
     public int amount;
 
-    public Item(ItemData item, int amount) {
+    public Item(ComponentEntity item, int amount) {
         this.item = item;
         this.amount = amount;
     }

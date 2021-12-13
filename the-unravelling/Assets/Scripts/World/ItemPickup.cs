@@ -1,13 +1,14 @@
 ﻿using System;
+using Unity.Entities;
 using UnityEngine;
 
 /// <summary>
 /// A class representing the interaction of an item
 /// </summary>
 public class ItemPickup : MonoBehaviour {
-    
+
     [SerializeField]
-    private Item item;
+    private ComponentEntity item;
     
     private GameObject player;
     
@@ -25,7 +26,7 @@ public class ItemPickup : MonoBehaviour {
     /// <param name="other">The object that collides with this gameobject</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        playerInventory.Add(item);
+        playerInventory.Add(new Item(item,1));
         Destroy(gameObject);
     }
 }
