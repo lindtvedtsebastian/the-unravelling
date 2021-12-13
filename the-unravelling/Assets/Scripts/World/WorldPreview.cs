@@ -15,7 +15,7 @@ public class WorldPreview : MonoBehaviour {
         for (int y = 0; y < world.size; y++) {
             for (int x = 0; x < world.size; x++) {
                 int tileID = world.terrain[y][x];
-                WorldEntity tile = (WorldEntity) GameData.Get.worldEntities[tileID];
+                TileEntity tile = (TileEntity) GameData.Get.worldEntities[tileID];
                 texture.SetPixel(x, y,tile.mapColor);
             }
         }

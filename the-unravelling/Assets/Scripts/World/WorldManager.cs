@@ -37,12 +37,12 @@ public class WorldManager: MonoBehaviour {
 
         createFog();
 
-        WorldEntity stone = (WorldEntity) GameData.Get.worldEntities[Constants.STONE];
+        TileEntity stone = (TileEntity) GameData.Get.worldEntities[Constants.STONE];
 
         for (int y = 0; y < world.size; y++) {
             for (int x = 0; x < world.size; x++) {
                 int tileID = world.terrain[y][x];
-                WorldEntity tileData = (WorldEntity) GameData.Get.worldEntities[tileID];
+                TileEntity tileData = (TileEntity) GameData.Get.worldEntities[tileID];
                 tile = tileData.SetSprite(y, x);
 
                 gameWorld.SetTile(new Vector3Int(x, world.size - y, 0), tile);
@@ -51,7 +51,8 @@ public class WorldManager: MonoBehaviour {
 
                 int entityID = world.entities[y][x];
                 if (entityID != 0) {
-	                GameObject entity = GameData.Get.worldEntities[entityID].manifestation;
+	                IWorldEntity worldEntity = (IWorldEntity) GameData.Get.worldEntities[entityID];
+	                GameObject entity = worldEntity.manifestation;
 	                Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
 	                Instantiate(entity, entityPos, Quaternion.identity, entityContainer);
                 }
@@ -88,7 +89,8 @@ public class WorldManager: MonoBehaviour {
 				    int regen = UnityEngine.Random.Range(0, 2);
 				    if (regen <= 1) {
 					    world.entities[y][x] = newResourceID;
-					    GameObject entity = GameData.Get.worldEntities[newResourceID].manifestation;
+					    IWorldEntity worldEntity = (IWorldEntity) GameData.Get.worldEntities[newResourceID];
+					    GameObject entity = worldEntity.manifestation;
                         Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
                         Instantiate(entity, entityPos, Quaternion.identity, entityContainer);
 				    }
