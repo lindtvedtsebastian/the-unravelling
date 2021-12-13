@@ -4,34 +4,24 @@
 
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NonPlayerCharacterWalk : State {
-    
-    
-    public float moveSpeed ;
-    public Vector3 dir;
-    public float turnSpeed;
-    float targetAngle;
-    Vector3 currentPos;
-    bool play=true;
-    Vector3 direction;
 
+    private Vector3 DirVec;
+    private Transform trans;
+    public float movementSpeed = 3.0f;
+    private Rigidbody2D rigid;
+    public Collider2D boundaries;
     
     public override void EnterState(StateManager stateManager) {
-        //Get terrain
-        var WM = GameObject.FindWithTag("WorldManager").GetComponent<WorldManager>();
-        var terrain = WM.world.terrain;
-        
-
-        
-        
-        dir = Vector3.up;
-        direction = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-4.0f, 4.0f), 0);
+        trans = GetComponent<Transform>();
+        rigid = GetComponent<Rigidbody2D>();
+        ChangeDir();
     }
 
-    public override void DoState()
-    {
-        throw new System.NotImplementedException();
+    public override void DoState() {
+        MoveNPC();
     }
 
     public override void LeaveState()
@@ -40,21 +30,37 @@ public class NonPlayerCharacterWalk : State {
     }
 
 
-    private void ChangeDir()
-    {
+    private void MoveNPC() {
+        var tmp = trans.position + DirVec * movementSpeed * Time.deltaTime;
+        if(boundaries.bounds.Contains(tmp))
+            rigid.MovePosition(tmp);
+        else
+            ChangeDir();
+    }
+
+    /// <summary>
+    /// Changes the direction of the NPC
+    /// </summary>
+    private void ChangeDir() {
         int dir = Random.Range(0, 4);
-        switch (dir)
-        {
+        switch (dir) {
             case 0:
+                DirVec = Vector3.right;
                 break;
             case 1:
+                DirVec = Vector3.up;
                 break;
             case 2:
+                DirVec = Vector3.left;
                 break;
             case 3:
+                DirVec = Vector3.down;
                 break;
-
+            default:
+                break;
         }
-
+        //Update animations here 
     } 
+    
+    
 }
