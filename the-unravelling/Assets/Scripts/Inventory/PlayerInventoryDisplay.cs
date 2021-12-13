@@ -76,7 +76,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void PlaceObject() {
         if (!previewCraft.activeSelf) return;
 
-        ItemData item = previewCraft.GetComponent<PreviewData>().toBePlaced.item;
+        var item = (CraftableEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
@@ -116,17 +116,6 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     }
 
     /// <summary>
-    /// Development function to check the inventory content
-    /// </summary>
-    public void InventoryContent() {
-        for (int i = 0; i < playerInventory.items.Count; i++) {
-            if(playerInventory.items[i] == null) return;
-            Debug.Log("Item count : " + i + " is -> " + playerInventory.items[i].item.itemName + 
-                                            " count -> " + playerInventory.items[i].amount);
-        }
-    }
-
-    /// <summary>
     /// Function to de-activate the inventory
     /// </summary>
     public void DeactivateInventory() {
@@ -147,11 +136,11 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// </summary>
     private void AddCrafting() {
         for (int i = 0; i < craftingSlots.Length; i++) {
-            if (i < playerInventory.craft.Count) {
-                playerInventory.craft[i].craftingRecipe.resultingAmount = 
-                    playerInventory.CalculateRecipeCraftingAmount(playerInventory.craft[i].craftingRecipe);
+            if (i < GameData.Get.recipes.Length) {
+                playerInventory._craftCounts[i].amount =
+                    playerInventory.CalculateRecipeCraftingAmount(playerInventory._craftCounts[i].recipe);
                 
-                craftingSlots[i].AddCraftingItem(playerInventory.craft[i]);
+                craftingSlots[i].AddCraftingItem(playerInventory._craftCounts[i]);
             }
         }
     }

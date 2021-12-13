@@ -49,15 +49,4 @@ public class StorageInventoryDisplay : MonoBehaviour {
         }
     }
 
-    /// <summary>
-    /// Development function to check the inventory content
-    /// </summary>
-    /// <param name="storage">The storage to check content</param>
-    public void InventoryContent(InventoryWithStorage storage) {
-        for (int i = 0; i < storage.player.items.Count; i++) {
-            if(storage.player.items[i] == null) return;
-            Debug.Log("Item count : " + i + " is -> " + storage.player.items[i].item.itemName + 
-                                            " count -> " + storage.player.items[i].amount);
-        }
-    }
 }

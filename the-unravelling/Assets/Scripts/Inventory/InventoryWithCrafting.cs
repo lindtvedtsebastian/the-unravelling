@@ -4,6 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryWithCrafting : Inventory {
+	public List<RecipeCraftCount> _craftCounts;
+
+	void Start() {
+		_craftCounts = new List<RecipeCraftCount>();
+		foreach (var recipe in GameData.Get.recipes) {
+			_craftCounts.Add(new RecipeCraftCount(recipe,0));
+		}
+	}
+
     /// <summary>
     /// Determines if a recipe can be crafted with the contents of the inventory.
     /// If the recipe can be crafted, the amount will be returned, if not -1 will be returned
@@ -37,3 +46,13 @@ public class InventoryWithCrafting : Inventory {
 	}
 }
 
+
+public class RecipeCraftCount {
+	public Recipe recipe;
+	public int amount;
+
+	public RecipeCraftCount(Recipe recipe, int amount) {
+		this.recipe = recipe;
+		this.amount = amount;
+	}
+}
