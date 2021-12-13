@@ -96,7 +96,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// Function to grab the mouse position for placing a craft object
     /// </summary>
     public void MousePlacementPosition() {
-        if (previewCraft.activeSelf) {
+        if (previewCraft != null && previewCraft.activeSelf) {
             previewCraft.transform.position = player.GetComponent<InputController>().GetMousePosition();
             previewCraft.transform.position = new Vector3(
                 Mathf.Floor(previewCraft.transform.position.x) + 0.5f,

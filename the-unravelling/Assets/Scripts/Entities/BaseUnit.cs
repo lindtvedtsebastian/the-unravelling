@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,6 +22,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
 
     private World _world;
 
+
     void Awake() {
 	    _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         health = maxHealth;
@@ -29,6 +31,13 @@ public class BaseUnit : MonoBehaviour, IClickable {
         var bar = Instantiate(healthBar, this.transform);
         var data = bar.GetComponent<HealthBar>();
         data.Health += () => HealthFraction;
+    }
+
+    private void Update() {
+	    if (health != maxHealth) {
+		    StartCoroutine(timeout());
+		    health = maxHealth;
+	    }
     }
 
     /// <summary>
@@ -55,6 +64,10 @@ public class BaseUnit : MonoBehaviour, IClickable {
             int x = Mathf.FloorToInt(gameObject.transform.position.x);
             _world.entities[y][x] = 0;
 		}
+    }
+
+    IEnumerator timeout(float time = 5f) {
+	    yield return new WaitForSeconds(time);
     }
 
     /// <summary>

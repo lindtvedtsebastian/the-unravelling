@@ -142,6 +142,7 @@ public class InputController : MonoBehaviour {
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionDamage(InputAction.CallbackContext ctx) {
 		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
+        Debug.Log(hits);
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
             hit.collider.GetComponent<IClickable>()?.OnDamage(playerInventory.player.entityDamage);
