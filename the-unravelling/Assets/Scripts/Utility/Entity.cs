@@ -10,6 +10,5 @@ public class Entity : ScriptableObject {
 	// Name of the item.
 	public string entityName;
 
-	// Color of the entity in the world preview.
-	public Color mapColor;
+
 }

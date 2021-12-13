@@ -34,6 +34,11 @@ public static class Constants {
 	public const int IRON_CHEST = 22;
 	public const int COPPER_CHEST = 23;
 
+	public const int WOOD_COMPONENT = 24;
+	public const int STONE_COMPONENT = 25;
+	public const int IRON_COMPONENT = 26;
+	public const int COPPER_COMPONENT = 27;
+
 	public const int NW = 0b1;
 	public const int N = 0b10;
 	public const int NE = 0b100;

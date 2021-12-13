@@ -10,6 +10,6 @@ public class Recipe: ScriptableObject {
 
 [Serializable]
 public class RecipeEntity {
-	public IWorldEntity entity;
+	public Entity entity;
 	public int amount;
 }

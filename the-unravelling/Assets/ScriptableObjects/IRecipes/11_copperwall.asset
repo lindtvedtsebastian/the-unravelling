@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultingAmount: 1
   recipeEntities:
-  - entity: {fileID: 11400000, guid: 27e263e60cdc0ca4789ddeb965aba8cf, type: 2}
+  - entity: {fileID: 11400000, guid: 53541826b929b444099813d3032d2310, type: 2}
     amount: 4

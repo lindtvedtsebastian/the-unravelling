@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 [Serializable]
 [CreateAssetMenu(fileName = "TileEntity", menuName = "Entity/TileEntity")]
 public class TileEntity : Entity {
+	// Color of the entity in the world preview.
+	public Color mapColor;
 	// Set of tiles that can represent this world entity.
 	// The world renderer will pick one of these to render as the entity.
 	public TileBase[] tiles;
