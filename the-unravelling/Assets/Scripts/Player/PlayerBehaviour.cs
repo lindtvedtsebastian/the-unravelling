@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // The players health
     [SerializeField] private int health = 100;
+    [SerializeField] private GameObject healthBar;
 
     // Damage the player inflicts on an entity
     public int entityDamage = 50;
@@ -35,6 +36,10 @@ public class PlayerBehaviour : MonoBehaviour {
         walkingLSound.volume = 0.2f;
         walkingRSound = GetComponent<AudioSource>();
         walkingRSound.volume = 0.2f;
+        
+        var bar = Instantiate(healthBar, this.transform);
+        var data = bar.GetComponent<HealthBar>();
+        data.Health += () => health / 100f;
     }
 
     private void FixedUpdate() {
