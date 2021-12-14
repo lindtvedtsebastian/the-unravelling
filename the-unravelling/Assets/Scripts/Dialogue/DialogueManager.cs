@@ -9,7 +9,6 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerInput))]
 public class DialogueManager : MonoBehaviour {
     
     [Header("Dialogue UI")]

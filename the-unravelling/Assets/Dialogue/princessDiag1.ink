@@ -23,7 +23,8 @@ Im trapped by the dark forces of this land! Will you please help me?
     -> END
 
 === known ===
-My name is Princess Fe dear one. My father is the sole ruler and protecter of these lands.
+My name is Princess Fe dear one. My father is the sole ruler and protecter of these lands. #speaker:Princess Fe #portrait:girl #layout:right
+    -> endKnown
 
 
 === explanation ===
@@ -31,7 +32,7 @@ My name is Princess Fe dear one. My father is the sole ruler and protecter of th
 
 
 === endKnown ===
-
+Please dear one! #speaker:Princess Fe #portrait:girl #layout:right
 -> END
 
 === endUnknown ===

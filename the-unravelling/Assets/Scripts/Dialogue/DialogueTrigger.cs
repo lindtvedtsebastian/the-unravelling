@@ -28,9 +28,9 @@ public class DialogueTrigger : MonoBehaviour{
         if (_inRange && !DialogueManager.instance.storyIsActive) {
              visualCue.SetActive(true);
              
-             if (true) { // TODO (If player presses the interact button)
+             /*if (true) { // TODO (If player presses the interact button)
                  DialogueManager.instance.EnterDialogueMode(textAssets[0]); // TODO (StoryProgression)
-             }
+             }*/
         }
         else {
           visualCue.SetActive(false);  
