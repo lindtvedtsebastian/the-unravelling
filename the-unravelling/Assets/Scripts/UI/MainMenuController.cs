@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour {
     public WorldPreview worldPreview;
     private World world;
 
+    public LevelLoader levelLoader;
 
     void Start() {
         randomSeed();
@@ -30,7 +31,7 @@ public class MainMenuController : MonoBehaviour {
         }
         WorldHandler.saveWorld(world);
         GameData.Get.activeWorld = world.worldName;
-        SceneManager.LoadScene("MainGame");
+        levelLoader.loadScene("MainGame");
     }
 
     public void generateMap() {
