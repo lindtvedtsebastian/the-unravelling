@@ -109,6 +109,7 @@ public class InputController : MonoBehaviour {
         RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null && hit.collider.name == "Chest(Clone)") {
+            //Debug.Log("Hit id : " + hit.collider)
             playerInput.actions.Disable();
             playerInput.SwitchCurrentActionMap("UI");
             playerInput.actions.Enable();
