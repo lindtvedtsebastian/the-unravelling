@@ -69,9 +69,8 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             // Subtract the item cost of the crafting the object
             playerInventory.playerInventory.SubstractRecipeFromInventory(_recipeCraftCount.recipe);
 
-            // Refresh the inventory by closing and opening
-            playerInventory.DeactivateInventory();
-            playerInventory.ActivateInventory();
+            // Refresh the inventory
+            playerInventory.RefreshInventory();
         }
     }
 

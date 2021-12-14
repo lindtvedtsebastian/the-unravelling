@@ -151,6 +151,11 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void DeactivateInventory() {
         inventoryCanvas.SetActive(false);
     }
+    
+    public void RefreshInventory() {
+        DeactivateInventory();
+        ActivateInventory();
+    }
 
     /// <summary>
     /// Function to cancel an inventory action
