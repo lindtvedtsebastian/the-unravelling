@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
-    Theunravelling controls;
 
     [SerializeField]
     private PlayerInventoryDisplay playerInventory;
@@ -29,7 +28,6 @@ public class InputController : MonoBehaviour {
 
     private void Awake() {
         _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
-        controls = new Theunravelling();
 
         playerInput = GetComponent<PlayerInput>();
  
@@ -47,8 +45,11 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;
         playerInput.actions["Player/Destroy"].performed += OnActionDamage;
         playerInput.actions["Player/Interact"].performed += OnActionInteract;
+        playerInput.actions["Player/DialogueTrigger"].performed += OnActionDialogue;
+        playerInput.actions["Dialogue/Submit"].performed += OnActionProgress;
+        
+        playerInput.actions["Dialogue/Cancel"].performed += OnCloseDialogue;
         playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
-
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
 
@@ -58,8 +59,11 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed -= OnActionCancel;
         playerInput.actions["Player/Destroy"].performed -= OnActionDamage;
         playerInput.actions["Player/Interact"].performed -= OnActionInteract;
+        playerInput.actions["Player/DialogueTrigger"].performed -= OnActionDialogue;
+        playerInput.actions["Dialogue/Submit"].performed -= OnActionProgress;
         playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
 
+        playerInput.actions["Dialogue/Cancel"].performed -= OnCloseDialogue;
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
 
@@ -182,5 +186,23 @@ public class InputController : MonoBehaviour {
 
         // Convert to world space coordinates
         return currentCamera.ScreenToWorldPoint(mousePos);
+    }
+
+    private void OnActionDialogue(InputAction.CallbackContext ctx) {
+        playerInput.actions.Disable();
+        playerInput.SwitchCurrentActionMap("Dialogue");
+        playerInput.actions.Enable();
+        DialogueManager.instance.EnterDialogueMode();
+    }
+
+    private void OnActionProgress(InputAction.CallbackContext ctx) {
+        StartCoroutine(DialogueManager.instance.ContinueStory());
+    }
+
+    private void OnCloseDialogue(InputAction.CallbackContext ctx) {
+        playerInput.actions.Disable();
+        playerInput.SwitchCurrentActionMap("Player");
+        playerInput.actions.Enable();
+        StartCoroutine(DialogueManager.instance.ExitDialogueMode());
     }
 }
