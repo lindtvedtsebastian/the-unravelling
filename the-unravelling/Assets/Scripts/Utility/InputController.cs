@@ -126,7 +126,7 @@ public class InputController : MonoBehaviour {
     }
 
     private void OnActionRotateObject(InputAction.CallbackContext ctx) {
-        Debug.Log("Rotate the sprite");
+        playerInventory.RotateSprite();
     }
 
     /// <summary>

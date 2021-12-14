@@ -53,12 +53,12 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         var sprite = previewCraft.GetComponent<SpriteRenderer>();
         sprite.sprite = item.item.preview;
 
-        Debug.Log("Created preview of : " + item.item.entityName);
-
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
         previewItem = item;
         previewAmount.text = item.amount.ToString();  
+
+        Debug.Log("Created preview of : " + previewItem.item.id);
 
         player.GetComponent<InputController>().publicCloseInventory();
     }
@@ -73,7 +73,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     }
 
     public void RotateSprite() {
-        
+        Debug.Log("Rotate sprite");
     }
     
     /// <summary>
@@ -89,6 +89,8 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         int x = Mathf.FloorToInt(previewCraft.transform.position.x);
 
         _world.entities[y][x] = 999; //TODO: Fix this with real ID's
+
+        Debug.Log("Placed object : " + previewItem.item.id);
 
         previewItem.amount -= 1;
         previewAmount.text = previewItem.amount.ToString();
