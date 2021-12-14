@@ -81,9 +81,9 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if(!_canRotateSprite) return;
 
         if(Constants.WALLS.Contains(previewItem.item.id)) {
-            var sprite = previewItem.item.manifestation.GetComponent<SpriteRenderer>();
-            previewItem.item.manifestation.GetComponent<BaseUnit>().NextSprite(sprite);
-            previewCraft.GetComponent<SpriteRenderer>().sprite = sprite.sprite;
+            previewItem.item.manifestation.GetComponent<BaseUnit>().NextSprite(previewCraft.GetComponent<SpriteRenderer>());
+
+
         }
     }
     
@@ -94,6 +94,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if (!previewCraft.activeSelf) return;
 
         var item = (ComponentEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
+        item.manifestation.GetComponent<SpriteRenderer>().sprite = previewCraft.GetComponent<SpriteRenderer>().sprite;
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
