@@ -40,6 +40,7 @@ public static class Constants {
 	public const int COPPER_COMPONENT = 27;
 
 	public static readonly int[] WALLS = {WOOD_WALL, STONE_WALL, IRON_WALL, COPPER_WALL};
+	public static readonly int[] GATES = {WOOD_GATE, STONE_GATE, IRON_GATE, COPPER_GATE};
 
 	public const int NW = 0b1;
 	public const int N = 0b10;
