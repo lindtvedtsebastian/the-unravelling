@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
-    Theunravelling controls;
 
     [SerializeField]
     private PlayerInventoryDisplay playerInventory;
@@ -29,7 +28,6 @@ public class InputController : MonoBehaviour {
 
     private void Awake() {
         _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
-        controls = new Theunravelling();
 
         playerInput = GetComponent<PlayerInput>();
  
@@ -51,6 +49,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Dialogue/Submit"].performed += OnActionProgress;
         
         playerInput.actions["Dialogue/Cancel"].performed += OnCloseDialogue;
+        playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
 
@@ -62,6 +61,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Interact"].performed -= OnActionInteract;
         playerInput.actions["Player/DialogueTrigger"].performed -= OnActionDialogue;
         playerInput.actions["Dialogue/Submit"].performed -= OnActionProgress;
+        playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
 
         playerInput.actions["Dialogue/Cancel"].performed -= OnCloseDialogue;
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
@@ -71,10 +71,10 @@ public class InputController : MonoBehaviour {
     /// Function that can be called outside this class to activate inventory
     /// </summary>
     public void publicOpenInventory() {
-        playerInventory.ActivateInventory();
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("UI");
-        playerInput.actions.Enable();
+        playerInput.actions.Enable(); 
+        playerInventory.ActivateInventory();
     }
     
     /// <summary>
@@ -89,11 +89,11 @@ public class InputController : MonoBehaviour {
     /// Function to get mouse position
     /// </summary>
     public void publicCloseInventory() {
-        playerInventory.DeactivateInventory();
-        storageInventoryDisplay.DeactivateStorageInventory();
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("Player");
         playerInput.actions.Enable();
+        playerInventory.DeactivateInventory();
+        storageInventoryDisplay.DeactivateStorageInventory();
     }
 
     /// <summary>
@@ -127,6 +127,10 @@ public class InputController : MonoBehaviour {
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
         playerInventory.PlaceObject();
+    }
+
+    private void OnActionRotateObject(InputAction.CallbackContext ctx) {
+        playerInventory.RotateSprite();
     }
 
     /// <summary>
