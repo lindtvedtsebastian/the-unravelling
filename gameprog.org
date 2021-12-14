@@ -1,6 +1,6 @@
 * Game programming submission
 ** Members
-- Sebastian Lindtvedt (@Lindtvedtsebastian)
+- Sebastian Lindtvedt (@lindtvedtsebastian)
 - Dennis Kristiansen (@TurboCartPig)
 - Elvis Arifagic (@Dangeroustuber)
 - Salvador Bascunan (@salvadorbascunan)
