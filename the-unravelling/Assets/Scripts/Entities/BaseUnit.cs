@@ -17,6 +17,11 @@ public class BaseUnit : MonoBehaviour, IClickable {
     [SerializeField]
     private WorldEntity _self;
 
+    [SerializeField]
+    private Sprite[] _spriteArray;
+
+    private int currentSprite = 0;
+
     // Current health of the unit.
     protected int health;
 
@@ -50,6 +55,17 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// Current fraction of max health. Range: [0, 1].
     /// </summary>
     public float HealthFraction => (float)health / (float)maxHealth;
+
+    public void NextSprite(SpriteRenderer sprite) { 
+        currentSprite++;
+
+        if (currentSprite >= _spriteArray.Length) currentSprite = 0;
+        
+        var _sprite = sprite;
+        sprite.sprite = _spriteArray[currentSprite];
+
+        
+    }
 
     /// <summary>
     /// The action that will be triggered when this object is clicked

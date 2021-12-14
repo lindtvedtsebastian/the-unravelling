@@ -13,7 +13,7 @@ public class GateUnit : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
 
         // Change collider radius
-        _collider.size = new Vector2(1f, 1f);
+        _collider.size = new Vector2(1.2f, 1.2f);
     }
 
     /// <summary>

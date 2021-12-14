@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement
     public float speed = 200.0f;
+
+    // The players health
+    [SerializeField] private int health = 100;
+    [SerializeField] private GameObject healthBar;
 
     // Damage the player inflicts on an entity
     public int entityDamage = 50;
@@ -31,6 +36,10 @@ public class PlayerBehaviour : MonoBehaviour {
         walkingLSound.volume = 0.2f;
         walkingRSound = GetComponent<AudioSource>();
         walkingRSound.volume = 0.2f;
+        
+        var bar = Instantiate(healthBar, this.transform);
+        var data = bar.GetComponent<HealthBar>();
+        data.Health += () => health / 100f;
     }
 
     private void FixedUpdate() {
@@ -56,5 +65,18 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public void PlayLeftWalking() {
 	    walkingLSound.Play();
+    }
+
+    public bool OnDamage(int damage) {
+	    health -= damage;
+	    
+	    // Player is dead
+	    if (health <= 0) {
+		    Destroy(this.gameObject);
+		    // TODO: Implement game over screen.
+		    return true;
+	    }
+
+	    return false;
     }
 }
