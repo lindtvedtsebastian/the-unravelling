@@ -141,6 +141,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
+        previewCraft.SetActive(false);
         inventoryCanvas.SetActive(true);
     }
 
