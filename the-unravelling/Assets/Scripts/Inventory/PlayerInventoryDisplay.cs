@@ -86,6 +86,8 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
         if(Constants.WALLS.Contains(previewItem.item.id)) {
             _baseUnitComponent.NextSprite(_spritePreview);
+        } else if(Constants.GATES.Contains(previewItem.item.id)) {
+            previewItem.item.manifestation.transform.GetChild(0).GetComponent<BaseUnit>().NextSprite(_spritePreview);
         }
     }
     
@@ -96,7 +98,13 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if (!previewCraft.activeSelf) return;
 
         var item = (ComponentEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
-        item.manifestation.GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+
+        if(Constants.GATES.Contains(previewItem.item.id)) {
+            item.manifestation.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+        } else {
+            item.manifestation.GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+        }
+
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);

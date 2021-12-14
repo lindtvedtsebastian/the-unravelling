@@ -138,6 +138,10 @@ MonoBehaviour:
   maxHealth: 200
   healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
   _self: {fileID: 11400000, guid: 87a99301051f20643bd3ae0a17bd5c07, type: 2}
+  _spriteArray:
+  - {fileID: 21300000, guid: 72386218c3335f841864b6fb8caefa36, type: 3}
+  - {fileID: 21300000, guid: b864a5d3a614fa14998859a6e29f944b, type: 3}
+  - {fileID: 21300000, guid: 5ae88cc7499ac7c40935c5cba90fcb62, type: 3}
 --- !u!1 &4535293310308421050
 GameObject:
   m_ObjectHideFlags: 0

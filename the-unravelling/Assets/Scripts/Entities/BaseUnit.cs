@@ -19,7 +19,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
     [SerializeField]
     private Sprite[] _spriteArray;
 
-    private int currentSprite = 1;
+    private int currentSprite = 0;
 
     // Current health of the unit.
     protected int health;
@@ -46,12 +46,15 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// </summary>
     public float HealthFraction => (float)health / (float)maxHealth;
 
-    public void NextSprite(SpriteRenderer sprite) {
-        var _sprite = sprite;
-        sprite.sprite = _spriteArray[currentSprite];
+    public void NextSprite(SpriteRenderer sprite) { 
         currentSprite++;
 
         if (currentSprite >= _spriteArray.Length) currentSprite = 0;
+        
+        var _sprite = sprite;
+        sprite.sprite = _spriteArray[currentSprite];
+
+        
     }
 
     /// <summary>
