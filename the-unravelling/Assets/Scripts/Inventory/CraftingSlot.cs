@@ -69,8 +69,8 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             playerInventory.playerInventory.SubstractRecipeFromInventory(_recipeCraftCount.recipe);
 
             // Refresh the inventory by closing and opening
-            playerInventory.player.GetComponent<InputController>().publicCloseInventory();
-            playerInventory.player.GetComponent<InputController>().publicOpenInventory();
+            playerInventory.DeactivateInventory();
+            playerInventory.ActivateInventory();
         }
     }
 

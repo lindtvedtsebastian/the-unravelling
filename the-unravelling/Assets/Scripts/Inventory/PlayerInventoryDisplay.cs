@@ -23,7 +23,8 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
     public GameObject previewCraft;
 
-    private BaseUnit _baseUnit;
+    private BaseUnit _baseUnitComponent;
+    private SpriteRenderer _spritePreview;
 
     private Item previewItem;
     private TMPro.TextMeshProUGUI previewAmount;
@@ -55,12 +56,15 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void CreatePreview(in Item item) {
         previewCraft.SetActive(true);
         
-        var sprite = previewCraft.GetComponent<SpriteRenderer>();
-        sprite.sprite = item.item.preview;
+        _spritePreview = previewCraft.GetComponent<SpriteRenderer>();
+        _spritePreview.sprite = item.item.preview;
 
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
         previewItem = item;
+
+        _baseUnitComponent = previewItem.item.manifestation.GetComponent<BaseUnit>();
+
         previewAmount.text = item.amount.ToString();  
 
         _canRotateSprite = true;
@@ -81,9 +85,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if(!_canRotateSprite) return;
 
         if(Constants.WALLS.Contains(previewItem.item.id)) {
-            previewItem.item.manifestation.GetComponent<BaseUnit>().NextSprite(previewCraft.GetComponent<SpriteRenderer>());
-
-
+            _baseUnitComponent.NextSprite(_spritePreview);
         }
     }
     
@@ -94,7 +96,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if (!previewCraft.activeSelf) return;
 
         var item = (ComponentEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
-        item.manifestation.GetComponent<SpriteRenderer>().sprite = previewCraft.GetComponent<SpriteRenderer>().sprite;
+        item.manifestation.GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);

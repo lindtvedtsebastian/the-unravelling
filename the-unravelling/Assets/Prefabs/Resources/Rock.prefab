@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5295530360469600434}
   - component: {fileID: 5021678330602811769}
   - component: {fileID: 5369952926065657334}
-  - component: {fileID: -7849367764570399155}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -126,18 +125,4 @@ MonoBehaviour:
   maxHealth: 500
   healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
   _self: {fileID: 11400000, guid: e2b7bfa6deeb343439e8978623d1c017, type: 2}
---- !u!114 &-7849367764570399155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4379585979344968193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b98820f1d64e054fbcc04703369ea6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _normal: {fileID: 21300000, guid: 02706b6f045d946468ad9499c7655991, type: 3}
-  _hovering: {fileID: 21300000, guid: 02706b6f045d946468ad9499c7655991, type: 3}
-  _hoverObject: {fileID: 3931616594599278338, guid: 1ff2fa1cc68b91e4dbe3d2df57b5b69c, type: 3}
+  _spriteArray: []

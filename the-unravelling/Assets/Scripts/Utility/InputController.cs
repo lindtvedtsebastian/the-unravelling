@@ -67,10 +67,10 @@ public class InputController : MonoBehaviour {
     /// Function that can be called outside this class to activate inventory
     /// </summary>
     public void publicOpenInventory() {
-        playerInventory.ActivateInventory();
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("UI");
-        playerInput.actions.Enable();
+        playerInput.actions.Enable(); 
+        playerInventory.ActivateInventory();
     }
     
     /// <summary>
@@ -85,11 +85,11 @@ public class InputController : MonoBehaviour {
     /// Function to get mouse position
     /// </summary>
     public void publicCloseInventory() {
-        playerInventory.DeactivateInventory();
-        storageInventoryDisplay.DeactivateStorageInventory();
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("Player");
         playerInput.actions.Enable();
+        playerInventory.DeactivateInventory();
+        storageInventoryDisplay.DeactivateStorageInventory();
     }
 
     /// <summary>
