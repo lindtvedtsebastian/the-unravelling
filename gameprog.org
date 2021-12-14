@@ -21,9 +21,23 @@
 
 *** Thoughts on the Unity
 
+Ideas:
+- Collaboration is hard because shit breaks all the time
+- Prototyping is easy and fast
+
 *** Process and communication
 
+- We used GitHub and Discord, meetings on fridays.
+
 *** Version control and issue tracking
+
+- We used GitHub. (Better than GitLab? Still hard to coordinate issues and current work)
+
+For development we used a branch and merge approach, where we branched
+from main for every new feature or bugfix we wanted to implement, and
+then merge that branch into main again when we were done. We did this
+using pull requests in GitHub, which ties into issue management, as
+GitHub allows for automation of moving or closing issues based on this.
 
 ** Individual discussions
 
