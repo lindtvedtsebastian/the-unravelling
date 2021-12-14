@@ -101,19 +101,15 @@ public class EnemyWalk : State
     /// Moves along the calculated path
     /// </summary>
     private void Move() {
-		if (_resultPath.Length > 0) {
-            PathPart currentWaypoint = _resultPath[_resultPath.Length - 1];
-            Vector3 target = new Vector3(currentWaypoint.x, currentWaypoint.y, 0);
+	    if (_resultPath.Length > 0) {
+		    PathPart currentWaypoint = _resultPath[_resultPath.Length - 1];
+		    Vector3 target = new Vector3(currentWaypoint.x, currentWaypoint.y, 0);
 
-            if (currentWaypoint.mustBeDestroyed) {
-				// Destroy structure
-			} else {
-                moveTowards(target);
-                if (distanceTo(target) < proximityRange)
-					_resultPath.RemoveAt(_resultPath.Length - 1);
-            }
-        }
-	}
+		    moveTowards(target);
+		    if (distanceTo(target) < proximityRange)
+			    _resultPath.RemoveAt(_resultPath.Length - 1);
+	    }
+    }
 
     /// <summary>
     /// Helper function for rounding a float to the closest int 

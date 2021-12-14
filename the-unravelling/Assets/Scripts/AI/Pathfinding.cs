@@ -11,12 +11,9 @@ public struct PathPart {
     public int x;
     public int y;
 
-    public bool mustBeDestroyed;
-
-    public PathPart(int x, int y, bool mustBeDestroyed) {
+    public PathPart(int x, int y) {
         this.x = x;
         this.y = y;
-        this.mustBeDestroyed = mustBeDestroyed;
     }
 }
 
@@ -64,11 +61,9 @@ public class Pathfinding {
 				node.y = y;
 				node.index = CalculateIndex(x, y, gridSize.x);
 
-                node.isDestroyable = false;
                 node.isWalkable = true;
 				node.previousIndex = -1;
 
-                // node.additionalCost = 0;
 				node.additionalCost = _world.pathfindingMap[y][x];
 
                 node.gCost = int.MaxValue;
@@ -253,8 +248,7 @@ public class Pathfinding {
         private void BuildPath(NativeArray<Node> nodeArray, Node endNode) {
             if (endNode.previousIndex != -1) {
 				resultPath.Add(new PathPart(endNode.x,
-					endNode.y,
-					endNode.isDestroyable ? true : false));
+					endNode.y));
 
 				Node currentNode = endNode;
 
@@ -262,8 +256,7 @@ public class Pathfinding {
 					Node previousNode = nodeArray[currentNode.previousIndex];
 					resultPath.Add(new PathPart(
 						previousNode.x,
-						previousNode.y,
-						previousNode.isDestroyable ? true : false));
+						previousNode.y));
 					currentNode = previousNode;
 				}
 			}
@@ -287,7 +280,6 @@ public class Pathfinding {
 		public int additionalCost;
 
 		public bool isWalkable;
-		public bool isDestroyable;
 
 		public int previousIndex;
 
