@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : StateManager {
@@ -5,6 +6,15 @@ public class EnemyAI : StateManager {
     // Health bar that appears as the unit takes damage.
     [SerializeField] private GameObject healthBar;
     [SerializeField] private int health;
+    
+    // Attack damage
+    [SerializeField] private int attackDamage = 10;
+
+    // Attack range in unity units
+    [SerializeField] private float attackRange = 2.0f;
+    
+    // Attack cooldown in seconds
+    [SerializeField] private float attackCooldown = 1.0f;
 
     private WaveManager waveManager;
     public EnemyWalk enemyWalk;
@@ -25,6 +35,8 @@ public class EnemyAI : StateManager {
 
         setState(enemyWalk);
         currentState.EnterState(this);
+
+        StartCoroutine(PerformAttack());
     }
 
 	void Update() {
@@ -43,6 +55,26 @@ public class EnemyAI : StateManager {
         }
     }
 
+    /// <summary>
+    /// Perform attack on player if the player is in range.
+    /// Attack stats are taken from `attackDamage`, `attackRange` and `attackCooldown`.
+    /// </summary>
+    IEnumerator PerformAttack() {
+        var player = FindObjectOfType<PlayerBehaviour>();
+        
+        while (true) {
+            var distance = Vector2.Distance(player.transform.position, this.transform.position);
+            
+            // If the player is in range, do damage
+            if (distance <= attackRange) {
+                if (player.OnDamage(attackDamage))
+                    yield break; // Stop if player is destroyed
+            }
+            
+            // Wait until next attack
+            yield return new WaitForSeconds(attackCooldown);
+        }
+    }
 
     void OnParticleCollision(GameObject other) {
         Debug.Log("collision");
