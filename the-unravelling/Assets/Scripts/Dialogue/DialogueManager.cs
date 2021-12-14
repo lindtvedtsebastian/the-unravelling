@@ -25,7 +25,9 @@ public class DialogueManager : MonoBehaviour {
     public static DialogueManager instance { get; private set; }
 
     public bool storyIsActive { get; private set; }
-    
+
+    [SerializeField] private TextAsset defaultAsset;
+    private Story _defaultStory;
     private Story _currentStory;
 
     private const string SpeakerTag = "speaker";
@@ -45,6 +47,9 @@ public class DialogueManager : MonoBehaviour {
     }
     
     private void Start() {
+        _defaultStory = new Story(defaultAsset.text);
+        _currentStory = _defaultStory;
+        
         storyIsActive = false;
         dialoguePanel.SetActive(false);
 
@@ -59,17 +64,15 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    private void Update() {
-        if (!storyIsActive) {
-            return;
-        }
-        /*if () { // TODO (If player presses the interact button)
-            ContinueStory();
-        }*/
+    public void SetCurrentStory(TextAsset story) {
+        _currentStory = new Story(story.text);
     }
 
-    public void EnterDialogueMode(TextAsset story) {
-        _currentStory = new Story(story.text);
+    public void ResetCurrentStory() {
+        _currentStory = _defaultStory;
+    }
+
+    public void EnterDialogueMode() {
         storyIsActive = true;
         dialoguePanel.SetActive(true);
 
@@ -153,7 +156,7 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator ExitDialogueMode() {
+    public IEnumerator ExitDialogueMode() {
         yield return new WaitForSeconds(0.2f);
         
         storyIsActive = false;

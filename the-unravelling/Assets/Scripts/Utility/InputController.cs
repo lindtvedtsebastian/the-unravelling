@@ -47,7 +47,10 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;
         playerInput.actions["Player/Destroy"].performed += OnActionDamage;
         playerInput.actions["Player/Interact"].performed += OnActionInteract;
-
+        playerInput.actions["Player/DialogueTrigger"].performed += OnActionDialogue;
+        playerInput.actions["Dialogue/Submit"].performed += OnActionProgress;
+        
+        playerInput.actions["Dialogue/Cancel"].performed += OnCloseDialogue;
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
 
@@ -57,7 +60,10 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed -= OnActionCancel;
         playerInput.actions["Player/Destroy"].performed -= OnActionDamage;
         playerInput.actions["Player/Interact"].performed -= OnActionInteract;
+        playerInput.actions["Player/DialogueTrigger"].performed -= OnActionDialogue;
+        playerInput.actions["Dialogue/Submit"].performed -= OnActionProgress;
 
+        playerInput.actions["Dialogue/Cancel"].performed -= OnCloseDialogue;
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
 
@@ -176,5 +182,23 @@ public class InputController : MonoBehaviour {
 
         // Convert to world space coordinates
         return currentCamera.ScreenToWorldPoint(mousePos);
+    }
+
+    private void OnActionDialogue(InputAction.CallbackContext ctx) {
+        playerInput.actions.Disable();
+        playerInput.SwitchCurrentActionMap("Dialogue");
+        playerInput.actions.Enable();
+        DialogueManager.instance.EnterDialogueMode();
+    }
+
+    private void OnActionProgress(InputAction.CallbackContext ctx) {
+        DialogueManager.instance.ContinueStory();
+    }
+
+    private void OnCloseDialogue(InputAction.CallbackContext ctx) {
+        playerInput.actions.Disable();
+        playerInput.SwitchCurrentActionMap("Player");
+        playerInput.actions.Enable();
+        DialogueManager.instance.ExitDialogueMode();
     }
 }

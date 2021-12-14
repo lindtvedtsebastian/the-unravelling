@@ -71,8 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 3507182815943994615}
-  textAssets:
-  - {fileID: 4900000, guid: 9d64ee8c7f849124c9ebeb90ec146b1e, type: 3}
+  textAsset: {fileID: 4900000, guid: 9d64ee8c7f849124c9ebeb90ec146b1e, type: 3}
 --- !u!1 &3507182815943994615
 GameObject:
   m_ObjectHideFlags: 0

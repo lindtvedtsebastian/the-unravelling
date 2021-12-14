@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour{
     [SerializeField] private GameObject visualCue;
     
     [Header("Text Assets")]
-    [SerializeField] private TextAsset[] textAssets;
+    [SerializeField] private TextAsset textAsset;
 
     private bool _inRange;
 
@@ -24,21 +24,12 @@ public class DialogueTrigger : MonoBehaviour{
     }
 
     private void Update() {
-        
         if (_inRange && !DialogueManager.instance.storyIsActive) {
-             visualCue.SetActive(true);
-             
-             /*if (true) { // TODO (If player presses the interact button)
-                 DialogueManager.instance.EnterDialogueMode(textAssets[0]); // TODO (StoryProgression)
-             }*/
+            visualCue.SetActive(true);
         }
         else {
-          visualCue.SetActive(false);  
-        } 
-    }
-
-    private TextAsset StoryProgression() {
-        throw new System.NotImplementedException();
+            visualCue.SetActive(false);  
+        }
     }
 
     /// <summary>
@@ -46,8 +37,10 @@ public class DialogueTrigger : MonoBehaviour{
     /// </summary>
     /// <param name="other">other gameobject's colliders</param>
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Player")) 
+        if (other.gameObject.CompareTag("Player")) {
             _inRange = true;
+            DialogueManager.instance.SetCurrentStory(textAsset);
+        }
     }
 
     /// <summary>
@@ -55,8 +48,10 @@ public class DialogueTrigger : MonoBehaviour{
     /// </summary>
     /// <param name="other">other gameobject's colliders</param>
     private void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Player")) 
+        if (other.gameObject.CompareTag("Player")) {
             _inRange = false;
+            DialogueManager.instance.ResetCurrentStory();
+        }
     }
     
     
