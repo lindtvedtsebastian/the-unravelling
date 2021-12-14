@@ -47,6 +47,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;
         playerInput.actions["Player/Destroy"].performed += OnActionDamage;
         playerInput.actions["Player/Interact"].performed += OnActionInteract;
+        playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
 
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
@@ -57,6 +58,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed -= OnActionCancel;
         playerInput.actions["Player/Destroy"].performed -= OnActionDamage;
         playerInput.actions["Player/Interact"].performed -= OnActionInteract;
+        playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
 
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
@@ -65,10 +67,10 @@ public class InputController : MonoBehaviour {
     /// Function that can be called outside this class to activate inventory
     /// </summary>
     public void publicOpenInventory() {
-        playerInventory.ActivateInventory();
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("UI");
-        playerInput.actions.Enable();
+        playerInput.actions.Enable(); 
+        playerInventory.ActivateInventory();
     }
     
     /// <summary>
@@ -83,11 +85,11 @@ public class InputController : MonoBehaviour {
     /// Function to get mouse position
     /// </summary>
     public void publicCloseInventory() {
-        playerInventory.DeactivateInventory();
-        storageInventoryDisplay.DeactivateStorageInventory();
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("Player");
         playerInput.actions.Enable();
+        playerInventory.DeactivateInventory();
+        storageInventoryDisplay.DeactivateStorageInventory();
     }
 
     /// <summary>
@@ -121,6 +123,10 @@ public class InputController : MonoBehaviour {
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
         playerInventory.PlaceObject();
+    }
+
+    private void OnActionRotateObject(InputAction.CallbackContext ctx) {
+        playerInventory.RotateSprite();
     }
 
     /// <summary>

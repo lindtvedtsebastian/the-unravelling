@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 
 /// <summary>
@@ -22,10 +23,15 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
     public GameObject previewCraft;
 
+    private BaseUnit _baseUnitComponent;
+    private SpriteRenderer _spritePreview;
+
     private Item previewItem;
     private TMPro.TextMeshProUGUI previewAmount;
 
     private World _world;
+
+    private bool _canRotateSprite = false;
     void Start() {
         _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
@@ -50,13 +56,18 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void CreatePreview(in Item item) {
         previewCraft.SetActive(true);
         
-        var sprite = previewCraft.GetComponent<SpriteRenderer>();
-        sprite.sprite = item.item.preview;
+        _spritePreview = previewCraft.GetComponent<SpriteRenderer>();
+        _spritePreview.sprite = item.item.preview;
 
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
         previewItem = item;
+
+        _baseUnitComponent = previewItem.item.manifestation.GetComponent<BaseUnit>();
+
         previewAmount.text = item.amount.ToString();  
+
+        _canRotateSprite = true;
 
         player.GetComponent<InputController>().publicCloseInventory();
     }
@@ -69,6 +80,16 @@ public class PlayerInventoryDisplay : MonoBehaviour {
             craftingSlots[i].craftInfo.SetActive(false);
         }
     }
+
+    public void RotateSprite() {
+        if(!_canRotateSprite) return;
+
+        if(Constants.WALLS.Contains(previewItem.item.id)) {
+            _baseUnitComponent.NextSprite(_spritePreview);
+        } else if(Constants.GATES.Contains(previewItem.item.id)) {
+            previewItem.item.manifestation.transform.GetChild(0).GetComponent<BaseUnit>().NextSprite(_spritePreview);
+        }
+    }
     
     /// <summary>
     /// Function to place a craft object
@@ -77,6 +98,13 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if (!previewCraft.activeSelf) return;
 
         var item = (ComponentEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
+
+        if(Constants.GATES.Contains(previewItem.item.id)) {
+            item.manifestation.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+        } else {
+            item.manifestation.GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+        }
+
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
 
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
@@ -89,6 +117,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
         if(previewItem.amount < 1) {
             previewCraft.SetActive(false);
+            _canRotateSprite = false;
         }
     }
 
