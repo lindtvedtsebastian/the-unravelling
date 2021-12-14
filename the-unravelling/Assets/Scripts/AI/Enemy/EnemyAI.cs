@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,10 +12,13 @@ public class EnemyAI : StateManager {
     [SerializeField] private int attackDamage = 10;
 
     // Attack range in unity units
-    [SerializeField] private float attackRange = 2.0f;
+    [SerializeField] private float attackRange = 1.0f;
     
     // Attack cooldown in seconds
-    [SerializeField] private float attackCooldown = 1.0f;
+    [SerializeField] private float attackCooldown = 0.5f;
+
+    // Coroutine for attacking the wall
+    private IEnumerator wallAttack;
 
     private WaveManager waveManager;
     public EnemyWalk enemyWalk;
@@ -74,6 +78,25 @@ public class EnemyAI : StateManager {
             // Wait until next attack
             yield return new WaitForSeconds(attackCooldown);
         }
+    }
+
+    IEnumerator PerformAttackWall(BaseUnit target) {
+        while (target.isActiveAndEnabled) {
+            target.OnDamage(attackDamage * 200000);
+            yield return new WaitForSeconds(attackCooldown);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        var unit = collision.gameObject.GetComponent<BaseUnit>();
+        if (unit == null) return;
+
+        wallAttack = PerformAttackWall(unit);
+        StartCoroutine(wallAttack);
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+        StopCoroutine(wallAttack);
     }
 
     void OnParticleCollision(GameObject other) {
