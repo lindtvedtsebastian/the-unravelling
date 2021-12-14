@@ -26,7 +26,9 @@ public class PlayerBehaviour : MonoBehaviour {
     private static readonly int VelocityY = Animator.StringToHash("Velocity Y");
     private static readonly int VelocityX = Animator.StringToHash("Velocity X");
 
-    
+    // Game over screen
+    [SerializeField]
+    private GameOverScreen gameOverScreen;
     
     // Initialize the components
     private void Awake() {
@@ -74,8 +76,7 @@ public class PlayerBehaviour : MonoBehaviour {
 	    
 	    // Player is dead
 	    if (health <= 0) {
-		    Destroy(this.gameObject);
-		    // TODO: Implement game over screen.
+		    gameOverScreen.Setup();
 		    return true;
 	    }
 
