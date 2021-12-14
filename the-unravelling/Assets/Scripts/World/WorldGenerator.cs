@@ -33,7 +33,6 @@ public class WorldGenerator : MonoBehaviour {
             int resourceID = assignResourceID(world.terrain[y][x]);
             world.baseResourceLocations[y][x] = resourceID;
             world.entities[y][x] = resourceID;
-            world.pathfindingMap[y][x] = 9999;
         }
 		return world;
     }
@@ -74,7 +73,6 @@ public class World {
     public int size;
     public int[][] terrain;
     public int[][] entities;
-    public int[][] pathfindingMap;
     public int[][] baseResourceLocations;
     public string worldName;
 
@@ -84,7 +82,6 @@ public class World {
         this.size = size;
         terrain = JaggedArrayUtility.createJagged2dArray<int>(size, size);
         entities = JaggedArrayUtility.createJagged2dArray<int>(size, size);
-        pathfindingMap = JaggedArrayUtility.createJagged2dArray<int>(size, size);
         baseResourceLocations = JaggedArrayUtility.createJagged2dArray<int>(size, size);
     }
 

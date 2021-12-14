@@ -616,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: playerInventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 534413421}
     - target: {fileID: 4859983145349694364, guid: 04024a1e8fe24db4d992a78b648474e0, type: 3}
       propertyPath: storageInventoryDisplay
       value: 
@@ -751,6 +751,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cdb7ed8072118f47a311e5fa8a9adb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &534413421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7615318736767473788, guid: 23c6e8a9a3217c4459597254833404f4, type: 3}
+  m_PrefabInstance: {fileID: 1520404110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714e5df52ca8418a971d2e9962d70b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &566386166

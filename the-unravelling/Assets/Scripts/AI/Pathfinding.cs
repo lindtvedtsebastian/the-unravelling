@@ -54,8 +54,8 @@ public class Pathfinding {
 		int2 gridSize = new int2(_world.size, _world.size);
 		NativeArray<Node> nodeArray = new NativeArray<Node>(gridSize.x * gridSize.y, Allocator.Persistent);
 
-		for (int x = 0; x < gridSize.x; x++) {
-			for (int y = 0; y < gridSize.y; y++) {
+		for (int y = 0; y < gridSize.y; y++) {
+			for (int x = 0; x < gridSize.x; x++) {
 				Node node = new Node();
 				node.x = x;
 				node.y = y;
@@ -64,7 +64,8 @@ public class Pathfinding {
                 node.isWalkable = true;
 				node.previousIndex = -1;
 
-				node.additionalCost = _world.pathfindingMap[y][x];
+				node.additionalCost = _world.entities[y][x] > 0 ? 999 : 0;
+				//node.additionalCost = _world.entities[y][x];
 
                 node.gCost = int.MaxValue;
 				node.hCost = CalculateHeuristics(new int2(x, y), endPos);

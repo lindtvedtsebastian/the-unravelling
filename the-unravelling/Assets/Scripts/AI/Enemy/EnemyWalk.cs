@@ -16,11 +16,6 @@ public class EnemyWalk : State
     private float pathRecalculateTimer = 0;
     private float recalculateTime = 7.5f;
 
-    private float stuckTimer;
-    private float stuckThreshold = 3;
-
-    private Vector3 prevLocation;
-
     /// <summary>
     /// All necessary preparations before "do"ing the state 
     /// </summary>
@@ -31,7 +26,6 @@ public class EnemyWalk : State
         _player = GameObject.FindGameObjectWithTag("Player");
         _stateManager = stateManager;
 
-        prevLocation = gameObject.transform.position;
     }
 
     /// <summary>
@@ -39,19 +33,7 @@ public class EnemyWalk : State
     /// </summary>
     public override void DoState() {
         pathRecalculateTimer -= Time.deltaTime;
-        stuckTimer -= Time.deltaTime;
 
-
-        if (stuckTimer <= 0) {
-			if (isStuck()) {
-                Vector3 middleOfMap = new Vector3(_world.size / 2, _world.size / 2, 0);
-                Vector3 dirTowardsPlayer = (gameObject.transform.position - middleOfMap).normalized;
-				gameObject.transform.position = gameObject.transform.position - dirTowardsPlayer;
-                CalculatePath();
-            }
-			prevLocation = gameObject.transform.position;
-            stuckTimer = stuckThreshold;
-        }
 		
         if (distanceTo(_player.transform.position) > proximityRange) {
             // If no path exists, calculate one
@@ -67,15 +49,6 @@ public class EnemyWalk : State
         }
     }
 
-	bool isStuck() {
-        Vector3 enemyPos = gameObject.transform.position;
-        if (Mathf.Abs(prevLocation.x - enemyPos.x) < 1f)
-            return true;
-        else if (Mathf.Abs(prevLocation.y - enemyPos.y) < 1f)
-            return true;
-		else return false;
-    }
-	
     /// <summary>
     /// Prepares the State for exit
     /// </summary>
@@ -90,8 +63,8 @@ public class EnemyWalk : State
         Vector3 enemyPos = gameObject.transform.position;
         Vector3 playerPos = _player.transform.position;
 
-        int2 startPos = new int2(intRound(enemyPos.x), intRound(enemyPos.y));
-        int2 endPos = new int2(intRound(playerPos.x), intRound(playerPos.y));
+        int2 startPos = new int2(Mathf.FloorToInt(enemyPos.x), Mathf.RoundToInt(enemyPos.y - 0.5f));
+        int2 endPos = new int2(Mathf.FloorToInt(playerPos.x), Mathf.RoundToInt(playerPos.y - 0.5f));
 
         _resultPath.Clear();
         Pathfinding pathfinding = new Pathfinding(startPos, endPos, _resultPath);
@@ -104,20 +77,12 @@ public class EnemyWalk : State
 	    if (_resultPath.Length > 0) {
 		    PathPart currentWaypoint = _resultPath[_resultPath.Length - 1];
 		    Vector3 target = new Vector3(currentWaypoint.x, currentWaypoint.y, 0);
+		    //Debug.Log(target);
 
 		    moveTowards(target);
 		    if (distanceTo(target) < proximityRange)
 			    _resultPath.RemoveAt(_resultPath.Length - 1);
 	    }
-    }
-
-    /// <summary>
-    /// Helper function for rounding a float to the closest int 
-    /// </summary>
-    /// <param name="toBeRounded">The float to be rounded</param>
-    /// <returns>The provided float converted to the closest int</returns>
-    int intRound(float toBeRounded) {
-        return (int) Mathf.Round(toBeRounded);
     }
 
 

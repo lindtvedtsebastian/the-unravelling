@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6006960327738813390}
   - component: {fileID: 6886029721326395909}
   - component: {fileID: 5811162932592825994}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Iron_ore
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
