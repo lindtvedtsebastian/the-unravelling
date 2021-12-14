@@ -77,6 +77,7 @@ public class PlayerBehaviour : MonoBehaviour {
 	    // Player is dead
 	    if (health <= 0) {
 		    gameOverScreen.Setup();
+		    Time.timeScale = 0.0f;
 		    return true;
 	    }
 
