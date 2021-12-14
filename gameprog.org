@@ -1,0 +1,61 @@
+* Game programming submission
+** Members
+- Sebastian Lindtvedt (@Lindtvedtsebastian)
+- Dennis Kristiansen (@TurboCartPig)
+- Elvis Arifagic (@Dangeroustuber)
+- Salvador Bascunan (@salvadorbascunan)
+- Markus Strømseth (@markuszakarias)
+- Marius Fredriksen (@MariusKristofferFredriksen)
+
+** Other repos? (Are there any?)
+
+** Gameplay video
+
+- TODO: Link to gameplay video
+
+** Code overview video
+
+- TODO: Link to code overview video
+
+** Discussion around the development process
+
+*** Thoughts on the Unity
+
+*** Process and communication
+
+*** Version control and issue tracking
+
+** Individual discussions
+
+In this section we will each reflect on our personal thoughts around
+the development process, and how we experienced it.
+
+*** Sebastian Lindtvedt
+**** The good
+**** The bad
+**** The reflection
+
+*** Dennis Kristiansen
+**** The good
+**** The bad
+**** The reflection
+
+*** Elvis Arifagic
+**** The good
+**** The bad
+**** The reflection
+
+*** Salvador Bascunan
+**** The good
+**** The bad
+**** The reflection
+
+*** Markus Strømseth
+**** The good
+**** The bad
+**** The reflection
+
+*** Marius Fredriksen
+**** The good
+**** The bad
+**** The reflection
