@@ -101,7 +101,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
         if(Constants.GATES.Contains(previewItem.item.id)) {
             item.manifestation.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
-        } else {
+        } else if (Constants.WALLS.Contains(previewItem.item.id)){
             item.manifestation.GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
         }
 
