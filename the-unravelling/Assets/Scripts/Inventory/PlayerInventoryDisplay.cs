@@ -82,7 +82,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if(previewItem.item.id == Constants.WOOD_WALL) {
             var sprite = previewItem.item.manifestation.GetComponent<SpriteRenderer>();
             previewItem.item.manifestation.GetComponent<BaseUnit>().NextSprite(sprite);
-            Debug.Log("Sprite on : " + sprite.name);
+            previewCraft.GetComponent<SpriteRenderer>().sprite = sprite.sprite;
         }
     }
     

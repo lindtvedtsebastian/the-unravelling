@@ -19,7 +19,7 @@ public class BaseUnit : MonoBehaviour, IClickable {
     [SerializeField]
     private Sprite[] _spriteArray;
 
-    private int currentSprite = 0;
+    private int currentSprite = 1;
 
     // Current health of the unit.
     protected int health;
