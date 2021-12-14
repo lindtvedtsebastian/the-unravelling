@@ -22,10 +22,14 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
     public GameObject previewCraft;
 
+    private BaseUnit _baseUnit;
+
     private Item previewItem;
     private TMPro.TextMeshProUGUI previewAmount;
 
     private World _world;
+
+    private bool _canRotateSprite = false;
     void Start() {
         _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
@@ -58,7 +62,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         previewItem = item;
         previewAmount.text = item.amount.ToString();  
 
-        Debug.Log("Created preview of : " + previewItem.item.id);
+        _canRotateSprite = true;
 
         player.GetComponent<InputController>().publicCloseInventory();
     }
@@ -73,7 +77,13 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     }
 
     public void RotateSprite() {
-        Debug.Log("Rotate sprite");
+        if(!_canRotateSprite) return;
+
+        if(previewItem.item.id == Constants.WOOD_WALL) {
+            var sprite = previewItem.item.manifestation.GetComponent<SpriteRenderer>();
+            previewItem.item.manifestation.GetComponent<BaseUnit>().NextSprite(sprite);
+            Debug.Log("Sprite on : " + sprite.name);
+        }
     }
     
     /// <summary>
@@ -90,13 +100,12 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
         _world.entities[y][x] = 999; //TODO: Fix this with real ID's
 
-        Debug.Log("Placed object : " + previewItem.item.id);
-
         previewItem.amount -= 1;
         previewAmount.text = previewItem.amount.ToString();
 
         if(previewItem.amount < 1) {
             previewCraft.SetActive(false);
+            _canRotateSprite = false;
         }
     }
 

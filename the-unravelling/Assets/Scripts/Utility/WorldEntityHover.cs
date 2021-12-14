@@ -51,7 +51,13 @@ public class WorldEntityHover : MonoBehaviour {
                                                     this.transform.position.y - 1f, 
                                                     this.transform.position.z);
         }
-        _sprite.sprite = _hovering;
+
+        if(gameObject.GetComponent<BaseUnit>().getObject().id == Constants.WOOD_CHEST) {
+            _sprite.sprite = _hovering;
+        } else {
+            _sprite.sprite = _sprite.sprite;
+        }
+        
         canvas.enabled = true;
     }
 
@@ -61,7 +67,13 @@ public class WorldEntityHover : MonoBehaviour {
     /// <param name="data">The Pointer event data</param>
     public void OnPointerExitDelegate(PointerEventData data) {
         if(_sprite == null) return;
-        _sprite.sprite = _normal;
+
+        if(gameObject.GetComponent<BaseUnit>().getObject().id == Constants.WOOD_CHEST) {
+            _sprite.sprite = _normal;
+        } else {
+            _sprite.sprite = _sprite.sprite;
+        }
+        
         canvas.enabled = false;
     }
 }
