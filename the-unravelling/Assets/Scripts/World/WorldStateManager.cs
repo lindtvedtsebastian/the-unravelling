@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.Serialization;
 
 public class WorldStateManager : MonoBehaviour {
-    [FormerlySerializedAs("gameState")] public WorldState worldState;
+    private WorldManager _worldManager;
     public GameObject NightEffect;
 
     private void Start() {
-        worldState = GameData.Get.world.state;
+        _worldManager = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>();
         InvokeRepeating(nameof(IncrementGameTimeAndDay), 0.0f, 1.0f);
 		NightEffect = GameObject.FindWithTag("NightEffect");
     }
@@ -19,19 +15,17 @@ public class WorldStateManager : MonoBehaviour {
     /// <see cref="WorldState.TickTime()"/>
     /// </summary>
     public void IncrementGameTimeAndDay() {
-        worldState.TickTime();
-        NightEffect.SetActive(IsNight());
+        _worldManager.world.state.TickTime();
+        NightEffect.SetActive(_worldManager.world.state.IsNight());
+        if (_worldManager.world.state.regenerateResource) {
+            _worldManager.regenerateResources();
+            _worldManager.world.state.regenerateResource = false;
+        }
     }
     
-    public int getCurrentIngameDay() {
-        return worldState.currentGameDay;
-    }
-	
-    public bool IsNight() {
-        return worldState.stateOfDay == CycleState.NIGHT;
-    }
 
-    public bool IsDay() {
-        return worldState.stateOfDay == CycleState.DAY;
+
+    public World getWorld() {
+        return _worldManager.world;
     }
 } 

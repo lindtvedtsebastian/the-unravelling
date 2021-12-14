@@ -2,41 +2,46 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
-    private static AudioManager _instance;
+    private static AudioManager _instance; 
+    public static AudioManager Instance { get { return _instance; } }
 
     public AudioClip menuAudio; // this track loops throughout the all of the MainMenu scene.
-    
+    public AudioMixerGroup MusicSoundGroup;
     public List<AudioClip> dayMusic = new List<AudioClip>();
     public List<AudioClip> nightMusic = new List<AudioClip>();
+   
     private const int sizeOfDaySoundtrack = 7;
     private const int sizeOfNightSoundtrack = 2;
     private AudioSource soundtrackSource;
-
+    
     private int currentDaySongIndex;
     private int currentNightSongIndex;
 
     private CycleState previousState;
 
-    private WorldStateManager stateManager;
+    private WorldState _worldState;
     
     private void Awake() {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-        } else {
-            _instance = this;
+        if (_instance != null && _instance != this) 
+        { 
+            Destroy(this.gameObject);
+            return;
         }
 
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        
         soundtrackSource = gameObject.AddComponent<AudioSource>();
+        soundtrackSource.outputAudioMixerGroup = MusicSoundGroup;
         soundtrackSource.clip = menuAudio;
-        soundtrackSource.volume = 0.32f;
+        soundtrackSource.volume = PlayerPrefs.GetFloat("MusicVolume");
         soundtrackSource.loop = true;
         soundtrackSource.Play();
         SceneManager.sceneLoaded += OnSceneLoaded;
-        DontDestroyOnLoad(this);
     }
     
     /// <summary>
@@ -47,7 +52,7 @@ public class AudioManager : MonoBehaviour {
     /// <param name="mode">The blend mode of the new scene</param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name == "MainGame") {
-            stateManager = GameObject.Find("GameManager").GetComponent<WorldStateManager>();
+            _worldState = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world.state;
             StartCoroutine(PlaySoundtrack());
         }
     }
@@ -62,10 +67,10 @@ public class AudioManager : MonoBehaviour {
     IEnumerator PlaySoundtrack() {
         soundtrackSource.loop = false; // since we now play the soundtrack track by track, we don't want looping.
         while (true) {
-			if (previousState != stateManager.worldState.stateOfDay)
+			if (previousState != _worldState.stateOfDay)
                 soundtrackSource.Stop();
 			
-            if (stateManager.IsDay() && !soundtrackSource.isPlaying) {
+            if (_worldState.IsDay() && !soundtrackSource.isPlaying) {
                 currentDaySongIndex++;
                 if (currentDaySongIndex > sizeOfDaySoundtrack) {
                     currentDaySongIndex = 1;
@@ -73,7 +78,7 @@ public class AudioManager : MonoBehaviour {
                 soundtrackSource.clip = dayMusic[currentDaySongIndex - 1];
                 previousState = CycleState.DAY;
                 soundtrackSource.Play();
-            } else if (stateManager.IsNight() && !soundtrackSource.isPlaying) {
+            } else if (_worldState.IsNight() && !soundtrackSource.isPlaying) {
                 currentNightSongIndex++;
                 if (currentNightSongIndex > sizeOfNightSoundtrack) {
                     currentNightSongIndex = 1;

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,25 +8,37 @@ using Random = UnityEngine.Random;
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class BaseUnit : MonoBehaviour, IClickable {
-    // Maximum health of the unit. Configured in subclass or prefab.
+	// Maximum health of the unit. Configured in subclass or prefab.
     [SerializeField] protected int maxHealth;
 
     // Health bar that appears as the unit takes damage.
     [SerializeField] private GameObject healthBar;
 
-    // Item that the unit drops when destroyed.
-    [SerializeField] private Item[] drops;
+    [SerializeField]
+    private WorldEntity _self;
 
     // Current health of the unit.
     protected int health;
 
+    private World _world;
+
+    private bool recentlyDamaged = false;
+
     void Awake() {
+	    _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
         health = maxHealth;
 
         // Spawn health bar
         var bar = Instantiate(healthBar, this.transform);
         var data = bar.GetComponent<HealthBar>();
         data.Health += () => HealthFraction;
+    }
+
+    private void Update() {
+	    if (recentlyDamaged) {
+		    recentlyDamaged = false;
+		    StartCoroutine(regenerateAfterDuration());
+	    }
     }
 
     /// <summary>
@@ -43,10 +57,20 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// <param name="damage">The amount of damage to inflict on the object</param>
     public void OnDamage(int damage) {
         health -= damage;
+        recentlyDamaged = true;
 
 		if (health <= 0) {
+			Drop();
             Destroy(gameObject);
-        }
+            int y = _world.size - Mathf.FloorToInt(gameObject.transform.position.y);
+            int x = Mathf.FloorToInt(gameObject.transform.position.x);
+            _world.entities[y][x] = 0;
+		}
+    }
+
+    IEnumerator regenerateAfterDuration(float time = 5f) {
+	    yield return new WaitForSeconds(time);
+		health = maxHealth;
     }
 
     /// <summary>
@@ -54,14 +78,14 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// </summary>
     private void Drop() {
         GameObject dropContainer = GameObject.FindWithTag("DropContainer");
-        foreach (Item drop in drops) {
+        foreach (var drop in _self.drops) {
             Vector3 pos = gameObject.transform.position;
 
             for (int i = 0; i < drop.amount; i++) {
 				Vector3 dropPos = new Vector3(Random.Range(pos.x - 1, pos.x + 1),
 											  Random.Range(pos.y - 1, pos.y + 1),
 											  pos.z);
-				Instantiate(drop.item.manifestation,
+				Instantiate(drop.dropObject,
 							dropPos,
 							Quaternion.identity,
 							dropContainer.transform);
@@ -69,11 +93,8 @@ public class BaseUnit : MonoBehaviour, IClickable {
         }
     }
 
-    /// <summary>
-    /// Called when health reaches zero, responsible for destroying the unit.
-    /// </summary>
-    private void OnDestroy() {
-        Drop();
+    public WorldEntity getObject() {
+        return _self;
     }
 
 }

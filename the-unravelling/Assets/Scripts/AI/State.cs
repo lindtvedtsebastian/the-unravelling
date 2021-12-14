@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -5,6 +6,12 @@ using UnityEngine;
 /// </summary>
 abstract public class State : MonoBehaviour {
     protected StateManager _stateManager;
+
+    protected World _world;
+
+    void Start() {
+        _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
+    }
 
     /// <summary>
     /// The "Constructor" of the state 

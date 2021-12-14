@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// A class representing the crafting object slot in the inventory
 /// </summary>
 public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
-    Craft craft;
+    private RecipeCraftCount _recipeCraftCount;
     public Image craftingImg;
     public Image deactivateImg;
     public Text craftingNum;
@@ -15,7 +15,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public Text craftName;
     public Transform craftDisplay;
     public GameObject craftData;
-    public PlayerInventory playerInventory;
+    public PlayerInventoryDisplay playerInventory;
     private Sprite preview;
     private bool hasRecipeDataBeenGenerated = false;
 
@@ -23,27 +23,27 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// Function to add a craft object to the inventory
     /// </summary>
     /// <param name="newCraft">Craft item passed to be added</param>
-    public void AddCraftingItem(Craft newCraft) {
-        craft = newCraft;
-        
-        if (craft.craftingRecipe.resultingAmount < 1) {
-            deactivateImg.sprite = craft.craftingRecipe.craftPreview;
+    public void AddCraftingItem(RecipeCraftCount recipeCraftCount) {
+        _recipeCraftCount = recipeCraftCount;
+
+        if (_recipeCraftCount.amount < 1) {
+            deactivateImg.sprite = recipeCraftCount.recipe.resultPreview;
             deactivateImg.enabled = true;
             craftingImg.enabled = false;
             craftingNum.enabled = false;
         }
         else {
-            craftingImg.sprite = craft.craftingRecipe.craftPreview;
+            craftingImg.sprite = recipeCraftCount.recipe.resultPreview;
             deactivateImg.enabled = false;
             craftingImg.enabled = true;
             craftingNum.enabled = true;
-            craftingNum.text = craft.craftingRecipe.resultingAmount.ToString();
+            craftingNum.text = recipeCraftCount.amount.ToString();
         }
 
-        preview = craft.craftingRecipe.craftPreview;
+        preview = recipeCraftCount.recipe.resultPreview;
         
         if(!hasRecipeDataBeenGenerated) {
-            GenerateRecipeData(craft);
+            GenerateRecipeData();
             hasRecipeDataBeenGenerated = true;
         }
     }
@@ -53,21 +53,20 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerClick(PointerEventData eventData) {
-        if(craft != null && craft.craftingRecipe.resultingAmount > 0) {
+        if(_recipeCraftCount != null && _recipeCraftCount.recipe.resultingAmount > 0) {
             //playerInventory.CreatePreview(craft);
             craftInfo.SetActive(false);
 
+            var entity = (ComponentEntity) GameData.Get.worldEntities[_recipeCraftCount.recipe.resultingEntityID];
+
             // Create a new item object
-            Item item = new Item();
-            // Copy the value in from the item representation of the craft object
-            item.item = craft.craftingRecipe.itemRepresentation;
-            item.amount = craft.craftingRecipe.itemRepresentation.itemAmount;
+            Item item = new Item(entity,_recipeCraftCount.recipe.resultingAmount);
 
             // Add it to the player inventory
             playerInventory.playerInventory.Add(item);
 
             // Subtract the item cost of the crafting the object
-            playerInventory.playerInventory.SubstractRecipeFromInventory(craft.craftingRecipe);
+            playerInventory.playerInventory.SubstractRecipeFromInventory(_recipeCraftCount.recipe);
 
             // Refresh the inventory by closing and opening
             playerInventory.player.GetComponent<InputController>().publicCloseInventory();
@@ -80,9 +79,9 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerEnter(PointerEventData eventData) {
-        if(craft == null) return;
+        if(_recipeCraftCount == null) return;
 
-        craftName.text = craft.craftingRecipe.recipeName;
+        craftName.text = GameData.Get.worldEntities[_recipeCraftCount.recipe.resultingEntityID].entityName;
         craftInfo.SetActive(true);
     }
 
@@ -91,7 +90,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerExit(PointerEventData eventData) {
-        if(craft != null) {
+        if(_recipeCraftCount != null) {
             craftInfo.SetActive(false);
         }
     }
@@ -102,14 +101,14 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// for crafting.
     /// </summary>
     /// <param name="Craft">the craft object to be checked</param>
-    public void GenerateRecipeData(Craft craft) {
-        for (int i = 0; i < craft.craftingRecipe.recipeItems.Length; i++) {
+    public void GenerateRecipeData() {
+        for (int i = 0; i < _recipeCraftCount.recipe.recipeEntities.Length; i++) {
             GameObject hoverData = Instantiate(craftData, craftDisplay.transform, true);
 
-            hoverData.transform.GetChild(0).GetComponent<Image>().sprite = craft.craftingRecipe.recipeItems[i].item.preview;
-            hoverData.transform.GetChild(1).GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].amount.ToString();
+            hoverData.transform.GetChild(0).GetComponent<Image>().sprite = _recipeCraftCount.recipe.recipeEntities[i].entity.preview;
+            hoverData.transform.GetChild(1).GetComponent<Text>().text = _recipeCraftCount.recipe.recipeEntities[i].amount.ToString();
             hoverData.transform.GetChild(2).GetComponent<Text>().text = "X";
-            hoverData.transform.GetChild(3).GetComponent<Text>().text = craft.craftingRecipe.recipeItems[i].item.itemName;
+            hoverData.transform.GetChild(3).GetComponent<Text>().text = _recipeCraftCount.recipe.recipeEntities[i].entity.entityName;
 
             hoverData.transform.localScale = new Vector3(1f, 1f, 1f);
         }

@@ -8,15 +8,9 @@ using UnityEngine;
 [Serializable]
 public class Inventory : MonoBehaviour {
     public List<Item> items;
-    public List<Craft> craft;
 
-    /// <summary>
-    /// Constructs a new Inventory 
-    /// </summary>
-    /// <returns>The new inventory object</returns>
-    public Inventory() {
+    void Start() {
         items = new List<Item>();
-        craft = new List<Craft>();
     }
 
     /// <summary>
@@ -24,10 +18,10 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="newItem">The item to be added</param>
     public void Add(Item newItem) {
-		if (!checkIfItemExists(newItem.item)) {
-            items.Add(newItem);
+        if (!checkIfItemExists(newItem.item)) {
+            items.Add(new Item(newItem.item, 1));
         } else {
-            items[findItemDataIndex(newItem.item)].amount += newItem.amount;
+            items[findItemDataIndex(newItem.item)].amount += 1;
         }
 	}
 
@@ -37,14 +31,22 @@ public class Inventory : MonoBehaviour {
         });
     }
 
+    public bool remove(int decreaseAmount, Item item) {
+        if(items[findItemDataIndex(item.item)].amount >= 1) {
+            items[findItemDataIndex(item.item)].amount -= 1;
+            return true;
+            
+        } else return false;
+    }
+
     /// <summary>
     /// Checks if a given itemData exists in the inventory list
     /// </summary>
     /// <param name="itemData">The itemdata to check against the inv list</param>
     /// <returns>Whether or not the item exists</returns>
-    private bool checkIfItemExists(ItemData itemData) {
+    protected bool checkIfItemExists(Entity entity) {
 		foreach (Item item in items) {
-			if (item.item == itemData) {
+			if (item.item == entity) {
                 return true;
             }
 		}
@@ -56,47 +58,14 @@ public class Inventory : MonoBehaviour {
     /// </summary>
     /// <param name="itemData">The itemData to find the index of</param>
     /// <returns>The index if found, -1 otherwise</returns>
-    private int findItemDataIndex(ItemData itemData) {
+    protected int findItemDataIndex(Entity entity) {
         for (int i = 0; i < items.Count; i++) {
-			if (items[i].item == itemData) {
+			if (items[i].item == entity) {
                 return i; 
             }
 		}
         return -1;
     }
-
-
-    /// <summary>
-    /// Determines if a recipe can be crafted with the contents of the inventory.
-    /// If the recipe can be crafted, the amount will be returned, if not -1 will be returned
-    /// </summary>
-    /// <param name="recipe">The recipe to be checked against the inventory</param>
-    /// <returns>How many times a recipe can be crafted, or -1 if not</returns>
-    public int CalculateRecipeCraftingAmount(CraftingRecipe recipe) {
-        int currentLowestCraftingAmount = int.MaxValue;
-        foreach (RecipeData data in recipe.recipeItems) {
-            int itemIndex = findItemDataIndex(data.item);
-			
-			// If item does not exist in inventory, return
-			if (itemIndex < 0) return -1; 
-			
-            float invAmount = (float) items[itemIndex].amount;
-            int currentCraftingAmount = (int) Math.Floor(invAmount / data.amount);
-
-			if (currentCraftingAmount < currentLowestCraftingAmount) {
-                currentLowestCraftingAmount = currentCraftingAmount;
-            }
-        }
-		if (currentLowestCraftingAmount != int.MaxValue) {
-            return currentLowestCraftingAmount;
-        } else return -1;
-    }
-
-	public void SubstractRecipeFromInventory(CraftingRecipe recipe) {
-		foreach (RecipeData data in recipe.recipeItems) {
-            items[findItemDataIndex(data.item)].amount -= data.amount;
-        }
-	}
 }
 
 /// <summary>
@@ -104,15 +73,13 @@ public class Inventory : MonoBehaviour {
 /// </summary>
 [Serializable]
 public class Item {
-    public ItemData item;
+    public ComponentEntity item;
     public int amount;
+
+    public Item(ComponentEntity item, int amount) {
+        this.item = item;
+        this.amount = amount;
+    }
 }
 
-/// <summary>
-/// Craft object in the context of an inventory 
-/// </summary>
-[Serializable]
-public class Craft {
-    public CraftingRecipe craftingRecipe;
-    public int amount;
-}
+

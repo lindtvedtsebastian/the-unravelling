@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3a45f008754b94b57ffa3e7066d8b5, type: 3}
+  m_Name: 11_copperwall
+  m_EditorClassIdentifier: 
+  id: 11
+  entityName: Copper wall
+  manifestation: {fileID: 2418854327453526005, guid: 355ef969d21af3b4fa206a1b911bea2d, type: 3}
+  preview: {fileID: 21300000, guid: 9398118af11d82a4b82110946a8404d1, type: 3}
+  drops:
+  - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
+    amount: 2
+  recipe: {fileID: 11400000, guid: d1241871815821148aa7371f3922e646, type: 2}

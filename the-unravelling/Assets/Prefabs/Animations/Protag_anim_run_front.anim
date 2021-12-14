@@ -112,16 +112,16 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.2
-    functionName: PlayLeftWalkingSound
+    functionName: PlayLeftWalking
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: b694717369faf3e4382ba4ab866c2357, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.6
-    functionName: PlayRightWalkingSound
+    functionName: PlayRightWalking
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: b694717369faf3e4382ba4ab866c2357, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
