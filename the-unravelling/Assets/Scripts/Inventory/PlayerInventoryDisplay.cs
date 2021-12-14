@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 
 /// <summary>
@@ -79,7 +80,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void RotateSprite() {
         if(!_canRotateSprite) return;
 
-        if(previewItem.item.id == Constants.WOOD_WALL) {
+        if(Constants.WALLS.Contains(previewItem.item.id)) {
             var sprite = previewItem.item.manifestation.GetComponent<SpriteRenderer>();
             previewItem.item.manifestation.GetComponent<BaseUnit>().NextSprite(sprite);
             previewCraft.GetComponent<SpriteRenderer>().sprite = sprite.sprite;

@@ -39,6 +39,8 @@ public static class Constants {
 	public const int IRON_COMPONENT = 26;
 	public const int COPPER_COMPONENT = 27;
 
+	public static readonly int[] WALLS = {WOOD_WALL, STONE_WALL, IRON_WALL, COPPER_WALL};
+
 	public const int NW = 0b1;
 	public const int N = 0b10;
 	public const int NE = 0b100;
