@@ -45,8 +45,8 @@ public class WorldManager: MonoBehaviour {
                 TileEntity tileData = (TileEntity) GameData.Get.worldEntities[tileID];
                 tile = tileData.SetSprite(y, x);
 
-                gameWorld.SetTile(new Vector3Int(x, world.size - y, 0), tile);
-                background.SetTile(new Vector3Int(x, world.size - y, 0),
+                gameWorld.SetTile(new Vector3Int(x, world.size-1 - y, 0), tile);
+                background.SetTile(new Vector3Int(x, world.size-1 - y, 0),
                                    stone.SetSprite(y,x));
 
                 int entityID = world.entities[y][x];
@@ -91,7 +91,7 @@ public class WorldManager: MonoBehaviour {
 					    world.entities[y][x] = newResourceID;
 					    WorldEntity worldEntity = (WorldEntity) GameData.Get.worldEntities[newResourceID];
 					    GameObject entity = worldEntity.manifestation;
-                        Vector3 entityPos = new Vector3(x + .5f, world.size - y + .5f, 0);
+                        Vector3 entityPos = new Vector3(x + .5f, world.size-1 - y + .5f, 0);
                         Instantiate(entity, entityPos, Quaternion.identity, entityContainer);
 				    }
 			    }
