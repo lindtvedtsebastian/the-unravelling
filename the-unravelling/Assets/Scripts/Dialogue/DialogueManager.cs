@@ -80,7 +80,7 @@ public class DialogueManager : MonoBehaviour {
         portraitAnimator.Play("default");
         layoutAnimator.Play("right");
 
-        ContinueStory();
+        StartCoroutine(ContinueStory());
     }
 
     private void DisplayChoices() {
@@ -143,7 +143,9 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    public void ContinueStory() {
+    public IEnumerator ContinueStory() {
+        yield return new WaitForSeconds(0.2f);
+        
         if (_currentStory.canContinue) {
             dialogueText.text = _currentStory.Continue();
            

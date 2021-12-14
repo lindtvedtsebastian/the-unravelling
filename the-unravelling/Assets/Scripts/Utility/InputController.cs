@@ -192,13 +192,13 @@ public class InputController : MonoBehaviour {
     }
 
     private void OnActionProgress(InputAction.CallbackContext ctx) {
-        DialogueManager.instance.ContinueStory();
+        StartCoroutine(DialogueManager.instance.ContinueStory());
     }
 
     private void OnCloseDialogue(InputAction.CallbackContext ctx) {
         playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("Player");
         playerInput.actions.Enable();
-        DialogueManager.instance.ExitDialogueMode();
+        StartCoroutine(DialogueManager.instance.ExitDialogueMode());
     }
 }
