@@ -73,6 +73,14 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""RotateObject"",
+                    ""type"": ""Button"",
+                    ""id"": ""0694c223-9636-4d63-b1ac-d7e202bb14e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -304,6 +312,17 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Touch"",
                     ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19509ad6-79f5-4c3f-88cf-831eb2e3820c"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RotateObject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -888,6 +907,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         m_Player_Place = m_Player.FindAction("Place", throwIfNotFound: true);
         m_Player_Destroy = m_Player.FindAction("Destroy", throwIfNotFound: true);
         m_Player_Point = m_Player.FindAction("Point", throwIfNotFound: true);
+        m_Player_RotateObject = m_Player.FindAction("RotateObject", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -956,6 +976,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Place;
     private readonly InputAction m_Player_Destroy;
     private readonly InputAction m_Player_Point;
+    private readonly InputAction m_Player_RotateObject;
     public struct PlayerActions
     {
         private @Theunravelling m_Wrapper;
@@ -967,6 +988,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         public InputAction @Place => m_Wrapper.m_Player_Place;
         public InputAction @Destroy => m_Wrapper.m_Player_Destroy;
         public InputAction @Point => m_Wrapper.m_Player_Point;
+        public InputAction @RotateObject => m_Wrapper.m_Player_RotateObject;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -997,6 +1019,9 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                 @Point.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
                 @Point.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
                 @Point.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                @RotateObject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateObject;
+                @RotateObject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateObject;
+                @RotateObject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateObject;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1022,6 +1047,9 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                 @Point.started += instance.OnPoint;
                 @Point.performed += instance.OnPoint;
                 @Point.canceled += instance.OnPoint;
+                @RotateObject.started += instance.OnRotateObject;
+                @RotateObject.performed += instance.OnRotateObject;
+                @RotateObject.canceled += instance.OnRotateObject;
             }
         }
     }
@@ -1185,6 +1213,7 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         void OnPlace(InputAction.CallbackContext context);
         void OnDestroy(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
+        void OnRotateObject(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

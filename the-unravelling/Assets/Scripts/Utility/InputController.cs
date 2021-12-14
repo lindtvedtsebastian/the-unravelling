@@ -47,6 +47,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed += OnActionCancel;
         playerInput.actions["Player/Destroy"].performed += OnActionDamage;
         playerInput.actions["Player/Interact"].performed += OnActionInteract;
+        playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
 
         playerInput.actions["UI/Cancel"].performed += OnCloseInventory;
     }
@@ -57,6 +58,7 @@ public class InputController : MonoBehaviour {
         playerInput.actions["Player/Cancel"].performed -= OnActionCancel;
         playerInput.actions["Player/Destroy"].performed -= OnActionDamage;
         playerInput.actions["Player/Interact"].performed -= OnActionInteract;
+        playerInput.actions["Player/RotateObject"].performed += OnActionRotateObject;
 
         playerInput.actions["UI/Cancel"].performed -= OnCloseInventory;
     }
@@ -121,6 +123,10 @@ public class InputController : MonoBehaviour {
     /// <param name="ctx">Input action callback for registering action</param>
     private void OnActionPlace(InputAction.CallbackContext ctx) {
         playerInventory.PlaceObject();
+    }
+
+    private void OnActionRotateObject(InputAction.CallbackContext ctx) {
+        Debug.Log("Rotate the sprite");
     }
 
     /// <summary>

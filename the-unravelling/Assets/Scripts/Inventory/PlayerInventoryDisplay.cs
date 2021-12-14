@@ -53,6 +53,8 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         var sprite = previewCraft.GetComponent<SpriteRenderer>();
         sprite.sprite = item.item.preview;
 
+        Debug.Log("Created preview of : " + item.item.entityName);
+
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
         previewItem = item;
@@ -68,6 +70,10 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         for (int i = 0; i < craftingSlots.Length; i++) {
             craftingSlots[i].craftInfo.SetActive(false);
         }
+    }
+
+    public void RotateSprite() {
+        
     }
     
     /// <summary>
