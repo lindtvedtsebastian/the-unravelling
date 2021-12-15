@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Transforms;
 using UnityEngine;
 
 public class TurretAI : StateManager {
@@ -20,11 +17,7 @@ public class TurretAI : StateManager {
     private TurretIdle _turretIdle;
     private TurretAttack _turretAttack;
 
-    /// <summary>
-    /// Start is called before the first frame update.
-    /// </summary>
     void Start() {
-
         targetList = new List<GameObject>();
         
         _turretIdle = gameObject.AddComponent(typeof(TurretIdle)) as TurretIdle;
@@ -34,9 +27,6 @@ public class TurretAI : StateManager {
         currentState.EnterState(this);
     }
 
-    /// <summary>
-    /// Called once per frame.
-    /// </summary>
     void Update() {
         currentState.DoState();
 
@@ -50,20 +40,12 @@ public class TurretAI : StateManager {
         }
     }
     
-    /// <summary>
-    /// Function for finding "Enemy" GameObjects within the Turrets vision range.
-    /// </summary>
-    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Enemy") && !targetList.Contains(other.gameObject)) {
             targetList.Add(other.gameObject);
         }
     }
     
-    /// <summary>
-    /// Function for handling "Enemy" GameObjects leaving the Turrets vision range.
-    /// </summary>
-    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other) {
         if (targetList.Contains(other.gameObject)) {
             targetList.Remove(other.gameObject);

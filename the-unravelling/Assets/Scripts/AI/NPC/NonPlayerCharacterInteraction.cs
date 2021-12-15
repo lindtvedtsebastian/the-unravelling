@@ -9,13 +9,11 @@ public class NonPlayerCharacterInteraction : State {
     private Transform trans;
     
     private Vector2 initPos;
-    
 
     private DialogueTrigger _dialogueTrigger;
 
     private Animator _animator;
  
-    
     public override void EnterState(StateManager stateManager) {
         
         //Get transform
@@ -32,10 +30,7 @@ public class NonPlayerCharacterInteraction : State {
         _animator.Play("Idle");
         //Get dialogue trigger 
         _dialogueTrigger = gameObject.GetComponentInChildren<DialogueTrigger>();
-        _stateManager = stateManager;
-        
-        
-        
+        _stateManager = stateManager; 
     }
 
     public override void DoState() {

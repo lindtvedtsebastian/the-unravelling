@@ -1,9 +1,10 @@
-using System;
 using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
-using Quaternion = Unity.Mathematics.quaternion;
 
+/// <summary>
+/// Handles turret attack state
+/// </summary>
 public class TurretAttack : State {
     
     private Rigidbody2D _bowBody;
@@ -29,6 +30,7 @@ public class TurretAttack : State {
     /// <summary>
     /// The state "update"
     /// </summary>
+    /// <see cref="TurretAnimation()"/>
     public override void DoState() {
         TurretAnimation();
 
@@ -39,10 +41,17 @@ public class TurretAttack : State {
 		}
     }
 
+    /// <summary>
+    /// The state "destructor"
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
     public override void LeaveState() {
         throw new System.NotImplementedException();
     }
 
+    /// <summary>
+    /// Run the Turret animation. Calculates the rotation which the turret will fire the arrow.
+    /// </summary>
     private void TurretAnimation() {
         if (_stateManager.GetComponent<TurretAI>().targetList.FirstOrDefault() != null) {
             Vector3 targetPosition = 
