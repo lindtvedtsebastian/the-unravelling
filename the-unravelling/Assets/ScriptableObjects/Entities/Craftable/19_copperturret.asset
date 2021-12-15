@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 19
   entityName: Copper turret
   manifestation: {fileID: 6756419052556960664, guid: 9d74aba1e78887a48881e57be4fc32c0, type: 3}
-  preview: {fileID: 21300000, guid: dd04f7db9c6ba244ab1c3cf9e7499652, type: 3}
+  preview: {fileID: 21300000, guid: 5dfba76ff47762c4a9a319b0d2d5d1a1, type: 3}
   drops:
   - dropObject: {fileID: 4240698967312511785, guid: a8dc83423611bb944a54a1c03def8471, type: 3}
     amount: 2

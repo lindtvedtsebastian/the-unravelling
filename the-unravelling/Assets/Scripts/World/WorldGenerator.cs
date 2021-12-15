@@ -57,13 +57,15 @@ public class WorldGenerator : MonoBehaviour {
     }
 
     public static int determineOreType() {
-        int ore = UnityEngine.Random.Range(0, 30);
-        if (ore <= 15)
+        int ore = UnityEngine.Random.Range(0, 31);
+        if (ore <= 20)
             return Constants.STONE_ORE;
         else if (ore <= 25)
             return Constants.COPPER_ORE;
-        else
+        else if (ore <= 28)
             return Constants.IRON_ORE;
+        else
+            return Constants.MAGIC_ORE;
         }
 }
 

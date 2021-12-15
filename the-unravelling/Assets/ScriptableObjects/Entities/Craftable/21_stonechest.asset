@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 21
   entityName: Stone chest
-  manifestation: {fileID: 3553024991607259953, guid: 5167f45c97ddabb448a5835f9bf9b4da, type: 3}
-  preview: {fileID: 21300000, guid: f45dd8b40b6b3ca4aad8c0c6ba86cb7b, type: 3}
+  manifestation: {fileID: 988646388579087220, guid: d7963bbf6e976124f951d11751ef2d01, type: 3}
+  preview: {fileID: 21300000, guid: 2ae8c53df0eef96448db9a5941a24384, type: 3}
   drops:
   - dropObject: {fileID: 3242763888240086024, guid: 0b465b8fd2aa8aa459ab3d195e6238a0, type: 3}
     amount: 2

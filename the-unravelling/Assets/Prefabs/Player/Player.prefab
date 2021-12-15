@@ -210,6 +210,7 @@ MonoBehaviour:
   entityDamage: 50
   walkingLSound: {fileID: 0}
   walkingRSound: {fileID: 0}
+  gameOverScreen: {fileID: 0}
 --- !u!114 &4859983145349694364
 MonoBehaviour:
   m_ObjectHideFlags: 0

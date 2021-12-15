@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4677970783152750580}
   - component: {fileID: 7836839290924375974}
   - component: {fileID: 730278452915500296}
+  - component: {fileID: 4027917975085889162}
+  - component: {fileID: 7233605366417030177}
   m_Layer: 0
   m_Name: TurretBow
   m_TagString: Untagged
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9b065d1cc9c9582478f8e53684371c3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 306d47d79e95cca4b833f88b89845fd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,6 +134,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4027917975085889162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185099144464413872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f4acbf6fe2df844805a72c05bd61d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bow: {fileID: 185099144464413872}
+  rotationSpeed: 25
+  particleSystem: {fileID: 3720669946235707744}
+  targetList: []
+--- !u!58 &7233605366417030177
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185099144464413872}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!1 &1604408190127175868
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +237,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2aefedc68b061054496a54e22ce4ecca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e0c7603cc92da34690deccb8e93df0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5085,9 +5119,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3233554626044379579}
-  - component: {fileID: -1345891709389828259}
-  - component: {fileID: 6850194366257165644}
   - component: {fileID: -64030722577264203}
+  - component: {fileID: 582303942372065040}
   m_Layer: 0
   m_Name: CopperTurret
   m_TagString: Untagged
@@ -5111,38 +5144,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1345891709389828259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6756419052556960664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f4acbf6fe2df844805a72c05bd61d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bow: {fileID: 185099144464413872}
-  rotationSpeed: 25
-  particleSystem: {fileID: 3720669946235707744}
-  targetList: []
---- !u!58 &6850194366257165644
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6756419052556960664}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 10
 --- !u!61 &-64030722577264203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5169,3 +5170,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &582303942372065040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756419052556960664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b22f2dff2987d743bf8ff595556bc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
+  _self: {fileID: 11400000, guid: 8962bd591126e72418a2b7bb902e95fe, type: 2}
+  _spriteArray: []

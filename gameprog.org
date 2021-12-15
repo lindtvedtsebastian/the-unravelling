@@ -19,57 +19,44 @@
 
 ** Discussion around the development process
 
-*** Thoughts on the Unity
+*** Thoughts on Unity
 
-Ideas:
-- Collaboration is hard because shit breaks all the time
-- Prototyping is easy and fast
+Collaboration in unity has shown to be quite a pain in our experience. In this specific case, the blame lies on us. The main reason we found it difficult is because by accident a certain “cloud collaboration” feature was enabled for the project. In essence what this did in our case is that it made it so .meta files, the files unity uses to determine the editor properties for objects in a scene, were not to be cared for by git. For the duration of the project we had the basic issue of when we merged/pulled branches, the editor would not keep the configurations on the objects. This was a massive headache for the team and would make it so a simple merge would become a problem seeing as the person who is merging has to have forgotten to do something. Now we realize that this was more or less an accident, and a very unfortunate one at that.
+
+In Unity, prototyping is easy and agile. Mocking up a scene, creating some simple game objects and having basic movement code does not take a lot of time. Looking at the new input system for example, this is something that if you were to setup manually bottom up it could take a while to configure it to work for UI and player movements. Just adding the package for it adds all of that for you and you can jump right into the code and get to making it work for your use case.
+
+We have also experienced that using a compiled language, C#, has caused quite a bit of time to be spent recompiling stuff, interrupting the development cycle, and causing quite a bit of frustration.
+
+In more complicated projects it is very common to need to resort to documentation to square away issues. The unity documentation in our experience was mostly lackluster. In most of the cases the documentation is outdated to more idiomatic solutions found on the forums for example. An example would be some of the documentation regarding event handling in UI was more or less empty. The pages had one to three lines describing the function or class and no direction as to how to use it. This was very frustrating for the team, as in the start, the team was mostly unfamiliar with Unity. Some of the documentation would be very good for very common operations/classes but anything more than very basic things the quality would plummet.
+
 
 *** Process and communication
 
-- We used GitHub and Discord, meetings on fridays.
+As our primary communication tool, we just used the discord lobby that was created for us in the class discord. We felt that this was more appropriate to use because this way any teacher that was interested could also pop in and see the discussions that were going on. The team is also very familiar with discord as a means of communication, so it felt natural to go this route instead of spending time choosing another platform and dragging the discussion over there.
+
+Early on, we set a fixed schedule time for meetings that would occur on Fridays. This was to streamline the process a bit, wherein a break would be had after the lecture finished, and then we would have the meeting right after. We felt this was important because we wanted our minds to be more primed for working with this specific subject.
+
+In the very first meeting we laid out clear rules as to how this entire process should go. We wanted to use an agile methodology for the project, inspired by SCRUM. The team wanted to have overview and control through issues. People ought to use the issue tracker, participate in making them, assign themselves to areas they want to work on the most, and we would take it from there. Another thing that was important to us was the ability of anybody, any time, any day to ask for help with their task. Even if you were solo-assigned to a specific issue you were not to be left alone if you asked for help. Team members were able to send private messages or messages in the public room and if people were available they would jump right into the voice chat and we would do some pair-programming in order to solve more complicated issues that benefited from two persons point of view.
+
 
 *** Version control and issue tracking
 
-- We used GitHub. (Better than GitLab? Still hard to coordinate issues and current work)
+For this project the team feel as though we have utilized the main tenets of version control very well. By now as programmers we have matured to the point where we have internalized the benefits of such a system and try to practice it on all projects.
 
-For development we used a branch and merge approach, where we branched
-from main for every new feature or bugfix we wanted to implement, and
-then merge that branch into main again when we were done. We did this
-using pull requests in GitHub, which ties into issue management, as
-GitHub allows for automation of moving or closing issues based on this.
+In GitHub we chose to create a project board to keep track of the development process. Here we created several columns, which where:
+- Backlog
+- In progress
+- For review
+- Done
+These columns represent the state in which an issue is. This board also helped us keep the development process organized, as we created these issues together on the Friday meetings. We also had an understanding within the group that an issue had to be approved by another team member in order to be placed in the Done column. 
+
+We chose to implement branch protection rules. This entailed a requirement for a merge from branch to go through a pull request that needed approval from at least one team member. Our reason for implementing this rule was to ensure that everyone was using branches for development, and that nobody had access to push directly to the main branch.
+
+In regard to branches themselves, the team encouraged branches to be features and or systems. So in the case of something like the inventory system that was just a single branch which contained the implementation. The branch would eventually be merged when conflicts were resolved locally. Then the team member would create a pull request that had no merging issues. This with the branch protection rules in mind made for only good clean code being merged with main. Features/systems would have to be of good quality with no known bugs to be approved.
+
+When we reflect on our development process we feel that some of the issues in branches could have been handled more specifically. By this, we mean that sometimes a branch included development for more than one issue. We could also have improved the creation of issues during development. Some of the smaller issues were handled internally so we did not necessarily create specific issues for these. The problem arises in the fact that you can not maintain accountability for mistakes. You lose the ability to trace back the origins of some code, members would be unable to determine why a piece of code exists if it was to conflict with their development.
+
 
 ** Individual discussions
 
-In this section we will each reflect on our personal thoughts around
-the development process, and how we experienced it.
-
-*** Sebastian Lindtvedt
-**** The good
-**** The bad
-**** The reflection
-
-*** Dennis Kristiansen
-**** The good
-**** The bad
-**** The reflection
-
-*** Elvis Arifagic
-**** The good
-**** The bad
-**** The reflection
-
-*** Salvador Bascunan
-**** The good
-**** The bad
-**** The reflection
-
-*** Markus Strømseth
-**** The good
-**** The bad
-**** The reflection
-
-*** Marius Fredriksen
-**** The good
-**** The bad
-**** The reflection
+For these deliverables the team will submit individually on blackboard.

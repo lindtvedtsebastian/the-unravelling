@@ -90,7 +90,7 @@ public class WorldCore : MonoBehaviour, IClickable {
         GameOverScreen.Setup("The world-core was destroyed");
     }
 
-    public void OnDamage(int damage) {
+    public void OnDamage(int damage, bool damageFromNPC) {
         health -= damage;
         if (health <= 0) {
             Destroy(gameObject);

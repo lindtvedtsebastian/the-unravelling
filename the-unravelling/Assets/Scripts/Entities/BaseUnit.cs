@@ -56,6 +56,10 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// </summary>
     public float HealthFraction => (float)health / (float)maxHealth;
 
+    public int GetObjectID() {
+        return _self.id;
+    }
+
     public void NextSprite(SpriteRenderer sprite) { 
         currentSprite++;
 
@@ -71,16 +75,20 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// The action that will be triggered when this object is clicked
     /// </summary>
     /// <param name="damage">The amount of damage to inflict on the object</param>
-    public void OnDamage(int damage) {
+    public void OnDamage(int damage, bool damageFromNPC) {
         health -= damage;
-        recentlyDamaged = true;
+        if (!damageFromNPC) {
+			recentlyDamaged = true;
+        }
 
 		if (health <= 0) {
 			Drop();
-            Destroy(gameObject);
-            int y = _world.size - Mathf.FloorToInt(gameObject.transform.position.y);
+			int y = _world.size - Mathf.FloorToInt(gameObject.transform.position.y);
             int x = Mathf.FloorToInt(gameObject.transform.position.x);
             _world.entities[y][x] = 0;
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+
 		}
     }
 

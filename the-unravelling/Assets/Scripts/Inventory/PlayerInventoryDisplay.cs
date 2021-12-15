@@ -141,6 +141,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
+        previewCraft.SetActive(false);
         inventoryCanvas.SetActive(true);
     }
 
@@ -149,6 +150,11 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// </summary>
     public void DeactivateInventory() {
         inventoryCanvas.SetActive(false);
+    }
+    
+    public void RefreshInventory() {
+        DeactivateInventory();
+        ActivateInventory();
     }
 
     /// <summary>
