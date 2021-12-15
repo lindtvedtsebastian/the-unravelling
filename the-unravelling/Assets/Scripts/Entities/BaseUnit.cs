@@ -60,6 +60,11 @@ public class BaseUnit : MonoBehaviour, IClickable {
         return _self.id;
     }
 
+    /// <summary>
+    /// Cycle through and apply the next sprite on the array to the Sprite
+    /// Renderer passed in.
+    /// </summary>
+    /// <param name="sprite">The sprite renderer to apply the next sprite</param>
     public void NextSprite(SpriteRenderer sprite) { 
         currentSprite++;
 
@@ -67,8 +72,6 @@ public class BaseUnit : MonoBehaviour, IClickable {
         
         var _sprite = sprite;
         sprite.sprite = _spriteArray[currentSprite];
-
-        
     }
 
     /// <summary>
@@ -117,6 +120,9 @@ public class BaseUnit : MonoBehaviour, IClickable {
         }
     }
 
+    /// <summary>
+    /// Get function that return the World Entity of the class
+    /// </summary>
     public WorldEntity getObject() {
         return _self;
     }
