@@ -39,6 +39,11 @@ public static class Constants {
 	public const int IRON_COMPONENT = 26;
 	public const int COPPER_COMPONENT = 27;
 
+	public const int WOOD_LASER = 28;
+
+	public const int MAGIC_ORE = 29;
+	public const int MAGIC_COMPONENT = 30;
+
 	public static readonly int[] WALLS = {WOOD_WALL, STONE_WALL, IRON_WALL, COPPER_WALL};
 	public static readonly int[] GATES = {WOOD_GATE, STONE_GATE, IRON_GATE, COPPER_GATE};
 	public static readonly int[] CHESTS = {WOOD_CHEST, STONE_CHEST, IRON_CHEST, COPPER_CHEST};
