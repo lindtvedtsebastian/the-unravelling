@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 16
   entityName: Wood turret
   manifestation: {fileID: 5907415170405049485, guid: a668b3f5f7ffcd54b9e0542cb4b6900f, type: 3}
-  preview: {fileID: 21300000, guid: 152c248d4cd81194d827b49ce1ca2d6c, type: 3}
+  preview: {fileID: 21300000, guid: bfb959572fdecf74cb94bf297eeeb931, type: 3}
   drops:
   - dropObject: {fileID: 7130932075069219489, guid: c0382142a76446d47ae9788333644b36, type: 3}
     amount: 2

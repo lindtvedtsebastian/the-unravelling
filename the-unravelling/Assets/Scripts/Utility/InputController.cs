@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -112,7 +112,7 @@ public class InputController : MonoBehaviour {
     private void OnActionInteract(InputAction.CallbackContext ctx) {
         RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
 		foreach (RaycastHit2D hit in hits)
-		if (hit.collider != null && hit.collider.name == "Chest(Clone)") {
+		if (hit.collider != null && Constants.CHESTS.Contains(hit.collider.GetComponent<BaseUnit>().GetObjectID())) {
             playerInput.actions.Disable();
             playerInput.SwitchCurrentActionMap("UI");
             playerInput.actions.Enable();

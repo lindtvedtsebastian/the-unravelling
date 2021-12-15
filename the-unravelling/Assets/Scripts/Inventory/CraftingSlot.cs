@@ -53,7 +53,8 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// </summary>
     /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerClick(PointerEventData eventData) {
-        if(_recipeCraftCount != null && _recipeCraftCount.recipe.resultingAmount > 0) {
+        //Debug.Log("Resulting amount : " + _recipeCraftCount.amount);
+        if(_recipeCraftCount != null && _recipeCraftCount.amount > 0) {
             //playerInventory.CreatePreview(craft);
             craftInfo.SetActive(false);
 
@@ -68,9 +69,8 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             // Subtract the item cost of the crafting the object
             playerInventory.playerInventory.SubstractRecipeFromInventory(_recipeCraftCount.recipe);
 
-            // Refresh the inventory by closing and opening
-            playerInventory.DeactivateInventory();
-            playerInventory.ActivateInventory();
+            // Refresh the inventory
+            playerInventory.RefreshInventory();
         }
     }
 

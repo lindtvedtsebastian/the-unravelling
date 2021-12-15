@@ -56,6 +56,10 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// </summary>
     public float HealthFraction => (float)health / (float)maxHealth;
 
+    public int GetObjectID() {
+        return _self.id;
+    }
+
     public void NextSprite(SpriteRenderer sprite) { 
         currentSprite++;
 
