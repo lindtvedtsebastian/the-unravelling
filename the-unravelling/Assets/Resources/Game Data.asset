@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c92403f0f8818444b6e5390237f1fcb, type: 3}
   m_Name: Game Data
   m_EditorClassIdentifier: 
-  activeWorld: gsdfdfgdfg
+  activeWorld: autosave_15-12-2021_1104
   worldEntities:
   - {fileID: 11400000, guid: bb188ee3d35685741819a0078a527e80, type: 2}
   - {fileID: 11400000, guid: 163cb6d955ff08a43a258b9fcd412608, type: 2}
@@ -43,6 +43,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8413c0cbef4e3ac44aaff0e59808de1c, type: 2}
   - {fileID: 11400000, guid: 53541826b929b444099813d3032d2310, type: 2}
   - {fileID: 11400000, guid: 1a2f4f6503f369941b6c425707d9c5e3, type: 2}
+  - {fileID: 11400000, guid: dd548a4af9f02b1439a8ac3908b5c818, type: 2}
+  - {fileID: 11400000, guid: 13284f34567d40f4a86b84f146643ec5, type: 2}
   recipes:
   - {fileID: 11400000, guid: 4473c1ce0010dd24886dc85f91ad934a, type: 2}
   - {fileID: 11400000, guid: 1ac6569b13bcffe4e8707215e6ddc13e, type: 2}
@@ -60,6 +62,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bea78d2a24033734caa6c30d1c89daab, type: 2}
   - {fileID: 11400000, guid: ab9b841fb46d6cc4bbb8f3c258b33f06, type: 2}
   - {fileID: 11400000, guid: d0f3bfc1355551a429b72fa73918cece, type: 2}
+  - {fileID: 11400000, guid: d97e4c02c0911e04f92a37041749cafb, type: 2}
   FOG:
   - {fileID: 11400000, guid: cead43cad6ae6df42bbc16c423812e23, type: 2}
   - {fileID: 11400000, guid: 28518880aface004ab90b1a74601afdd, type: 2}
