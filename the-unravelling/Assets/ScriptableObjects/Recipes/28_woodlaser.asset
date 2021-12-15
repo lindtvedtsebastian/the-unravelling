@@ -18,3 +18,5 @@ MonoBehaviour:
   recipeEntities:
   - entity: {fileID: 11400000, guid: de764a870ced7344dbc5c352cc87cfa0, type: 2}
     amount: 10
+  - entity: {fileID: 11400000, guid: 13284f34567d40f4a86b84f146643ec5, type: 2}
+    amount: 1
