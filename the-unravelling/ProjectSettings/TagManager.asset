@@ -13,6 +13,8 @@ TagManager:
   - NightEffect
   - Particle
   - WorldManager
+  - WorldCore
+  - Resource
   layers:
   - Default
   - TransparentFX
