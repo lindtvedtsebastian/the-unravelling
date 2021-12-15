@@ -175,8 +175,16 @@ public class PlayerInventoryDisplay : MonoBehaviour {
                 playerInventory._craftCounts[i].amount =
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory._craftCounts[i].recipe);
                 
-                Debug.Log("ID of crafting : " + playerInventory._craftCounts[i].recipe.resultingEntityID);
-                craftingSlots[i].AddCraftingItem(playerInventory._craftCounts[i]);
+                //Debug.Log("ID of crafting : " + playerInventory._craftCounts[i].recipe.resultingEntityID);
+                if(Constants.WALLS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
+                    craftingSlots[i].AddCraftingItem(playerInventory._craftCounts[i]);
+                } else if(Constants.GATES.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
+                    craftingSlots[i + 10].AddCraftingItem(playerInventory._craftCounts[i]);
+                } else if(Constants.TURRETS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
+                    craftingSlots[i + 20].AddCraftingItem(playerInventory._craftCounts[i]);
+                } else if(Constants.CHESTS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
+                    craftingSlots[i + 30].AddCraftingItem(playerInventory._craftCounts[i]);
+                } //else if()
             }
         }
     }

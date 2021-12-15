@@ -46,7 +46,9 @@ public static class Constants {
 
 	public static readonly int[] WALLS = {WOOD_WALL, STONE_WALL, IRON_WALL, COPPER_WALL};
 	public static readonly int[] GATES = {WOOD_GATE, STONE_GATE, IRON_GATE, COPPER_GATE};
+	public static readonly int[] TURRETS = {WOOD_TURRET, STONE_TURRET, IRON_TURRET, COPPER_TURRET};
 	public static readonly int[] CHESTS = {WOOD_CHEST, STONE_CHEST, IRON_CHEST, COPPER_CHEST};
+	public static readonly int[] LASERS = {WOOD_LASER};
 
 	public const int NW = 0b1;
 	public const int N = 0b10;
