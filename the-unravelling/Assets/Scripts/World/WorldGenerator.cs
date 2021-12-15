@@ -33,7 +33,6 @@ public class WorldGenerator : MonoBehaviour {
             int resourceID = assignResourceID(world.terrain[y][x]);
             world.baseResourceLocations[y][x] = resourceID;
             world.entities[y][x] = resourceID;
-            world.pathfindingMap[y][x] = 9999;
         }
 		return world;
     }
@@ -58,13 +57,15 @@ public class WorldGenerator : MonoBehaviour {
     }
 
     public static int determineOreType() {
-        int ore = UnityEngine.Random.Range(0, 30);
-        if (ore <= 15)
+        int ore = UnityEngine.Random.Range(0, 31);
+        if (ore <= 20)
             return Constants.STONE_ORE;
         else if (ore <= 25)
             return Constants.COPPER_ORE;
-        else
+        else if (ore <= 28)
             return Constants.IRON_ORE;
+        else
+            return Constants.MAGIC_ORE;
         }
 }
 
@@ -74,7 +75,6 @@ public class World {
     public int size;
     public int[][] terrain;
     public int[][] entities;
-    public int[][] pathfindingMap;
     public int[][] baseResourceLocations;
     public string worldName;
 
@@ -84,7 +84,6 @@ public class World {
         this.size = size;
         terrain = JaggedArrayUtility.createJagged2dArray<int>(size, size);
         entities = JaggedArrayUtility.createJagged2dArray<int>(size, size);
-        pathfindingMap = JaggedArrayUtility.createJagged2dArray<int>(size, size);
         baseResourceLocations = JaggedArrayUtility.createJagged2dArray<int>(size, size);
     }
 

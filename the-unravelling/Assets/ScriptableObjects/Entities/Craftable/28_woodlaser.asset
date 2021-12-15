@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3a45f008754b94b57ffa3e7066d8b5, type: 3}
+  m_Name: 28_woodlaser
+  m_EditorClassIdentifier: 
+  id: 28
+  entityName: Wood laser
+  manifestation: {fileID: 547161298579736368, guid: 2f5f283bfa338564a9da5b5497110cb1, type: 3}
+  preview: {fileID: -8126414571246084475, guid: 2142a1354d8af8d49a2eddf2cd3b03c0, type: 3}
+  drops:
+  - dropObject: {fileID: 7130932075069219489, guid: c0382142a76446d47ae9788333644b36, type: 3}
+    amount: 5
+  recipe: {fileID: 11400000, guid: d97e4c02c0911e04f92a37041749cafb, type: 2}

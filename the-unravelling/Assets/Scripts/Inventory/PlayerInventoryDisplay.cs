@@ -110,7 +110,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
         int x = Mathf.FloorToInt(previewCraft.transform.position.x);
 
-        _world.entities[y][x] = 999; //TODO: Fix this with real ID's
+        _world.entities[y][x] = previewItem.item.id;
 
         previewItem.amount -= 1;
         previewAmount.text = previewItem.amount.ToString();
@@ -141,6 +141,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
+        previewCraft.SetActive(false);
         inventoryCanvas.SetActive(true);
     }
 
@@ -149,6 +150,11 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// </summary>
     public void DeactivateInventory() {
         inventoryCanvas.SetActive(false);
+    }
+    
+    public void RefreshInventory() {
+        DeactivateInventory();
+        ActivateInventory();
     }
 
     /// <summary>
