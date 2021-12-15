@@ -60,10 +60,6 @@ public class WorldCore : MonoBehaviour, IClickable {
         
     }
 
-
-    /// <summary>
-    /// Run every frame
-    /// </summary>
     private void Update() {
         if (_worldManager.world.state.currentGameDay >= daysForWin) {
             isLastDay = true;
@@ -78,11 +74,6 @@ public class WorldCore : MonoBehaviour, IClickable {
         anim.SetBool(IsGameFinished, isLastDay);
     }
 
-    /// <summary>
-    ///  If portal has spawned and the player touches the portal
-    ///  the game is won. 
-    /// </summary>
-    /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && isLastDay) {
             WinningScreen.GetComponent<WinningScreen>().Setup();
