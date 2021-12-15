@@ -82,7 +82,7 @@ public class EnemyAI : StateManager {
 
     IEnumerator PerformAttackWall(BaseUnit target) {
         while (target.isActiveAndEnabled) {
-            target.OnDamage(attackDamage,false);
+            target.OnDamage(attackDamage,true);
             yield return new WaitForSeconds(attackCooldown);
         }
     }

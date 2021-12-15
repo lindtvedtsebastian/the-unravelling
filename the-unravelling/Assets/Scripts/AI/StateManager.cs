@@ -12,5 +12,6 @@ public class StateManager : MonoBehaviour {
     /// <param name="newState">The state of which to set the current state to</param>
     public void setState(State newState) {
         currentState = newState;
+        currentState.EnterState(this);
     } 
  }

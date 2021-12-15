@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -6,6 +7,9 @@ public class WorldManager: MonoBehaviour {
 
     public GameObject player;
 
+    public GameObject NPCManager;
+    public GameObject WorldCore;
+    
     public Tilemap gameWorld;
     public Tilemap background;
     public Tilemap fog;
@@ -59,6 +63,10 @@ public class WorldManager: MonoBehaviour {
             }
         }
 
+        Instantiate(NPCManager, Vector3.zero, quaternion.identity);
+        Instantiate(WorldCore, Vector3.zero, quaternion.identity);
+
+        
 		WorldHandler.saveWorld(world);
     }
 
