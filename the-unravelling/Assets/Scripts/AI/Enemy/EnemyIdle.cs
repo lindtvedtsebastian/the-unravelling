@@ -24,7 +24,6 @@ public class EnemyIdle : State {
     /// The state "destructor"
     /// </summary>
     public override void LeaveState() {
-        Debug.Log("Nothing to clean up");
     }
 
 }

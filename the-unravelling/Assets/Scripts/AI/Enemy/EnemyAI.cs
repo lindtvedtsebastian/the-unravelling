@@ -77,7 +77,6 @@ public class EnemyAI : StateManager {
     }
 
     void OnParticleCollision(GameObject other) {
-        Debug.Log("collision");
         if (other.gameObject.CompareTag("Particle") ) {
             OnDamage(20);
         }
