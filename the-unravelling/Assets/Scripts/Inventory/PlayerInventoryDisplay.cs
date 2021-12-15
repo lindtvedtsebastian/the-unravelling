@@ -179,12 +179,14 @@ public class PlayerInventoryDisplay : MonoBehaviour {
                 if(Constants.WALLS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
                     craftingSlots[i].AddCraftingItem(playerInventory._craftCounts[i]);
                 } else if(Constants.GATES.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
-                    craftingSlots[i + 10].AddCraftingItem(playerInventory._craftCounts[i]);
+                    craftingSlots[i + 6].AddCraftingItem(playerInventory._craftCounts[i]);
                 } else if(Constants.TURRETS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
-                    craftingSlots[i + 20].AddCraftingItem(playerInventory._craftCounts[i]);
+                    craftingSlots[i + 12].AddCraftingItem(playerInventory._craftCounts[i]);
                 } else if(Constants.CHESTS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
-                    craftingSlots[i + 30].AddCraftingItem(playerInventory._craftCounts[i]);
-                } //else if()
+                    craftingSlots[i + 18].AddCraftingItem(playerInventory._craftCounts[i]);
+                } else if(Constants.LASERS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
+                    craftingSlots[i + 24].AddCraftingItem(playerInventory._craftCounts[i]);
+                }
             }
         }
     }
