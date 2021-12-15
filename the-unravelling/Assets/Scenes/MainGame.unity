@@ -3866,6 +3866,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 533545723}
+    - target: {fileID: 7615318736767473788, guid: 0eb171ee994c75c4c84077a0b8596993, type: 3}
+      propertyPath: _inventoryCanvas
+      value: 
+      objectReference: {fileID: 234198066}
     - target: {fileID: 7674221362454030217, guid: 0eb171ee994c75c4c84077a0b8596993, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4575,6 +4579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714e5df52ca8418a971d2e9962d70b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &234198066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2714389508160848417, guid: 0eb171ee994c75c4c84077a0b8596993, type: 3}
+  m_PrefabInstance: {fileID: 234198064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &244350010
 GameObject:
   m_ObjectHideFlags: 0
