@@ -6106,17 +6106,32 @@ PrefabInstance:
     - target: {fileID: 8554824715191891917, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
       propertyPath: WinningScreen
       value: 
-      objectReference: {fileID: 669177928}
+      objectReference: {fileID: 818907679}
     - target: {fileID: 8554824715191891917, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
       propertyPath: GameOverScreen
       value: 
-      objectReference: {fileID: 1913017606}
+      objectReference: {fileID: 818907680}
     - target: {fileID: 8554824715191891917, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
       propertyPath: _spriteArray.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
+--- !u!1 &818907678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8554824715191891913, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
+  m_PrefabInstance: {fileID: 818907677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &818907679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3227090083642346745, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
+  m_PrefabInstance: {fileID: 818907677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &818907680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7139992942828798523, guid: 9696f71444c21a74c87f64e48e49540c, type: 3}
+  m_PrefabInstance: {fileID: 818907677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907263056
 GameObject:
   m_ObjectHideFlags: 0
@@ -11567,6 +11582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72ad08bdceb0d8740b331335f30423e9, type: 3}
+--- !u!1 &1255859547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7202549614537992364, guid: 72ad08bdceb0d8740b331335f30423e9, type: 3}
+  m_PrefabInstance: {fileID: 1255859546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305401247
 GameObject:
   m_ObjectHideFlags: 0
@@ -11817,6 +11837,8 @@ MonoBehaviour:
     size: 0
     worldName: 
   player: {fileID: 533545716}
+  NPCManager: {fileID: 1255859547}
+  WorldCore: {fileID: 818907678}
   gameWorld: {fileID: 1941870065}
   background: {fileID: 1028428429}
   fog: {fileID: 381299744}
