@@ -23,12 +23,24 @@ public class NonPlayerCharacterWalk : State {
     private bool isNPCStuck;
 
     private SpriteRenderer _spriteRenderer;
+    private DialogueTrigger _dialogueTrigger;
+
+    private Animator _animator;
     
     public override void EnterState(StateManager stateManager) {
+        _stateManager = stateManager;
         trans = GetComponent<Transform>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         initPos = prevPos = trans.position;
-        DirVec = Vector3.right;
+        DirVec = Vector3.left;
+        
+        //Set animation 
+        _animator = gameObject.GetComponent<Animator>();
+        _animator.Play("Walk");
+        _spriteRenderer.flipX = true;
+        
+        //Get dialogue trigger 
+        _dialogueTrigger = gameObject.GetComponentInChildren<DialogueTrigger>();
         MoveNPC();
     }
 
@@ -48,6 +60,9 @@ public class NonPlayerCharacterWalk : State {
         
         CheckBounds();
         MoveNPC();
+        if (_dialogueTrigger.inRange) {
+            _stateManager.setState(_stateManager.GetComponent<NonPlayerCharacterInteraction>());
+        }
     }
 
     public override void LeaveState() {

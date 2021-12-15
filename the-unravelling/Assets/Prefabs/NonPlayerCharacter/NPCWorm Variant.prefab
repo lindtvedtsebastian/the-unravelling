@@ -33,6 +33,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPCInteraction: {fileID: 0}
   NPCWalk: {fileID: 0}
+--- !u!70 &-5410358821713523413
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257167472234754460}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.28125, y: 0.4375}
+  m_Direction: 0
 --- !u!1001 &8252498394976852272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5122701829642843209, guid: c9777b46acbea214e87d6821c3c46375, type: 3}
+    - target: {fileID: 2352320424923224915, guid: 72ad08bdceb0d8740b331335f30423e9, type: 3}
+      propertyPath: textAsset
+      value: 
+      objectReference: {fileID: 4900000, guid: 4d8416bb6a731af4882037a85a2edf1b, type: 3}
     - target: {fileID: 3513036783622640681, guid: 72ad08bdceb0d8740b331335f30423e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -90,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7202549614537992364, guid: 72ad08bdceb0d8740b331335f30423e9, type: 3}
       propertyPath: m_Name
-      value: NPCWorm
+      value: NPCWorm Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72ad08bdceb0d8740b331335f30423e9, type: 3}
