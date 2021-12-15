@@ -10896,6 +10896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CraftingSlot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7389581066742763701, guid: b69080dc37780af47b61dbbca8bdaba6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8405124554950759596, guid: b69080dc37780af47b61dbbca8bdaba6, type: 3}
       propertyPath: playerInventory
       value: 

@@ -140,7 +140,7 @@ public class InputController : MonoBehaviour {
     private void OnActionCancel(InputAction.CallbackContext ctx) {
         if (playerInventory.previewCraft.activeSelf) {
             playerInput.SwitchCurrentActionMap("Player");
-            playerInventory.CancelInventoryAction();
+            playerInventory.CancelPreviewAction();
         } else {
             inGameMenu.SetActive(true);
         }
