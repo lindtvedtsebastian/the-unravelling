@@ -11,12 +11,9 @@ public struct PathPart {
     public int x;
     public int y;
 
-    public bool mustBeDestroyed;
-
-    public PathPart(int x, int y, bool mustBeDestroyed) {
+    public PathPart(int x, int y) {
         this.x = x;
         this.y = y;
-        this.mustBeDestroyed = mustBeDestroyed;
     }
 }
 
@@ -57,19 +54,18 @@ public class Pathfinding {
 		int2 gridSize = new int2(_world.size, _world.size);
 		NativeArray<Node> nodeArray = new NativeArray<Node>(gridSize.x * gridSize.y, Allocator.Persistent);
 
-		for (int x = 0; x < gridSize.x; x++) {
-			for (int y = 0; y < gridSize.y; y++) {
+		for (int y = 0; y < gridSize.y; y++) {
+			for (int x = 0; x < gridSize.x; x++) {
 				Node node = new Node();
 				node.x = x;
 				node.y = y;
 				node.index = CalculateIndex(x, y, gridSize.x);
 
-                node.isDestroyable = false;
                 node.isWalkable = true;
 				node.previousIndex = -1;
 
-                // node.additionalCost = 0;
-				node.additionalCost = _world.pathfindingMap[y][x];
+				node.additionalCost = _world.entities[y][x] > 0 ? 999 : 0;
+				//node.additionalCost = _world.entities[y][x];
 
                 node.gCost = int.MaxValue;
 				node.hCost = CalculateHeuristics(new int2(x, y), endPos);
@@ -253,8 +249,7 @@ public class Pathfinding {
         private void BuildPath(NativeArray<Node> nodeArray, Node endNode) {
             if (endNode.previousIndex != -1) {
 				resultPath.Add(new PathPart(endNode.x,
-					endNode.y,
-					endNode.isDestroyable ? true : false));
+					endNode.y));
 
 				Node currentNode = endNode;
 
@@ -262,8 +257,7 @@ public class Pathfinding {
 					Node previousNode = nodeArray[currentNode.previousIndex];
 					resultPath.Add(new PathPart(
 						previousNode.x,
-						previousNode.y,
-						previousNode.isDestroyable ? true : false));
+						previousNode.y));
 					currentNode = previousNode;
 				}
 			}
@@ -287,7 +281,6 @@ public class Pathfinding {
 		public int additionalCost;
 
 		public bool isWalkable;
-		public bool isDestroyable;
 
 		public int previousIndex;
 
