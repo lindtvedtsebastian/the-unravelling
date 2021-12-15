@@ -25,9 +25,10 @@ public class ResourceCollector : MonoBehaviour {
 		damageTimer += Time.deltaTime;
 
 		if (currentResource == null) {
-			if (resources.Count > 0)
+			if (resources.Count > 0) {
 				currentResource = resources[0].GetComponent<BaseUnit>();
-				drawLaserRay(laserStartPoint.position,resources[0].transform.position);
+				drawLaserRay(laserStartPoint.position, resources[0].transform.position);
+			}
 		} else {
 			if (damageTimer >= damageTimeout) {
 				currentResource.OnDamage(20,true);

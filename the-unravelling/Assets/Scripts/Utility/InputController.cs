@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -24,10 +25,8 @@ public class InputController : MonoBehaviour {
 
     private PlayerInput playerInput;
 
-    private World _world;
 
     private void Awake() {
-        _world = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world;
 
         playerInput = GetComponent<PlayerInput>();
  
@@ -162,10 +161,15 @@ public class InputController : MonoBehaviour {
     /// Function for button to save and exit the game
     /// </summary>
     public void SaveGameAndExitButtonClick() {
+        WorldHandler.saveWorld(GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().world);
         inGameMenu.SetActive(false);
         HUD.SetActive(false);
-        WorldHandler.saveWorld(_world);
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        StartCoroutine(loadAfterDelay("MainMenu"));
+    }
+
+    IEnumerator loadAfterDelay(string sceneName) {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneName);
     }
     
     /// <summary>

@@ -185,7 +185,6 @@ public class Pathfinding {
 			BuildPath(nodeArray, endNode);
 
 			neighbourOffsetArray.Dispose();
-			// nodeArray.Dispose();
 			openList.Dispose();
 			closedList.Dispose();
 		}
