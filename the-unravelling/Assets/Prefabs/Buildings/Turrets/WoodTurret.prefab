@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 9073177083103543416}
   - component: {fileID: 7627398792923080831}
   - component: {fileID: 5039669538208794669}
-  m_Layer: 0
+  - component: {fileID: 6742572803038720788}
+  - component: {fileID: 5470350890775341634}
+  m_Layer: 2
   m_Name: TurretBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,6 +107,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6742572803038720788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3144376613254357819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f4acbf6fe2df844805a72c05bd61d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bow: {fileID: 3144376613254357819}
+  rotationSpeed: 25
+  particleSystem: {fileID: 7141943655852116525}
+  targetList: []
+--- !u!58 &5470350890775341634
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3144376613254357819}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!1 &4616991621254895891
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +150,7 @@ GameObject:
   - component: {fileID: 3900852036072826704}
   - component: {fileID: 7141943655852116525}
   - component: {fileID: 1792774911646761237}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Arrow
   m_TagString: Particle
   m_Icon: {fileID: 0}
@@ -5058,9 +5092,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3021110726155926495}
-  - component: {fileID: -8320278611879538239}
-  - component: {fileID: -7084669392426145512}
   - component: {fileID: 8634168278119172714}
+  - component: {fileID: 8149305767172169189}
   m_Layer: 0
   m_Name: WoodTurret
   m_TagString: Untagged
@@ -5084,38 +5117,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8320278611879538239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907415170405049485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f4acbf6fe2df844805a72c05bd61d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bow: {fileID: 3144376613254357819}
-  rotationSpeed: 25
-  particleSystem: {fileID: 7141943655852116525}
-  targetList: []
---- !u!58 &-7084669392426145512
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907415170405049485}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 10
 --- !u!61 &8634168278119172714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5142,3 +5143,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &8149305767172169189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907415170405049485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b22f2dff2987d743bf8ff595556bc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
+  _self: {fileID: 11400000, guid: e09413228c804fd41aa1b025c0185332, type: 2}
+  _spriteArray: []
