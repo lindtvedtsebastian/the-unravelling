@@ -37,10 +37,11 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         itemSlots = itemPanel.GetComponentsInChildren<ItemSlot>();
 		craftingSlots = craftingPanel.GetComponentsInChildren<CraftingSlot>();
 
+        // Instantiate the preview object that is used for placement preview and the amount that can be placed
         previewCraft = Instantiate(previewCraft);
-
         previewAmount = previewCraft.transform.GetChild(0).transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
 
+        // Run these functions to add content to the inventory on start
         AddItems();
         AddCrafting();
     }
@@ -73,7 +74,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     }
 
     /// <summary>
-    /// Function to cancel all the hovering of crafting objects in inventory
+    /// Cancel all hovering in the inventory. Used when exiting the inventory to ensure no 
     /// </summary>
     public void CancelCraftingHover() {
         for (int i = 0; i < craftingSlots.Length; i++) {
@@ -112,6 +113,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         int y = _world.size - Mathf.FloorToInt(previewCraft.transform.position.y);
         int x = Mathf.FloorToInt(previewCraft.transform.position.x);
 
+        // Update the world entity array to reflect 
         _world.entities[y][x] = previewItem.item.id;
 
         previewItem.amount -= 1;
@@ -139,12 +141,16 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// <summary>
     /// Activates the inventory. Uses several other functions to ensure that the content
     /// is updates and other actions are cancelled.
+    /// <see cref="AddItems()"/>
+    /// <see cref="AddCrafting()"/>
+    /// <see cref="CancelCraftingHover()"/>
+    /// <see cref="CancelPreviewAction()"/>
     /// </summary>
     public void ActivateInventory() {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
-        CancelInventoryAction();
+        CancelPreviewAction();
         inventoryCanvas.SetActive(true);
     }
 
@@ -163,7 +169,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     /// <summary>
     /// Function to cancel an inventory action
     /// </summary>
-    public void CancelInventoryAction() {
+    public void CancelPreviewAction() {
         if (previewCraft.activeSelf) {
             previewCraft.SetActive(false);
         }
