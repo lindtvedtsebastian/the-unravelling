@@ -154,7 +154,7 @@ public class InputController : MonoBehaviour {
 		RaycastHit2D[] hits = Physics2D.RaycastAll(GetMousePosition(),Vector2.zero);
 		foreach (RaycastHit2D hit in hits)
 		if (hit.collider != null) {
-            hit.collider.GetComponent<IClickable>()?.OnDamage(playerInventory.player.entityDamage);
+            hit.collider.GetComponent<IClickable>()?.OnDamage(playerInventory.player.entityDamage,false);
         }
 	}
 

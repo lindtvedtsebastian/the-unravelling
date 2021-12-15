@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 300835404111222756}
   - component: {fileID: -5663450816382348795}
-  - component: {fileID: -5857094322211172181}
   - component: {fileID: 3248888667195221360}
+  - component: {fileID: 9061513096124100585}
   m_Layer: 0
   m_Name: IronTurret
   m_TagString: Untagged
@@ -51,22 +51,6 @@ MonoBehaviour:
   rotationSpeed: 25
   particleSystem: {fileID: 6353499172955241645}
   targetList: []
---- !u!58 &-5857094322211172181
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556313997666767854}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 10
 --- !u!61 &3248888667195221360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -93,6 +77,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &9061513096124100585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556313997666767854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b22f2dff2987d743bf8ff595556bc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  healthBar: {fileID: 3746581653984888988, guid: 8cfc7d82dc1711546b59d98f6bea9bc5, type: 3}
+  _self: {fileID: 11400000, guid: babff6e5d16e6ea47a49f3e182422002, type: 2}
+  _spriteArray: []
 --- !u!1 &5443263187461165687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5049,6 +5049,8 @@ GameObject:
   - component: {fileID: 3126956007580525113}
   - component: {fileID: 525895998480499307}
   - component: {fileID: 7038044494603987141}
+  - component: {fileID: 1772714577396333190}
+  - component: {fileID: 6256047164856548002}
   m_Layer: 0
   m_Name: TurretBow
   m_TagString: Untagged
@@ -5169,3 +5171,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1772714577396333190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574996296728209789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f4acbf6fe2df844805a72c05bd61d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bow: {fileID: 7574996296728209789}
+  rotationSpeed: 25
+  particleSystem: {fileID: 6353499172955241645}
+  targetList: []
+--- !u!58 &6256047164856548002
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574996296728209789}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
