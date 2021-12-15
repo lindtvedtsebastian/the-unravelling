@@ -4605,9 +4605,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCs:
-  - {fileID: 1580255927188332902, guid: 19f4658b59698c846b564dcac247647c, type: 3}
-  - {fileID: 1257167472234754460, guid: 1fbe07337205d0242a9a8f14f712d39e, type: 3}
-  - {fileID: 2672099030160390923, guid: 8ff437d07f8e5bb4893952ba06b56ffc, type: 3}
+  - {fileID: 1235257995140878741, guid: e61b6c787f1934e40a30eb98d6bd1047, type: 3}
+  - {fileID: 1654708902792230719, guid: 5e48f2234e3bddc4aa6f49ac47460e1c, type: 3}
+  - {fileID: 8967761943727938695, guid: a12a84eac5fc4454fb2b53ce7ad0b8c4, type: 3}
 --- !u!4 &183604337
 Transform:
   m_ObjectHideFlags: 0
