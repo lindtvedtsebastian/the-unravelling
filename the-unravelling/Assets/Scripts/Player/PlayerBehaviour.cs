@@ -1,7 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// A class representing the player behaviour
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInput))]
 public class PlayerBehaviour : MonoBehaviour {
     // The speed of the players movement

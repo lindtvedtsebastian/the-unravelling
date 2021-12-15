@@ -26,8 +26,7 @@ public class HUD : MonoBehaviour {
 
     private void Update()
     {
-        // Get the cycle duration and start night variables from the world state
-        // class. Might need to look into a better way of doing this
+        // Get the cycle duration and start night variables from the world state class
         dayCycle = _worldState.getCycleDuration();
         startNight = _worldState.getStartNight();
 
