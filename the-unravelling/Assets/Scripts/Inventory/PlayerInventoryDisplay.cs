@@ -23,8 +23,8 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
     public GameObject previewCraft;
 
-    private BaseUnit _baseUnitComponent;
-    private SpriteRenderer _spritePreview;
+    private BaseUnit _previewBaseUnit;
+    private SpriteRenderer _previewSprite;
 
     private Item previewItem;
     private TMPro.TextMeshProUGUI previewAmount;
@@ -56,14 +56,14 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     public void CreatePreview(in Item item) {
         previewCraft.SetActive(true);
         
-        _spritePreview = previewCraft.GetComponent<SpriteRenderer>();
-        _spritePreview.sprite = item.item.preview;
+        _previewSprite = previewCraft.GetComponent<SpriteRenderer>();
+        _previewSprite.sprite = item.item.preview;
 
         previewCraft.GetComponent<PreviewData>().toBePlaced = item;
 
         previewItem = item;
 
-        _baseUnitComponent = previewItem.item.manifestation.GetComponent<BaseUnit>();
+        _previewBaseUnit = previewItem.item.manifestation.GetComponent<BaseUnit>();
 
         previewAmount.text = item.amount.ToString();  
 
@@ -85,9 +85,9 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         if(!_canRotateSprite) return;
 
         if(Constants.WALLS.Contains(previewItem.item.id)) {
-            _baseUnitComponent.NextSprite(_spritePreview);
+            _previewBaseUnit.NextSprite(_previewSprite);
         } else if(Constants.GATES.Contains(previewItem.item.id)) {
-            previewItem.item.manifestation.transform.GetChild(0).GetComponent<BaseUnit>().NextSprite(_spritePreview);
+            previewItem.item.manifestation.transform.GetChild(0).GetComponent<BaseUnit>().NextSprite(_previewSprite);
         }
     }
     
@@ -99,10 +99,12 @@ public class PlayerInventoryDisplay : MonoBehaviour {
 
         var item = (ComponentEntity) previewCraft.GetComponent<PreviewData>().toBePlaced.item;
 
+        // Check item ID - this makes the rotation of sprites possible since gates have the sprite
+        // one level deeper than walls.
         if(Constants.GATES.Contains(previewItem.item.id)) {
-            item.manifestation.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+            item.manifestation.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _previewSprite.sprite;
         } else if (Constants.WALLS.Contains(previewItem.item.id)){
-            item.manifestation.GetComponent<SpriteRenderer>().sprite = _spritePreview.sprite;
+            item.manifestation.GetComponent<SpriteRenderer>().sprite = _previewSprite.sprite;
         }
 
         Instantiate(item.manifestation, previewCraft.transform.position, Quaternion.identity);
@@ -135,7 +137,8 @@ public class PlayerInventoryDisplay : MonoBehaviour {
     }
     
     /// <summary>
-    /// Function to activate the inventory
+    /// Activates the inventory. Uses several other functions to ensure that the content
+    /// is updates and other actions are cancelled.
     /// </summary>
     public void ActivateInventory() {
         AddItems();
@@ -175,7 +178,6 @@ public class PlayerInventoryDisplay : MonoBehaviour {
                 playerInventory._craftCounts[i].amount =
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory._craftCounts[i].recipe);
                 
-                //Debug.Log("ID of crafting : " + playerInventory._craftCounts[i].recipe.resultingEntityID);
                 if(Constants.WALLS.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
                     craftingSlots[i].AddCraftingItem(playerInventory._craftCounts[i]);
                 } else if(Constants.GATES.Contains(playerInventory._craftCounts[i].recipe.resultingEntityID)) {
