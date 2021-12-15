@@ -23,7 +23,10 @@ public class StorageItemSlot : Slot, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
         if(item == null) return;
-        _storage.TransferFromStorage(item);
+
+        if (gameObject.name.Contains("StoragePlayerItemSlot")) _storage.TransferToStorage(item);
+        else if(gameObject.name.Contains("StorageItemSlot")) _storage.TransferFromStorage(item);
+        
         _storageDisplay.RefreshStorageInventory(_storage);
     }
 }
