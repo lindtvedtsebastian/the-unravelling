@@ -16,15 +16,15 @@ public class DialogueTrigger : MonoBehaviour{
     [Header("Text Assets")]
     [SerializeField] private TextAsset textAsset;
 
-    private bool _inRange;
+    public bool inRange;
 
     private void Awake(){
-        _inRange = false;
+        inRange = false;
         visualCue.SetActive(false);
     }
 
     private void Update() {
-        if (_inRange && !DialogueManager.instance.storyIsActive) {
+        if (inRange && !DialogueManager.instance.storyIsActive) {
             visualCue.SetActive(true);
         }
         else {
@@ -38,7 +38,7 @@ public class DialogueTrigger : MonoBehaviour{
     /// <param name="other">other gameobject's colliders</param>
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            _inRange = true;
+            inRange = true;
             DialogueManager.instance.SetCurrentStory(textAsset);
         }
     }
@@ -49,7 +49,7 @@ public class DialogueTrigger : MonoBehaviour{
     /// <param name="other">other gameobject's colliders</param>
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            _inRange = false;
+            inRange = false;
             DialogueManager.instance.ResetCurrentStory();
         }
     }
