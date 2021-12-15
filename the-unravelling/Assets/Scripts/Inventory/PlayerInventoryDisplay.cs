@@ -141,7 +141,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
         AddItems();
         AddCrafting();
         CancelCraftingHover();
-        previewCraft.SetActive(false);
+        CancelInventoryAction();
         inventoryCanvas.SetActive(true);
     }
 
@@ -175,6 +175,7 @@ public class PlayerInventoryDisplay : MonoBehaviour {
                 playerInventory._craftCounts[i].amount =
                     playerInventory.CalculateRecipeCraftingAmount(playerInventory._craftCounts[i].recipe);
                 
+                Debug.Log("ID of crafting : " + playerInventory._craftCounts[i].recipe.resultingEntityID);
                 craftingSlots[i].AddCraftingItem(playerInventory._craftCounts[i]);
             }
         }
