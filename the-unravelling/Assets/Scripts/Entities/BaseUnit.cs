@@ -75,9 +75,9 @@ public class BaseUnit : MonoBehaviour, IClickable {
     /// The action that will be triggered when this object is clicked
     /// </summary>
     /// <param name="damage">The amount of damage to inflict on the object</param>
-    public void OnDamage(int damage, bool damageFromMachine) {
+    public void OnDamage(int damage, bool damageFromNPC) {
         health -= damage;
-        if (!damageFromMachine) {
+        if (!damageFromNPC) {
 			recentlyDamaged = true;
         }
 

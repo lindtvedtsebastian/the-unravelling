@@ -1,3 +1,3 @@
 public interface IClickable {
-    void OnDamage(int damage, bool damageFromMachine);
+    void OnDamage(int damage, bool damageFromNPC);
 }
