@@ -29,7 +29,7 @@ public class NonPlayerCharacterInteraction : State {
     /// Doing the state.
     /// </summary>
     public override void DoState() {
-        //Checking if player is in range og NPC
+        //Checking if player is in range of NPC
         if (!_dialogueTrigger.inRange) {
             _stateManager.setState(_stateManager.GetComponent<NonPlayerCharacterWalk>());
         }
@@ -38,7 +38,6 @@ public class NonPlayerCharacterInteraction : State {
     /// <summary>
     /// Cleanup after state.
     /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
     public override void LeaveState() {
         Debug.Log("Nothing to clean up");
     }
