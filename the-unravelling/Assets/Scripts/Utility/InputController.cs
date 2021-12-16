@@ -209,4 +209,8 @@ public class InputController : MonoBehaviour {
         playerInput.actions.Enable();
         StartCoroutine(DialogueManager.instance.ExitDialogueMode());
     }
+
+    public void publicCloseDialogue() {
+        
+    }
 }

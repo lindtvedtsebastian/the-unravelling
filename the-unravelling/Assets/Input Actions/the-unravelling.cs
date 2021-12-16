@@ -858,14 +858,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
             ""id"": ""641c33fe-1fb5-4fda-be0e-661a1f9e43d5"",
             ""actions"": [
                 {
-                    ""name"": ""Click"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""28f0559e-da91-43b3-9adb-d8ca8251d38d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Point"",
                     ""type"": ""PassThrough"",
                     ""id"": ""ba9ecfea-fe08-4f27-8df9-75dc7be5193a"",
@@ -1217,50 +1209,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""57c33bab-43d0-45f8-8cb1-b3951e27a824"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""32ac1d0f-0e72-4f51-a165-cd2a314e9591"",
-                    ""path"": ""<Pen>/tip"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f30ecabe-d16f-462a-98b7-2b8e5f0e8673"",
-                    ""path"": ""<Touchscreen>/touch*/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Touch"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cc66f9d3-4f8d-43d4-9e23-68c358ea5a1e"",
-                    ""path"": ""<XRController>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1353,7 +1301,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
-        m_Dialogue_Click = m_Dialogue.FindAction("Click", throwIfNotFound: true);
         m_Dialogue_Point = m_Dialogue.FindAction("Point", throwIfNotFound: true);
         m_Dialogue_Cancel = m_Dialogue.FindAction("Cancel", throwIfNotFound: true);
         m_Dialogue_Submit = m_Dialogue.FindAction("Submit", throwIfNotFound: true);
@@ -1609,7 +1556,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
     // Dialogue
     private readonly InputActionMap m_Dialogue;
     private IDialogueActions m_DialogueActionsCallbackInterface;
-    private readonly InputAction m_Dialogue_Click;
     private readonly InputAction m_Dialogue_Point;
     private readonly InputAction m_Dialogue_Cancel;
     private readonly InputAction m_Dialogue_Submit;
@@ -1618,7 +1564,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
     {
         private @Theunravelling m_Wrapper;
         public DialogueActions(@Theunravelling wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Click => m_Wrapper.m_Dialogue_Click;
         public InputAction @Point => m_Wrapper.m_Dialogue_Point;
         public InputAction @Cancel => m_Wrapper.m_Dialogue_Cancel;
         public InputAction @Submit => m_Wrapper.m_Dialogue_Submit;
@@ -1632,9 +1577,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
             {
-                @Click.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnClick;
-                @Click.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnClick;
-                @Click.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnClick;
                 @Point.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPoint;
                 @Point.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPoint;
                 @Point.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnPoint;
@@ -1651,9 +1593,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
             m_Wrapper.m_DialogueActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Click.started += instance.OnClick;
-                @Click.performed += instance.OnClick;
-                @Click.canceled += instance.OnClick;
                 @Point.started += instance.OnPoint;
                 @Point.performed += instance.OnPoint;
                 @Point.canceled += instance.OnPoint;
@@ -1742,7 +1681,6 @@ public class @Theunravelling : IInputActionCollection, IDisposable
     }
     public interface IDialogueActions
     {
-        void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);

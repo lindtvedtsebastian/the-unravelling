@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private Animator portraitAnimator;
+
+    [SerializeField] private InputController _inputController;
     private Animator layoutAnimator;
 
     [Header("Choices UI")]
@@ -36,6 +38,8 @@ public class DialogueManager : MonoBehaviour {
     private const string PortraitTag = "portrait";
 
     private const string LayoutTag = "layout";
+
+    private int _dialogueChoice;
 
     private void Awake() {
         
@@ -136,7 +140,12 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     /// <param name="choiceIndex">Index of the given choice</param>
     public void Choose(int choiceIndex) {
-        _currentStory.ChooseChoiceIndex(choiceIndex);
+        if(_dialogueChoice == choiceIndex) return;
+
+        _dialogueChoice = choiceIndex;
+        _currentStory.ChooseChoiceIndex(_dialogueChoice);
+
+        
     }
 
     /// <summary>
@@ -206,6 +215,4 @@ public class DialogueManager : MonoBehaviour {
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
-    
-    
 }
