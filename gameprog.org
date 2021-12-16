@@ -53,11 +53,7 @@
 
 ** Gameplay video
 
-- TODO: Link to gameplay video
-
-** Code overview video
-
-- TODO: Link to code overview video
+- [[https://www.youtube.com/watch?v=1tioOZyGyYQ&t=6s]]
 
 ** Discussion around the development process
 
