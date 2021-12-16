@@ -6,6 +6,7 @@ using UnityEngine;
 
 public static class WorldHandler {
     public static void saveWorld(World world) {
+        Debug.Log(world.worldName);
         BinaryFormatter bf = new BinaryFormatter();
         FileStream saveFile = File.Create(Application.persistentDataPath + "/" + world.worldName + ".world");
         bf.Serialize(saveFile, world);

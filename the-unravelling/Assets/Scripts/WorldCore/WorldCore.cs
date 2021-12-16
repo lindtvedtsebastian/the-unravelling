@@ -7,8 +7,7 @@ using UnityEngine;
 ///  World core class
 /// </summary>
 public class WorldCore : MonoBehaviour, IClickable {
-    [SerializeField]private int maxHealth; 
-    //Current health
+    [SerializeField]private int maxHealth;
     private int health;
     
     private bool isLastDay;
@@ -52,7 +51,6 @@ public class WorldCore : MonoBehaviour, IClickable {
         
         
         //Spawn health bar 
-        // Spawn health bar
         var bar = Instantiate(healthBar, this.transform);
         var data = bar.GetComponent<HealthBar>();
         data.Health += () => HealthFraction;
@@ -60,7 +58,13 @@ public class WorldCore : MonoBehaviour, IClickable {
         
     }
 
+<<<<<<< HEAD
+=======
+
+   
+>>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
     private void Update() {
+        //If the number of days survived are the same or more than days required to win
         if (_worldManager.world.state.currentGameDay >= daysForWin) {
             isLastDay = true;
             OnLastDay();
@@ -68,12 +72,20 @@ public class WorldCore : MonoBehaviour, IClickable {
     }
 
     /// <summary>
-    /// Spawns portal
+    /// Spawns portal on last day.
     /// </summary>
     private void OnLastDay() {
         anim.SetBool(IsGameFinished, isLastDay);
     }
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    ///  If portal has spawned and the player collide with the portal
+    ///  the game is won. 
+    /// </summary>
+    /// <param name="other">An objects collider</param>
+>>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && isLastDay) {
             WinningScreen.GetComponent<WinningScreen>().Setup();
@@ -86,6 +98,11 @@ public class WorldCore : MonoBehaviour, IClickable {
     public float HealthFraction => (float)health / (float)maxHealth;
 
 
+    /// <summary>
+    /// Subtracts damage from health and runs game over screen.
+    /// </summary>
+    /// <param name="damage">damage taken</param>
+    /// <param name="damageFromNPC">Does the damage come from NPC</param>
     public void OnDamage(int damage, bool damageFromNPC) {
         health -= damage;
         if (health <= 0) {
@@ -96,7 +113,7 @@ public class WorldCore : MonoBehaviour, IClickable {
     /// <summary>
     /// Finds a position for the world core which is not blocked by another object.
     /// </summary>
-    /// <returns>x, y position</returns>
+    /// <returns>Vector2 x, y position</returns>
     private Vector2 StartPosition(int x, int y) {
         if (_entities[y][x] == 0) {
             return new Vector2(x, _entities.Length - y);

@@ -1,3 +1,4 @@
+using System;
 using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
@@ -21,11 +22,14 @@ public class EnemyWalk : State
     /// </summary>
     /// <param name="stateManager">This state's manager</param>
     public override void EnterState(StateManager stateManager) {
-        _resultPath = new NativeList<PathPart>(Allocator.Persistent);
+	    if (!_resultPath.IsCreated)
+			_resultPath = new NativeList<PathPart>(Allocator.Persistent);
 
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _stateManager = stateManager;
+	    if (_player == null)
+			_player = GameObject.FindGameObjectWithTag("Player");
 
+	    if (_stateManager == null)
+			_stateManager = stateManager;
     }
 
     /// <summary>
@@ -53,7 +57,7 @@ public class EnemyWalk : State
     /// Prepares the State for exit
     /// </summary>
     public override void LeaveState() {
-        _resultPath.Dispose();
+	    _resultPath.Dispose();
     }
 
     /// <summary>
@@ -64,10 +68,10 @@ public class EnemyWalk : State
         Vector3 playerPos = _player.transform.position;
 
         int2 startPos = new int2(Mathf.FloorToInt(enemyPos.x), Mathf.RoundToInt(enemyPos.y - 0.5f));
-        int2 endPos = new int2(Mathf.FloorToInt(playerPos.x), Mathf.RoundToInt(playerPos.y - 0.5f));
+        int2 roundedPlayerPos = new int2(Mathf.FloorToInt(playerPos.x), Mathf.RoundToInt(playerPos.y - 0.5f));
 
         _resultPath.Clear();
-        Pathfinding pathfinding = new Pathfinding(startPos, endPos, _resultPath);
+        Pathfinding pathfinding = new Pathfinding(startPos, roundedPlayerPos, _resultPath);
 	}
 
     /// <summary>
