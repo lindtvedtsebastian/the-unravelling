@@ -1,8 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+/// <summary>
+/// A child class Inventory to handle the crafting inventory
+/// </summary>
 public class InventoryWithCrafting : Inventory {
 	public List<RecipeCraftCount> _craftCounts;
 
@@ -39,6 +40,10 @@ public class InventoryWithCrafting : Inventory {
         } else return -1;
     }
 
+    /// <summary>
+    /// Substract the required items for the recipe in the inventory
+    /// </summary>
+    /// <param name="recipe">The recipe data being substracted</param>
 	public void SubstractRecipeFromInventory(Recipe recipe) {
 		foreach (RecipeEntity data in recipe.recipeEntities) {
             items[findItemDataIndex(data.entity)].amount -= data.amount;
@@ -46,7 +51,9 @@ public class InventoryWithCrafting : Inventory {
 	}
 }
 
-
+/// <summary>
+/// A class for recipes
+/// </summary>
 public class RecipeCraftCount {
 	public Recipe recipe;
 	public int amount;

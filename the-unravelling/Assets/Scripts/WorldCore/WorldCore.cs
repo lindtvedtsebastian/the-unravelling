@@ -74,12 +74,7 @@ public class WorldCore : MonoBehaviour, IClickable {
     private void OnLastDay() {
         anim.SetBool(IsGameFinished, isLastDay);
     }
-
-    /// <summary>
-    ///  If portal has spawned and the player collide with the portal
-    ///  the game is won. 
-    /// </summary>
-    /// <param name="other">An objects collider</param>
+    
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && isLastDay) {
             WinningScreen.GetComponent<WinningScreen>().Setup();

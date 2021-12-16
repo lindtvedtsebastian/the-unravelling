@@ -6,8 +6,7 @@ public class NonPlayerCharacterWalk : State {
     private Transform trans;
     public float movementSpeed = 2.0f;
     private Vector2 initPos;
-    
-    
+     
     private float stuckTime;
     private float stuckThreshold = 2f;
     private Vector2 prevPos;

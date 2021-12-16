@@ -22,7 +22,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     /// <summary>
     /// Function to add a craft object to the inventory
     /// </summary>
-    /// <param name="newCraft">Craft item passed to be added</param>
+    /// <param name="recipeCraftCount">Craft item passed to be added</param>
     public void AddCraftingItem(RecipeCraftCount recipeCraftCount) {
         _recipeCraftCount = recipeCraftCount;
 
@@ -48,12 +48,7 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         }
     }
     
-    /// <summary>
-    /// Function from the IPointerClickHandler to add a craft object to the inventory side
-    /// </summary>
-    /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerClick(PointerEventData eventData) {
-        //Debug.Log("Resulting amount : " + _recipeCraftCount.amount);
         if(_recipeCraftCount != null && _recipeCraftCount.amount > 0) {
             //playerInventory.CreatePreview(craft);
             craftInfo.SetActive(false);
@@ -74,10 +69,6 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         }
     }
 
-    /// <summary>
-    /// Function from the IPointerClickHandler to grab hovering over this object
-    /// </summary>
-    /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerEnter(PointerEventData eventData) {
         if(_recipeCraftCount == null) return;
 
@@ -85,10 +76,6 @@ public class CraftingSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
         craftInfo.SetActive(true);
     }
 
-    /// <summary>
-    /// Function from the IPointerClickHandler to grab exit hovering from an object
-    /// </summary>
-    /// <param name="eventData">Even handler for the point click</param>
     public void OnPointerExit(PointerEventData eventData) {
         if(_recipeCraftCount != null) {
             craftInfo.SetActive(false);

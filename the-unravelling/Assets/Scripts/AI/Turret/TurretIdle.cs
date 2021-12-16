@@ -37,6 +37,9 @@ public class TurretIdle : State {
         throw new System.NotImplementedException();
     }
 
+    ///<summary>
+    /// Run the rotation animation.
+    ///</summary>
     private void TurretAnimation() {
         _bowBody.transform.Rotate(Vector3.back * (rotationSpeed * Time.deltaTime));
     }
