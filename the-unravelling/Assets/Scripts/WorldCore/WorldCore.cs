@@ -58,11 +58,8 @@ public class WorldCore : MonoBehaviour, IClickable {
         
     }
 
-<<<<<<< HEAD
-=======
 
    
->>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
     private void Update() {
         //If the number of days survived are the same or more than days required to win
         if (_worldManager.world.state.currentGameDay >= daysForWin) {
@@ -77,15 +74,7 @@ public class WorldCore : MonoBehaviour, IClickable {
     private void OnLastDay() {
         anim.SetBool(IsGameFinished, isLastDay);
     }
-
-<<<<<<< HEAD
-=======
-    /// <summary>
-    ///  If portal has spawned and the player collide with the portal
-    ///  the game is won. 
-    /// </summary>
-    /// <param name="other">An objects collider</param>
->>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
+    
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player") && isLastDay) {
             WinningScreen.GetComponent<WinningScreen>().Setup();

@@ -8,21 +8,13 @@ using UnityEngine;
 /// </summary>
 public class NonPlayerCharacterInteraction : State {
     
-<<<<<<< HEAD
-    private Vector2 initPos;
-
-=======
->>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
     private DialogueTrigger _dialogueTrigger;
     private Animator _animator;
  
-<<<<<<< HEAD
-=======
     /// <summary>
     /// Preparation of state. 
     /// </summary>
     /// <param name="stateManager">The statemanager for NPC</param>
->>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
     public override void EnterState(StateManager stateManager) {
         //Set animation
         _animator = gameObject.GetComponent<Animator>();
@@ -30,11 +22,7 @@ public class NonPlayerCharacterInteraction : State {
         
         //Get dialogue trigger 
         _dialogueTrigger = gameObject.GetComponentInChildren<DialogueTrigger>();
-<<<<<<< HEAD
-        _stateManager = stateManager; 
-=======
         _stateManager = stateManager;
->>>>>>> 684a0a26bddd3ba741082f5abd5504644eb6904f
     }
 
     /// <summary>
