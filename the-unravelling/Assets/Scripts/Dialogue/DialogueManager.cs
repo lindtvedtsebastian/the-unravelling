@@ -5,6 +5,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// DialogueManager class handling all logic and UI for dialogue
+/// </summary>
 public class DialogueManager : MonoBehaviour {
     
     [Header("Dialogue UI")]
@@ -18,14 +21,16 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] _choicesText;
 
-    public static DialogueManager instance { get; private set; }
-
-    public bool storyIsActive { get; private set; }
-
+    [Header("Default dialogue")]
     [SerializeField] private TextAsset defaultAsset;
     private Story _defaultStory;
     private Story _currentStory;
+    
+    public static DialogueManager instance { get; private set; }
+    
+    public bool storyIsActive { get; private set; }
 
+    // Tags from the Ink text asset
     private const string SpeakerTag = "speaker";
 
     private const string PortraitTag = "portrait";
@@ -60,14 +65,24 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Method for setting dialogue from an NPC
+    /// </summary>
+    /// <param name="story">NPC dialogue json data</param>
     public void SetCurrentStory(TextAsset story) {
         _currentStory = new Story(story.text);
     }
-
+    
+    /// <summary>
+    /// Method for resetting to default 
+    /// </summary>
     public void ResetCurrentStory() {
         _currentStory = _defaultStory;
     }
 
+    /// <summary>
+    /// Method for entering dialogue mode
+    /// </summary>
     public void EnterDialogueMode() {
         storyIsActive = true;
         dialoguePanel.SetActive(true);
@@ -78,15 +93,20 @@ public class DialogueManager : MonoBehaviour {
 
         StartCoroutine(ContinueStory());
     }
-
+    
+    /// <summary>
+    /// Method for displaying up to 6 choices during the given dialogue point in the story
+    /// </summary>
     private void DisplayChoices() {
         var currentChoices = _currentStory.currentChoices;
 
+        // Defensive check for not exceeding the UI limitation of six choices
         if (currentChoices.Count > choices.Length) {
             Debug.LogError("Unsupported number of choices. Number of choices given: "
                            + currentChoices.Count);
         }
-
+        
+        // Looping through choices and activating corresponding UI
         var index = 0;
         foreach (var choice in currentChoices) {
             choices[index].gameObject.SetActive(true);
@@ -100,18 +120,32 @@ public class DialogueManager : MonoBehaviour {
 
         StartCoroutine(ChoiceProgression());
     }
-
+    
+    /// <summary>
+    /// Method for updating players choice from UI
+    /// </summary>
+    /// <returns>Run as a coroutine to handle delay in UI graphics</returns>
     private IEnumerator ChoiceProgression() {
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
-
+    
+    /// <summary>
+    /// Method for passing the UI choice index to the Ink Story class
+    /// </summary>
+    /// <param name="choiceIndex">Index of the given choice</param>
     public void Choose(int choiceIndex) {
         _currentStory.ChooseChoiceIndex(choiceIndex);
     }
 
+    /// <summary>
+    /// Method for handling tags in Ink story data
+    /// </summary>
+    /// <param name="currentTags"></param>
     private void HandleTags(List<string> currentTags) {
+        
+        // Tags are written as (key, value) pairs so they must be split
         foreach (var tag in currentTags) {
             string[] splitTag = tag.Split(':');
 
@@ -119,9 +153,11 @@ public class DialogueManager : MonoBehaviour {
                 Debug.LogError("Failed to parse tag: " + tag);
             }
 
+            // Removing whitespace
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
 
+            // Parsing tags based on key
             switch (tagKey) {
                 case SpeakerTag:
                     speakerName.text = tagValue;
@@ -139,9 +175,14 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Method for handling updating UI based on the current point in dialogue
+    /// </summary>
+    /// <returns>Run as a coroutine to handle input delay</returns>
     public IEnumerator ContinueStory() {
         yield return new WaitForSeconds(0.2f);
         
+        // Defensive check for equivalent of end of file
         if (_currentStory.canContinue) {
             dialogueText.text = _currentStory.Continue();
            
@@ -154,6 +195,10 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Method for exiting dialogue mode
+    /// </summary>
+    /// <returns>Run as a coroutine to handle UI graphics delay</returns>
     public IEnumerator ExitDialogueMode() {
         yield return new WaitForSeconds(0.2f);
         

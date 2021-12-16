@@ -11,7 +11,7 @@ public class TurretIdle : State {
     private ParticleSystem _particleSystem;
 
     /// <summary>
-    /// The state "constructor"
+    /// The state "constructor" method
     /// </summary>
     /// <param name="stateManager">This states manager</param>
     public override void EnterState(StateManager stateManager) {
@@ -23,20 +23,23 @@ public class TurretIdle : State {
     }
     
     /// <summary>
-    /// The state "update"
+    /// The state "update" method
     /// </summary>
     public override void DoState() {
         TurretAnimation();
     }
     
     /// <summary>
-    /// The state "destructor"
+    /// The state "destructor" method
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
     public override void LeaveState() {
         throw new System.NotImplementedException();
     }
 
+    /// <summary>
+    /// Handles the turrets idle animation in form of a simple rotation
+    /// </summary>
     private void TurretAnimation() {
         _bowBody.transform.Rotate(Vector3.back * (rotationSpeed * Time.deltaTime));
     }
