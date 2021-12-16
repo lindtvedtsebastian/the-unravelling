@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Dialog trigger class for NPCs
+/// Dialog trigger class for NPC handling story distribution and dialogue range
 /// </summary>
 public class DialogueTrigger : MonoBehaviour{
     
@@ -31,22 +31,14 @@ public class DialogueTrigger : MonoBehaviour{
             visualCue.SetActive(false);  
         }
     }
-
-    /// <summary>
-    /// Checks if the player is inside collider 
-    /// </summary>
-    /// <param name="other">other gameobject's colliders</param>
+    
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             inRange = true;
             DialogueManager.instance.SetCurrentStory(textAsset);
         }
     }
-
-    /// <summary>
-    /// Checks if the player has exited the collider 
-    /// </summary>
-    /// <param name="other">other gameobject's colliders</param>
+    
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             inRange = false;

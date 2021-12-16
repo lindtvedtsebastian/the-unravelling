@@ -15,9 +15,9 @@ public class TurretAttack : State {
     private float attackThreshold = 2f;
 
     /// <summary>
-    /// The state "constructor"
+    /// The state "constructor" method
     /// </summary>
-    /// <param name="stateManager"></param>
+    /// <param name="stateManager">This states manager</param>
     public override void EnterState(StateManager stateManager) {
         _stateManager = stateManager;
         _bowBody = _stateManager.GetComponent<TurretAI>().bow.GetComponent<Rigidbody2D>();
@@ -28,7 +28,7 @@ public class TurretAttack : State {
     }
     
     /// <summary>
-    /// The state "update"
+    /// The state "update" method
     /// </summary>
     /// <see cref="TurretAnimation()"/>
     public override void DoState() {
@@ -42,7 +42,7 @@ public class TurretAttack : State {
     }
 
     /// <summary>
-    /// The state "destructor"
+    /// The state "destructor" method
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
     public override void LeaveState() {
@@ -50,20 +50,25 @@ public class TurretAttack : State {
     }
 
     /// <summary>
-    /// Run the Turret animation. Calculates the rotation which the turret will fire the arrow.
+    /// Handles the turrets targeting system where the turret will target lock on an enemy based on the calculated rotation
     /// </summary>
     private void TurretAnimation() {
+        
+        // Defensive check for an empty list
         if (_stateManager.GetComponent<TurretAI>().targetList.FirstOrDefault() != null) {
             Vector3 targetPosition = 
                 _stateManager.GetComponent<TurretAI>().targetList.First().gameObject.transform.position;
             
+            // Calculating vector to target
             Vector3 directionToTarget = targetPosition - _bowPosition;
-
+            
+            // Calculating angle to target in degrees
             float offset = 90f;
             float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x);
             float angleInDeg = angle * Mathf.Rad2Deg;
 
-
+            
+            // Rotates turret towards target
             _bowBody.transform.rotation = UnityEngine.Quaternion.Euler(Vector3.forward * (angleInDeg - offset));
 			
             _particleMain.startRotationX = 0;
