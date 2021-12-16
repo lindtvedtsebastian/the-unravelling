@@ -193,9 +193,7 @@ public class InputController : MonoBehaviour {
     }
 
     private void OnActionDialogue(InputAction.CallbackContext ctx) {
-        playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap("Dialogue");
-        playerInput.actions.Enable();
         DialogueManager.instance.EnterDialogueMode();
     }
 
@@ -204,9 +202,11 @@ public class InputController : MonoBehaviour {
     }
 
     private void OnCloseDialogue(InputAction.CallbackContext ctx) {
-        playerInput.actions.Disable();
+        publicCloseDialogue();
+    }
+
+    public void publicCloseDialogue() {
         playerInput.SwitchCurrentActionMap("Player");
-        playerInput.actions.Enable();
         StartCoroutine(DialogueManager.instance.ExitDialogueMode());
     }
 }

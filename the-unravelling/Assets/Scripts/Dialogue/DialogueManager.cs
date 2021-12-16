@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private Animator portraitAnimator;
+
+    [SerializeField] private InputController _inputController;
     private Animator layoutAnimator;
 
     [Header("Choices UI")]
