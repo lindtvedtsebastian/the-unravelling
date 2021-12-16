@@ -13,11 +13,11 @@ public class NonPlayerCharacter : StateManager {
     public NonPlayerCharacterWalk NPCWalk;
     
     private void Start() {
-
+        //Add the different state-scripts as component
         NPCWalk = gameObject.AddComponent(typeof(NonPlayerCharacterWalk)) as NonPlayerCharacterWalk;
         NPCInteraction = gameObject.AddComponent(typeof(NonPlayerCharacterInteraction)) as NonPlayerCharacterInteraction;
                 
-        
+        //Set and enter state.
         setState(NPCWalk);
         currentState.EnterState(this);
     }
