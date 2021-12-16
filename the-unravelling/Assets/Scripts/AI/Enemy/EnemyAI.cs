@@ -80,13 +80,22 @@ public class EnemyAI : StateManager {
         }
     }
 
+    /// <summary>
+    /// Perform attacks on a wall or other unit.
+    /// Attack stats are taken from `attackDamage`, `attackRange` and `attackCooldown`.
+    /// </summary>
+    /// <param name="target">The target to attack over time</param>
     IEnumerator PerformAttackWall(BaseUnit target) {
         while (target.isActiveAndEnabled) {
-            target.OnDamage(attackDamage,true);
+            target.OnDamage(attackDamage, true);
             yield return new WaitForSeconds(attackCooldown);
         }
     }
 
+    /// <summary>
+    /// On collision with a unit, start attacking it over time.
+    /// </summary>
+    /// <param name="collision">Collision information</param>
     private void OnCollisionEnter2D(Collision2D collision) {
         var unit = collision.gameObject.GetComponent<BaseUnit>();
         if (unit == null) return;
@@ -95,6 +104,10 @@ public class EnemyAI : StateManager {
         StartCoroutine(wallAttack);
     }
 
+    /// <summary>
+    /// On collision exit, stop attacking whatever unit we were attacking.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnCollisionExit2D(Collision2D other) {
         StopCoroutine(wallAttack);
     }

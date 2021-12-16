@@ -49,6 +49,7 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        // Move player based on input
         Vector2 move = GetComponent<PlayerInput>().actions["Player/Move"].ReadValue<Vector2>();
         
         body.velocity = move * (Time.deltaTime * speed);
@@ -73,6 +74,11 @@ public class PlayerBehaviour : MonoBehaviour {
 	    walkingLSound.Play();
     }
 
+    /// <summary>
+    /// Take damage from other entities. If the player dies, show a game over screen.
+    /// </summary>
+    /// <param name="damage">Damage to take</param>
+    /// <returns>Did the player die?</returns>
     public bool OnDamage(int damage) {
 	    health -= damage;
 	    
