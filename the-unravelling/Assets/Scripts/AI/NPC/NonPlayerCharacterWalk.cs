@@ -107,17 +107,4 @@ public class NonPlayerCharacterWalk : State {
             return true;
         return false;
     }
-    
-    
-    /// <summary>
-    /// Start interaction state on collision 
-    /// </summary>
-    /// <param name="other">Other gameobject</param>
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Player")) {
-            _stateManager.setState(_stateManager.GetComponent<NonPlayerCharacterInteraction>());
-        }
-    }
-    
-    
 }
