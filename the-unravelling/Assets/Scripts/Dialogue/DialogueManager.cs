@@ -39,6 +39,8 @@ public class DialogueManager : MonoBehaviour {
 
     private const string LayoutTag = "layout";
 
+    private int _dialogueChoice;
+
     private void Awake() {
         
         // Protective check to avoid duplicate instances of a singleton object.
@@ -138,7 +140,12 @@ public class DialogueManager : MonoBehaviour {
     /// </summary>
     /// <param name="choiceIndex">Index of the given choice</param>
     public void Choose(int choiceIndex) {
-        _currentStory.ChooseChoiceIndex(choiceIndex);
+        if(_dialogueChoice == choiceIndex) return;
+
+        _dialogueChoice = choiceIndex;
+        _currentStory.ChooseChoiceIndex(_dialogueChoice);
+
+        
     }
 
     /// <summary>
@@ -208,6 +215,4 @@ public class DialogueManager : MonoBehaviour {
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
-    
-    
 }
