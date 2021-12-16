@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+﻿using UnityEngine.EventSystems;
 
 /// <summary>
 /// Class representing a item slot in the inventory

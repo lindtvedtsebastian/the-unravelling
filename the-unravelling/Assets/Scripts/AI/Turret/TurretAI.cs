@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Transforms;
 using UnityEngine;
 
 public class TurretAI : StateManager {
@@ -30,7 +27,7 @@ public class TurretAI : StateManager {
         setState(_turretIdle);
         currentState.EnterState(this);
     }
-    
+
     void Update() {
         
         currentState.DoState();

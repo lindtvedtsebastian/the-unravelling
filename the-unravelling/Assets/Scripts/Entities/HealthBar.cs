@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A class for the health bar
+/// </summary>
 public class HealthBar : MonoBehaviour {
     [SerializeField] private Image bar;
     [SerializeField] private Canvas canvas;

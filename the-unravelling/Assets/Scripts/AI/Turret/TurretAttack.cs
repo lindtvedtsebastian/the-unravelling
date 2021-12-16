@@ -1,9 +1,10 @@
-using System;
 using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
-using Quaternion = Unity.Mathematics.quaternion;
 
+/// <summary>
+/// Handles turret attack state
+/// </summary>
 public class TurretAttack : State {
     
     private Rigidbody2D _bowBody;
@@ -29,6 +30,7 @@ public class TurretAttack : State {
     /// <summary>
     /// The state "update" method
     /// </summary>
+    /// <see cref="TurretAnimation()"/>
     public override void DoState() {
         TurretAnimation();
 
@@ -48,7 +50,7 @@ public class TurretAttack : State {
     }
 
     /// <summary>
-    /// Handles the turrets targeting system where the turret will target lock on an enemy
+    /// Handles the turrets targeting system where the turret will target lock on an enemy based on the calculated rotation
     /// </summary>
     private void TurretAnimation() {
         
