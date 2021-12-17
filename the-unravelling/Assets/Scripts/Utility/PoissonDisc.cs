@@ -5,7 +5,16 @@ using Random = UnityEngine.Random;
 public static class PoissonDisc {
     const float R_MAX = 6;
     const float R_MIN = 3;
-	
+
+    /// <summary>
+    /// Samples/creates a list of points, evenly distributed.
+    /// </summary>
+    /// <param name="width">The width of the space to generate points within</param>
+    /// <param name="height">The height of the space to generate points within</param>	    
+    /// <param name="terrain">The jagged 2d array containing biomes</param>
+    /// <param name="rejectionRate">How many tries each point sampling should be given before rejecting the point</param>
+    /// <param name="dimensions">In how many dimensions the points should be generated in, default 2d</param>
+    /// <returns>The list of generated/sampled points</returns>	
     public static List<Vector2> sample(int width, int height, int[][] terrain, int rejectionRate = 30, int dimensions = 2) {
         // The current index
         int index = 0;
@@ -80,6 +89,18 @@ public static class PoissonDisc {
         return points;
     }
 
+    	/// <summary>
+    	/// Determines wheter or not a point is valid
+    	/// </summary>
+    	/// <param name="points">The list of generated points</param>
+    	/// <param name="horizontalCellCount">The amount of cells horizontally</param>	    
+    	/// <param name="verticalCellCount">The amount of cells vertically</param>
+    	/// <param name="height">The height of the space to generate points within</param>
+    	/// <param name="width">The width of the space to generate points within</param>
+    	/// <param name="cellSize">The size of any given cell</param>
+    	/// <param name="point">The point to check if is valid</param>
+	/// <param name="radius">The radius around the point which there should be no other points</param>
+    	/// <returns>Wheter the point is valid or not</returns>	
 	private static bool isValidPoint(int[][] grid,
 									 List<Vector2> points,
 									 int horizontalCellCount,
@@ -114,12 +135,24 @@ public static class PoissonDisc {
         return true;
     }
 
+	/// <summary>
+    	/// Inserts a point into the grid
+    	/// </summary>
+    	/// <param name="grid">The grid to place the point into</param>
+    	/// <param name="point">The point to insert</param>	    
+    	/// <param name="index">the index of the point to be inserted</param>
+    	/// <param name="cellsize">The size of any given cell</param>	
 	private static void insertPoint(int[][] grid, Vector2 point, int index, float cellSize) {
         int xIndex = Mathf.FloorToInt(point.x / cellSize);
         int yIndex = Mathf.FloorToInt(point.y / cellSize);
         grid[yIndex][xIndex] = index;
     }
 
+	/// <summary>
+    	/// Converts a biome into a radius
+    	/// </summary>
+    	/// <param name="biome">The biome ID</param>
+	/// <returns>The radius for a given biome<returns>
 	private static float biomeToSampleDistance(int biome) {
 		switch (biome) {
 			case 1: return 6;
