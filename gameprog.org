@@ -7,6 +7,15 @@
 - Markus Strømseth (@markuszakarias)
 - Marius Fredriksen (@MariusKristofferFredriksen)
 
+** Executable version of the game
+- [[https://github.com/lindtvedtsebastian/tr-build]]
+
+** Gameplay video
+
+- [[https://www.youtube.com/watch?v=1tioOZyGyYQ&t=6s]]
+
+
+
 ** Game controls
 
 *** Main Menu
@@ -51,9 +60,6 @@
 - Mouse click - on "Resume" button to continue playing game
 - Mouse click - on "Save and Exit" button to save and exit game
 
-** Gameplay video
-
-- [[https://www.youtube.com/watch?v=1tioOZyGyYQ&t=6s]]
 
 ** Discussion around the development process
 
