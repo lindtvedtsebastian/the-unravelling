@@ -8,6 +8,13 @@ public class WorldGenerator : MonoBehaviour {
     private const int DRY = 0;
     private const int MOIST = 5;
 
+    /// <summary>	
+    /// Generates a new world
+    /// </summary>
+    /// <param name="worldName">The name of the new world</param>
+    /// <param name="size">The size of the new worlds</param>
+    /// <param name="seed">The seed of the new world</param>
+    /// <returns>A new world</returns>
     public static World generateWorld(string worldName, int size = 256, int seed = 123) {
         worldName = worldName != "" ? worldName : "autosave_"+DateTime.Now.ToString("dd-MM-yyyy_HHmm");
         World world = new World(worldName,size);
@@ -38,6 +45,12 @@ public class WorldGenerator : MonoBehaviour {
     }
 
 
+    /// <summary>
+    /// Determines which biome a given tile belongs to
+    /// </summary>
+    /// <param name="height">The "height" noise</param>    
+    /// <param name="moisture">The moisture noise</param>
+    /// <returns>The biome corresponding to a given height and moisture</returns>
     private static int determineBiome(float height, float moisture) {
         int biome = height < 0.4f ? LOWLAND : HIGHLAND;
         biome += moisture < 0.5f ? DRY : MOIST;
@@ -47,6 +60,11 @@ public class WorldGenerator : MonoBehaviour {
 		else return Constants.GRASS;
     }
 
+    /// <summary>
+    /// Assigns a resource ID based on biome 
+    /// </summary>
+    /// <param name="biome">The biome of the resource to determine the type of</param>
+    /// <returns>The ID of the resource</returns>
     private static int assignResourceID(int biome) {
         switch (biome) {
             case Constants.STONE: return determineOreType();
@@ -56,6 +74,10 @@ public class WorldGenerator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Determines which type of ore a resource should be, pseudo random
+    /// </summary>
+    /// <returns>The ID of the determined resource</returns>
     public static int determineOreType() {
         int ore = UnityEngine.Random.Range(0, 31);
         if (ore <= 20)
